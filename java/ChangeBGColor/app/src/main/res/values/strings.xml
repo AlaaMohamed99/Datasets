@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Change BG Color</string>
+    <string name="mybutton3">BLACK</string>
+    <string name="mybutton1">RED</string>
+    <string name="mybutton2">YELLOW</string>
+    <string name="mybutton4">GREEN</string>
+</resources>
