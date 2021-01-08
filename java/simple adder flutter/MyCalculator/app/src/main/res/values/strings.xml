@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Simple adder</string>
+    <string name="myresult">Result</string>
+    <string name="mysum">sum</string>
+    <string name="num1">number1</string>
+    <string name="num2">number2</string>
+    <string name="calcphoto">calcphoto</string>
+</resources>
