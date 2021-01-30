@@ -1,6 +1,5 @@
 # Datasets
-## this Repository is dedicated for Code conversion Graduation project, it's proposed to share files regarding the Project 
-## and keep each other updated with each other work
+## this Repository is dedicated for Code conversion Graduation project, it's proposed to share files regarding the Project and keep each other updated with each other work
 ### Project tean members:
 - Ahmed Hamed
 - Alaa Mohammed (github:
