@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,7 +23,7 @@ class _SIformstate extends State<SIform> {
       child: Container(
           child: Padding(
         padding: EdgeInsets.all(10.0),
-        child: ListView(
+        child: Container(
           children: [
             Padding(
                 padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
@@ -56,10 +54,9 @@ class _SIformstate extends State<SIform> {
                       child: RaisedButton(
                         child: Text('Done', textScaleFactor: 1.5),
                         onPressed: () {
-                          setState(() {
-                            this.displaytext = "You've entered data!";
-                          });
-                          
+                        setState(() {
+                            display();
+                            });
                         },
                       ),
                     ),
@@ -74,5 +71,7 @@ class _SIformstate extends State<SIform> {
       )),
     );
   }
-
+  String display(){
+  return this.displaytext = "You've entered data!";
+  }
 }
