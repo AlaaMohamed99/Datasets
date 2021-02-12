@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.util.*;
 
 
-
 public class Dart2Ionic extends Dart2BaseListener{
     String methodName= "";
     String text= "";
@@ -54,6 +53,7 @@ public class Dart2Ionic extends Dart2BaseListener{
 
     }
     @Override public void enterIdentifier(Dart2Parser.IdentifierContext ctx){
+        //System.out.print("enter iden");
         methodName = ctx.IDENTIFIER().getText();
         if(methodName.equals("InputDecoration"))
             Ui_widgets.add("InputDecoration");
@@ -80,6 +80,7 @@ public class Dart2Ionic extends Dart2BaseListener{
         }
         if (methodName.equals("RaisedButton")) {
             Ui_widgets.add("RaisedButton");
+            flag = 0;
             try {
                 FileWriter outputfile = new FileWriter("Ionic.html", true);
                 outputfile.write("<ion-button");
@@ -100,10 +101,186 @@ public class Dart2Ionic extends Dart2BaseListener{
             //System.out.print(i);
         }
         Identifiers.add(methodName);
-        //System.out.print(methodName + "\n");
+        System.out.print("this is methodname" + "\n");
+        System.out.print(methodName + "\n");
     }
 
-    @Override public void enterArgumentPart(Dart2Parser.ArgumentPartContext ctx) {
+    @Override public void enterExpressionList(Dart2Parser.ExpressionListContext ctx) {
+        //System.out.print(ctx);
+    }
+
+    @Override public void enterPostfixExpression(Dart2Parser.PostfixExpressionContext ctx) {
+
+    }
+
+    @Override public void enterNamedArgument(Dart2Parser.NamedArgumentContext ctx) {
+        String Label = ctx.label().getText();
+        System.out.print("this is label and expression" + "\n");
+        System.out.print(ctx.label().getText() + "\n");
+        System.out.print(ctx.expression().getText() + "\n");
+
+        //Appbar
+        if(Label.equals("appBar:")){
+            String appbar = ctx.expression().getText();
+            int start = appbar.indexOf("\"") + 1;
+            int end = appbar.lastIndexOf("\"");
+            String appName = appbar.substring(start,end);
+            try {
+                FileWriter outputfile = new FileWriter("Ionic.html", true);
+                outputfile.write("<ion-toolbar>" + appName + " </ion-toolbar>" + "\n");
+                outputfile.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+        //TextField
+        if (Label.equals("labelText:")) {
+            String expression = ctx.expression().getText();
+            int start = expression.indexOf("'") + 1;
+            int end = expression.lastIndexOf("'");
+            exp = expression.substring(start, end);
+            //System.out.print(exp + "\n");
+            Ui_widgets.add("labelText");
+            //System.out.print(Ui_widgets + "\n");
+        }
+
+        if(Ui_widgets.size()>=2 && Ui_widgets.get(Ui_widgets.size()-2).equals("InputDecoration") && Ui_widgets.get(Ui_widgets.size()-1).equals("labelText")){
+            try {
+                FileWriter outputfile = new FileWriter("Ionic.html", true);
+                outputfile.write(" position=\"floating\" >" + exp + " </ion-label>" + "\n");
+                outputfile.write("<ion-input type=\"text\" > </ion-input>" + "\n"+ "</ion-item>" + "\n");
+                outputfile.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Ui_widgets.remove(Ui_widgets.size()-1);
+            Ui_widgets.remove(Ui_widgets.size()-1);
+            Ui_widgets.remove(Ui_widgets.size()-1);
+        }
+
+        //Raisedbutton
+        if(Label.equals("child:")) {
+            String expression = ctx.expression().getText();
+            System.out.print(methodName);
+            if(expression.substring(0,4).equals("Text") && Ui_widgets.contains("RaisedButton")) {
+                int start = expression.indexOf("\'") + 1;
+                int end = expression.lastIndexOf("\'");
+                text = expression.substring(start, end);
+                //System.out.print(text);
+                Ui_widgets.remove("child");
+                if (Ui_widgets.contains("textScaleFactor"))
+                    Ui_widgets.remove("textScaleFactor");
+            }
+        }
+        if(Label.equals("onPressed:")) {
+            String expression = ctx.expression().getText();
+            if(expression.contains("setState")){
+                int start = expression.lastIndexOf("{")+1;
+                int end = expression.indexOf(";");
+                String Functionname = expression.substring(start, end);
+                System.out.print(Functionname);
+                try {
+                    FileWriter outputfile = new FileWriter("Ionic.html", true);
+                    outputfile.write(" (click)=\"" + Functionname + "\"");
+                    outputfile.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            Ui_widgets.remove("onPressed");
+        }
+
+    }
+
+
+    @Override public void exitPostfixExpression(Dart2Parser.PostfixExpressionContext ctx) {
+        if (!Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("RaisedButton")){
+            //System.out.print("entered");
+            try {
+                FileWriter outputfile = new FileWriter("Ionic.html", true);
+                outputfile.write(">" + text + "</ion-button>" +"\n");
+                outputfile.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Ui_widgets.remove(Ui_widgets.size()-1);
+        }
+
+    }
+
+    @Override public void exitStringLiteral(Dart2Parser.StringLiteralContext ctx) {
+        String path = ctx.SingleLineString().toString();
+        System.out.print(path);
+        if(!Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("AssetImage")){
+            int start = path.indexOf("\'") + 1;
+            int end = path.lastIndexOf("\'");
+            path = path.substring(start, end);
+            try {
+                FileWriter outputfile = new FileWriter("Ionic.html", true);
+                outputfile.write("<ion-img src= \'" + path + "\' >" + " </ion-img>" + "\n");
+                outputfile.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            //remove all as there'll be several occarances of AssetImage
+            Ui_widgets.removeAll(Collections.singleton("AssetImage"));
+        }
+
+    }
+
+    @Override public void enterArguments(Dart2Parser.ArgumentsContext ctx) {
+            if(ctx.argumentList() != null){
+                String word = ctx.argumentList().getText();
+                System.out.print("word"+ "\n");
+                System.out.print(word+ "\n");
+                ArrayList<Integer> indexesofdots = new ArrayList<>();
+                ArrayList<Integer> indexesofcol = new ArrayList<>();
+                //flag that i entered here before
+                if(!Ui_widgets.isEmpty() && flag == 0 && Ui_widgets.get(Ui_widgets.size()-1).equals("RaisedButton")){
+                    int index = 0;
+                    int indexcol = 0;
+                    int wordLength = 0;
+                    int t = 0;
+                    while(index >=0){
+                        index = word.indexOf(":", index + 1);  // Slight improvement
+                        indexcol = word.indexOf(",", indexcol + 1);
+                        if (index != -1) {
+                            indexesofdots.add(index);
+                        }
+                        if (indexcol != -1) {
+                            indexesofcol.add(indexcol);
+                        }
+                    }
+                    //System.out.print(indexesofdots);
+                    //System.out.print(indexesofcol);
+                //System.out.print(word+ "\n");
+                Ui_widgets.add(word.substring(0, indexesofdots.get(0)));
+                for (int i = 0; i < indexesofdots.size()-1; i++){
+                    Ui_widgets.add(word.substring(indexesofcol.get(i)+1, indexesofdots.get(i+1)));
+                }
+                Ui_widgets.removeIf( name -> name.equals(" "));
+                //System.out.print(Ui_widgets);
+                flag = 1;                }
+            }
+    }
+
+
+    @Override public void exitCompilationUnit(Dart2Parser.CompilationUnitContext ctx) {
+        try {
+            FileWriter outputfile = new FileWriter("Ionic.html", true);
+            outputfile.write("</ion-content>");
+            outputfile.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+}
+
+
+/*    @Override public void enterArgumentPart(Dart2Parser.ArgumentPartContext ctx) {
         String Argumentsname = ctx.arguments().getText();
         Vocabulary vocabulary = new Vocabulary() {
             @Override
@@ -127,133 +304,4 @@ public class Dart2Ionic extends Dart2BaseListener{
             }
         };
 
-    }
-
-    @Override public void enterNamedArgument(Dart2Parser.NamedArgumentContext ctx) {
-        String Label = ctx.label().getText();
-        System.out.print(ctx.label().getText() + "\n");
-        System.out.print(ctx.expression().getText() + "\n");
-
-        //Appbar
-        if(Label.equals("appBar:")){
-            String appbar = ctx.expression().getText();
-            int start = appbar.indexOf("\"") + 1;
-            int end = appbar.lastIndexOf("\"");
-            String appName = appbar.substring(start,end);
-            try {
-                FileWriter outputfile = new FileWriter("Ionic.html", true);
-                outputfile.write("<ion-toolbar>" + appName + " </ion-toolbar>" + "\n");
-                outputfile.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        }
-        //TextField
-        if (Label.equals("labelText:")) {
-            String expression = ctx.expression().getText();
-            int start = expression.indexOf("\'") + 1;
-            int end = expression.lastIndexOf("\'");
-            exp = expression.substring(start, end);
-            System.out.print(exp + "\n");
-            Ui_widgets.add("labelText");
-            //System.out.print(Ui_widgets + "\n");
-        }
-
-        if(Ui_widgets.size()>=2 && Ui_widgets.get(Ui_widgets.size()-2).equals("InputDecoration") && Ui_widgets.get(Ui_widgets.size()-1).equals("labelText")){
-            try {
-                FileWriter outputfile = new FileWriter("Ionic.html", true);
-                outputfile.write(" position=\"floating\" >" + exp + " </ion-label>" + "\n");
-                outputfile.write("<ion-input type=\"text\" > </ion-input>" + "\n"+ "</ion-item>" + "\n");
-                outputfile.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Ui_widgets.remove(Ui_widgets.size()-1);
-            Ui_widgets.remove(Ui_widgets.size()-1);
-            Ui_widgets.remove(Ui_widgets.size()-1);
-        }
-
-        //Raisedbutton
-        if(Label.equals("child:")) {
-            String expression = ctx.expression().getText();
-            if(expression.substring(0,4).equals("Text") && methodName.equals("RaisedButton")) {
-                int start = expression.indexOf("\'") + 1;
-                int end = expression.lastIndexOf("\'");
-                text = expression.substring(start, end);
-                flag= flag + 1;
-                //System.out.print(text);
-            }
-        }
-        if(Label.equals("onPressed:")) {
-            String expression = ctx.expression().getText();
-            int start = expression.lastIndexOf("{")+1;
-            int end = expression.indexOf(";");
-            String Functionname = expression.substring(start, end);
-            flag= flag + 1;
-            try {
-                FileWriter outputfile = new FileWriter("Ionic.html", true);
-                outputfile.write(" (click)=\"" + Functionname + "\"");
-                outputfile.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-    }
-
-    @Override public void exitPostfixExpression(Dart2Parser.PostfixExpressionContext ctx) {
-        /*if(!Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("TextField")) {
-            try {
-                FileWriter outputfile = new FileWriter("Ionic.html", true);
-                outputfile.write("<ion-input type=\"text\" > </ion-input>" + "\n"+ "</ion-item>" + "\n");
-                outputfile.close();
-                flag = 0;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Ui_widgets.clear();
-        }*/
-        if (!Ui_widgets.isEmpty() && flag == 2 && Ui_widgets.get(Ui_widgets.size()-1).equals("RaisedButton")){
-            //System.out.print("entered");
-            try {
-                FileWriter outputfile = new FileWriter("Ionic.html", true);
-                outputfile.write(">" + text + "</ion-button>" +"\n");
-                outputfile.close();
-                flag = 0;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Ui_widgets.remove(Ui_widgets.size()-1);
-        }
-    }
-    @Override public void exitStringLiteral(Dart2Parser.StringLiteralContext ctx) {
-        String path = ctx.SingleLineString().toString();
-        if(!Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("AssetImage")){
-            int start = path.indexOf("\'") + 1;
-            int end = path.lastIndexOf("\'");
-            path = path.substring(start, end);
-            try {
-                FileWriter outputfile = new FileWriter("Ionic.html", true);
-                outputfile.write("<ion-img src= \'" + path + "\' >" + " </ion-img>" + "\n");
-                outputfile.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Ui_widgets.removeAll(Collections.singleton("AssetImage"));
-        }
-
-    }
-    @Override public void exitCompilationUnit(Dart2Parser.CompilationUnitContext ctx) {
-        try {
-            FileWriter outputfile = new FileWriter("Ionic.html", true);
-            outputfile.write("</ion-content>");
-            outputfile.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    @Override public void exitListLiteral(Dart2Parser.ListLiteralContext ctx) {
-        System.out.print(ctx.expressionList() + "\n");
-    }
-}
+    }*/
