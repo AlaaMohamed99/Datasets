@@ -23,7 +23,7 @@ class _SIformstate extends State<SIform> {
       child: Container(
           child: Padding(
         padding: EdgeInsets.all(10.0),
-        child: Container(
+        child: ListView(
           children: [
             Padding(
                 padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
@@ -54,9 +54,9 @@ class _SIformstate extends State<SIform> {
                       child: RaisedButton(
                         child: Text('Done', textScaleFactor: 1.5),
                         onPressed: () {
-                        setState(() {
+                          setState(() {
                             display();
-                            });
+                          });
                         },
                       ),
                     ),
@@ -71,7 +71,8 @@ class _SIformstate extends State<SIform> {
       )),
     );
   }
-  String display(){
-  return this.displaytext = "You've entered data!";
+
+  String display() {
+    return this.displaytext = "You've entered data!";
   }
 }
