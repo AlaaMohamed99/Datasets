@@ -1,10 +1,11 @@
 //File name should be the same as class name
+
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.Vocabulary;
 import org.antlr.v4.runtime.VocabularyImpl;
 import org.antlr.v4.runtime.tree.*;
-import java.io.File;
-import java.io.FileWriter;
+import java.io.*;
+import java.lang.*;
 import java.io.IOException;
 import java.util.*;
 
@@ -12,11 +13,17 @@ import java.util.*;
 public class Dart2Ionic extends Dart2BaseListener{
     String methodName= "";
     String text= "";
+    String variable = "";
+    String listconetent = "";
     int flag = 0;
     int i = 0;
-    String exp;
+    int Textflag = 0;
+    String exp = "";
+    int ListTilecount = 0;
     ArrayList <String> Identifiers = new ArrayList<>();
     ArrayList <String> Ui_widgets = new ArrayList<>();
+    ArrayList <String> ListContent = new ArrayList<>();
+
     public void Createfile(){
         try {
             File myObj = new File("Ionic.html");
@@ -69,14 +76,7 @@ public class Dart2Ionic extends Dart2BaseListener{
 
         if (methodName.equals("TextField")) {
             Ui_widgets.add("TextField");
-            try {
-                FileWriter outputfile = new FileWriter("Ionic.html", true);
-                outputfile.write("<ion-item lines=\"none\">" + "\n" + "<ion-label");
-                outputfile.close();
-            } catch (IOException e) {
-                System.out.println("An error occurred.");
-                e.printStackTrace();
-            }
+            exp = "";
         }
         if (methodName.equals("RaisedButton")) {
             Ui_widgets.add("RaisedButton");
@@ -97,24 +97,19 @@ public class Dart2Ionic extends Dart2BaseListener{
         //I have a problem identifiying Text when it's just a text but not inside something, as I could wrap it inside a padding, it'll still be indv but inside a child
         if(!(Identifiers.isEmpty())) {
             if((methodName.equals("Text") && !(Identifiers.get(Identifiers.size()-1).equals("child"))) && (methodName.equals("Text") && !(Identifiers.get(Identifiers.size()-1).equals("title"))) )
-                i += 1;
+                Ui_widgets.add("Text");
+                //i += 1;
             //System.out.print(i);
         }
         Identifiers.add(methodName);
         System.out.print("this is methodname" + "\n");
-        System.out.print(methodName + "\n");
+        System.out.print(Ui_widgets + "\n");
     }
 
-    @Override public void enterExpressionList(Dart2Parser.ExpressionListContext ctx) {
-        //System.out.print(ctx);
-    }
-
-    @Override public void enterPostfixExpression(Dart2Parser.PostfixExpressionContext ctx) {
-
-    }
 
     @Override public void enterNamedArgument(Dart2Parser.NamedArgumentContext ctx) {
         String Label = ctx.label().getText();
+        String expression = ctx.expression().getText();
         System.out.print("this is label and expression" + "\n");
         System.out.print(ctx.label().getText() + "\n");
         System.out.print(ctx.expression().getText() + "\n");
@@ -126,8 +121,9 @@ public class Dart2Ionic extends Dart2BaseListener{
             int end = appbar.lastIndexOf("\"");
             String appName = appbar.substring(start,end);
             try {
-                FileWriter outputfile = new FileWriter("Ionic.html", true);
-                outputfile.write("<ion-toolbar>" + appName + " </ion-toolbar>" + "\n");
+                FileWriter outputfile = new FileWriter("Ionic.html", false);
+                outputfile.append("<ion-header>" +"\n"+ "<ion-toolbar> " + appName + " </ion-toolbar>" +"\n"+"</ion-header>" + "\n" + "<ion-content>" + "\n");
+
                 outputfile.close();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -136,36 +132,30 @@ public class Dart2Ionic extends Dart2BaseListener{
         }
         //TextField
         if (Label.equals("labelText:")) {
-            String expression = ctx.expression().getText();
             int start = expression.indexOf("'") + 1;
             int end = expression.lastIndexOf("'");
             exp = expression.substring(start, end);
-            //System.out.print(exp + "\n");
-            Ui_widgets.add("labelText");
             //System.out.print(Ui_widgets + "\n");
         }
 
-        if(Ui_widgets.size()>=2 && Ui_widgets.get(Ui_widgets.size()-2).equals("InputDecoration") && Ui_widgets.get(Ui_widgets.size()-1).equals("labelText")){
-            try {
-                FileWriter outputfile = new FileWriter("Ionic.html", true);
-                outputfile.write(" position=\"floating\" >" + exp + " </ion-label>" + "\n");
-                outputfile.write("<ion-input type=\"text\" > </ion-input>" + "\n"+ "</ion-item>" + "\n");
-                outputfile.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+        if (Label.equals("prefixIcon:")) {
+            if(expression.contains("Text")) {
+                int start = expression.indexOf("'") + 1;
+                int end = expression.lastIndexOf("'");
+                exp = expression.substring(start, end);
+                //System.out.print(exp + "\n");
+
+                //System.out.print(Ui_widgets + "\n");
             }
-            Ui_widgets.remove(Ui_widgets.size()-1);
-            Ui_widgets.remove(Ui_widgets.size()-1);
-            Ui_widgets.remove(Ui_widgets.size()-1);
         }
+
 
         //Raisedbutton
         if(Label.equals("child:")) {
-            String expression = ctx.expression().getText();
             System.out.print(methodName);
             if(expression.substring(0,4).equals("Text") && Ui_widgets.contains("RaisedButton")) {
-                int start = expression.indexOf("\'") + 1;
-                int end = expression.lastIndexOf("\'");
+                int start = expression.indexOf("'") + 1;
+                int end = expression.lastIndexOf("'");
                 text = expression.substring(start, end);
                 //System.out.print(text);
                 Ui_widgets.remove("child");
@@ -174,7 +164,6 @@ public class Dart2Ionic extends Dart2BaseListener{
             }
         }
         if(Label.equals("onPressed:")) {
-            String expression = ctx.expression().getText();
             if(expression.contains("setState")){
                 int start = expression.lastIndexOf("{")+1;
                 int end = expression.indexOf(";");
@@ -191,10 +180,113 @@ public class Dart2Ionic extends Dart2BaseListener{
             Ui_widgets.remove("onPressed");
         }
 
+        //ListTile
+        if(Label.equals("title:") && !Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("ListTile")){
+            int start;
+            int end;
+            if(expression.contains("'")){
+                start = expression.indexOf("'") + 1;
+                end = expression.lastIndexOf("'");
+            }
+            else {
+                start = expression.indexOf("\"") + 1;
+                end = expression.lastIndexOf("\"");
+            }
+            listconetent = expression.substring(start, end);
+                try {
+                    FileWriter outputfile = new FileWriter("Ionic.html", true);
+                    outputfile.write("<ion-list>" + "\n" + "<ul>");
+                    outputfile.write("<li>" + listconetent + "</li>" + "\n");
+                    outputfile.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            ListTilecount--;
+
+        }
+
+    }
+
+    @Override public void enterExpressionList(Dart2Parser.ExpressionListContext ctx) {
+        /*if(ListTilecount != 0 && !Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("ListView")){
+            try {
+                FileWriter outputfile = new FileWriter("Ionic.html", true);
+                outputfile.write("<ion-list>" + "\n" + "<ul>");
+                outputfile.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }*/
+    }
+    @Override public void exitExpressionList(Dart2Parser.ExpressionListContext ctx) {
+        if(ListTilecount == 0 && Ui_widgets.contains("ListTile") && Ui_widgets.contains("ListView")){
+            try {
+                FileWriter outputfile = new FileWriter("Ionic.html", true);
+                outputfile.write("</ul>" + "\n" + "</ion-list>" + "\n");
+                outputfile.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Ui_widgets.remove("ListView");
+            Ui_widgets.removeAll(Collections.singleton("ListTile"));
+        }
+    }
+
+    @Override public void exitNamedArgument(Dart2Parser.NamedArgumentContext ctx) {
+
+
+        if(ListTilecount != 0 && !Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("ListView")){
+            try {
+                FileWriter outputfile = new FileWriter("Ionic.html", true);
+                outputfile.write("<ion-list>" + "\n" + "<ul>");
+                outputfile.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if(Ui_widgets.size()>=2 && Ui_widgets.get(Ui_widgets.size()-2).equals("InputDecoration") && Ui_widgets.get(Ui_widgets.size()-1).equals("prefixIcon")&& !exp.equals("")){
+            try {
+                FileWriter outputfile = new FileWriter("Ionic.html", true);
+                outputfile.write("<ion-item lines=\"none\">" + "\n" + "<ion-label position=\"fixed\" >" + exp + " </ion-label>" + "\n");
+                outputfile.write("<ion-input type=\"text\" > </ion-input>" + "\n"+ "</ion-item>" + "\n");
+                outputfile.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Ui_widgets.remove(Ui_widgets.size()-1);
+            Ui_widgets.remove(Ui_widgets.size()-1);
+            Ui_widgets.remove(Ui_widgets.size()-1);
+        }
+        if(Ui_widgets.size()>=2 && Ui_widgets.get(Ui_widgets.size()-2).equals("InputDecoration") && Ui_widgets.get(Ui_widgets.size()-1).equals("labelText") && !exp.equals("")){
+            try {
+                FileWriter outputfile = new FileWriter("Ionic.html", true);
+                outputfile.write("<ion-item lines=\"none\">" + "\n" + "<ion-label position=\"floating\" >" + exp + " </ion-label>" + "\n");
+                outputfile.write("<ion-input type=\"text\" > </ion-input>" + "\n"+ "</ion-item>" + "\n");
+                outputfile.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Ui_widgets.remove(Ui_widgets.size()-1);
+            Ui_widgets.remove(Ui_widgets.size()-1);
+            Ui_widgets.remove(Ui_widgets.size()-1);
+        }
     }
 
 
     @Override public void exitPostfixExpression(Dart2Parser.PostfixExpressionContext ctx) {
+
+        if(!Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("Text") && Textflag == 1){
+            try {
+                FileWriter outputfile = new FileWriter("Ionic.html", true);
+                outputfile.write("<ion-text>" +"{{"+variable+"}}"+ "</ion-text>" + "\n");
+                outputfile.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Ui_widgets.remove(Ui_widgets.size()-1);
+            Textflag = 0;
+        }
+
         if (!Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("RaisedButton")){
             //System.out.print("entered");
             try {
@@ -207,14 +299,60 @@ public class Dart2Ionic extends Dart2BaseListener{
             Ui_widgets.remove(Ui_widgets.size()-1);
         }
 
+
+        if(Ui_widgets.size()>=2 && Ui_widgets.get(Ui_widgets.size()-2).equals("TextField") && Ui_widgets.get(Ui_widgets.size()-1).equals("InputDecoration")){
+            try {
+                FileWriter outputfile = new FileWriter("Ionic.html", true);
+                outputfile.write("<ion-input type=\"text\" > </ion-input>" + "\n");
+                outputfile.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Ui_widgets.remove(Ui_widgets.size()-1);
+            Ui_widgets.remove(Ui_widgets.size()-1);
+        }
     }
 
     @Override public void exitStringLiteral(Dart2Parser.StringLiteralContext ctx) {
         String path = ctx.SingleLineString().toString();
         System.out.print(path);
+
+        //Text of string
+        if(!Ui_widgets.isEmpty() && Textflag == 0 && Ui_widgets.get(Ui_widgets.size()-1).equals("Text")){
+            int start;
+            int end;
+            if(path.contains("'")){
+                start = path.indexOf("'") + 1;
+                end = path.lastIndexOf("'");
+            }
+            else {
+                start = path.indexOf("\"") + 1;
+                end = path.lastIndexOf("\"");
+            }
+            path = path.substring(start, end);
+            try {
+                FileWriter outputfile = new FileWriter("Ionic.html", true);
+                outputfile.write("<ion-text>" + path + " </ion-text>" + "\n");
+                outputfile.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            //remove all as there'll be several occarances of AssetImage
+            Ui_widgets.remove("Text");
+        }
+
+        //Image
         if(!Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("AssetImage")){
-            int start = path.indexOf("\'") + 1;
-            int end = path.lastIndexOf("\'");
+            int start;
+            int end;
+            if(path.contains("'")){
+                start = path.indexOf("'") + 1;
+                end = path.lastIndexOf("'");
+            }
+            else {
+                start = path.indexOf("\"") + 1;
+                end = path.lastIndexOf("\"");
+            }
             path = path.substring(start, end);
             try {
                 FileWriter outputfile = new FileWriter("Ionic.html", true);
@@ -261,8 +399,39 @@ public class Dart2Ionic extends Dart2BaseListener{
                 }
                 Ui_widgets.removeIf( name -> name.equals(" "));
                 //System.out.print(Ui_widgets);
-                flag = 1;                }
+                flag = 1;
+                }
+
+                if(!Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("Text")){
+                    if(word.substring(0,1).equals("'") || word.substring(0,1).equals("\"")) {
+                        Textflag = 0;
+                    }
+                    else{
+                        Textflag = 1;
+                        int end;
+                        end = word.indexOf(",");
+                        variable = word.substring(0, end);
+                        if (variable.contains("this."))
+                            variable = variable.substring(5);
+                        System.out.print("VARIABLE");
+                        System.out.print(variable);
+                    }
+
+                }
+                if (!Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("InputDecoration")){
+                    if(word.contains("labelText"))
+                        Ui_widgets.add("labelText");
+                    if(word.contains("prefixIcon"))
+                        Ui_widgets.add("prefixIcon");
+
+                }
+                if (!Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("ListView")){
+                    if (word.contains("ListTile"))
+                        ListTilecount = (word.split("ListTile", -1).length) - 1;
+
+                }
             }
+
     }
 
 
