@@ -195,7 +195,6 @@ public class Dart2Ionic extends Dart2BaseListener{
             listconetent = expression.substring(start, end);
                 try {
                     FileWriter outputfile = new FileWriter("Ionic.html", true);
-                    outputfile.write("<ion-list>" + "\n" + "<ul>");
                     outputfile.write("<li>" + listconetent + "</li>" + "\n");
                     outputfile.close();
                 } catch (IOException e) {
@@ -208,15 +207,15 @@ public class Dart2Ionic extends Dart2BaseListener{
     }
 
     @Override public void enterExpressionList(Dart2Parser.ExpressionListContext ctx) {
-        /*if(ListTilecount != 0 && !Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("ListView")){
+        if(ListTilecount != 0 && !Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("ListView")){
             try {
                 FileWriter outputfile = new FileWriter("Ionic.html", true);
-                outputfile.write("<ion-list>" + "\n" + "<ul>");
+                outputfile.write("<ion-list>" + "\n" + "<ul>"+ "\n");
                 outputfile.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }*/
+        }
     }
     @Override public void exitExpressionList(Dart2Parser.ExpressionListContext ctx) {
         if(ListTilecount == 0 && Ui_widgets.contains("ListTile") && Ui_widgets.contains("ListView")){
@@ -234,16 +233,6 @@ public class Dart2Ionic extends Dart2BaseListener{
 
     @Override public void exitNamedArgument(Dart2Parser.NamedArgumentContext ctx) {
 
-
-        if(ListTilecount != 0 && !Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("ListView")){
-            try {
-                FileWriter outputfile = new FileWriter("Ionic.html", true);
-                outputfile.write("<ion-list>" + "\n" + "<ul>");
-                outputfile.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
         if(Ui_widgets.size()>=2 && Ui_widgets.get(Ui_widgets.size()-2).equals("InputDecoration") && Ui_widgets.get(Ui_widgets.size()-1).equals("prefixIcon")&& !exp.equals("")){
             try {
                 FileWriter outputfile = new FileWriter("Ionic.html", true);
