@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -57,9 +55,8 @@ class _SIformstate extends State<SIform> {
                         child: Text('Done', textScaleFactor: 1.5),
                         onPressed: () {
                           setState(() {
-                            this.displaytext = "You've entered data!";
+                            display();
                           });
-                          
                         },
                       ),
                     ),
@@ -75,4 +72,7 @@ class _SIformstate extends State<SIform> {
     );
   }
 
+  String display() {
+    return this.displaytext = "You've entered data!";
+  }
 }

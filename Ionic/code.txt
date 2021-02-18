@@ -1,0 +1,129 @@
+
+
+<!-- sample1 -->
+
+<!-- <ion-text  style="margin:0px">Hello,world</ion-text> -->
+
+
+<!-- sample2 -->
+
+
+<ion-list style="background-color: transparent;" >
+    <ion-list-header > Shopping List </ion-list-header>
+   <ul style="margin: 0px;">
+    <li>Instagram</li>
+    <li>WhatsApp</li>
+    <li>Oculus</li>
+  </ul>
+
+</ion-list> 
+
+
+<!-- sample3 -->
+
+
+<div style="width:80%;
+margin:0 auto;
+margin-top:50px;" >
+
+
+<ion-item style="background-color: transparent" >
+  <ion-label position='fixed' >Username</ion-label>
+  <ion-input type="text"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position='fixed' >Email</ion-label>
+  <ion-input type="text"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position='fixed' >Password</ion-label>
+  <ion-input type="password"></ion-input>
+</ion-item>
+
+</div>
+ 
+
+ <!-- sample4 -->
+
+ <!-- <ion-button value ="val" (click)='clicked()'> Click! </ion-button> -->
+
+
+<!-- sample5 -->
+
+
+
+<ion-text 
+style="height: 150%;display: flex; justify-content: center;
+align-items: center;"> 
+
+Try editing me! 🎉</ion-text> 
+
+
+
+
+
+
+
+<ion-header >
+  <ion-toolbar style="--background:#224bd1;">
+    <ion-title >
+      App2
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<!-- app2 flutter  radiobutton-->
+
+<!-- <ion-content >
+  <ion-item class="firstnumber" lines="none">
+    <ion-label  position="floating"> Enter your name</ion-label>
+  <ion-input type="text" > </ion-input>
+</ion-item>
+<ion-item class="firstnumber" lines="none">
+  <ion-label  position="floating"> Password</ion-label>
+<ion-input type="password"> </ion-input>
+</ion-item>
+  
+  <div style="width:80% ;margin:0 auto;" >
+    <div class="checkbox">
+      <ion-checkbox style ="--border-radius:50%" slot="start"> </ion-checkbox>
+      <ion-label class="ion-margin-horizontal"> Male</ion-label>
+      </div>
+      <div  class="checkbox">
+      <ion-checkbox  style ="--border-radius:50%" slot="start"> </ion-checkbox> 
+      <ion-label class="ion-margin-horizontal"> Female</ion-label>
+    </div>
+  </div>
+  <ion-button  expand="block" style="--background:lightgray;color:black" >Done</ion-button>
+  
+</ion-content> -->
+
+
+
+<!-- app3 Kotlin (button_click change background) -->
+
+<ion-content  [style.--background]="c_class">
+
+  <div class="center" >   
+    <ion-button (click)="red()"  style="--background:red" > Red</ion-button> 
+    <ion-button (click)="yellow()"style="--background:yellow" > Yellow</ion-button> 
+    <ion-button (click)="black()" style="--background:black"> Black</ion-button> 
+    <ion-button [ngClass]="currency" (click)="green()" style="--background:green"> Green &copy;</ion-button> 
+  </div>
+
+</ion-content> 
+
+
+
+
+
+
+
+
+
+
+

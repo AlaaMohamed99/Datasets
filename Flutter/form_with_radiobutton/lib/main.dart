@@ -31,6 +31,7 @@ class _SIformstate extends State<SIform> {
             Padding(
                 padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
                 child: TextField(
+                  
                   decoration: InputDecoration(
                       errorStyle:
                           TextStyle(color: Colors.yellowAccent, fontSize: 15.0),
@@ -54,30 +55,34 @@ class _SIformstate extends State<SIform> {
                 child: Row(
                   children: [
                     Expanded(
-                      child: ListTile(
-                      title: Text("Male"),
-                        leading: Radio(
-                      value: genderGroup.Male,
-                      groupValue: gendergroup,
-                      onChanged: (genderGroup gender) {
-                        setState(() {
-                          gendergroup = gender;
-                        });
-                      },
-                    )),
+                      child: Row(
+                      children: [
+                          Radio(
+                          value: genderGroup.Male,
+                          groupValue: gendergroup,
+                          onChanged: (genderGroup gender) {
+                            setState(() {
+                              gendergroup = gender;
+                            });
+                          },
+                        ),
+                        Text("Male", textScaleFactor: 1,),]
+                      ),
                     ),
                     Expanded(
-                      child: ListTile(
-                      title: Text("Female", textScaleFactor: 1,),
-                        leading: Radio(
-                      value: genderGroup.Female,
-                      groupValue: gendergroup,
-                      onChanged: (genderGroup gender) {
-                        setState(() {
-                          gendergroup = gender;
-                        });
-                      },
-                    )),
+                      child: Row(
+                      children: [
+                          Radio(
+                          value: genderGroup.Female,
+                          groupValue: gendergroup,
+                          onChanged: (genderGroup gender) {
+                            setState(() {
+                              gendergroup = gender;
+                            });
+                          },
+                        ),
+                        Text("Female", textScaleFactor: 1,),]
+                      ),
                     )
                   ],
                 )),
@@ -90,7 +95,7 @@ class _SIformstate extends State<SIform> {
                         child: Text('Done', textScaleFactor: 1.5),
                         onPressed: () {
                           setState(() {
-                            this.displaytext = "You've entered data!";
+                            display();
                           });
                         },
                       ),
@@ -105,5 +110,9 @@ class _SIformstate extends State<SIform> {
         ),
       )),
     );
+  }
+
+  String display(){
+  return this.displaytext = "You've entered data!";
   }
 }
