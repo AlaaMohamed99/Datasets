@@ -1,5 +1,5 @@
-
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,14 +9,12 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
     Map notClosingTagElemnts;
     Map attribute;
 
-    Map attribute_value;
 
     Ionic2reactConverter() throws IOException {
 
         attribute =new HashMap<String,String>();
         attribute.put("class","style");
         attribute.put("id","style");
-        attribute.put("style","style");
         attribute.put("color","color");
         attribute.put("size","size");
         attribute.put("click","onPress");
@@ -92,6 +90,18 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
         return counter ;
     }
 
+    public String handleProperty(String property){
+        if( property.indexOf("-",2) != -1) {
+            short pos = (short) property.indexOf("-", 2);
+            String before = property.substring(0, pos);
+            String after = property.substring(pos + 1);
+            after = after.substring(0, 1).toUpperCase(); // capitaliza first letter after (-)
+            after = after.concat(property.substring(pos + 2));
+            property = before + after;
+            return property;
+        }
+        return  property;
+    }
     @Override
     public void enterHtmlDocument(HTMLParser.HtmlDocumentContext ctx) {
         String initial_import = "import React from 'react'; " +
@@ -144,17 +154,20 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
 
     @Override
     public void enterHtmlElement(HTMLParser.HtmlElementContext ctx) {
-        String attribute_name = "";
-        String attribute_value = "";
+        String attributeName = "";
+        String attributeValue = "";
+        String newAtrribute = "";
+        String newAttributeValue = "";
         Boolean flag_htmlattr = false;
         String opentag = ctx.TAG_OPEN().get(0).getText();
         String closetag = ctx.TAG_CLOSE().get(0).getText();
         String event_binding = "";
 
 
-        //getting ui_element Tag_name
-        String ion_ui_elemnt = ctx.TAG_NAME().get(0).getText();
-        System.out.println("tag name:" + ion_ui_elemnt);
+        /* ************getting ui_element Tag_name ********* */
+
+        String oldElement = ctx.TAG_NAME().get(0).getText();
+//        System.out.println("old tag name:" + oldElement);
         String converted_ui1 = "";
         String converted_ui2 = "";
 
@@ -165,70 +178,103 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
         }
 
 
-        //check if there is attribute value and split it
-//        if (!ctx.htmlAttribute().isEmpty()) {
-//            attribute_name = ctx.htmlAttribute().get(0).TAG_NAME().getText();
-//            attribute_value = ctx.htmlAttribute().get(0).ATTVALUE_VALUE().getText();
-//            flag_htmlattr = true;
-//
-//            // number of occurrences of (:) in attribute value = number of properties
-//            short counter = occurrenceNumber(':',attribute_value);
-//            String [] properties = new String[counter];
-//            System.out.println("counter"+counter);
-//
-//            // substring the attribute_values
-//            String property="";
-//            String property_value="";
-//            short len = (short) attribute_value.length();
-//            short pos2_initial = (short) attribute_value.indexOf(";",0);
-//
-//            short i =1;
-//
-//            if (counter == 1){
-//                short pos1 = (short) attribute_value.indexOf(":",i);
-//                property= attribute_value.substring(1,pos1 );
-//                property_value = attribute_value.substring(pos1+1 );
-//                property_value = property_value.replace(";","");
-//                property_value = property_value.substring(0,property_value.length()-1);
-//
-//                System.out.println("string: "+property + property_value);
-//            }
-//            else if (counter > 1) {
-//                // adding ; at the end if it is not there
-//                if (attribute_value.indexOf(";",len-2) < 0)
-//                {
-//                    attribute_value = attribute_value.substring(0,len-1) + ";"
-//                            +attribute_value.substring(len-1) ;
-////                    System.out.println("aa"+attribute_value);
-//
-//                }
-//                // dividing the attribute value to get each property alone
-//                while (i < attribute_value.length() ){
-//                    short pos1 = (short) attribute_value.indexOf(":",i);
-//                    if (pos1 == -1) break;
-//                    short pos2 = (short) attribute_value.indexOf(";",pos1);
-//                    property = attribute_value.substring(i,pos1 );
-//                    property_value = attribute_value.substring(pos1+1,pos2 );
-//                    i = (short) (pos2 +1);
-//                    System.out.println("pp"+property+property_value);
-//                }
-//            }
-//        }
+        /* ********** check if there is attribute value and split it **************** */
+        if (!ctx.htmlAttribute().isEmpty()  ) {
+            attributeName = ctx.htmlAttribute().get(0).TAG_NAME().getText();
+            System.out.println("attribute: " +attributeName);
+
+            if (ctx.htmlAttribute().get(0).ATTVALUE_VALUE() != null) {
+                attributeValue = ctx.htmlAttribute().get(0).ATTVALUE_VALUE().getText();
+
+            }
+
+
+            /* number of occurrences of (:) in attribute value = number of properties */
+            short counter = occurrenceNumber(':', attributeValue);
+            System.out.println("counter" + counter);
+
+            // substring the attribute_values
+            String property = "";
+            String propertyValue = "";
+            short len = (short) attributeValue.length();
+            short pos2_initial = (short) attributeValue.indexOf(";", 0);
+
+            short i = 1;
+
+            /* **************  start attribute = style ****************** */
+
+            if (attributeName.equals("style")) {
+                System.out.println("yes"+attributeName);
+                System.out.println(counter);
+                if (counter == 1) {
+                    System.out.println("1");
+                    short pos1 = (short) attributeValue.indexOf(":", i);
+                    property = attributeValue.substring(1, pos1);
+                    propertyValue = attributeValue.substring(pos1 + 1);
+                    propertyValue = propertyValue.replace(";", "");
+                    propertyValue = propertyValue.substring(0, propertyValue.length() - 1);
+                    property = handleProperty(property);
+
+                    if (propertyValue.indexOf("%") != -1) {
+                        propertyValue = "'" + propertyValue + "'";
+                    }
+                    newAttributeValue = property + ":" + propertyValue;
+                    System.out.println("property: " + property + propertyValue);
+                    System.out.println(newAttributeValue);
+                } else if (counter > 1) {
+                    ArrayList<String> properties = new ArrayList<String>();
+                    ArrayList<String> propertiesvalues = new ArrayList<String>();
+
+                    // adding ; at the end if it is not there
+                    if (attributeValue.indexOf(";", len - 2) < 0) {
+                        attributeValue = attributeValue.substring(0, len - 1) + ";"
+                                + attributeValue.substring(len - 1);
+
+                    }
+
+                    /* dividing the attribute value to get each property alone ******* */
+                    while (i < attributeValue.length()) {
+                        short pos1 = (short) attributeValue.indexOf(":", i);
+                        if (pos1 == -1) break;
+                        short pos2 = (short) attributeValue.indexOf(";", pos1);
+                        property = attributeValue.substring(i, pos1);
+                        propertyValue = attributeValue.substring(pos1 + 1, pos2);
+                        i = (short) (pos2 + 1);
+
+                        if (propertyValue.indexOf("%") != -1) {
+                            propertyValue = "'" + propertyValue + "'";
+                        }
+
+                        properties.add(handleProperty(property));
+                        propertiesvalues.add(propertyValue);
+                    }
+
+                    // compine properties with theri values after hnadling them
+                    for (short s = 0; s < properties.size(); s++) {
+                        newAttributeValue += properties.get(s) + ":" + propertiesvalues.get(s)+"," ;
+                    }
+                    System.out.println(newAttributeValue);
+                }
+                 newAtrribute = "style={{" + newAttributeValue +"}}\n";
+            }
+        }
+
+        /* *********************  end  attribute = style   ************************** */
 
         String final_ui = "";
-        converted_ui1 = (String) closingTagElemnts.get(ion_ui_elemnt);
-        converted_ui2 = (String) notClosingTagElemnts.get(ion_ui_elemnt);
+        converted_ui1 = (String) closingTagElemnts.get(oldElement);
+        converted_ui2 = (String) notClosingTagElemnts.get(oldElement);
 
         if (converted_ui1 == null) final_ui = converted_ui2;
         if (converted_ui2 == null) final_ui = converted_ui1;
 
-        if (ion_ui_elemnt.equals("ion-content")) {
+        if (oldElement.equals("ion-content")) {
             final_ui = "View className='content'";
         }
-        if (ion_ui_elemnt.equals("ion-header")) {
+        if (oldElement.equals("ion-header")) {
             final_ui = "View className='header'";
         }
-        if (ion_ui_elemnt.equals("ion-footer")) {
+        if (oldElement.equals("ion-footer")) {
             final_ui = "View className='footer'";
         }
 
@@ -238,40 +284,51 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
                 FileWriter outputfile = new FileWriter("ionic2react.js", true);
                 outputfile.write(opentag + final_ui  + closetag + "\n");
                 outputfile.close();
+//                System.out.println("ui1");
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         if (converted_ui1 == null && converted_ui2 != null) {
+
+//            String x =enterHtmlContent(ctx.htmlContent());
+//            System.out.println(x);
+
+              String finalOutput="";
+              finalOutput = opentag + final_ui + "/" + closetag + "\n" ;
+            if (final_ui.equals("Button")) {
+                String title =ctx.htmlContent().htmlChardata().get(0).getText().trim();
+                finalOutput = opentag +
+                        final_ui + "\ttitle = " +"\""+title+"\"\n" + newAtrribute+ "/" + closetag + "\n";
+            }
             try {
                 FileWriter outputfile = new FileWriter("ionic2react.js", true);
-                outputfile.write(opentag + final_ui + "/" + closetag + "\n");
+                outputfile.write(finalOutput);
                 outputfile.close();
 
-            } catch (Exception e) {
-                e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-
-        }
         if (converted_ui1 == null && converted_ui2 == null) {
             try {
                 FileWriter outputfile = new FileWriter("ionic2react.js", true);
-                outputfile.write(opentag + ion_ui_elemnt + " " + closetag + "\n");
+                outputfile.write(opentag + oldElement + " " + closetag + "\n");
                 outputfile.close();
+//                System.out.println("both");
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
 
-        /* ************    handle Text or content    ***************** */
+        /* ******************    handle Text or content without Tag   *********************** */
 
         String charDataText = "";
-        System.out.println(ctx.htmlContent().htmlChardata().get(0).getText());
         if ( ctx.htmlContent().htmlChardata().get(0).getText()!= null && ctx.htmlContent().htmlChardata().get(0).HTML_TEXT() != null) {
             charDataText = ctx.htmlContent().htmlChardata().get(0).HTML_TEXT().getText().trim();
 
             if (final_ui == "Text") {
-                System.out.println("ion-text yes");
                 try {
                     FileWriter outputfile = new FileWriter("ionic2react.js", true);
                     outputfile.write( charDataText + "\n");
@@ -310,9 +367,7 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
 
         if (converted_ui1 != null && converted_ui2==null) {
             try {
-                System.out.println("test try");
                 FileWriter outputfile = new FileWriter("ionic2react.js", true);
-                System.out.println("test");
                 outputfile.write(  opentag + "/" + converted_ui1 + " " + closetag + "\n");
                 outputfile.close();
             } catch (Exception e) {
@@ -321,9 +376,7 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
         }
         if (converted_ui1 == null && converted_ui2 == null) {
             try {
-                System.out.println("test try");
                 FileWriter outputfile = new FileWriter("ionic2react.js", true);
-                System.out.println("test");
                 outputfile.write(opentag + "/"+ion_ui_elemnt  + " "  + closetag + "\n");
                 outputfile.close();
             } catch (Exception e) {
@@ -333,92 +386,84 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
     }
 
     @Override public void enterHtmlAttribute(HTMLParser.HtmlAttributeContext ctx) {
-        String attributeName = "";
-        String attributeValue = "";
-        String property="";
-        String propertyValue="";
-
-        if(ctx.ATTVALUE_VALUE() != null) {
-            attributeValue = ctx.ATTVALUE_VALUE().getText();
-        }
-        else attributeValue ="null";
-        attributeName = ctx.TAG_NAME().getText();
-        System.out.println("from attribute" + attributeName + attributeValue);
-
-
-        short counter = occurrenceNumber(':',attributeValue);
-        String [] properties = new String[counter];
-        System.out.println("counter fromattt"+counter);
-
-        // substring the attribute_values
-
-        short len = (short) attributeValue.length();
-        short pos2_initial = (short) attributeValue.indexOf(";",0);
-
-        short i =1;
-        if (counter ==0)
-        {
-            propertyValue="";
-            property="";
-            System.out.println("non");
-
-        }
-
-        if (counter == 1){
-            short pos1 = (short) attributeValue.indexOf(":",i);
-            property= attributeValue.substring(1,pos1 );
-            propertyValue = attributeValue.substring(pos1+1 );
-            propertyValue = propertyValue.replace(";","");
-            propertyValue = propertyValue.substring(0,propertyValue.length()-1);
-
-            System.out.println("string: fromattt "+property + propertyValue);
-        }
-        else if (counter > 1) {
-            // adding ; at the end if it is not there
-            if (attributeValue.indexOf(";",len-2) < 0)
-            {
-                attributeValue = attributeValue.substring(0,len-1) + ";"
-                        +attributeValue.substring(len-1) ;
-            }
-            // dividing the attribute value to get each property alone
-            while (i < attributeValue.length() ){
-                short pos1 = (short) attributeValue.indexOf(":",i);
-                if (pos1 == -1) break;
-                short pos2 = (short) attributeValue.indexOf(";",pos1);
-                property = attributeValue.substring(i,pos1 );
-                propertyValue = attributeValue.substring(pos1+1,pos2 );
-                i = (short) (pos2 +1);
-                System.out.println("pp fromattt"+property+propertyValue);
-            }
-        }
-        String newAttributeName = "";
-        if (!attributeName.isEmpty()){
-            System.out.println("yes" );
-            if(attribute.get(attributeName) != null ){
-                newAttributeName = (String) attribute.get(attributeName);
-                System.out.println("new"+newAttributeName);
-
-            }
-        }
-
-
-
+//        String attributeName = "";
+//        String attributeValue = "";
+//        String property="";
+//        String propertyValue="";
+//
+//        if(ctx.ATTVALUE_VALUE() != null) {
+//            attributeValue = ctx.ATTVALUE_VALUE().getText();
+//        }
+//        else attributeValue ="null";
+//        attributeName = ctx.TAG_NAME().getText();
+////        System.out.println("from attribute" + attributeName + attributeValue);
+//
+//
+//        short counter = occurrenceNumber(':',attributeValue);
+//        String [] properties = new String[counter];
+////        System.out.println("counter fromattt"+counter);
+//
+//        // substring the attribute_values
+//
+//        short len = (short) attributeValue.length();
+//        short pos2_initial = (short) attributeValue.indexOf(";",0);
+//
+//        short i =1;
+//        if (counter ==0)
+//        {
+//            propertyValue="";
+//            property="";
+//        }
+//
+//        if (counter == 1){
+//            short pos1 = (short) attributeValue.indexOf(":",i);
+//            property= attributeValue.substring(1,pos1 );
+//            propertyValue = attributeValue.substring(pos1+1 );
+//            propertyValue = propertyValue.replace(";","");
+//            propertyValue = propertyValue.substring(0,propertyValue.length()-1);
+//
+//            System.out.println("string: from att "+property + propertyValue);
+//        }
+//        else if (counter > 1) {
+//            // adding ; at the end if it is not there
+//            if (attributeValue.indexOf(";",len-2) < 0)
+//            {
+//                attributeValue = attributeValue.substring(0,len-1) + ";"
+//                        +attributeValue.substring(len-1) ;
+//            }
+//            // dividing the attribute value to get each property alone
+//            while (i < attributeValue.length() ){
+//                short pos1 = (short) attributeValue.indexOf(":",i);
+//                if (pos1 == -1) break;
+//                short pos2 = (short) attributeValue.indexOf(";",pos1);
+//                property = attributeValue.substring(i,pos1 );
+//                propertyValue = attributeValue.substring(pos1+1,pos2 );
+//                i = (short) (pos2 +1);
+//                System.out.println("pp"+property+propertyValue);
+//            }
+//        }
+//        String newAttributeName = "";
+//        if (!attributeName.isEmpty()){
+//            if(attribute.get(attributeName) != null ){
+//                newAttributeName = (String) attribute.get(attributeName);
+//                System.out.println("new :"+newAttributeName);
+//            }
+//        else {
+//                System.out.println("NO");
+//            }
+//        }
     }
-
     @Override public void exitHtmlAttribute(HTMLParser.HtmlAttributeContext ctx) {
-
     }
-
-
 
     @Override
-    public void enterHtmlContent(HTMLParser.HtmlContentContext ctx) {
+    public String enterHtmlContent(HTMLParser.HtmlContentContext ctx) {
+        return "a";
     }
 
     @Override
     public void exitHtmlContent(HTMLParser.HtmlContentContext ctx) {
     }
-
 
     @Override
     public void enterHtmlChardata(HTMLParser.HtmlChardataContext ctx) {
