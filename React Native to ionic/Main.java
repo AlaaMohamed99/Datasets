@@ -12,7 +12,8 @@ public class Main {
         ParseTree tree = parser.program();
         ParseTreeWalker walker = new ParseTreeWalker();
         Jsx2Ionic listener = new Jsx2Ionic();
-        //listener.CreateFile();
+        listener.CreateFile();
         walker.walk(listener, tree);
+        listener.show_output();
     }
 }
