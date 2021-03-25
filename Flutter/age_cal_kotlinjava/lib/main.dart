@@ -23,7 +23,6 @@ class Converter extends State<ButtonClick> {
   String displaytext = "";
   TextEditingController extractnumber = TextEditingController();
   var date = new DateTime.now();
-  
 
   @override
   Widget build(BuildContext context) {
@@ -46,22 +45,27 @@ class Converter extends State<ButtonClick> {
                 ),
               )),
               Center(
-                child: Text(this.displaytext, style: TextStyle(fontSize: 24.0),)
-                ),
-              
+                  child: Text(
+                this.displaytext,
+                style: TextStyle(fontSize: 24.0),
+              )),
               Center(
                   child: RaisedButton(
                       color: Colors.deepPurple,
-                      child: Text("GET AGE", style: TextStyle(fontSize: 24.0),),
+                      child: Text(
+                        "GET AGE",
+                        style: TextStyle(fontSize: 24.0),
+                      ),
                       onPressed: () {
                         setState(() {
-                          this.output =
-                              (date.year - int.parse(extractnumber.text))
-                                  .toString();
-                          this.displaytext =
-                              "your age is $output years";
+                          display();
                         }); //action is written here
                       }))
             ])));
+  }
+
+  void display() {
+    this.output = (date.year - int.parse(extractnumber.text)).toString();
+    this.displaytext = "your age is $output years";
   }
 }
