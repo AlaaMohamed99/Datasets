@@ -74,8 +74,7 @@ class _SIformstate extends State<SIform> {
                     child: Text('Confirm', textScaleFactor: 1.5),
                     onPressed: () {
                       setState(() {
-                        var v = name.text;
-                        this.displaytext = "Welcome $v";
+                        display();
                       });
                     },
                   ),
@@ -90,5 +89,9 @@ class _SIformstate extends State<SIform> {
         ),
       )),
     );
+  }
+  void display(){
+    var v = name.text;
+    this.displaytext = "Welcome $v";
   }
 }

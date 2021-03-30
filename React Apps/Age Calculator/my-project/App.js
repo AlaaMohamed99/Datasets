@@ -18,7 +18,6 @@ export default class App extends React.Component{
   render() {
     const { name, showName } = this.state;
     return (
-      
         <View style={styles.container}>
            <View><Text>Age Calc.</Text></View>
             <TextInput

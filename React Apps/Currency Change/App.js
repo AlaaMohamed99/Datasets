@@ -1,4 +1,4 @@
-import * as React from 'react';
+mport * as React from 'react';
 import { Button, TextInput, Text, View, Alert, StyleSheet} from 'react-native';
 
 export default class App extends React.Component{
@@ -41,14 +41,14 @@ export default class App extends React.Component{
 }
 const styles = StyleSheet.create({
   container:{
-    backgroundColor:'#2196F3',
-    flex: 1
+    backgroundColor:'#2196F3',  //background-color: #2196F3 
+    flex: 1                    
   },
   Button: {
-    marginTop: 10,
-    marginRight:100,
-    marginLeft:130,
-    padding: 25,
+    marginTop: 10,    //margin-top: 10px
+    marginRight:100,  //margin-right: 100px
+    marginLeft:130,  //margin-left: 130px
+    padding: 25,   
     width: 150,
     height:100
   },
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     backgroundColor:'#03A9F4',
     marginTop:10,
     marginLeft:70,
-    textAlign:'center',
+    textAlign:'center',    //text-align: center
     marginRight:70,
   }
 });

@@ -52,14 +52,15 @@ class Converter extends State<ButtonClick> {
                       child: Text("Convert to EGP", style: TextStyle(fontSize: 24.0),),
                       onPressed: () {
                         setState(() {
-                          double number = double.parse(extractnumber.text);
-                          this.output =
-                              (double.parse(extractnumber.text) * 15.7)
-                                  .toString();
-                          this.displaytext =
-                              "$number USD is equal to $output EGP";
+                          display();
                         }); //action is written here
                       }))
             ])));
   }
+  void display(){
+    double number = double.parse(extractnumber.text);
+    this.output =(double.parse(extractnumber.text) * 15.7).toString();
+    this.displaytext = "$number USD is equal to $output EGP";
+  }
+
 }

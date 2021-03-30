@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Button, TextInput, Text, View, Alert, StyleSheet, TouchableOpacity} from 'react-native';
+import { Button, TextInput, Text, View, Alert, TouchableOpacity} from 'react-native';
+import styles from './styles.js'
 export default class App extends React.Component{
   state = {
       FirstNumber: 0,
@@ -47,46 +48,6 @@ export default class App extends React.Component{
       );
   }
 }
-const styles = StyleSheet.create({
-  img:{
-    width:300,
-    height:300
-  },
-  container:{
-    justifyContent: 'center',
-    alignItems: 'center',
-    flex: 1
-  },
-  Button: {
-    alignSelf:'center',
-    alignContent:'center',
-    padding: 25,
-    width: 200,
-    height:100
-  },
-  textin:{
-    alignSelf:'center',
-    alignContent:'center',
-    borderTopLeftRadius:2,
-    borderTopRightRadius:2,
-    borderBottomLeftRadius:2,
-    borderBottomRightRadius:2,
-    borderLeftWidth:0.2,
-    borderRightWidth:0.2,
-    borderTopWidth:0.2,
-    borderBottomWidth:0.2,
-    margin:5,
-    height:25,
-    width:275,
-  },
-  textout:{
-    alignSelf:'center',
-    alignContent:'center',
-    margin:5,
-    height:25,
-    width:275,
-    textAlign:'center',
-  },
-});
+
 
 

@@ -154,8 +154,16 @@ public class Dart2Ionic extends Dart2BaseListener{
         if(Label.equals("child:")) {
             System.out.print(methodName);
             if(expression.substring(0,4).equals("Text") && Ui_widgets.contains("RaisedButton")) {
-                int start = expression.indexOf("'") + 1;
-                int end = expression.lastIndexOf("'");
+                int start;
+                int end;
+                if(expression.contains("'")){
+                    start = expression.indexOf("'") + 1;
+                    end = expression.lastIndexOf("'");
+                }
+                else {
+                    start = expression.indexOf("\"") + 1;
+                    end = expression.lastIndexOf("\"");
+                }
                 text = expression.substring(start, end);
                 //System.out.print(text);
                 Ui_widgets.remove("child");
@@ -179,6 +187,10 @@ public class Dart2Ionic extends Dart2BaseListener{
             }
             Ui_widgets.remove("onPressed");
         }
+        /*if (!Ui_widgets.isEmpty() && Ui_widgets.contains("RaisedButton")&& !Ui_widgets.contains("child") &&   !Ui_widgets.contains("onPressed")) {
+            Ui_widgets.clear();
+            Ui_widgets.add("RaisedButton");
+        }*/
 
         //ListTile
         if(Label.equals("title:") && !Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("ListTile")){
@@ -276,7 +288,7 @@ public class Dart2Ionic extends Dart2BaseListener{
             Textflag = 0;
         }
 
-        if (!Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("RaisedButton")){
+        if (!Ui_widgets.isEmpty() && Ui_widgets.contains("RaisedButton") && !Ui_widgets.contains("child") &&   !Ui_widgets.contains("onPressed")){
             //System.out.print("entered");
             try {
                 FileWriter outputfile = new FileWriter("Ionic.html", true);
@@ -285,7 +297,7 @@ public class Dart2Ionic extends Dart2BaseListener{
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Ui_widgets.remove(Ui_widgets.size()-1);
+            Ui_widgets.clear();
         }
 
 
@@ -371,20 +383,25 @@ public class Dart2Ionic extends Dart2BaseListener{
                     int t = 0;
                     while(index >=0){
                         index = word.indexOf(":", index + 1);  // Slight improvement
-                        indexcol = word.indexOf(",", indexcol + 1);
                         if (index != -1) {
                             indexesofdots.add(index);
                         }
+                    }
+                    while(indexcol >=0){
+                        indexcol = word.indexOf(",", indexcol + 1);
                         if (indexcol != -1) {
                             indexesofcol.add(indexcol);
                         }
                     }
-                    //System.out.print(indexesofdots);
-                    //System.out.print(indexesofcol);
+                    System.out.print(indexesofdots);
+                    System.out.print(indexesofcol);
                 //System.out.print(word+ "\n");
                 Ui_widgets.add(word.substring(0, indexesofdots.get(0)));
-                for (int i = 0; i < indexesofdots.size()-1; i++){
-                    Ui_widgets.add(word.substring(indexesofcol.get(i)+1, indexesofdots.get(i+1)));
+                for (int i = 0; i < indexesofcol.size(); i++){
+                    if (indexesofdots.get(i+1)> indexesofcol.get(i)+1)
+                        Ui_widgets.add(word.substring(indexesofcol.get(i)+1, indexesofdots.get(i+1)));
+                    else
+                        Ui_widgets.add(word.substring(indexesofcol.get(i)+1, indexesofdots.get(i+2)));
                 }
                 Ui_widgets.removeIf( name -> name.equals(" "));
                 //System.out.print(Ui_widgets);

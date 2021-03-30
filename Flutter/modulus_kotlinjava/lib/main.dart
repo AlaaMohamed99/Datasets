@@ -31,62 +31,60 @@ class Converter extends State<ButtonClick> {
         child: Container(
             margin: EdgeInsets.only(top: 60.0),
             child: Column(children: [
-              Row(
-                children: [
-                  Expanded(
-                  child: Padding(
+              Row(children: [
+                Expanded(
+                    child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.0),
                   child: TextField(
-                    controller: extractnumber1,
-                    decoration: InputDecoration(
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black)
-                      )
-                    )
-                  ),
-              )
-              ),
-              Expanded( child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25.0),
-                child: Center(
-                  child: Text("Modulu", style: TextStyle(color: Colors.yellow, fontSize: 18.0),)
-              )
-              )
-              ),
-              Expanded(
-                  child: Padding(
+                      controller: extractnumber1,
+                      decoration: InputDecoration(
+                          enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.black)))),
+                )),
+                Expanded(
+                    child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 25.0),
+                        child: Center(
+                            child: Text(
+                          "Modulu",
+                          style:
+                              TextStyle(color: Colors.yellow, fontSize: 18.0),
+                        )))),
+                Expanded(
+                    child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25.0),
                   child: TextField(
-                    controller: extractnumber2,
-                    decoration: InputDecoration(
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black)
-                      )
-                    )
-                  ),
-              )
-              ),
-              ]
-              ),
-              Center( 
-                child: Padding
-                ( padding: EdgeInsets.only(top: 50.0, bottom: 10.0),
-                  child:Text(this.displaytext, style: TextStyle(fontSize: 36.0, color: Colors.yellow)))
-                ),
-              
+                      controller: extractnumber2,
+                      decoration: InputDecoration(
+                          enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.black)))),
+                )),
+              ]),
+              Center(
+                  child: Padding(
+                      padding: EdgeInsets.only(top: 50.0, bottom: 10.0),
+                      child: Text(this.displaytext,
+                          style: TextStyle(
+                              fontSize: 36.0, color: Colors.yellow)))),
               Center(
                   child: RaisedButton(
                       color: Colors.deepPurple,
-                      child: Text("RESULT", style: TextStyle(fontSize: 24.0, color: Colors.white),),
+                      child: Text(
+                        "RESULT",
+                        style: TextStyle(fontSize: 24.0, color: Colors.white),
+                      ),
                       onPressed: () {
                         setState(() {
-                          this.output =
-                              (int.parse(extractnumber1.text) % int.parse(extractnumber2.text))
-                                  .toString();
-                          this.displaytext =
-                              this.output;
+                          display();
                         }); //action is written here
                       }))
             ])));
+  }
+
+  void display() {
+    this.output =
+        (int.parse(extractnumber1.text) % int.parse(extractnumber2.text))
+            .toString();
+    this.displaytext = this.output;
   }
 }

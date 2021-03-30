@@ -1,0 +1,41 @@
+<ion-content>
+<ion-item
+style={styles.container}
+>
+<ion-input type="text"
+
+label="First number"
+
+style={styles.textin}
+
+(change)='val=>setState(FirstNumber:val);()"
+>
+</ion-input>
+<ion-input type="text"
+
+null="Second number"
+
+style={styles.textin}
+
+(change)='val=>setState(SecondNumber:val);()"
+>
+</ion-input>
+<ion-item
+style={styles.Button}
+>
+<ion-button
+
+(Click)='buttonClickListner()"
+
+label="Calculate"
+
+color="#000000"
+>
+</ion-button>
+<ion-text
+style={styles.textout}
+>
+</ion-text>
+</ion-item>
+</ion-item>
+</ion-content>
