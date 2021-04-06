@@ -1,0 +1,10 @@
+<ion-content  [style.--background]="c_class">
+
+  <div class="middle"  >   
+    <ion-button (click)="red()"  class="block" style="--background:red" > Red</ion-button> 
+    <ion-button (click)="yellow()" class="block" style="--background:yellow" > Yellow</ion-button> 
+    <ion-button (click)="black()" class="block" style="--background:black"> Black</ion-button> 
+    <ion-button [ngClass]='currency' class="block"  (click)="green()" > Green &copy;</ion-button> 
+  </div>
+
+</ion-content> 
