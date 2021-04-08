@@ -9,9 +9,14 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
     Map closingTagElemnts;
     Map notClosingTagElemnts;
     Map attribute;
+    Map attributeValue;
 
 
     Ionic2reactConverter() throws IOException {
+
+        attributeValue = new HashMap<String,String>();
+
+
 
         attribute =new HashMap<String,String>();
         attribute.put("class","style");
@@ -28,6 +33,7 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
         attribute.put("click","onPress");
         attribute.put("name","name");
 
+
         closingTagElemnts =new HashMap<String,String>();
         closingTagElemnts.put("ion-text","Text");
         closingTagElemnts.put("ion-list-header","h2");
@@ -41,20 +47,21 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
         closingTagElemnts.put("ion-header","View");
         closingTagElemnts.put("ion-footer","View");
         closingTagElemnts.put("ion-toolbar","View");
-        closingTagElemnts.put("ion-range","slider");
         closingTagElemnts.put("ion-label","Text");
         closingTagElemnts.put("div","View");
         closingTagElemnts.put("ion-item","View");
         closingTagElemnts.put("p","Text");
         closingTagElemnts.put("ion-title","Text");
+        closingTagElemnts.put("ion-list","ul");
 
 
         notClosingTagElemnts = new HashMap<String,String>();
         notClosingTagElemnts.put("ion-img","Image");
-        notClosingTagElemnts.put("ion-list","Flatlist");
         notClosingTagElemnts.put("ion-button","Button");
         notClosingTagElemnts.put("ion-icon","Icon");
         notClosingTagElemnts.put("ion-input","Input");
+        notClosingTagElemnts.put("ion-range","Slider");
+
 
 
         /*  Creating ionic2react.js translated file */
@@ -149,7 +156,7 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
                     "}");
             outputfile.close();
         } catch (Exception e) {
-            System.out.println("error exitHtmlDocumnet");
+            e.printStackTrace();
         }
         try {
             File file = new File("ionic2react.js");
@@ -160,7 +167,8 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
                 sc.nextLine();
                 count++;
             }
-            int lastline_index = count ;// number of lines inside the file
+            // number of lines inside the file
+            int lastline_index = count ;
             System.out.println("Number of lines in the file are :"+lastline_index);
         }
         catch (Exception e){
@@ -168,21 +176,40 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
         }
     }
 
+    /*{"View","Text","Button","Image","Input","Icon","Slider"};*/
+
+    Boolean flag_Text=false;
+    Boolean flag_Slider=false;
+    Boolean flag_View=false;
+    Boolean flag_Button=false;
+    Boolean flag_Image=false;
+    Boolean flag_Input=false;
+    Boolean flag_Icon=false;
+
+    /*  Label of an Input instead of ion-label */
+    String labelOfInput = "";
+    Boolean labelFlag=false;
+
     Boolean f=true;
+    /* Flag to indicate that there is ion-item inside ion-list and handle it with ion-label*/
+    Boolean flagOfList=false;
 
     @Override
     public void enterHtmlElement(HTMLParser.HtmlElementContext ctx) {
 
         String opentag = ctx.TAG_OPEN().get(0).getText();
         String closetag = ctx.TAG_CLOSE().get(0).getText();
-
+        String final_ui = "";
+        String finalOutput = "";
         /* ************getting ui_element Tag_name ********* */
+
 
         String oldElement = ctx.TAG_NAME().get(0).getText();
         String converted_ui_closing_tag = "";
         String converted_ui_noClosing_tag = "";
 
-        String final_ui = "";
+
+
         converted_ui_closing_tag = (String) closingTagElemnts.get(oldElement);
         converted_ui_noClosing_tag = (String) notClosingTagElemnts.get(oldElement);
 
@@ -201,11 +228,33 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
             final_ui = "View style={styles.toolbar}";
         }
 
-        String finalOutput = "";
+        /* ion-input inside ion-item */
+        if (oldElement.equals("ion-item")){
+            if (ctx.getRuleContext().getText().contains("ion-label")&&
+                ctx.getRuleContext().getText().contains("ion-input")){
+                labelFlag = true;
+            }
+        }
+        if (oldElement.equals("ion-label") && labelFlag){
+            labelOfInput = ctx.htmlContent().getText();
+//            System.out.println("label "+labelOfInput);
+        }
 
-        /* */
+        /* handle ion-items inside ion-list */
+        if (oldElement.equals("ion-list")){
+            closingTagElemnts.replace("ion-item","li");
+            flagOfList= true;
+        }
+
         if (converted_ui_closing_tag != null && converted_ui_noClosing_tag == null) {
             finalOutput = opentag + final_ui + " ";
+
+            /* ion-label after ion-list or  handle ion-label inside ion-item with ion-input */
+            if (oldElement.equals("ion-label") && (flagOfList || labelFlag)  ){
+                finalOutput = "";
+            }
+
+
             try {
                 FileWriter outputfile = new FileWriter("ionic2react.js", true);
                 outputfile.write(finalOutput);
@@ -215,10 +264,16 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
             }
         }
 
-        boolean f=false;
+
+
         if (converted_ui_closing_tag == null && converted_ui_noClosing_tag != null) {
-            f=true;
             finalOutput = opentag + final_ui + " ";
+
+            /* handle ion-input and ion-label together inside ion-item*/
+            if(oldElement.equals("ion-input") && labelFlag){
+                finalOutput = finalOutput + " label="+'"'+labelOfInput+'"';
+            }
+
             try {
                 FileWriter outputfile = new FileWriter("ionic2react.js", true);
                 outputfile.write(finalOutput);
@@ -227,12 +282,10 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            /* add the import statement for new react-native component if not exists */
-
         }
 
-        /* */
 
+        /* for Html elements */
         if (converted_ui_closing_tag == null && converted_ui_noClosing_tag == null) {
             try {
                 FileWriter outputfile = new FileWriter("ionic2react.js", true);
@@ -243,77 +296,112 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
             }
         }
 
+        /* add the import statement for new react-native component if not exists */
+
+        String [] reactNativeComponents= {"View","Text","Button","Image","Input","Icon","Slider"};
+
         BufferedReader filescan;
         short count = 0;
+
         try {
-            filescan = new BufferedReader(new FileReader("ionic2react.js"));
-            String line = "";
-            try {
-                while ((line = filescan.readLine()) != null) {
-                    count++;
-                    if (line.contains("export")) {
-                        System.out.print("count" + count);
-                        filescan.close();
-                        break;
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+
+             /* count number of lines until the line starting with export  */
+
+//            filescan = new BufferedReader(new FileReader("ionic2react.js"));
+//            String line = "";
+//            try {
+//                while ((line = filescan.readLine()) != null) {
+//                    count++;
+//                    if (line.contains("export")) {
+//                        System.out.print("count" + count);
+//                        filescan.close();
+//                        break;
+//                    }
+//                }
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+
             try {
                 filescan = new BufferedReader(new FileReader("ionic2react.js"));
                 int flag = 0;
-                String ImportStmnt = "import {" + final_ui + "} from 'react-native'";
-                for (int i = 0; i < count; i++) {
-//                    System.out.println("Final_UI :"+final_ui);
-//                    System.out.println(filescan.readLine());
-//                    if (filescan.readLine() != null){
-                        if (filescan.readLine().contains(final_ui)) {
-                            System.out.println("Flag");
-                            flag = 1;
-                            break;
-                        }
-//                    }
+                String ImportStmnt1 = "import {" + final_ui + "} from 'react-native'\n";
+                String ImportStmnt2 = "import {" + final_ui + "} from 'react-native-elements'\n";
 
-                }
-                System.out.println("Final_UI :"+final_ui);
+
                 /*  flag = zero ==> adding the import statment*/
 
-                if (flag ==0){
-                    File mfile =new File("ionic2react.js");
-                    FileReader file =new FileReader("ionic2react.js");
-                    BufferedReader b = new BufferedReader(file);
-                    String result = "";
-                    String lin = "";
-                    while( (lin = b.readLine()) != null){
-                        result = result + lin+ "\n";
-                    }
-                    if (final_ui=="Icon"||final_ui=="Image"||final_ui=="Input"){
-                        result = "import {" + final_ui + "} from 'react-native-elements' ;\n" + result;
-
-                    }
-                    else if (final_ui=="Button"||final_ui=="View"||final_ui=="Text"){
-                        result = "import {" + final_ui + "} from 'react-native' ;\n" + result;
-                    }
-
-                    mfile.delete();
-                    FileOutputStream fos = new FileOutputStream(mfile);
-                    fos.write(result.getBytes());
-                    fos.flush();
+                File mfile =new File("ionic2react.js");
+                FileReader file =new FileReader("ionic2react.js");
+                BufferedReader b = new BufferedReader(file);
+                String result = "";
+                String lin = "";
+                while( (lin = b.readLine()) != null){
+                    result = result + lin+ "\n";
                 }
+
+
+                if (final_ui != null) {
+                    if(flag_Text == false && final_ui.equals("Text")){
+                        result = ImportStmnt1 + result;
+                        flag_Text = true;
+                    }
+                    if(flag_View == false && final_ui.equals("View")){
+                        result = ImportStmnt1 + result;
+                        flag_View = true;
+                    }
+                    if(flag_Button == false && final_ui.equals("Button")){
+                        result = ImportStmnt1 + result;
+                        flag_Button = true;
+                    }
+                    if(flag_Input == false && final_ui.equals("Input")){
+                        result = ImportStmnt2 + result;
+                        flag_Input = true;
+                    }
+                    if(flag_Icon == false && final_ui.equals("Icon")){
+                        result = ImportStmnt2 + result;
+                        flag_Icon = true;
+                    }
+                    if(flag_Image == false && final_ui.equals("Image")){
+                        result = ImportStmnt2 + result;
+                        flag_Image = true;
+                    }
+                    if(flag_Slider == false && final_ui.equals("Slider")){
+                        result = ImportStmnt2 + result;
+                        flag_Slider = true;
+                    }
+                }
+
+                /* write back to the file after adding import stmnts */
+                mfile.delete();
+                FileOutputStream fos = new FileOutputStream(mfile);
+                fos.write(result.getBytes());
+                fos.flush();
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } catch (FileNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
 
     @Override
     public void exitHtmlElement(HTMLParser.HtmlElementContext ctx) {
+        String oldElement = ctx.TAG_NAME().get(0).getText();
+
+        if(oldElement.equals("ion-input")){
+            labelFlag = false;
+            labelOfInput="";
+        }
+
+        /* handle ion-label inside ion-list and replace again ion-item with View */
+        if (oldElement.equals("ion-list")){
+            closingTagElemnts.replace("ion-item","View");
+            flagOfList = false;
+        }
+
         String opentag=ctx.TAG_OPEN().get(0).getText();
         String closetag=ctx.TAG_CLOSE().get(0).getText();
 
@@ -326,11 +414,18 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
         converted_ui1 = (String) closingTagElemnts.get(ion_ui_elemnt);
         converted_ui2 = (String) notClosingTagElemnts.get(ion_ui_elemnt);
 
-        if (converted_ui1 != null && converted_ui2==null) {
+        if (converted_ui1 != null && converted_ui2 == null) {
+            String output = opentag + "/" + converted_ui1 + " " + closetag + "\n";
+
+        /* handle ion-label inside ion-list or handle ion-label inside ion-item with ion-input*/
+            if (oldElement.equals("ion-label") && (flagOfList ||labelFlag )){
+                output = "";
+            }
+
             try {
-                FileWriter outputfile = new FileWriter("ionic2react.js", true);
-                outputfile.write(  opentag + "/" + converted_ui1 + " " + closetag + "\n");
-                outputfile.close();
+            FileWriter outputfile = new FileWriter("ionic2react.js", true);
+            outputfile.write(  output);
+            outputfile.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -353,6 +448,8 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
         String newAttributeValue = "";
         String newAtrribute = "";
         Boolean flag_htmlattr = false;
+        String parent = ctx.getParent().getText();
+
 
         /* ********** check if there is attribute value and split it **************** */
 
@@ -365,7 +462,6 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
         /* number of occurrences of (:) in attribute value = number of properties */
 
         short counter = occurrenceNumber(':', attributeValue);
-        System.out.println("counter" + counter);
 
         /*  substring the attribute_values  */
         String property = "";
@@ -378,10 +474,8 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
         /* **************  start attribute = style ****************** */
 
         if (attributeName.equals("style")) {
-            System.out.println(counter);
 
             if (counter == 1) {
-                System.out.println("1");
                 short pos1 = (short) attributeValue.indexOf(":", i);
                 property = attributeValue.substring(1, pos1);
                 propertyValue = attributeValue.substring(pos1 + 1);
@@ -405,8 +499,9 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
 
 
                 newAttributeValue = property + ":" + propertyValue;
-                System.out.println("property: " + property + propertyValue);
-                System.out.println(newAttributeValue);
+
+//                System.out.println("property: " + property + propertyValue);
+//                System.out.println(newAttributeValue);
             }
             else if (counter > 1) {
                 ArrayList<String> properties = new ArrayList<String>();
@@ -420,6 +515,7 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
                 }
 
                 /* dividing the attribute value to get each property from it alone ******* */
+
                 while (i < attributeValue.length()) {
                     short pos1 = (short) attributeValue.indexOf(":", i);
                     if (pos1 == -1) break;
@@ -431,13 +527,12 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
                     property=handleProperty(property).trim();
                     propertyValue=propertyValue.replace("px","");
 
-                    System.out.println("Value "+propertyValue);
+//                    System.out.println("Value "+propertyValue);
 
-                    /* */
+
                     if (propertyValue.indexOf("%") == -1) {
                         if (isInteger(propertyValue)){
                             propertyValue =  propertyValue ;
-
                         }
                         else {
                             propertyValue = "'" + propertyValue + "'";
@@ -456,7 +551,8 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
                 for (short s = 0; s < properties.size(); s++) {
                     newAttributeValue += properties.get(s) + ":" + propertiesvalues.get(s)+"," ;
                 }
-                System.out.println("new attribute:"+newAttributeValue);
+
+//                System.out.println("new attribute:"+newAttributeValue);
 
             }
             newAtrribute = "style={{" + newAttributeValue +"}}";
@@ -468,8 +564,11 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
             attributeValue = attributeValue.substring(1,attributeValue.length()-1);
             newAtrribute = "style= {" + "Styles."+attributeValue+ "}";
         }
-        /*         */
+
+        /*    attributes are not style or class or id     */
         else{
+
+            /* attributes are inside the list of attributes which is predefined */
             if (attribute.containsKey(attributeName) ){
                 if (ctx.ATTVALUE_VALUE() != null){
                     newAtrribute = (String) attribute.get(attributeName) + "= "
@@ -480,8 +579,11 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
                 }
             }
 
+            /* for Input if it was password */
+            if (parent.contains("ion-input") && attributeName.equals("type") && attributeValue.contains("password")){
+                newAtrribute =newAtrribute + "secureTextEntry";
+            }
         }
-
         try {
             FileWriter outputfile = new FileWriter("ionic2react.js", true);
             outputfile.write(   " "+newAtrribute+" " );
@@ -491,9 +593,7 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
         }
     }
 
-    @Override public void exitHtmlAttribute(HTMLParser.HtmlAttributeContext ctx) {
-
-    }
+    @Override public void exitHtmlAttribute(HTMLParser.HtmlAttributeContext ctx) { }
 
 
     @Override public void enterEventbinding(HTMLParser.EventbindingContext ctx) {
@@ -513,24 +613,27 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
         }
     }
 
-    @Override public void exitEventbinding(HTMLParser.EventbindingContext ctx) {
-
-    }
 
     @Override public void enterHtmlContent(HTMLParser.HtmlContentContext ctx) {
         short i_of_nl= (short) ctx.getParent().getText().indexOf(">");
         String b_check= ctx.getParent().getText().substring(0,i_of_nl+1);
-//        System.out.println("content "+ctx.getText());
         if (!b_check.contains("button")){
             try{
                 FileWriter outputfile =new FileWriter("ionic2react.js",true);
-                if (b_check.contains("input")||b_check.contains("img")){
+                if(b_check.contains("input")||b_check.contains("img")
+                    ||b_check.contains("range")||b_check.contains("icon") ){
                     outputfile.write("/>\n");
                     outputfile.close();
                 }
                 else{
-                outputfile.write(">\n");
-                outputfile.close();
+                    String finalOutput = ">\n";
+
+                    /* handle ion-label inside ion-list or ion-label inside ion-item with ion-input*/
+                    if ((flagOfList ||labelFlag ) && b_check.contains("ion-label")){
+                        finalOutput="";
+                    }
+                    outputfile.write(finalOutput);
+                    outputfile.close();
                 }
             }
             catch (Exception e){
@@ -552,26 +655,32 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
 
     }
     @Override public void enterHtmlChardata(HTMLParser.HtmlChardataContext ctx) {
+        String parent=ctx.getParent().getParent().getText() ;
+        String [] no_Text_tag ={"label","title","h1","text","h2","h3","h4","h5","h6"};
         if(ctx.HTML_TEXT() !=null ){
             short i_of_nl= (short) ctx.getParent().getParent().getText().indexOf(">");
             String b_check= ctx.getParent().getParent().getText().substring(0,i_of_nl+1);
-
-//            System.out.println("start "+b_check.trim()+"end");
-//            System.out.println("content "+ctx.getText().trim()+"end");
-//            System.out.println("NOT empty==>"+ctx.HTML_TEXT().getText().trim());
-
             if (!b_check.contains("button") ){
                 String Text= ctx.HTML_TEXT().getText().trim();
                 if (b_check.contains("label") || b_check.contains("text")||b_check.contains("p")
-                        || b_check.contains("title")){
-                    try {
-                        FileWriter outputfile =new FileWriter("ionic2react.js",true);
-                        outputfile.write( Text+"\n");
-                        outputfile.close();
+                    || b_check.contains("title") || b_check.contains("h1")
+                    || b_check.contains("h2") ){
+
+                    /* handle ion-label content inside ion-item with ion-input*/
+                    if (labelFlag){
+                            // don't write anything
                     }
-                    catch (Exception e){
-                        e.printStackTrace();
-                    }                }
+                    else {
+                        try {
+                            FileWriter outputfile =new FileWriter("ionic2react.js",true);
+                            outputfile.write( Text+"\n");
+                            outputfile.close();
+                        }
+                        catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+                }
                 else{
                     try {
                         FileWriter outputfile =new FileWriter("ionic2react.js",true);

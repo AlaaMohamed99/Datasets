@@ -1,20 +1,32 @@
-<div style="width:80%;
-margin:0 auto;
-margin-top:50px;" class="c" >
 
-    <ion-item style="background-color: transparent" class="i1" >
-        <ion-label position='fixed' >Username</ion-label>
-        <ion-input type="text"></ion-input>
-    </ion-item>
+    <ion-item> item1</ion-item>
 
-    <ion-item class="i2">
-        <ion-label position='fixed' >Email</ion-label>
-        <ion-input type="text"></ion-input>
-    </ion-item>
 
-    <ion-item class="i3">
-        <ion-label position='fixed' >Password</ion-label>
-        <ion-input type="password"></ion-input>
-    </ion-item>
+    <ion-content >
+        <ion-item class="firstnumber" lines="none">
+            <ion-label  position="floating"> Enter your name</ion-label>
+            <ion-input type="text" > </ion-input>
+        </ion-item>
+        <ion-item class="firstnumber" lines="none">
+            <ion-label  position="floating"> Password</ion-label>
+            <ion-input type="password"> </ion-input>
+        </ion-item>
 
-</div>
+        <div style="width:80% ;margin:0 auto;" >
+            <div class="checkbox">
+                <ion-checkbox  slot="start"> </ion-checkbox>
+                <ion-label > Male</ion-label>
+            </div>
+            <div  class="checkbox">
+                <ion-checkbox  slot="start"> </ion-checkbox>
+                <ion-label > Female</ion-label>
+            </div>
+        </div>
+        <ion-button  expand="block" style="--background:lightgray;color:black" >Done</ion-button>
+
+    </ion-content>
+
+    <ion-item>
+    <ion-label> test item</ion-label>
+
+</ion-item>
