@@ -27,9 +27,9 @@ class _SIformstate extends State<SIform> {
     return Container(
         color: color,
         child: Center(
-            child: Padding(
-                padding: EdgeInsets.only(top: 200.0),
-                child: Column(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     RaisedButton(
                       color: Colors.red,
@@ -70,7 +70,10 @@ class _SIformstate extends State<SIform> {
                       },
                     )
                   ],
-                ))));
+                )
+
+                )
+                );
   }
 
   void red() {
@@ -89,3 +92,6 @@ class _SIformstate extends State<SIform> {
     color = Colors.green;
   }
 }
+
+
+
