@@ -44,12 +44,11 @@ class Converter extends State<ButtonClick> {
                 Expanded(
                     child: Padding(
                         padding: EdgeInsets.only(left: 25.0, right: 25.0),
-                        child: Center(
-                            child: Text(
+                        child:Text(
                           "Modulu",
                           style:
                               TextStyle(color: Colors.yellow, fontSize: 18.0),
-                        )))),
+                        ))),
                 Expanded(
                     child: Padding(
                   padding: EdgeInsets.only(left: 25.0, right: 25.0),
@@ -87,11 +86,3 @@ class Converter extends State<ButtonClick> {
     this.displaytext = this.output;
   }
 }
-
-
-
-
-
-
-
-
