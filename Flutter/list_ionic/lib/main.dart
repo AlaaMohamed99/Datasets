@@ -6,7 +6,7 @@ void main() {
     debugShowCheckedModeBanner: false,
       home: Scaffold(
         //to contain the listview 3shan htb2a out of mobile scope
-        body: Container(child: shortlist(), color: Colors.black,),
+        body: Container(child: shortlist()),
         ),
       )
       );
