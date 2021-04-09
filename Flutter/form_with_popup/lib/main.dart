@@ -46,18 +46,13 @@ class _SIformstate extends State<SIform> {
               )),
           Padding(
               padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: RaisedButton(
+              child: RaisedButton(
                       child: Text('Done', textScaleFactor: 1.5),
                       onPressed: () {
                         dialog(context);
                       },
                     ),
                   ),
-                ],
-              )),
         ],
       ),
     )
