@@ -23,11 +23,10 @@ class _SIformstate extends State<SIform> {
   bool changedFemale = false;
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
+    return  Container(
           child: Padding(
         padding: EdgeInsets.all(20.0),
-        child: ListView(
+        child: Column(
           children: [
             Padding(
                 padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
@@ -66,10 +65,7 @@ class _SIformstate extends State<SIform> {
                     },
                   ))
                 ])),
-            Padding(
-                padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                child: Center(
-                  child: RaisedButton(
+                RaisedButton(
                     color: Colors.purple,
                     child: Text('Confirm', textScaleFactor: 1.5),
                     onPressed: () {
@@ -78,20 +74,24 @@ class _SIformstate extends State<SIform> {
                       });
                     },
                   ),
-                )),
-            Center(
-                child: Text(this.displaytext,
+                
+                
+              Text(this.displaytext,
                     style: TextStyle(
                       fontSize: 36.0,
                       color: Colors.purple,
-                    )))
+                    ))
           ],
         ),
-      )),
-    );
+      ))
+    ;
   }
   void display(){
     var v = name.text;
     this.displaytext = "Welcome $v";
   }
 }
+
+
+
+

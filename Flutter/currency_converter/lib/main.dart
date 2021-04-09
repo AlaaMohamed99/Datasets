@@ -31,9 +31,8 @@ class Converter extends State<ButtonClick> {
         child: Container(
             margin: EdgeInsets.only(top: 60.0),
             child: Column(children: [
-              Center(
-                  child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25.0),
+              Padding(
+                padding: EdgeInsets.only(left: 25.0, right: 25.0, bottom: 10),
                 child: TextField(
                   controller: extractnumber,
                   decoration: InputDecoration(
@@ -41,26 +40,28 @@ class Converter extends State<ButtonClick> {
                     fillColor: Colors.white,
                   ),
                 ),
-              )),
-              Center(
-                child: Text(this.displaytext, style: TextStyle(fontSize: 24.0),)
-                ),
-              
-              Center(
-                  child: RaisedButton(
-                      color: Colors.purple,
-                      child: Text("Convert to EGP", style: TextStyle(fontSize: 24.0),),
-                      onPressed: () {
-                        setState(() {
-                          display();
-                        }); //action is written here
-                      }))
+              ),
+              Text(
+                this.displaytext,
+                style: TextStyle(fontSize: 24.0),
+              ),
+              RaisedButton(
+                  color: Colors.purple,
+                  child: Text(
+                    "Convert to EGP",
+                    style: TextStyle(fontSize: 15.0),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      display();
+                    }); //action is written here
+                  })
             ])));
   }
-  void display(){
+
+  void display() {
     double number = double.parse(extractnumber.text);
-    this.output =(double.parse(extractnumber.text) * 15.7).toString();
+    this.output = (double.parse(extractnumber.text) * 15.7).toString();
     this.displaytext = "$number USD is equal to $output EGP";
   }
-
 }

@@ -20,37 +20,31 @@ class _SIformstate extends State<SIform> {
   var currentvalue = "Male";
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-          child: Padding(
-        padding: EdgeInsets.all(10.0),
-        child: ListView(
-          children: [
-            Padding(
-                padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                      errorStyle:
-                          TextStyle(color: Colors.yellowAccent, fontSize: 15.0),
-                      labelText: 'Enter your name',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0))),
-                )),
-            Padding(
-                padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                child: Row(
-                 children: [
-                   Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                      errorStyle:
-                          TextStyle(color: Colors.yellowAccent, fontSize: 15.0),
-                      fillColor: Colors.white,
-                      labelText: 'Password',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0))),
-                    )
-                  ),
+    return Container(
+        child: Padding(
+      padding: EdgeInsets.all(10.0),
+      child: Column(
+        children: [
+          Padding(
+              padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
+              child: TextField(
+                decoration: InputDecoration(
+                    labelText: 'Enter your name',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0))),
+              )),
+          Padding(
+              padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
+              child: Row(
+                children: [
+                  Expanded(
+                      child: TextField(
+                    decoration: InputDecoration(
+                        fillColor: Colors.white,
+                        labelText: 'Password',
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5.0))),
+                  )),
                   Padding(
                     padding: EdgeInsets.all(5.0),
                     child: DropdownButton<String>(
@@ -67,22 +61,17 @@ class _SIformstate extends State<SIform> {
                       value: currentvalue,
                     ),
                   )
-                  ],
-                 )
-              ),
-            Padding(
-                padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                child: RaisedButton(
-                        child: Text('Done', textScaleFactor: 1.5),
-                        onPressed: () {
-                          dialog(context);
-                        },
-                      ),   
-                ),
-          ],
-        ),
-      )),
-    );
+                ],
+              )),
+          RaisedButton(
+            child: Text('Done', textScaleFactor: 1.5),
+            onPressed: () {
+              dialog(context);
+            },
+          ),
+        ],
+      ),
+    ));
   }
 
   void dialog(BuildContext context) {
