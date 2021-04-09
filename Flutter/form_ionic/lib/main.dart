@@ -23,12 +23,10 @@ class _SIformstate extends State<SIform> {
         children: [
           TextField(
             decoration: InputDecoration(
-                prefixIcon: Padding(
-                    padding: EdgeInsets.only(right: 11.0, top: 11.0),
-                    child: Text(
+                prefixIcon: Text(
                       'Username',
                       style: TextStyle(color: Colors.white, fontSize: 20.0),
-                    )),
+                    ),
                 enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey))),
             style: TextStyle(color: Colors.white, fontSize: 20.0),
@@ -36,12 +34,10 @@ class _SIformstate extends State<SIform> {
           ),
           TextField(
             decoration: InputDecoration(
-                prefixIcon: Padding(
-                    padding: EdgeInsets.only(right: 52.0, top: 11.0),
-                    child: Text(
+                prefixIcon:  Text(
                       'Email',
                       style: TextStyle(color: Colors.white, fontSize: 20.0),
-                    )),
+                    ),
                 enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey))),
             style: TextStyle(color: Colors.white, fontSize: 20.0),
@@ -49,12 +45,10 @@ class _SIformstate extends State<SIform> {
           TextField(
             obscureText: true,
             decoration: InputDecoration(
-                prefixIcon: Padding(
-                    padding: EdgeInsets.only(right: 16.0, top: 11.0),
-                    child: Text(
+                prefixIcon: Text(
                       'Password',
                       style: TextStyle(color: Colors.white, fontSize: 20.0),
-                    )),
+                    ),
                 enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey))),
             style: TextStyle(color: Colors.white, fontSize: 20.0),
