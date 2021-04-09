@@ -88,10 +88,7 @@ class _SIformstate extends State<SIform> {
                   )
                 ],
               )),
-          Row(
-            children: [
-              Expanded(
-                child: RaisedButton(
+            RaisedButton(
                   child: Text('Done', textScaleFactor: 1.5),
                   onPressed: () {
                     setState(() {
@@ -99,9 +96,7 @@ class _SIformstate extends State<SIform> {
                     });
                   },
                 ),
-              ),
-            ],
-          ),
+              
           Text(
             this.displaytext,
             textScaleFactor: 1.5,
