@@ -4,7 +4,8 @@ import { Alert, Button, StyleSheet, Text, View } from 'react-native';
 
 function do_alert()
 {
- Alert.alert('Button Clicked!')
+ Alert.alert('Button Clicked!');
+ alert('Button Clicked!');
 }
 export default class  App extends react.Component {
  render(){
@@ -25,12 +26,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#000000',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   Button :{
-    marginBottom:600,
-    marginRight:300,
     width:100
   }
 });

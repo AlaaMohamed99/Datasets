@@ -1,52 +1,45 @@
 import * as React from 'react';
+import {useState, state} from 'react';
 import { Button, TextInput, Text, View, Alert, TouchableOpacity} from 'react-native';
 import styles from './styles.js'
-export default class App extends React.Component{
-  state = {
-      FirstNumber: 0,
-      SecondNumber:0,
-      fullWord:""
-    };
 
-  buttonClickListner = e => {
-    var ans = Number(this.state.FirstNumber)+Number(this.state.SecondNumber);
-    this.setState({fullWord:"Answer is : "+ans.toString(10)})
-  };
 
-  render() {
-    const { name, showName } = this.state;
+
+
+
+export default function App()
+{
+  const [text1, setText1] = React.useState(false);
+  const [text2, setText2] = React.useState(false);
+  const [text3, setText3] = React.useState(false);
+  const onPress= (a,b,text3)=>
+{
+    setText3(Number(a)+Number(b));
+}
     return (
       
         <View style={styles.container}>
             <TextInput
-            title="First number"
+            label="First number"
             style={styles.textin}
-             onChangeText={val => {
-              this.setState({
-                FirstNumber: val
-              });
-            }}
+            onChangeText={(text1=> setText1(text1))}
             />
              <TextInput
             label="Second number"
             style={styles.textin}
-             onChangeText={val => {
-              this.setState({
-                SecondNumber: val
-              });
-            }}
+            onChangeText={text2=> setText2(text2)}
             />
             <View style={styles.Button}>
           <Button
-            onPress={this.buttonClickListner}
+            onPress={()=>onPress(text1,text2,text3)}
             title="Calculate"
             color="#000000"
           />
-          <Text style={styles.textout}>{this.state.fullWord}</Text>
+          <Text style={styles.textout}>{text3}</Text>
         </View>
         </View> 
       );
-  }
+  
 }
 
 

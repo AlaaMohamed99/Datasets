@@ -1,44 +1,39 @@
 import * as React from 'react';
+import useState from 'react';
 import { Button, TextInput, Text, View, Alert, StyleSheet} from 'react-native';
 
-export default class App extends React.Component{
-  state = {
-      Age: "",
-      x : new Date().getFullYear().toString(),
-      name: 0,
-      fullWord:""
-    };
+export default function App()
+{
+ const [Age, setAge] = React.useState("");
+ const [date, setDate] = React.useState("");
 
-  buttonClickListner = e => {
-    var ans = Number(this.state.x)-this.state.name;
-    this.setState({Age:ans.toString(10)});
-    this.setState({fullWord:"your age is "+this.state.Age+" years"})
-  };
+ const buttonClickListner = (date)=> 
+ {
+    let year = new Date();
+    let ans = Number(year.getFullYear())-Number(date);
+    setAge("your age is "+ans+" years");
+    
+ }
 
-  render() {
-    const { name, showName } = this.state;
     return (
         <View style={styles.container}>
-           <View><Text>Age Calc.</Text></View>
+           <View>
+             <Text>Age Calc.</Text>
+            </View>
             <TextInput
             style={styles.textin}
-             onChangeText={val => {
-              this.setState({
-                name: val
-              });
-            }}
+             onChangeText={Date =>setDate(Date)}
             />
-            <Text style={styles.textout}>{this.state.fullWord}</Text>
+            <Text style={styles.textout}>{Age}</Text>
             <View style={styles.Button}>
           <Button
-            onPress={this.buttonClickListner}
+            onPress={()=>buttonClickListner(date)}
             title="Get Age"
             color="#800080"
           />
         </View>
         </View> 
       );
-  }
 }
 const styles = StyleSheet.create({
   container:{
@@ -47,10 +42,9 @@ const styles = StyleSheet.create({
   },
   Button: {
     marginTop: 10,
-    marginRight:100,
-    marginLeft:130,
+    alignSelf:'center',
     padding: 25,
-    width: 150,
+    width: '100%',
     height:100
   },
   textin:{
