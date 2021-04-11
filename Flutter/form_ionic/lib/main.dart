@@ -17,53 +17,44 @@ class SIform extends StatefulWidget {
 class _SIformstate extends State<SIform> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        color: Colors.black,
-          child: ListView(
-          children: [
-                TextField(
-                  style: TextStyle(color: Colors.white, fontSize: 20.0),
-                  decoration: InputDecoration(
-                      prefixIcon: Padding (
-                        padding: EdgeInsets.only(right: 11.0, top: 11.0),
-                        child :Text('Username', style: TextStyle(color: Colors.white, fontSize: 20.0),)
-                        ),
-                      enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey)
-                    )
+    return Container(
+      color: Colors.black,
+      child: Column(
+        children: [
+          TextField(
+            decoration: InputDecoration(
+                prefixIcon: Text(
+                      'Username',
+                      style: TextStyle(color: Colors.white, fontSize: 20.0),
                     ),
-                ),
-                TextField(
-                  style: TextStyle(color: Colors.white, fontSize: 20.0),
-                  decoration: InputDecoration(
-                      prefixIcon: Padding (
-                        padding: EdgeInsets.only(right: 52.0, top: 11.0),
-                        child :Text('Email', style: TextStyle(color: Colors.white, fontSize: 20.0),)
-                        ),           
-                      enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey)
-                    )
+                enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey))),
+            style: TextStyle(color: Colors.white, fontSize: 20.0),
+            //lw 7sl moshkla 7oti l style b3d l decoration
+          ),
+          TextField(
+            decoration: InputDecoration(
+                prefixIcon:  Text(
+                      'Email',
+                      style: TextStyle(color: Colors.white, fontSize: 20.0),
                     ),
-                ),
-                TextField(
-                  style: TextStyle(color: Colors.white, fontSize: 20.0),
-                  obscureText: true,
-                  decoration: InputDecoration(
-                      prefixIcon: Padding (
-                        padding: EdgeInsets.only(right: 16.0, top: 11.0),
-                        child :Text('Password', style: TextStyle(color: Colors.white, fontSize: 20.0),)
-                        ),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey)
-                    )
+                enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey))),
+            style: TextStyle(color: Colors.white, fontSize: 20.0),
+          ),
+          TextField(
+            obscureText: true,
+            decoration: InputDecoration(
+                prefixIcon: Text(
+                      'Password',
+                      style: TextStyle(color: Colors.white, fontSize: 20.0),
                     ),
-                  
-                ),
-          ],
-        ),
+                enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey))),
+            style: TextStyle(color: Colors.white, fontSize: 20.0),
+          ),
+        ],
       ),
     );
   }
-
 }

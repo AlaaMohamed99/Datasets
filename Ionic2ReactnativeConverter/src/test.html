@@ -1,16 +1,32 @@
-<ion-content id="color:'green';font:50px;font-weight:bold" >
-<ion-text disabled >
-    asdasd    lj
-</ion-text>
 
-<div> Text h1</div>
-    <navbar style="font-size:red;"> navbar</navbar>
-    <ion-label> label</ion-label>
+    <ion-item> item1</ion-item>
 
-    <ion-button>asd </ion-button>
 
-    <ion-input>ss</ion-input>
+    <ion-content >
+        <ion-item class="firstnumber" lines="none">
+            <ion-label  position="floating"> Enter your name</ion-label>
+            <ion-input type="text" > </ion-input>
+        </ion-item>
+        <ion-item class="firstnumber" lines="none">
+            <ion-label  position="floating"> Password</ion-label>
+            <ion-input type="password"> </ion-input>
+        </ion-item>
 
-</ion-content>
+        <div style="width:80% ;margin:0 auto;" >
+            <div class="checkbox">
+                <ion-checkbox  slot="start"> </ion-checkbox>
+                <ion-label > Male</ion-label>
+            </div>
+            <div  class="checkbox">
+                <ion-checkbox  slot="start"> </ion-checkbox>
+                <ion-label > Female</ion-label>
+            </div>
+        </div>
+        <ion-button  expand="block" style="--background:lightgray;color:black" >Done</ion-button>
 
-<ion-footer> footer</ion-footer>
+    </ion-content>
+
+    <ion-item>
+    <ion-label> test item</ion-label>
+
+</ion-item>

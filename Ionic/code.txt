@@ -1,13 +1,13 @@
 
-
 <!-- sample1 -->
 
-<!-- <ion-text  style="margin:0px">Hello,world</ion-text> -->
+<!-- <ion-text  >Hello,world</ion-text> -->
+
 
 
 <!-- sample2 -->
 
-
+<!-- 
 <ion-list style="background-color: transparent;" >
     <ion-list-header > Shopping List </ion-list-header>
    <ul style="margin: 0px;">
@@ -16,18 +16,18 @@
     <li>Oculus</li>
   </ul>
 
-</ion-list> 
+</ion-list>  -->
 
 
 <!-- sample3 -->
 
 
-<div style="width:80%;
+<!-- <div style="width:80%;
 margin:0 auto;
-margin-top:50px;" >
+margin-top:50px;" class="c" >
 
 
-<ion-item style="background-color: transparent" >
+<ion-item style="background-color: transparent" class="i1" >
   <ion-label position='fixed' >Username</ion-label>
   <ion-input type="text"></ion-input>
 </ion-item>
@@ -42,8 +42,8 @@ margin-top:50px;" >
   <ion-input type="password"></ion-input>
 </ion-item>
 
-</div>
- 
+</div> -->
+
 
  <!-- sample4 -->
 
@@ -52,31 +52,33 @@ margin-top:50px;" >
 
 <!-- sample5 -->
 
+<!-- 
 
+<ion-text style="height: 150%;display: flex; justify-content: center;align-items: center;"> 
 
-<ion-text 
-style="height: 150%;display: flex; justify-content: center;
-align-items: center;"> 
+Try editing me! 🎉
 
-Try editing me! 🎉</ion-text> 
+</ion-text> 
+ -->
 
+<!-- 
+<ion-header  >
+  <ion-toolbar  >
+    <ion-title [style.color]="orange"  >
+      App2    {{test_interpolatioon }}
+      <h1 > H1 </h1>  
+    </ion-title >
+  </ion-toolbar >
+</ion-header> -->
 
+<!-- <ion-content>
+  <ion-text>
+    Text
+  </ion-text>
+  <p>Text</p>
+</ion-content> -->
 
-
-
-
-
-<ion-header >
-  <ion-toolbar style="--background:#224bd1;">
-    <ion-title >
-      App2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-
-
-<!-- app2 flutter  radiobutton-->
+<!-- app2 flutter radiobutton -->
 
 <!-- <ion-content >
   <ion-item class="firstnumber" lines="none">
@@ -90,12 +92,12 @@ Try editing me! 🎉</ion-text>
   
   <div style="width:80% ;margin:0 auto;" >
     <div class="checkbox">
-      <ion-checkbox style ="--border-radius:50%" slot="start"> </ion-checkbox>
-      <ion-label class="ion-margin-horizontal"> Male</ion-label>
+      <ion-checkbox  slot="start"> </ion-checkbox>
+      <ion-label > Male</ion-label>
       </div>
       <div  class="checkbox">
-      <ion-checkbox  style ="--border-radius:50%" slot="start"> </ion-checkbox> 
-      <ion-label class="ion-margin-horizontal"> Female</ion-label>
+      <ion-checkbox  slot="start"> </ion-checkbox> 
+      <ion-label > Female</ion-label>
     </div>
   </div>
   <ion-button  expand="block" style="--background:lightgray;color:black" >Done</ion-button>
@@ -106,24 +108,116 @@ Try editing me! 🎉</ion-text>
 
 <!-- app3 Kotlin (button_click change background) -->
 
-<ion-content  [style.--background]="c_class">
+<!-- <ion-content  [style.--background]="c_class">
 
-  <div class="center" >   
-    <ion-button (click)="red()"  style="--background:red" > Red</ion-button> 
-    <ion-button (click)="yellow()"style="--background:yellow" > Yellow</ion-button> 
-    <ion-button (click)="black()" style="--background:black"> Black</ion-button> 
-    <ion-button [ngClass]="currency" (click)="green()" style="--background:green"> Green &copy;</ion-button> 
+  <div class="middle"  >   
+    <ion-button (click)="red()"  class="block" style="--background:red" > Red</ion-button> 
+    <ion-button (click)="yellow()" class="block" style="--background:yellow" > Yellow</ion-button> 
+    <ion-button (click)="black()" class="block" style="--background:black"> Black</ion-button> 
+    <ion-button [ngClass]='currency' class="block"  (click)="green()" > Green &copy;</ion-button> 
   </div>
 
-</ion-content> 
+</ion-content>  -->
+
+
+
+<!-- currency app -->
+
+<!-- 
+<ion-header>
+   Heading 
+</ion-header>
+
+<ion-content >
+  <div class="box" style="background-color:rgb(52, 168, 207);">
+      <ion-input style="--background:white;text-align:none;--border-radius:5px;color:black;width:70%;height:40px;margin: auto; " [(ngModel)]="currency" type="number"> </ion-input>
+      <h2 style="color:black;opacity: .5;">  {{currency}} USD equal {{ currency_EGP }} EGP </h2>
+      <ion-button  style="--background:#224bd1;" (click)="convert()"> CONVERT TO EGP</ion-button>
+  </div>
+</ion-content> -->
 
 
 
 
 
 
+ <!-- <ion-content>
+  <ion-button color="red" > Get age</ion-button>
+  <ion-button > Get age</ion-button>
+  
+  <ion-text style="background-color: #03A9F4;"> Your Age is 0 years </ion-text>
+  
+  <ion-input type="number"> </ion-input>
+  <ion-item>
+    <ion-range color="danger" pin="true"></ion-range>
+  </ion-item>  </ion-content> -->
+
+<!--  -->
+<!--   
+<ion-list>
+  <ion-item>
+    <ion-label>Pokémon Yellow</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Mega Man X</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>The Legend of Zelda</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Pac-Man</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Super Mario World</ion-label>
+  </ion-item>
+</ion-list>
+ -->
+
+  <!-- <ion-content>
+    <ion-item>
+      <ion-text> just a text</ion-text>
+    </ion-item>
+    <ion-button> Button 1</ion-button>
+  </ion-content> -->
 
 
 
+  <!-- <ion-list>
+    <ion-item>
+      <ion-range color="danger" pin="true"></ion-range>
+    </ion-item>
+  
+    <ion-item>
+      <ion-range min="-300" max="200" color="secondary">
+        <ion-label slot="start">-200</ion-label>
+        <ion-label slot="end">200</ion-label>
+      </ion-range>
+    </ion-item>
+    
+    <ion-item>
+      <ion-range min="20" max="80" step="2">
+        <ion-icon size="small" slot="start" name="sunny"></ion-icon>
+        <ion-icon slot="end" name="sunny"></ion-icon>
+      </ion-range>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Floating Label</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+
+    <ion-label> label</ion-label>
+    <ion-input class="input1"></ion-input>
+
+  </ion-list> -->
+
+  
+  <!-- <ion-content>
+    <div class="container">
+    <ion-input></ion-input>
+    <ion-text> Modulus </ion-text>
+    <ion-input></ion-input>
+  </div>
+</ion-content> -->
 
 

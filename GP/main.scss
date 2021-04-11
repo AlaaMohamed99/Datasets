@@ -1,0 +1,36 @@
+.appbar1{
+--background: #3880ff;
+color:white;
+}
+ion-content{
+}
+.div1{
+display: flex;
+flex-direction: column;
+align-items: center;
+padding:10.0px;
+}
+.item1{
+--background:transparent;
+padding-top:5.0px;
+padding-bottom:5.0px;
+border: 1px solid grey;
+margin: 5px auto;
+width: 97%;
+border-radius:5.0px;
+}
+.item2{
+padding-top:5.0px;
+padding-bottom:5.0px;
+--background:white;
+border: 1px solid grey;
+margin: 5px auto;
+width: 97%;
+border-radius:5.0px;
+}
+.button1{
+padding-top:5.0px;
+padding-bottom:5.0px;
+color: black;
+--background:lightgrey;
+}

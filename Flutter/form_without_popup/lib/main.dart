@@ -19,57 +19,40 @@ class _SIformstate extends State<SIform> {
   String displaytext = "";
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-          child: Padding(
-        padding: EdgeInsets.all(10.0),
-        child: ListView(
-          children: [
-            Padding(
-                padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                      errorStyle:
-                          TextStyle(color: Colors.yellowAccent, fontSize: 15.0),
-                      labelText: 'Enter your name',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0))),
-                )),
-            Padding(
-                padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                      errorStyle:
-                          TextStyle(color: Colors.yellowAccent, fontSize: 15.0),
-                      fillColor: Colors.white,
-                      labelText: 'Password',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0))),
-                )),
-            Padding(
-                padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: RaisedButton(
-                        child: Text('Done', textScaleFactor: 1.5),
-                        onPressed: () {
-                          setState(() {
-                            display();
-                          });
-                        },
-                      ),
+    return Container(
+        child: Padding(
+      padding: EdgeInsets.all(10.0),
+      child: Column(
+        children: [
+          Padding(
+              padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
+              child: TextField(
+                decoration: InputDecoration(labelText: 'Enter your name', border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0))),
+              )),
+          Padding(
+              padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
+              child: TextField(
+                decoration: InputDecoration(labelText: 'Password', border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0))),
+              )),
+          Padding(
+              padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
+              child: RaisedButton(
+                      child: Text('Done', textScaleFactor: 1.5),
+                      onPressed: () {
+                        setState(() {
+                        display();
+                            });
+                      },
                     ),
-                  ],
-                )),
-            Text(
+                 
+            ),
+          
+                Text(
               this.displaytext,
               textScaleFactor: 1.5,
             )
-          ],
-        ),
-      )),
-    );
+            
+        ])));
   }
 
   String display() {

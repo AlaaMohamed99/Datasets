@@ -1,6 +1,6 @@
 lexer grammar TypeScriptLexer;
 
-channels { ERROR }
+//channels { ERROR }
 
 options {
     superClass=TypeScriptLexerBase;
@@ -190,7 +190,7 @@ LineTerminator:                 [\r\n\u2028\u2029] -> channel(HIDDEN);
 
 HtmlComment:                    '<!--' .*? '-->' -> channel(HIDDEN);
 CDataComment:                   '<![CDATA[' .*? ']]>' -> channel(HIDDEN);
-UnexpectedCharacter:            . -> channel(ERROR);
+//UnexpectedCharacter:            . -> channel(ERROR);
 
 // Fragment rules
 

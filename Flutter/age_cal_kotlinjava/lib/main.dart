@@ -31,9 +31,8 @@ class Converter extends State<ButtonClick> {
         child: Container(
             margin: EdgeInsets.only(top: 60.0),
             child: Column(children: [
-              Center(
-                  child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25.0),
+              Padding(
+                padding: EdgeInsets.only(left: 25.0, right: 25.0),
                 child: TextField(
                   keyboardType: TextInputType.number,
                   controller: extractnumber,
@@ -43,14 +42,12 @@ class Converter extends State<ButtonClick> {
                     fillColor: Colors.white,
                   ),
                 ),
-              )),
-              Center(
-                  child: Text(
+              ),
+              Text(
                 this.displaytext,
                 style: TextStyle(fontSize: 24.0),
-              )),
-              Center(
-                  child: RaisedButton(
+              ),
+              RaisedButton(
                       color: Colors.deepPurple,
                       child: Text(
                         "GET AGE",
@@ -60,7 +57,7 @@ class Converter extends State<ButtonClick> {
                         setState(() {
                           display();
                         }); //action is written here
-                      }))
+                      })
             ])));
   }
 
@@ -69,3 +66,4 @@ class Converter extends State<ButtonClick> {
     this.displaytext = "your age is $output years";
   }
 }
+

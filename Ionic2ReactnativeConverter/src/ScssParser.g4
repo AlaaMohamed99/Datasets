@@ -29,6 +29,7 @@
 parser grammar ScssParser;
 
 options { tokenVocab=ScssLexer ; }
+/*asd*/
 
 stylesheet
 	: statement*
@@ -47,7 +48,6 @@ statement
   | whileDeclaration
   | eachDeclaration
   ;
-
 
 
 //Params to mixins, includes, etc

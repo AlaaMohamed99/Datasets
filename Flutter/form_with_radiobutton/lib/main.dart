@@ -22,97 +22,91 @@ class _SIformstate extends State<SIform> {
   genderGroup gendergroup = genderGroup.Male;
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-          child: Padding(
-        padding: EdgeInsets.all(10.0),
-        child: ListView(
-          children: [
-            Padding(
-                padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                child: TextField(
-                  
-                  decoration: InputDecoration(
-                      errorStyle:
-                          TextStyle(color: Colors.yellowAccent, fontSize: 15.0),
-                      labelText: 'Enter your name',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0))),
-                )),
-            Padding(
-                padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                      errorStyle:
-                          TextStyle(color: Colors.yellowAccent, fontSize: 15.0),
-                      fillColor: Colors.white,
-                      labelText: 'Password',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0))),
-                )),
-            Padding(
-                padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Row(
-                      children: [
-                          Radio(
-                          value: genderGroup.Male,
-                          groupValue: gendergroup,
-                          onChanged: (genderGroup gender) {
-                            setState(() {
-                              gendergroup = gender;
-                            });
-                          },
-                        ),
-                        Text("Male", textScaleFactor: 1,),]
-                      ),
-                    ),
-                    Expanded(
-                      child: Row(
-                      children: [
-                          Radio(
-                          value: genderGroup.Female,
-                          groupValue: gendergroup,
-                          onChanged: (genderGroup gender) {
-                            setState(() {
-                              gendergroup = gender;
-                            });
-                          },
-                        ),
-                        Text("Female", textScaleFactor: 1,),]
-                      ),
-                    )
-                  ],
-                )),
-            Padding(
-                padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: RaisedButton(
-                        child: Text('Done', textScaleFactor: 1.5),
-                        onPressed: () {
+    return Container(
+        child: Padding(
+      padding: EdgeInsets.all(10.0),
+      child: Column(
+        children: [
+          Padding(
+              padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
+              child: TextField(
+                decoration: InputDecoration(
+                    errorStyle:
+                        TextStyle(color: Colors.yellowAccent, fontSize: 15.0),
+                    labelText: 'Enter your name',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0))),
+              )),
+          Padding(
+              padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
+              child: TextField(
+                decoration: InputDecoration(
+                    errorStyle:
+                        TextStyle(color: Colors.yellowAccent, fontSize: 15.0),
+                    fillColor: Colors.white,
+                    labelText: 'Password',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0))),
+              )),
+          Padding(
+              padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Row(children: [
+                      Radio(
+                        value: genderGroup.Male,
+                        groupValue: gendergroup,
+                        onChanged: (genderGroup gender) {
                           setState(() {
-                            display();
+                            gendergroup = gender;
                           });
                         },
                       ),
-                    ),
-                  ],
-                )),
-            Text(
-              this.displaytext,
-              textScaleFactor: 1.5,
-            )
-          ],
-        ),
-      )),
-    );
+                      Text(
+                        "Male",
+                        textScaleFactor: 1,
+                      ),
+                    ]),
+                  ),
+                  Expanded(
+                    child: Row(children: [
+                      Radio(
+                        value: genderGroup.Female,
+                        groupValue: gendergroup,
+                        onChanged: (genderGroup gender) {
+                          setState(() {
+                            gendergroup = gender;
+                          });
+                        },
+                      ),
+                      Text(
+                        "Female",
+                        textScaleFactor: 1,
+                      ),
+                    ]),
+                  )
+                ],
+              )),
+            RaisedButton(
+                  child: Text('Done', textScaleFactor: 1.5),
+                  onPressed: () {
+                    setState(() {
+                      display();
+                    });
+                  },
+                ),
+              
+          Text(
+            this.displaytext,
+            textScaleFactor: 1.5,
+          )
+        ],
+      ),
+    ));
   }
 
-  String display(){
-  return this.displaytext = "You've entered data!";
+  String display() {
+    return this.displaytext = "You've entered data!";
   }
 }

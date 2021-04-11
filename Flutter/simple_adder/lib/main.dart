@@ -39,7 +39,7 @@ class _SIformstate extends State<SIform> {
         //margin: EdgeInsets.all(10.0),
         child: Padding(
           padding: EdgeInsets.all(10.0),
-          child: ListView(
+          child: Column(
             children: [
               curimage(),
               Padding(
@@ -79,7 +79,7 @@ class _SIformstate extends State<SIform> {
                           onPressed: () {
                             if (_formkey.currentState.validate()) {
                               setState(() {
-                                this.displaytext = _calculatetotalreturns();
+                                display();
                               });
                             }
                           },
@@ -99,6 +99,9 @@ class _SIformstate extends State<SIform> {
         ));
   }
 
+void display(){
+this.displaytext = _calculatetotalreturns();
+}
   //instead of creating a class for image widget
   Widget curimage() {
     AssetImage curr = AssetImage('images/cal.png');
