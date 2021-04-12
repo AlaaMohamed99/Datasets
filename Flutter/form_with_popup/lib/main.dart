@@ -30,7 +30,7 @@ class _SIformstate extends State<SIform> {
                     labelText: 'Enter your name',
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5.0))
-                    
+
               )
               )
               ),
@@ -49,7 +49,9 @@ class _SIformstate extends State<SIform> {
               child: RaisedButton(
                       child: Text('Done', textScaleFactor: 1.5),
                       onPressed: () {
+                          setState((){
                         dialog(context);
+                      });
                       },
                     ),
                   ),
