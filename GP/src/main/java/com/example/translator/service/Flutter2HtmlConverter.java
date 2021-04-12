@@ -729,7 +729,7 @@ public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConv
 		if(ctx.getChild(ctx.getChildCount()-1).getText().equals(")") && !Brackets.isEmpty() && (Brackets.get(Brackets.size()-1).equals("TextField")) && exp.equals("")){
 			try {
 				FileWriter outputfile = new FileWriter(file.getName(), true);
-				outputfile.write("<ion-input type=\""+TextType+"\" > class = \"item" + counterTextfield + "\" > </ion-input>" + "\n");
+				outputfile.write("<ion-input type=\""+TextType+"\" class = \"item" + counterTextfield + "\" > </ion-input>" + "\n");
 				outputfile.close();
 			} catch (IOException e) {
 				e.printStackTrace();
