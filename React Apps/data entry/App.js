@@ -11,7 +11,7 @@ function onPress(name)
 }
 export default function App(){
 
-    const [isSelected1, setSelection1] = useState(false);
+    const [isSelected1 , setSelection1] = useState(false);
     const [isSelected2, setSelection2] = useState(false);
     const [text1, setText1] = React.useState('');
     const [text2, setText2] = React.useState('');
