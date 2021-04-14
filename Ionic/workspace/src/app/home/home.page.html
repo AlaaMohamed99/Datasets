@@ -1,0 +1,298 @@
+
+
+
+<!-- shadow parts  -->
+<!-- <ion-content>
+  <ion-item>
+    <ion-label>label</ion-label>
+    <ion-select placeholder="placeholder">
+      <ion-select-option> car </ion-select-option>
+      <ion-select-option>bike</ion-select-option>
+      <ion-select-option>cycle </ion-select-option>
+    </ion-select>
+</ion-item>
+
+<ion-card>
+  <ion-card-title > Card </ion-card-title>
+</ion-card>
+<ion-range  id="r1"> </ion-range>
+<ion-range  > range2 </ion-range>
+</ion-content> -->
+
+
+
+<!-- app1 flutter adder -->
+
+<!-- 
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-title >
+      Simple Adder
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+    <!-- [(ngmodel)] to catch input and send it to backend -->
+    <!-- poistion floating make the label of input go up when user write -->
+
+<!-- 
+<ion-content>
+  <ion-img  src="../../assets/imgs/cal.png" ></ion-img>
+  <ion-item>
+    <ion-label position="floating"> First Number</ion-label>
+    <ion-input  [(ngModel)]= "inp1" type='number'   > </ion-input>
+  </ion-item> 
+  <ion-item>
+    <ion-label position="floating"> Second Number</ion-label>
+    <ion-input [(ngModel)]= "inp2" type='number'> </ion-input>
+  </ion-item>
+  <ion-button (click)="add()" expand="block"  >Calculate</ion-button>
+  <ion-text >  Answer is : {{res}}</ion-text>
+</ion-content>  -->
+
+
+
+<!-- app2 flutter  radiobutton-->
+
+      <!-- slot start make it at first from left -->
+
+<!-- <ion-contentfcu -->
+
+
+
+<!-- app3 Kotlin (button_click change background) -->
+
+
+<!-- [style.--background] is a way to change background 
+when the value of c_class changes
+-->
+<!-- <ion-header >
+  <ion-toolbar class="toolbar_background">
+    <ion-title class="title" >
+      Change Background
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [style.--background]="c_class" class="content_background">
+  <div class="center" > 
+    <ion-button class="equal_width" (click)="red()"  style="--background:red;"  > Red</ion-button> 
+    <ion-button class="equal_width" (click)="yellow()"style="--background:yellow" > Yellow</ion-button> 
+    <ion-button class="equal_width" (click)="black()" style="--background:black"> Black</ion-button> 
+    <ion-button class="equal_width" (click)="green()" style="--background:green"> Green</ion-button> 
+  </div>
+</ion-content>  -->
+
+
+
+
+<!-- currency app -->
+
+<!-- 
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-title>Currency app</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content_color">
+  <div class="box" >
+      <ion-input class="input" [(ngModel)]="currency" type="number"> </ion-input>
+      <h2 >  {{currency}} USD equal {{ currency_EGP }} EGP </h2>
+      <ion-button class="btn_color"(click)="convert()"> CONVERT TO EGP</ion-button>
+  </div>
+</ion-content> -->
+
+
+
+
+<!-- Modulus app -->
+
+<!-- 
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-title>
+       Modulus app
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content_background">
+  <div class="center">
+      <ion-item class="item" lines="none">
+        <ion-input class="modulus_input" [(ngModel)]="modulus_inp1"></ion-input>
+        <h3 class="text_color">Modulu</h3>
+        <ion-input class="modulus_input"  [(ngModel)]="modulus_inp2"></ion-input>
+      </ion-item>
+     <h3> {{result}}</h3>
+      <ion-button (click)="modulu()" class="modulus_button"> Result</ion-button>
+  </div>
+</ion-content>
+ -->
+
+
+
+
+<!-- Age  APP   -->
+
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-title>
+       Agg Calc.
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content_background">
+    <div class="center" >
+      <!-- ngmodel used to send or recieve data from backend and html -->
+      <ion-input class="age_input" placeholder="Year of Your Birth" [(ngModel)]="year"> </ion-input>
+      <h3>  Your age is {{Age()}} Years</h3>
+      <ion-button> Get Age</ion-button>
+  </div>  
+</ion-content>
+
+
+
+
+<!-- END Age  APP   -->
+
+<!-- <ion-content [fullscreen]="true" class='ion-padding'scroll-events='true' >
+    <ion-button  calss="test_variable_and_properties" expand='block' id='test'
+    href="http://www.google.com" target="_blank" ionFocus> 
+      <ion-icon name ="alarm-outline" slot="end"></ion-icon>
+      second button
+    </ion-button>
+ <ion-button expand="block" (click)="test_button()" > 
+   Button
+ </ion-button>   
+ <ion-button (click)="scrollToBottom()"> scroll-down</ion-button>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title> Screenshoot title is bigger </ion-card-title>
+    <ion-card-subtitle> Screenshot</ion-card-subtitle>
+  </ion-card-header>
+  <img src="../../assets/imgs/Screenshot (117).png" height="100%" width="100%">
+  <ion-card-content> this is image </ion-card-content>
+</ion-card>
+<ion-chip color='primary'>
+  <ion-label> chip 1</ion-label>
+</ion-chip>
+<ion-chip color='primary'>
+  <ion-label> <ion-icon name='person'></ion-icon> chip 2</ion-label>
+</ion-chip>
+<ion-chip color='secondary'>
+  <ion-label> chip 1</ion-label>
+</ion-chip>
+<ion-fab-button color="danger" size='small' (click)="test2()">
+  <ion-icon name='add'></ion-icon >
+</ion-fab-button>
+
+<ion-fab slot='fixed' horizontal='center' vertical='center'>
+    
+  <ion-fab-button>
+      share
+  </ion-fab-button>
+
+    <ion-fab-list side='top'> 
+      <ion-fab-button color='primary'>
+        <ion-icon name='logo-facebook'></ion-icon>
+      </ion-fab-button> 
+    </ion-fab-list >
+
+    <ion-fab-list side='bottom'> 
+      <ion-fab-button>
+        <ion-icon name='logo-instagram'></ion-icon>
+      </ion-fab-button> 
+    </ion-fab-list >
+
+    <ion-fab-list side='start'> 
+      <ion-fab-button >
+        <ion-icon name='logo-twitter'></ion-icon>
+      </ion-fab-button> 
+    </ion-fab-list >
+
+    <ion-fab-list side='end'> 
+      <ion-fab-button color='danger'>
+        <ion-icon name='logo-youtube'></ion-icon>
+      </ion-fab-button> 
+    </ion-fab-list >
+</ion-fab>
+<div style='background-color:red;height:4rem'>
+<ion-item style='--background :blue'>
+  <ion-label> item 1 </ion-label>
+  <ion-icon name='person' slot='end'></ion-icon>
+</ion-item>
+</div>
+<ion-item-sliding>
+  <ion-item>
+    <ion-label> sliding item </ion-label>
+  </ion-item>
+  <ion-item-options side='end'>
+    <ion-item-option (click)="call()" color='danger'>
+      call 
+      <ion-icon name='call'slot='start'></ion-icon>
+    </ion-item-option>
+    <ion-item-option>
+      trash
+      <ion-icon name='trash'slot='start'></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
+
+</ion-item-sliding>
+  <ion-fab-button (click)="scrollToTop()"> TOP</ion-fab-button>
+<ion-input inputmode="numeric"  spellcheck="true" placeholder="text input" type='text'></ion-input>
+
+<ion-item lines='none'>
+  <ion-icon name="person-circle-outline"></ion-icon>
+  <ion-input></ion-input>
+</ion-item>
+
+</ion-content> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- check code for Alaa -->
+
+<!-- <ion-content>
+  <div  class="container">
+  <div  class="InputContainer">
+  <ion-input type="text"  placeholder="Enter Name" >
+  </ion-input>
+  </div>
+  <div  class="InputContainer">
+  <ion-input type="text"    placeholder="Enter Password"  >
+  </ion-input>
+  </div>
+  <div  class="checkboxContainer">
+  <div  class="checkboxContainer">
+  <ion-checkbox  class="checkbox"> check</ion-checkbox>
+  <ion-text  class="buttontext">Male
+  </ion-text>
+  </div>
+  <div  class="checkboxContainer">
+  <ion-checkbox   class="checkbox">
+  </ion-checkbox>
+  <ion-text  class="buttontext">
+  Female
+  </ion-text>
+  </div>
+  </div>
+  <ion-button  class="button" >
+  <ion-text  class="text">
+  Done
+  </ion-text>
+  </ion-button>
+  </div>
+  </ion-content>
+   -->
