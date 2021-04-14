@@ -1,0 +1,17 @@
+.center {
+  height: 100%; // make the div take all height
+  display: flex; // essential to control over the elements
+  flex-direction: column; // the elements displayed vertivally
+  justify-content: center; // horixontally
+  align-items: center; // vertically
+}
+.toolbar_background {
+  --background: rgb(99, 19, 145);
+  color: white;
+}
+.equal_width {
+  width: 20%; // fixed width for all buttons
+}
+.content_background {
+  --background: rgb(238, 88, 18);
+}

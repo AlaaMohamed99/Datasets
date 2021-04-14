@@ -1,0 +1,27 @@
+
+<!-- app1 flutter adder -->
+
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-title >
+      Simple Adder
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-img  src="../../assets/imgs/cal.png" ></ion-img>
+  <ion-item>
+    <!-- [(ngmodel)] to catch input and send it to backend -->
+    <ion-label position="floating"> First Number</ion-label>
+    <ion-input  [(ngModel)]= "inp1" type='number'   > </ion-input>
+  </ion-item> 
+  <ion-item>
+    <!-- poistion floating make the label of input go up when user write -->
+    <ion-label position="floating"> Second Number</ion-label>
+    <ion-input [(ngModel)]= "inp2" type='number'> </ion-input>
+  </ion-item>
+  <ion-button (click)="add()" expand="block"  >Calculate</ion-button>
+  <ion-text >  Answer is : {{res}}</ion-text>
+</ion-content> 

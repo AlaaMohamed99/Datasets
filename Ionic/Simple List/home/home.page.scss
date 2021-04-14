@@ -1,0 +1,168 @@
+// adder
+#container a {
+  text-decoration: none;
+}
+
+.test_class {
+  color: red;
+  // color: var(
+  //   --color-r
+  // ); // will not apply for the ion-text cuz css varuable is only for ion-inputs
+}
+
+/*end adder*/
+
+/*  checkbox */
+// .checkbox {
+//   display: inline-block;
+//   width: 50%;
+// }
+
+/* checkbox */
+
+/* currency  */
+.content_color {
+  --background: rgb(52, 168, 207);
+}
+.box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 50% 0;
+}
+.toolbar {
+  --background: rgb(131, 9, 245);
+  color: white;
+}
+.input {
+  --background: white;
+  color: black;
+  width: 60%;
+}
+.btn_color {
+  --background: rgb(131, 9, 245);
+  width: fit-content;
+}
+
+/* change background color*/
+
+// .center {
+//   height: 100%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+// }
+// .toolbar_background {
+//   --background: rgb(99, 19, 145);
+//   color: white;
+// }
+// .equal_width {
+//   width: 20%;
+// }
+// .content_background {
+//   --background: rgb(238, 88, 18);
+// }
+
+/* change background color*/
+
+// ion-button::part("native") {
+//   display: block;
+// }
+ion-button {
+  --varx: "red"; // css variable
+}
+
+// ion-content{
+//   --padding-top: 5px;
+//   // --background:red;
+
+// }
+
+// ion-input{
+//   --color-r : red;
+// }
+
+// *{
+//   --color-g : green;
+// }
+
+// ion-input{
+//   color:yellow;
+// }
+// ion-item::part(native){
+//   background:yellow;
+// color:blue;
+
+// }
+
+// ion-select::part(icon){
+//   background:green;
+// }
+// ion-item::part(b-test){
+//   background:red;
+// }
+// ion-content::part(background){
+//   background:darkgray;
+// }
+// #r1{
+//   --bar-background-active:blue;
+//   --bar-background:blue;
+
+// }
+// ion-card{
+//   ion-card-title{
+//   color:blue;
+// }
+// }
+
+/*// checkbox*/
+
+// :root{
+// --ion-background-color:#e23737;
+// --ion-font-family:Tahoma;
+
+// }
+// ion-content{
+//   --color:green;
+// }
+// ion-input{
+//   --placeholder-color:white;
+// }
+
+// .ios ion-button{ // if it apple device button color is blue
+//   --background:rgb(17, 0, 255);
+//   --opacity:.5;
+
+// }
+// .md ion-button{  // if it is google (android) device button is purple
+//   --background:rgb(255, 0, 170);
+//   --opacity:.5;
+
+// }
+// ion-toolbar{
+//   --background:transparent;
+// }
+
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/*
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}*/

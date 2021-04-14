@@ -1,0 +1,36 @@
+
+<!-- app2 flutter  radiobutton-->
+
+      <!-- slot start make it at first from left -->
+
+      <ion-content >
+        <ion-item >
+          <ion-label  position="floating"> User Name</ion-label>
+          <ion-input type="text" > </ion-input>
+      </ion-item>
+        <ion-item >
+          <ion-label  position="floating"> Email </ion-label>
+          <ion-input  type="text" > </ion-input>
+      </ion-item>
+      <ion-item >
+          <ion-label  position="floating"> Password</ion-label>
+          <ion-input  type="password"> </ion-input>
+      </ion-item>
+        
+      
+        <div >
+          <ion-item lines="none" class="checkbox">
+            <ion-checkbox value="Male" (ionChange)="change_value($event)"  slot="start"> </ion-checkbox>
+            <ion-label  > Male</ion-label>
+          </ion-item>
+          <ion-item lines="none" class="checkbox">
+            <ion-checkbox value="Female" (ionChange)="change_value($event)" > </ion-checkbox> 
+            <ion-label > Female</ion-label>
+          </ion-item>
+        </div>
+      
+        <ion-button  expand="block"  >Done</ion-button>
+        <!-- {{ }} used to get value of variable from backend -->
+        <ion-text> {{cheked_value}}</ion-text>
+        
+      </ion-content>

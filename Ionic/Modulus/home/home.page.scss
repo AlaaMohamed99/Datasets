@@ -1,0 +1,19 @@
+/* Modulus */
+.content_background {
+  --background: rgb(52, 168, 207);
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.item {
+  --background: rgb(52, 168, 207);
+}
+.modulus_input {
+  border-bottom: 1px black solid; // to make underline below the input
+}
+.text_color {
+  color: orange;
+}

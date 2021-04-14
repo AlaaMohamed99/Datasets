@@ -1,0 +1,23 @@
+
+<!-- Modulus app -->
+
+
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-title>
+       Modulus app
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content_background">
+  <div class="center">
+      <ion-item class="item" lines="none">
+        <ion-input class="modulus_input" [(ngModel)]="modulus_inp1"></ion-input>
+        <h3 class="text_color">Modulu</h3>
+        <ion-input class="modulus_input"  [(ngModel)]="modulus_inp2"></ion-input>
+      </ion-item>
+     <h3> {{result}}</h3>
+      <ion-button (click)="modulu()" class="modulus_button"> Result</ion-button>
+  </div>
+</ion-content>

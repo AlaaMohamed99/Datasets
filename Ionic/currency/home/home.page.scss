@@ -1,0 +1,23 @@
+/* currency  */
+.content_color {
+  --background: rgb(52, 168, 207);
+}
+.box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 50% 0;
+}
+.toolbar {
+  --background: rgb(131, 9, 245);
+  color: white;
+}
+.input {
+  --background: white;
+  color: black;
+  width: 60%;
+}
+.btn_color {
+  --background: rgb(131, 9, 245);
+  width: fit-content;
+}
