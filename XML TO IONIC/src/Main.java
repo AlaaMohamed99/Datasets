@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String [] args) throws IOException {
-        CharStream charStream= CharStreams.fromFileName("./input.xml");
+        CharStream charStream= CharStreams.fromFileName("./activity_main.xml");
         XMLLexer lexer = new XMLLexer(charStream);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         XMLParser parser = new XMLParser(tokens);
