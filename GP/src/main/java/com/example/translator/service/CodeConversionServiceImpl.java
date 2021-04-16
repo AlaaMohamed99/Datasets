@@ -130,8 +130,7 @@ public class CodeConversionServiceImpl implements CodeConversionService  {
 		 
 		 		// xml to ionic part
          else if(inLanguage.equals(Languages.XML.getLanguage()) && outLanguage.equals(Languages.IONIC.getLanguage())) {
-        	 System.out.print("hhasodkj;klsakdj");
-        	 System.out.print("/////////////////////////");
+
         	 
 			 
 			XmlDTO XmlDTO = XmlHandler.prepareFiles(uploadedFileName);
