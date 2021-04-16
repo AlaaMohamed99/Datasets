@@ -16,10 +16,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.translator.dto.Constants;
 import com.example.translator.dto.FlutterDTO;
+import com.example.translator.dto.XmlDTO;
+
 import com.example.translator.dto.IonicDTO;
 import com.example.translator.dto.Languages;
 import com.example.translator.dto.React_NativeDTO;
 import com.example.translator.handlers.FlutterHandler;
+import com.example.translator.handlers.XmlHandler;
+
 import com.example.translator.handlers.IonicHandler;
 import com.example.translator.handlers.React_NativeHandler;
 import com.example.translator.utils.FileUtils;
@@ -124,7 +128,39 @@ public class CodeConversionServiceImpl implements CodeConversionService  {
 			// flutter to ionic parts
 		 
 		 
-		 
+		 		// xml to ionic part
+         else if(inLanguage.equals(Languages.XML.getLanguage()) && outLanguage.equals(Languages.IONIC.getLanguage())) {
+        	 System.out.print("hhasodkj;klsakdj");
+        	 System.out.print("/////////////////////////");
+        	 
+			 
+			XmlDTO XmlDTO = XmlHandler.prepareFiles(uploadedFileName);
+			for (File xmlFile : XmlDTO.getxmlFiles()) {
+				CodeConverter requiredConverter = converters.get(inLanguage + "2" + "Html" + "Converter");
+				
+				requiredConverter.setFileName(xmlFile.getName().split("\\.")[0].split("\\(")[0] + ".html");
+				ParseTree parsetree = requiredConverter
+						.convert(XmlDTO.getFolderPath() + File.separator + xmlFile.getName());
+				ParseTreeWalker walker = new ParseTreeWalker();
+				walker.walk((ParseTreeListener) requiredConverter, parsetree);
+				File generatedFile = requiredConverter.getFile();
+				generateFiles.add(generatedFile);
+
+			 }	 
+			for (File xmlFile : XmlDTO.getxmlFiles()) {
+				CodeConverter requiredConverter = converters.get(inLanguage + "2" + "Scss" + "Converter");
+				
+				requiredConverter.setFileName(xmlFile.getName().split("\\.")[0].split("\\(")[0] + ".scss");
+				ParseTree parsetree = requiredConverter
+						.convert(XmlDTO.getFolderPath() + File.separator + xmlFile.getName());
+				ParseTreeWalker walker = new ParseTreeWalker();
+				walker.walk((ParseTreeListener) requiredConverter, parsetree);
+				File generatedFile = requiredConverter.getFile();
+				generateFiles.add(generatedFile);
+
+			 }	 
+		 }
+
 
 		return generateFiles;
 		
