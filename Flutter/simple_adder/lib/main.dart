@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -22,8 +21,6 @@ class SIform extends StatefulWidget {
 }
 
 class _SIformstate extends State<SIform> {
-  var _formkey = GlobalKey<FormState>();
-
   String name = "";
   String lastname = "";
 
@@ -34,74 +31,57 @@ class _SIformstate extends State<SIform> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-        key: _formkey,
+    return Container(
         //margin: EdgeInsets.all(10.0),
         child: Padding(
-          padding: EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              curimage(),
-              Padding(
-                  padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                  child: TextField(
-                    controller: principalControlled,
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                        errorStyle: TextStyle(
-                            color: Colors.yellowAccent, fontSize: 15.0),
-                        labelText: 'First number',
-                        hintText: 'Write a number',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5.0))),
-                  )),
-              Padding(
-                  padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                  child: TextField(
-                    controller: roiControlled,
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                        errorStyle: TextStyle(
-                            color: Colors.yellowAccent, fontSize: 15.0),
-                        fillColor: Colors.white,
-                        labelText: 'Second number',
-                        hintText: 'Write a number',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5.0))),
-                  )),
-              Padding(
-                  padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: RaisedButton(
-                          child: Text('Calculate', textScaleFactor: 1.5),
-                          onPressed: () {
-                            if (_formkey.currentState.validate()) {
-                              setState(() {
-                                display();
-                              });
-                            }
-                          },
-                        ),
-                      ),
-                    ],
-                  )),
-              Padding(
-                padding: EdgeInsets.all(5.0),
-                child: Text(
-                  this.displaytext,
-                  textScaleFactor: 1.5,
-                ),
-              )
-            ],
+      padding: EdgeInsets.all(10.0),
+      child: Column(
+        children: [
+          curimage(),
+          Padding(
+              padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
+              child: TextField(
+                controller: principalControlled,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(labelText: 'First number', hintText: 'Write a number', border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0))),
+              )),
+          Padding(
+              padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
+              child: TextField(
+                controller: roiControlled,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(fillColor: Colors.white, labelText: 'Second number', hintText: 'Write a number', border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0))),
+              )),
+          Padding(
+            padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
+            child: RaisedButton(
+              child: Text('Calculate', textScaleFactor: 1.5),
+              onPressed: () {
+                setState(() {
+                  display();
+                });
+              },
+            ),
           ),
-        ));
+          Text(
+            this.displaytext,
+            textScaleFactor: 1.5,
+          ),
+        ],
+      ),
+    ));
   }
 
-void display(){
-this.displaytext = _calculatetotalreturns();
-}
+  String display() {
+    double principal = double.parse(principalControlled.text);
+    double roi = double.parse(roiControlled.text);
+
+    double totalamountpaybale = principal + roi;
+
+    String result = "Answer is $totalamountpaybale";
+    this.displaytext = result;
+  }
+
   //instead of creating a class for image widget
   Widget curimage() {
     AssetImage curr = AssetImage('images/cal.png');
@@ -111,15 +91,5 @@ this.displaytext = _calculatetotalreturns();
     return Container(
       child: currentimage,
     );
-  }
-
-  String _calculatetotalreturns() {
-    double principal = double.parse(principalControlled.text);
-    double roi = double.parse(roiControlled.text);
-
-    double totalamountpaybale = principal + roi;
-
-    String result = "Answer is $totalamountpaybale ";
-    return result;
   }
 }
