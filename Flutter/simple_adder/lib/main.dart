@@ -32,10 +32,8 @@ class _SIformstate extends State<SIform> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        //margin: EdgeInsets.all(10.0),
-        child: Padding(
-      padding: EdgeInsets.all(10.0),
-      child: Column(
+        margin: EdgeInsets.all(10.0),
+        child: Column(
         children: [
           curimage(),
           Padding(
@@ -69,7 +67,7 @@ class _SIformstate extends State<SIform> {
           ),
         ],
       ),
-    ));
+    );
   }
 
   String display() {
