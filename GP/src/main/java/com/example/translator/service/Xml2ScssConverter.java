@@ -14,6 +14,7 @@ import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,6 +22,7 @@ import com.example.translator.XMLParserBaseListener;
 import com.example.translator.XMLLexer;
 import com.example.translator.XMLParser;
 
+@Scope("prototype")
 @Component("Xml2ScssConverter")
 public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConverter {
     private File file = new File("activity_main") ;
@@ -735,12 +737,13 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
 
         try {
             FileWriter outputFile2;
-            outputFile2 = new FileWriter(file.getName()+".scss");
+            outputFile2 = new FileWriter(file.getName(),false);
             outputFile2.write(css_output.toString());
             outputFile2.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        css_output.setLength(0);
     }
     @Override
     public void enterElement(XMLParser.ElementContext ctx) {

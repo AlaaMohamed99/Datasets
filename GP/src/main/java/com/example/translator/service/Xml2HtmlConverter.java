@@ -1,6 +1,7 @@
 package com.example.translator.service;
 
 import java.io.File;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,12 +23,13 @@ import com.example.translator.XMLParserBaseListener;
 import com.example.translator.XMLLexer;
 import com.example.translator.XMLParser;
 
+
+@Scope("prototype")
 @Component("Xml2HtmlConverter")
 public class Xml2HtmlConverter extends XMLParserBaseListener implements CodeConverter {
     private File file = new File("activity_main") ;
     private StringBuilder css_output = new StringBuilder();
-    private StringBuilder output = new StringBuilder("<ion-content class=\"main\" >\n");
-
+    private StringBuilder output = new StringBuilder();
 
     @Override
     public void visitTerminal(TerminalNode node) {
@@ -69,6 +72,8 @@ public class Xml2HtmlConverter extends XMLParserBaseListener implements CodeConv
 
     @Override
     public void enterContent(XMLParser.ContentContext ctx) {
+        output.append("<ion-content class=\"main\" >\n");
+
         int numOfElements = ctx.element().size();
 
         String output_after_tag ;
@@ -726,12 +731,13 @@ public class Xml2HtmlConverter extends XMLParserBaseListener implements CodeConv
         output.append("\n\n</ion-content>");
         try {
             FileWriter outputFile;
-            outputFile = new FileWriter(file.getName()+".html");
+            outputFile = new FileWriter(file.getName());
             outputFile.write(output.toString());
             outputFile.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        output.setLength(0);
 
         /*try {
             FileWriter outputFile2;
@@ -741,6 +747,7 @@ public class Xml2HtmlConverter extends XMLParserBaseListener implements CodeConv
         } catch (IOException e) {
             e.printStackTrace();
         }*/
+        
     }
     @Override
     public void enterElement(XMLParser.ElementContext ctx) {
