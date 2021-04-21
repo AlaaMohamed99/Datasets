@@ -954,10 +954,7 @@ public class Html2React_NativeConverter extends HTMLParserBaseListener implement
 	        ParseTree tree = ionic_html_parser.htmlDocument();
 	      
 	      
-	 
-	      //  Ionic2reactConverter mylistner = new Ionic2reactConverter( );
-	       
-	      //  walker.walk(mylistner,tree);
+		       
 			return tree;
 		}
 
