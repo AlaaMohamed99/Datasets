@@ -1,51 +1,63 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, TextInput, Alert } from 'react-native';
+import { StyleSheet, Text, View,TextInput} from 'react-native';
 
-function onPress()
-{
-  Alert.alert("Well Done!\nyou've entered your data successfully");
-  let sentence = "Well Done!\n";
-  alert(sentence.toString()+"you've entered your data successfully");
-}
 export default function App() {
   return (
     <View style={styles.container}>
-      
-     <View style={styles.textinput}>
-     <TextInput placeholder="Enter your name"/>
-     </View>
-     <View style={styles.textinput}>
-     <TextInput placeholder="Password" secureTextEntry={true}/>
-     </View>
-     <TouchableOpacity style={styles.button}
-     onPress={onPress}
-     >
-     <Text style={styles.text}>Done</Text>
-     </TouchableOpacity>
-    </View>
+   <View style={styles.row}>
+    <Text style={styles.Text}>User name</Text>
+    <TextInput
+    style={styles.TextInput}
+    color='white'
+    />
+   </View>
+   <View style={styles.row}>
+    <Text style={styles.Text}>Email</Text>
+    <TextInput
+    style={styles.TextInput}
+    color='white'
+    />
+   </View>
+   <View style={styles.row}>
+    <Text style={styles.Text}  >Password</Text>
+    <TextInput
+    style={styles.TextInput}
+    secureTextEntry={true}
+    color='white'
+    />
+   </View>
+      </View>
   );
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create(
+  {
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'stretch',
+    backgroundColor: 'black',
   },
-  textinput:{
-    borderWidth:0.3,
-    borderRadius:0.8,
-    marginBottom:10,
-    height:30
-  },
-  button:
+  TextInput:
   {
-   backgroundColor:'#a9a9a9'
+    color:'white',
+    marginLeft:'30px',
+    width:'50%'
   },
-  text:
+  row:
   {
-   alignSelf:'center',
-   fontWeight:'bold'
-  }
-});
+    flexDirection:'row',
+    borderColor:'grey',
+    borderBottomWidth:'0.05px',
+    marginBottom:'10px'
+    
+  },
+  Text:
+  {
+    color:'white',
+    borderBottomColor:'white',
+    fontSize:'20px',
+    textShadowColor:'grey'
+    }
+
+}
+);

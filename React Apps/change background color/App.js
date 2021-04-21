@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react';
  
-import { StyleSheet, View, Button, Text} from 'react-native';
- 
+import { StyleSheet, View, Button, Text, SafeAreaView} from 'react-native';
+ import {Appbar} from 'react-native-paper';
 export default class Mynewproject extends Component {
  
   constructor(){
@@ -10,19 +10,16 @@ export default class Mynewproject extends Component {
     super();
  
     this.state={
- 
+
       //default padding.
       BackgroundColour : '#fff',
- 
+
     }
   }
  
   red=()=>{
- 
     this.setState({
- 
       BackgroundColour : '#ff0000',
- 
     })
  
   }
@@ -54,33 +51,46 @@ export default class Mynewproject extends Component {
     })
  
   }
- render() {
+ render() 
+ {
  
    return (
- 
-      <View style={[styles.MainContainer, {backgroundColor: this.state.BackgroundColour}]}>
-
-        <Button title='Red' color='red' onPress={this.red} />
-        <Button title='Yellow' color='yellow' onPress={this.yellow} />
-        <Button title='Black' color='black' onPress={this.black} />
-        <Button title='Green' color='green' onPress={this.green} />
-      </View>
- 
-           
+     <View style={[styles.container, {backgroundColor: this.state.BackgroundColour}]}>
+       <Appbar style={styles.AppBar}>
+         <Text style={styles.Text}>
+           Change BG Color
+         </Text>
+       </Appbar>
+      <View style={styles.container} style= {backgroundColor= this.state.BackgroundColour}>
+        <View>
+        <Button  title='Red' color='red' onPress={this.red} />
+        <Button  title='Yellow' color='yellow' onPress={this.yellow} />
+        <Button  title='Black' color='black' onPress={this.black} />
+        <Button  title='Green' color='green' onPress={this.green} />
+        </View>
+      </View> 
+      </View>     
    );
  }
 }
  
 const styles = StyleSheet.create({
- 
-  MainContainer :{
-      
+ Text:
+ {
+  fontWeight:'bold',
+  color:'white'
+ },
+  AppBar:
+  {
+   width:'100%'
+  },
+  container :{
       flex:1,
-      flexDirection:'row',
+      flexDirection:'column',
       justifyContent: 'center',
       alignItems: 'center',
       padding: 10,
-  
+
   },
  
   TextStyle:{

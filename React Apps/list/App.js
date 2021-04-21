@@ -27,14 +27,15 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: 'black',
+    color:'white',
     flexDirection:'column'
   },
   text:
   {
     color:'white',
     fontWeight:'normal',
-    fontSize:20
+    fontSize:'20px'
   },
   li:{
    marginTop:'12px',
