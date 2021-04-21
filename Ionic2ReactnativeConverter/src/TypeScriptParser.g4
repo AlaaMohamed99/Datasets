@@ -38,7 +38,7 @@ options {
 // SupportSyntax
 
 initializer
-    : '=' singleExpression
+    :  singleExpression
     ;
 
 bindingPattern

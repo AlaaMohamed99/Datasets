@@ -67,8 +67,8 @@ propertybinding:OPEN_SQUARE_PARKET   Property CLOSE_SQUARE_PARKET TAG_EQUALS ATT
 twowaybining: Two_way_binding_open Property  Two_way_binding_close  TAG_EQUALS ATTVALUE_VALUE ;
 
 htmlContent
-    : htmlChardata? ((htmlElement | CDATA | htmlComment) htmlChardata?)*
-    |interpolation*
+    : htmlChardata? ((htmlElement | CDATA | htmlComment | interpolation) htmlChardata?)*
+//    |interpolation*
     ;
 
 htmlAttribute

@@ -1,4 +1,4 @@
-// Generated from E:/antler-project/src\HTMLParser.g4 by ANTLR 4.9
+// Generated from E:/antlr_project/src\HTMLParser.g4 by ANTLR 4.9.1
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;

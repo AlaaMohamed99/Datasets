@@ -8,34 +8,8 @@ import java.util.Map;
 
 public class Scss2ReactnativeConverter extends ScssParserBaseListener {
 
-    Map elements ;
 
     Scss2ReactnativeConverter() {
-        elements =new HashMap<String,String>();
-        elements.put("ion-text","Text");
-        elements.put("ion-list-header","h2");
-        elements.put("ion-content","View");
-        elements.put("h1","h1");
-        elements.put("h2","h2");
-        elements.put("h3","h3");
-        elements.put("h4","h4");
-        elements.put("h5","h5");
-        elements.put("h6","h6");
-        elements.put("ion-header","View");
-        elements.put("ion-footer","View");
-        elements.put("ion-toolbar","View");
-        elements.put("ion-range","slider");
-        elements.put("ion-label","Text");
-        elements.put("div","View");
-        elements.put("ion-item","View");
-        elements.put("p","Text");
-        elements.put("ion-title","Text");
-        elements.put("ion-img","Image");
-        elements.put("ion-list","Flatlist");
-        elements.put("ion-button","Button");
-        elements.put("ion-icon","Icon");
-        elements.put("ion-input","Input");
-
 
         File file = new File("ionic2react.js");
         try {
@@ -107,9 +81,11 @@ public class Scss2ReactnativeConverter extends ScssParserBaseListener {
             selector=selector.replace(".","");
             selector=selector.replace("#","");
 
-            if (elements.containsKey(selector)){
-                selector = (String) elements.get(selector);
+            if(selector.substring(2).contains("-")){
+                selector=selector.replace("-","_");
             }
+
+
             try {
                 FileWriter outputfile = new FileWriter("ionic2react.js",true);
                 outputfile.write(selector + ":" +"{\n");
@@ -143,20 +119,21 @@ public class Scss2ReactnativeConverter extends ScssParserBaseListener {
                 property = css_variable.replace("--","");
             }
             else {
-
                 property = ctx.identifier().getText();
             }
-
-
-
             /* this part only for the property  */
-
             if (property.substring(3).contains("-")) {
                 property = handleProperty(property) ;
                 System.out.println("c"+property);
+            }if (property.substring(3).contains("-")) {
+                property = handleProperty(property) ;
             }
             else {
                 property =property;
+            }
+            /* property = background should be backgroundColor*/
+            if(property.equals("background")){
+                property="backgroundColor";
             }
             try {
                 FileWriter outputfile = new FileWriter("ionic2react.js",true);
@@ -165,49 +142,73 @@ public class Scss2ReactnativeConverter extends ScssParserBaseListener {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-            /* this part for the property values */
-            property_value = ctx.values().commandStatement().get(0).expression().get(0).getText();
-            property_value = "'" + property_value + "'";
-            String un="";
-            if(ctx.values().commandStatement().size()==1){
-                ScssParser.MeasurementContext unit = ctx.values().commandStatement().get(0).expression().get(0).measurement();
-                if(isNullOrEmpty(unit)) {
-                }
-                //
-                else {
-                    property_value = ctx.values().commandStatement().get(0).expression().get(0).measurement().Number().getText();
-
-                }
-
-                try {
-                    FileWriter outputfile = new FileWriter("ionic2react.js",true);
-                    outputfile.write(property_value);
-                    outputfile.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            System.out.println(property_value);
-        }
     }
-        @Override public void exitProperty(ScssParser.PropertyContext ctx) {
-            try {
-                FileWriter outputfile = new FileWriter("ionic2react.js",true);
-                outputfile.write(",\n");
-                outputfile.close();
-            } catch (Exception e) {
-                e.printStackTrace();
+
+
+    @Override public void enterExpression(ScssParser.ExpressionContext ctx) {
+        String property_value ="";
+        String commandstatmentcontent = ctx.getText();
+
+        String un="";
+
+        /* identifiers */
+        if(ctx.identifier() !=null && ctx.measurement()==null ){
+            property_value = ctx.identifier().getText();
+            property_value = "'" + property_value + "'";
+        }
+
+        /*Handle vh and vw */
+         if( commandstatmentcontent.contains("vh")|| commandstatmentcontent.contains("vw")){
+            property_value = ctx.getText();
+            String  vh_vw =ctx.identifier().getText();
+            property_value = "'"+property_value+vh_vw+"'";
+
+        }
+        /* #4546 ==> hashes*/
+         if(ctx.StringLiteral() != null){
+            property_value = ctx.StringLiteral().getText();
+        }
+        /* rgb()*/
+         if (commandstatmentcontent.contains("rgb")){
+            property_value = "'"+ctx.getText()+"'";
+
+        }
+        /* px*/
+         if(ctx.measurement() !=null && ctx.measurement().Unit()!=null) {
+            property_value = ctx.measurement().Number().getText()+" ";
+            /* handle percentage sign*/
+            if( ctx.measurement().Unit() !=null
+                    && ctx.measurement().Unit().getText().equals("%")  ){
+                String percent = ctx.measurement().Unit().getText();
+                property_value = "'"+property_value.trim()+percent+"'";
             }
         }
 
-    @Override public void enterValues(ScssParser.ValuesContext ctx) {
-        if(ctx.COMMA().isEmpty()){
-
+        try {
+            FileWriter outputfile = new FileWriter("ionic2react.js",true);
+            outputfile.write(property_value);
+            outputfile.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        else{
 
+
+    }
+
+
+    @Override public void exitExpression(ScssParser.ExpressionContext ctx) { }
+    @Override public void exitCommandStatement(ScssParser.CommandStatementContext ctx) { }
+
+    @Override public void exitProperty(ScssParser.PropertyContext ctx) {
+        try {
+            FileWriter outputfile = new FileWriter("ionic2react.js",true);
+            outputfile.write(",\n");
+            outputfile.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     @Override public void exitValues(ScssParser.ValuesContext ctx) { }
+    @Override public void enterValues(ScssParser.ValuesContext ctx) { }
 }

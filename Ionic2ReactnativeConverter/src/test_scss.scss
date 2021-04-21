@@ -1,18 +1,25 @@
-.i1{
-color:red;
+.toolbar {
+  --background: rgb(131, 9, 245);
 }
-.i2{
-color:blue;
+.content_background {
+  --background: rgb(52, 168, 207);
 }
-.i3{
- color:green;
- }
-.c{
-background-color:lightgreen;
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-ion-button{
---background:red;
+.item {
+  --background: rgb(52, 168, 207);
+  border: 0px;
 }
-ion-text{
-font-size:20px
+.modulus_input {
+  // to make underline below the input
+  border-bottom-width: 1px;
+  border-bottom-color: white;
+  border-bottom-style: solid;
+}
+.text_color {
+  color: orange;
 }
