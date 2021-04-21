@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Simple_Adder",
-    "slug": "Simple_Adder",
+    "name": "form_with_checkbox",
+    "slug": "form_with_checkbox",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

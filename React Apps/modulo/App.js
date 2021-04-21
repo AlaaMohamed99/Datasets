@@ -1,9 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {useState} from 'react'
-import { render } from 'react-dom';
+import {Appbar} from 'react-native-paper'
 import {StyleSheet, Text, TextInput, View, TouchableOpacity,Button } from 'react-native';
-
+import  styles from './style.js';
 
 export default class App extends React.Component{
   state = {
@@ -20,8 +20,11 @@ export default class App extends React.Component{
   render() {
     const { name, showName } = this.state;
     return (
-      
-        <View style={styles.container}>
+      <View style={styles.container}>
+        <Appbar style={styles.Appbar}>
+          Modulo App
+        </Appbar>
+        <View style={styles.Main}>
           
           <View style={styles.rowContainer}>
           <View style={styles.input1}>
@@ -56,61 +59,8 @@ export default class App extends React.Component{
          <Text style={styles.text_}>Result</Text>
           </TouchableOpacity>
         </View> 
+        </View>
       );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#1e90ff',
-    alignItems: 'center',
-    justifyContent:'center'
-  },
-  rowContainer: {
-    flexDirection:'row',
-    margin:10,
-  },
-  input1:
-  {
-    marginRight:10,
-    borderBottomWidth: 1,
-    width:100
-  },
-  input2:
-  {
-    marginLeft:10,
-    borderBottomWidth:1,
-    width:100
-  },
-  button:{
-    alignSelf:'center',
-    alignContent:'center',
-    backgroundColor:"#8b008b",
-    height:38,
-    width:100,
-    marginTop:15,
-  },
-  text:
-  {
-    alignSelf:'center',
-    color:'yellow',
-    fontSize:20,
-    marginLeft:10,
-    marginRight:10,
-    fontWeight:'bold'
-  },
-  text_:
-  {
-    alignSelf:'center',
-    color:'white',
-    fontSize:20,
-    marginLeft:10,
-    marginRight:10,
-    fontWeight:'bold'
-  },
-  result:{
-    alignSelf:'center',
-    margin:15
-  }
-});
