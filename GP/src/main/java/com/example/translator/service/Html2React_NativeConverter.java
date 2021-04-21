@@ -24,80 +24,85 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class Html2React_NativeConverter extends HTMLParserBaseListener implements CodeConverter {
 
 	 
-	   private  Map <String,String> closingTagElemnts;
-	   private  Map <String,String> notClosingTagElemnts;
-	   private  Map <String,String> attribute;
+	
+		public void setFile(File file) {
+			this.file = file;
+		}
+		
+		@Override
+		public File getFile() {
+			// TODO Auto-generated method stub
+			return file;
+		}
+		
+		 	Map <String,String> closingTagElemnts;
+		    Map <String,String> notClosingTagElemnts;
+		    Map <String,String>attribute;
+		    Map <String,String>attributeValue;
+		    Map <String,String>events ;
+		    Map <String,String>html_element;
+		    Map <String,String>post_styles ;
 
-	   private  Map <String,String> attribute_value;
 	    
-	   private  File file;
+		    private  File file;
 
 	
 
-	public void setFile(File file) {
-		this.file = file;
-	}
 	
-	@Override
-	public File getFile() {
-		// TODO Auto-generated method stub
-		return file;
-	}
 
 		public Html2React_NativeConverter() throws IOException {
 
+			post_styles = new HashMap<>();
+
+	        events = new HashMap<String,String>();
+	        events.put("click","onPress");
+	        events.put("ionchange","onChangetext");
+
+	        attributeValue = new HashMap<String,String>();
 	        attribute =new HashMap<String,String>();
 	        attribute.put("class","style");
 	        attribute.put("id","style");
-	        attribute.put("style","style");
 	        attribute.put("color","color");
 	        attribute.put("size","size");
-	        attribute.put("click","onPress");
 	        attribute.put("disabled","disabled");
-	        attribute.put("ionChange","onChangeText");
-	        attribute.put("placeholder","placeholder");
 	        attribute.put("max","maximumValue");
 	        attribute.put("min","minimumValue");
 	        attribute.put("placeholder","placeholder");
-	        attribute.put("placeholder","placeholder");
+	        attribute.put("name","name");
+	        attribute.put("autofocus","autofocus");
 
 
 	        closingTagElemnts =new HashMap<String,String>();
 	        closingTagElemnts.put("ion-text","Text");
-	        closingTagElemnts.put("ion-list-header","h2");
 	        closingTagElemnts.put("ion-content","View");
-	        closingTagElemnts.put("h1","Text h1");
-	        closingTagElemnts.put("h2","Text h2");
-	        closingTagElemnts.put("h3","Text h3");
-	        closingTagElemnts.put("h4","Text h4");
 	        closingTagElemnts.put("ion-header","View");
 	        closingTagElemnts.put("ion-footer","View");
-	        closingTagElemnts.put("ion-range","slider");
+	        closingTagElemnts.put("ion-toolbar","Appbar");
 	        closingTagElemnts.put("ion-label","Text");
 	        closingTagElemnts.put("div","View");
+	        closingTagElemnts.put("ion-item","View");
+	        closingTagElemnts.put("p","Text");
+	        closingTagElemnts.put("ion-button","TouchableOpacity");
+	        closingTagElemnts.put("ion-title","Text");
+	        closingTagElemnts.put("ion-list-header","Text");
+	        closingTagElemnts.put("h1","Text");
+	        closingTagElemnts.put("h2","Text");
+	        closingTagElemnts.put("h3","Text");
+	        closingTagElemnts.put("h4","Text");
+	        closingTagElemnts.put("h5","Text");
+	        closingTagElemnts.put("h6","Text");
+
+	        html_element = new HashMap<String,String>();
+	        html_element.put("ion-list","ul");
 
 
 	        notClosingTagElemnts = new HashMap<String,String>();
 	        notClosingTagElemnts.put("ion-img","Image");
-	        notClosingTagElemnts.put("ion-list","Flatlist");
-	        notClosingTagElemnts.put("ion-button","Button");
+	        notClosingTagElemnts.put("img","Image");
 	        notClosingTagElemnts.put("ion-icon","Icon");
-	        notClosingTagElemnts.put("ion-input","Input");
-
-
-	    /*    
-	        try {
-	            if (file.createNewFile()) {
-	                System.out.println("New file is created " + file.getName());
-	                FileWriter outputfile = new FileWriter(file.getName());
-	                outputfile.close();
-	            } else {
-	                System.out.println("File already exists.");
-	            }
-	        } catch (Exception e) {
-	            System.out.println("An error occurred.");
-	            e.printStackTrace();
-	        }*/
+	        notClosingTagElemnts.put("ion-input","TextInput");
+	        notClosingTagElemnts.put("ion-range","Slider");
+	    
 	    }
 
 
@@ -131,7 +136,7 @@ public class Html2React_NativeConverter extends HTMLParserBaseListener implement
 	                "\nimport { View } from 'react-native';";
 	        try {
 	            FileWriter outputfile = new FileWriter(file.getName());
-	            outputfile.write(initial_import+"\n"+"export default class"+ file.getName().split("\\.")[0].split("\\(")[0] +"extends React.Component {\n" +
+	            outputfile.write(initial_import+"\n"+"export default class "+ file.getName().split("\\.")[0].split("\\(")[0] +"extends React.Component {\n" +
 	                    " render (){\n\t"+
 	                    " return (\n" +
 	                    " \t<View> \n ");
