@@ -372,6 +372,10 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
                 TextType="password";
         }
 
+        if(Label.equals("keyboardType:")){
+            TextType=expression.substring(expression.indexOf(".")+1);
+        }
+        
         if(Label.equals("style:") && !Brackets.isEmpty() && (Brackets.get(Brackets.size()-1).equals("TextField"))){
             if(expression.contains("color:")){
                 String add = "";
@@ -443,8 +447,15 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
                 int start = expression.lastIndexOf("{")+1;
                 int end = expression.indexOf(";");
                 String Functionname = expression.substring(start, end);
-                //System.out.print(Functionname);
-                
+                //System.out.print("WHYYYYYYYYYYYYYYYYYYY"+Functionname + "\n");
+                try {
+                    FileWriter outputfile = new FileWriter("Ionic.html", true);
+                    outputfile.write(" (click)=\"" + Functionname + "\"");
+                    outputfile.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
             Ui_widgets.remove("onPressed");
         }
         if (Ui_widgets.contains("RaisedButton") && !Ui_widgets.contains("color")){
@@ -457,6 +468,7 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
             stylesMap.get(".button" + counterButton).add("--background:"+expression.substring(7));
             doneColorButton = 1;
         }
+        
 
         //ListTile
         if(Label.equals("leading:")&& !Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("ListTile")){
@@ -476,12 +488,12 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
                 end = expression.lastIndexOf("\"");
             }
             listconetent = expression.substring(start, end);
-            
+
             stylesMap.put(".list"+counterList, new ArrayList<>());
         }
 
         if(Label.equals("title:") && !Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("ListTile") && isList == 1){
-            
+
             counterList++;
             int start;
             int end;
@@ -495,12 +507,10 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
             }
             listconetent = expression.substring(start, end);
 
-
-
             stylesMap.put(".list"+counterList, new ArrayList<>());
             ListTilecount--;
             isList = 0;
-        }}
+        }
 
     }
 
@@ -717,7 +727,15 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
             finalstyles.add("}\n");
             //System.out.print(finalstyles);
         }
-        for (int i = 0; i< finalstyles.size(); i++) {
+        try {
+            FileWriter outputfile = new FileWriter(file.getName(),false);
+            for (int i = 0; i< finalstyles.size(); i++)
+                outputfile.write(finalstyles.get(i));
+            outputfile.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        /*for (int i = 0; i< finalstyles.size(); i++) {
             try {
                 FileWriter outputfile = new FileWriter(file.getName(), true);
                 outputfile.write(finalstyles.get(i));
@@ -725,7 +743,9 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+        }*/
+        finalstyles.clear();
+        stylesMap.clear();
     }
 
 

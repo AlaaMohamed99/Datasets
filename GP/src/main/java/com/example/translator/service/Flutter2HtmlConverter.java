@@ -14,6 +14,7 @@ import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,7 +22,7 @@ import com.example.translator.Dart2BaseListener;
 import com.example.translator.Dart2Lexer;
 import com.example.translator.Dart2Parser;
 
-
+@Scope("prototype")
 @Component("Flutter2HtmlConverter")
 public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConverter{
 	
@@ -58,7 +59,7 @@ public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConv
 	private Map<String, ArrayList<String>> stylesMap = new LinkedHashMap<>();
 	private ArrayList<String> Brackets = new ArrayList<>();
 	private String PaddingExpression = "";
-
+	private String ControllerName = "";
 
 	@Override
 	public void visitTerminal(TerminalNode terminalNode) {
@@ -414,6 +415,13 @@ public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConv
 			if(expression.equals("true"))
 				TextType="password";
 		}
+		
+		if(Label.equals("keyboardType:")){
+            TextType=expression.substring(expression.indexOf(".")+1);
+        }
+		if(Label.equals("controller:")){
+            ControllerName=expression;
+        }
 
 		if(Label.equals("style:") && !Brackets.isEmpty() && (Brackets.get(Brackets.size()-1).equals("TextField"))){
 			if(expression.contains("color:")){
@@ -709,31 +717,43 @@ public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConv
 				try {
 					FileWriter outputfile = new FileWriter(file.getName(), true);
 					outputfile.write("<ion-item lines=\"none\" class = \"item"+ counterTextfield + "\" >" + "\n" + "<ion-label position=\""+TextfieldTextPosition+"\" >" + exp + " </ion-label>" + "\n");
-					outputfile.write("<ion-input type=\""+TextType+"\" > </ion-input>" + "\n"+ "</ion-item>" + "\n");
+					outputfile.write("<ion-input type=\""+TextType+"\" ");
+                    if(!ControllerName.equals(""))
+                        outputfile.write("[(ngModel)]=\""+ControllerName+"\"");
+                    outputfile.write("> </ion-input> \n" + "</ion-item>" + "\n");
 					outputfile.close();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
+				ControllerName="";
 			}
 			else{
 				try {
 					FileWriter outputfile = new FileWriter(file.getName(), true);
 					outputfile.write("<ion-item lines=\"none\" class = \"item"+ counterTextfield + "\" >" + "\n" + "<ion-label> " + exp + " </ion-label>" + "\n");
-					outputfile.write("<ion-input type=\""+TextType+"\" > </ion-input>" + "\n"+ "</ion-item>" + "\n");
+					outputfile.write("<ion-input type=\""+TextType+"\"");
+                    if(!ControllerName.equals(""))
+                        outputfile.write("[(ngModel)]=\""+ControllerName+"\"");
+                    outputfile.write("> </ion-input> \n" + "</ion-item>" + "\n");
 					outputfile.close();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
+				ControllerName="";
 			}
 		}
 		if(ctx.getChild(ctx.getChildCount()-1).getText().equals(")") && !Brackets.isEmpty() && (Brackets.get(Brackets.size()-1).equals("TextField")) && exp.equals("")){
 			try {
 				FileWriter outputfile = new FileWriter(file.getName(), true);
-				outputfile.write("<ion-input type=\""+TextType+"\" class = \"item" + counterTextfield + "\" > </ion-input>" + "\n");
+				outputfile.write("<ion-input type=\""+TextType+"\" class = \"item" + counterTextfield + "\" ");
+                if(!ControllerName.equals(""))
+                    outputfile.write("[(ngModel)]=\""+ControllerName+"\"");
+                outputfile.write("> </ion-input> \n");
 				outputfile.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			ControllerName="";
 		}
 
 		if (ctx.getChild(ctx.getChildCount()-1).getText().equals(")") && !Brackets.isEmpty() && (Brackets.get(Brackets.size()-1).equals("Container") || Brackets.get(Brackets.size()-1).equals("Column") || Brackets.get(Brackets.size()-1).equals("Row")) ) {
@@ -882,7 +902,7 @@ public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConv
 
 	@Override
 	public ParseTree convert(String  uploadedFileName) throws IOException {
-		FileWriter outputfile = new FileWriter(file.getName(), true);
+		FileWriter outputfile = new FileWriter(file.getName(), false);
 		outputfile.write("<ion-content>" + "\n");
 		outputfile.close();
 		   CharStream charStream= CharStreams.fromFileName(uploadedFileName);
