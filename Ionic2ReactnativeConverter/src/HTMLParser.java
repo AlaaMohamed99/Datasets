@@ -21,18 +21,19 @@ public class HTMLParser extends Parser {
 		HTML_TEXT=12, TAG_CLOSE=13, TAG_SLASH_CLOSE=14, TAG_SLASH=15, TAG_EQUALS=16, 
 		TAG_NAME=17, TAG_WHITESPACE=18, OPEN_PAR=19, OPEN_SQUARE_PARKET=20, Two_way_binding_open=21, 
 		Astrict=22, SCRIPT_BODY=23, SCRIPT_SHORT_BODY=24, STYLE_BODY=25, STYLE_SHORT_BODY=26, 
-		ATTVALUE_VALUE=27, ATTRIBUTE=28, Property=29, CLOSE_PAR=30, Two_way_binding_close=31, 
-		CLOSE_SQUARE_PARKET=32, Interpolation_inside=33, CLOSE_curly_brac=34;
+		ATTVALUE_VALUE=27, ATTRIBUTE=28, NGMODEL=29, Property=30, CLOSE_PAR=31, 
+		Two_way_binding_close=32, CLOSE_SQUARE_PARKET=33, Interpolation_inside=34, 
+		CLOSE_curly_brac=35;
 	public static final int
 		RULE_htmlDocument = 0, RULE_scriptletOrSeaWs = 1, RULE_htmlElements = 2, 
 		RULE_htmlElement = 3, RULE_binding = 4, RULE_structural_binding = 5, RULE_eventbinding = 6, 
-		RULE_propertybinding = 7, RULE_twowaybining = 8, RULE_htmlContent = 9, 
+		RULE_propertybinding = 7, RULE_twoWaybining = 8, RULE_htmlContent = 9, 
 		RULE_htmlAttribute = 10, RULE_htmlChardata = 11, RULE_htmlMisc = 12, RULE_htmlComment = 13, 
 		RULE_script = 14, RULE_style = 15, RULE_interpolation = 16;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"htmlDocument", "scriptletOrSeaWs", "htmlElements", "htmlElement", "binding", 
-			"structural_binding", "eventbinding", "propertybinding", "twowaybining", 
+			"structural_binding", "eventbinding", "propertybinding", "twoWaybining", 
 			"htmlContent", "htmlAttribute", "htmlChardata", "htmlMisc", "htmlComment", 
 			"script", "style", "interpolation"
 		};
@@ -43,7 +44,8 @@ public class HTMLParser extends Parser {
 		return new String[] {
 			null, "'{{'", null, null, null, null, null, null, null, null, null, "'<'", 
 			null, "'>'", "'/>'", "'/'", "'='", null, null, "'('", "'['", "'[('", 
-			"'*'", null, null, null, null, null, null, null, "')'", "')]'", "']'"
+			"'*'", null, null, null, null, null, null, "'ngModel'", null, "')'", 
+			"')]'", "']'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -54,9 +56,9 @@ public class HTMLParser extends Parser {
 			"TAG_OPEN", "HTML_TEXT", "TAG_CLOSE", "TAG_SLASH_CLOSE", "TAG_SLASH", 
 			"TAG_EQUALS", "TAG_NAME", "TAG_WHITESPACE", "OPEN_PAR", "OPEN_SQUARE_PARKET", 
 			"Two_way_binding_open", "Astrict", "SCRIPT_BODY", "SCRIPT_SHORT_BODY", 
-			"STYLE_BODY", "STYLE_SHORT_BODY", "ATTVALUE_VALUE", "ATTRIBUTE", "Property", 
-			"CLOSE_PAR", "Two_way_binding_close", "CLOSE_SQUARE_PARKET", "Interpolation_inside", 
-			"CLOSE_curly_brac"
+			"STYLE_BODY", "STYLE_SHORT_BODY", "ATTVALUE_VALUE", "ATTRIBUTE", "NGMODEL", 
+			"Property", "CLOSE_PAR", "Two_way_binding_close", "CLOSE_SQUARE_PARKET", 
+			"Interpolation_inside", "CLOSE_curly_brac"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -562,8 +564,8 @@ public class HTMLParser extends Parser {
 		public Structural_bindingContext structural_binding() {
 			return getRuleContext(Structural_bindingContext.class,0);
 		}
-		public TwowaybiningContext twowaybining() {
-			return getRuleContext(TwowaybiningContext.class,0);
+		public TwoWaybiningContext twoWaybining() {
+			return getRuleContext(TwoWaybiningContext.class,0);
 		}
 		public EventbindingContext eventbinding() {
 			return getRuleContext(EventbindingContext.class,0);
@@ -607,7 +609,7 @@ public class HTMLParser extends Parser {
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(108);
-				twowaybining();
+				twoWaybining();
 				}
 				break;
 			case OPEN_PAR:
@@ -776,36 +778,36 @@ public class HTMLParser extends Parser {
 		return _localctx;
 	}
 
-	public static class TwowaybiningContext extends ParserRuleContext {
+	public static class TwoWaybiningContext extends ParserRuleContext {
 		public TerminalNode Two_way_binding_open() { return getToken(HTMLParser.Two_way_binding_open, 0); }
-		public TerminalNode Property() { return getToken(HTMLParser.Property, 0); }
+		public TerminalNode NGMODEL() { return getToken(HTMLParser.NGMODEL, 0); }
 		public TerminalNode Two_way_binding_close() { return getToken(HTMLParser.Two_way_binding_close, 0); }
 		public TerminalNode TAG_EQUALS() { return getToken(HTMLParser.TAG_EQUALS, 0); }
 		public TerminalNode ATTVALUE_VALUE() { return getToken(HTMLParser.ATTVALUE_VALUE, 0); }
-		public TwowaybiningContext(ParserRuleContext parent, int invokingState) {
+		public TwoWaybiningContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_twowaybining; }
+		@Override public int getRuleIndex() { return RULE_twoWaybining; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).enterTwowaybining(this);
+			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).enterTwoWaybining(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).exitTwowaybining(this);
+			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).exitTwoWaybining(this);
 		}
 	}
 
-	public final TwowaybiningContext twowaybining() throws RecognitionException {
-		TwowaybiningContext _localctx = new TwowaybiningContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_twowaybining);
+	public final TwoWaybiningContext twoWaybining() throws RecognitionException {
+		TwoWaybiningContext _localctx = new TwoWaybiningContext(_ctx, getState());
+		enterRule(_localctx, 16, RULE_twoWaybining);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(129);
 			match(Two_way_binding_open);
 			setState(130);
-			match(Property);
+			match(NGMODEL);
 			setState(131);
 			match(Two_way_binding_close);
 			setState(132);
@@ -1334,7 +1336,7 @@ public class HTMLParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3$\u00bd\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3%\u00bd\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\3\2\7\2&\n\2\f\2\16\2)\13\2\3\2\5\2,\n\2\3\2\7\2/\n\2\f\2\16\2\62\13"+
@@ -1368,16 +1370,16 @@ public class HTMLParser extends Parser {
 		"e[\3\2\2\2ed\3\2\2\2fk\3\2\2\2gk\7\t\2\2hk\5\36\20\2ik\5 \21\2jR\3\2\2"+
 		"\2jg\3\2\2\2jh\3\2\2\2ji\3\2\2\2k\t\3\2\2\2lq\5\20\t\2mq\5\f\7\2nq\5\22"+
 		"\n\2oq\5\16\b\2pl\3\2\2\2pm\3\2\2\2pn\3\2\2\2po\3\2\2\2q\13\3\2\2\2rs"+
-		"\7\30\2\2st\7\23\2\2tu\7\22\2\2uv\7\35\2\2v\r\3\2\2\2wx\7\25\2\2xy\7\37"+
-		"\2\2yz\7 \2\2z{\7\22\2\2{|\7\35\2\2|\17\3\2\2\2}~\7\26\2\2~\177\7\37\2"+
-		"\2\177\u0080\7\"\2\2\u0080\u0081\7\22\2\2\u0081\u0082\7\35\2\2\u0082\21"+
-		"\3\2\2\2\u0083\u0084\7\27\2\2\u0084\u0085\7\37\2\2\u0085\u0086\7!\2\2"+
-		"\u0086\u0087\7\22\2\2\u0087\u0088\7\35\2\2\u0088\23\3\2\2\2\u0089\u008b"+
-		"\5\30\r\2\u008a\u0089\3\2\2\2\u008a\u008b\3\2\2\2\u008b\u0097\3\2\2\2"+
-		"\u008c\u0091\5\b\5\2\u008d\u0091\7\7\2\2\u008e\u0091\5\34\17\2\u008f\u0091"+
-		"\5\"\22\2\u0090\u008c\3\2\2\2\u0090\u008d\3\2\2\2\u0090\u008e\3\2\2\2"+
-		"\u0090\u008f\3\2\2\2\u0091\u0093\3\2\2\2\u0092\u0094\5\30\r\2\u0093\u0092"+
-		"\3\2\2\2\u0093\u0094\3\2\2\2\u0094\u0096\3\2\2\2\u0095\u0090\3\2\2\2\u0096"+
+		"\7\30\2\2st\7\23\2\2tu\7\22\2\2uv\7\35\2\2v\r\3\2\2\2wx\7\25\2\2xy\7 "+
+		"\2\2yz\7!\2\2z{\7\22\2\2{|\7\35\2\2|\17\3\2\2\2}~\7\26\2\2~\177\7 \2\2"+
+		"\177\u0080\7#\2\2\u0080\u0081\7\22\2\2\u0081\u0082\7\35\2\2\u0082\21\3"+
+		"\2\2\2\u0083\u0084\7\27\2\2\u0084\u0085\7\37\2\2\u0085\u0086\7\"\2\2\u0086"+
+		"\u0087\7\22\2\2\u0087\u0088\7\35\2\2\u0088\23\3\2\2\2\u0089\u008b\5\30"+
+		"\r\2\u008a\u0089\3\2\2\2\u008a\u008b\3\2\2\2\u008b\u0097\3\2\2\2\u008c"+
+		"\u0091\5\b\5\2\u008d\u0091\7\7\2\2\u008e\u0091\5\34\17\2\u008f\u0091\5"+
+		"\"\22\2\u0090\u008c\3\2\2\2\u0090\u008d\3\2\2\2\u0090\u008e\3\2\2\2\u0090"+
+		"\u008f\3\2\2\2\u0091\u0093\3\2\2\2\u0092\u0094\5\30\r\2\u0093\u0092\3"+
+		"\2\2\2\u0093\u0094\3\2\2\2\u0094\u0096\3\2\2\2\u0095\u0090\3\2\2\2\u0096"+
 		"\u0099\3\2\2\2\u0097\u0095\3\2\2\2\u0097\u0098\3\2\2\2\u0098\25\3\2\2"+
 		"\2\u0099\u0097\3\2\2\2\u009a\u009d\7\23\2\2\u009b\u009c\7\22\2\2\u009c"+
 		"\u009e\7\35\2\2\u009d\u009b\3\2\2\2\u009d\u009e\3\2\2\2\u009e\27\3\2\2"+
@@ -1387,7 +1389,7 @@ public class HTMLParser extends Parser {
 		"\2\u00a9\37\3\2\2\2\u00aa\u00ab\7\f\2\2\u00ab\u00ac\t\6\2\2\u00ac!\3\2"+
 		"\2\2\u00ad\u00af\5\32\16\2\u00ae\u00ad\3\2\2\2\u00af\u00b2\3\2\2\2\u00b0"+
 		"\u00ae\3\2\2\2\u00b0\u00b1\3\2\2\2\u00b1\u00b3\3\2\2\2\u00b2\u00b0\3\2"+
-		"\2\2\u00b3\u00b4\7\3\2\2\u00b4\u00b5\7#\2\2\u00b5\u00b9\7$\2\2\u00b6\u00b8"+
+		"\2\2\u00b3\u00b4\7\3\2\2\u00b4\u00b5\7$\2\2\u00b5\u00b9\7%\2\2\u00b6\u00b8"+
 		"\5\32\16\2\u00b7\u00b6\3\2\2\2\u00b8\u00bb\3\2\2\2\u00b9\u00b7\3\2\2\2"+
 		"\u00b9\u00ba\3\2\2\2\u00ba#\3\2\2\2\u00bb\u00b9\3\2\2\2\31\'+\60\649>"+
 		"@HOVXbejp\u008a\u0090\u0093\u0097\u009d\u00a3\u00b0\u00b9";

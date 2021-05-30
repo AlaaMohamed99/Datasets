@@ -127,7 +127,6 @@ WhiteSpaces=126
 LineTerminator=127
 HtmlComment=128
 CDataComment=129
-UnexpectedCharacter=130
 '['=4
 ']'=5
 '('=6

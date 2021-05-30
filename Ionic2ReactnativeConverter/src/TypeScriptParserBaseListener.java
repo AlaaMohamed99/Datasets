@@ -1,4 +1,4 @@
-// Generated from E:/antler-project/src\TypeScriptParser.g4 by ANTLR 4.9
+// Generated from E:/antlr_project/src\TypeScriptParser.g4 by ANTLR 4.9.1
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -1030,6 +1030,18 @@ public class TypeScriptParserBaseListener implements TypeScriptParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitIfStatement(TypeScriptParser.IfStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterElseStatement(TypeScriptParser.ElseStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitElseStatement(TypeScriptParser.ElseStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
