@@ -24,7 +24,9 @@ class ButtonClick extends StatelessWidget {
             color: Colors.blue,
             child: Text("Click"),
             onPressed: () {
-              dialog(context); //action is written here
+              setState((){
+                  dialog(context);
+              });//action is written here
             })
             ])
             ])
