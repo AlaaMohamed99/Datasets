@@ -7,7 +7,7 @@ void main() {
       home: Scaffold(
           appBar: AppBar(
             title: Text("currency converter", style: TextStyle(fontSize: 24.0)),
-            backgroundColor: Colors.purple,
+            backgroundColor: Colors.purple
           ),
           body: ButtonClick())));
 }
