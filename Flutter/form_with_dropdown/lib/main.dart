@@ -66,7 +66,10 @@ class _SIformstate extends State<SIform> {
           RaisedButton(
             child: Text('Done', textScaleFactor: 1.5),
             onPressed: () {
-              dialog(context);
+              setState(() {
+                  dialog(context);
+                });
+              
             },
           ),
         ],
