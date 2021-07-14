@@ -60,7 +60,7 @@ class Converter extends State<ButtonClick> {
   }
 
   void display() {
-    double number = double.parse(extractnumber.text);
+    double number1 = double.parse(extractnumber.text);
     this.output = (double.parse(extractnumber.text) * 15.7).toString();
     this.displaytext = "$number USD is equal to $output EGP";
   }
