@@ -111,13 +111,13 @@ public class HTMLParserBaseListener implements HTMLParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTwoWaybining(HTMLParser.TwoWaybiningContext ctx) { }
+	@Override public void enterTwowaybining(HTMLParser.TwowaybiningContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTwoWaybining(HTMLParser.TwoWaybiningContext ctx) { }
+	@Override public void exitTwowaybining(HTMLParser.TwowaybiningContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
