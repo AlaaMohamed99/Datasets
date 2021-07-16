@@ -14,7 +14,13 @@ the parsing tree of the other framework(target framework)
 ### What we Accomplished:
    - we created some mini-Applications (the same applications for each framework) as a Dataset to clarify whether our Code translator works correctly
    - we gathered grammer files suitable for each framework 
+   - we started to transform source frameworks (React Native, Flutter, Android) to target Framework (Ionic)
+   - as a milestone of translating various mobile frameworks to each other corrseponding mobile framework
+   - tested the simple apps which game relatively stable ui positioning and high Ui translation accuracy in addition to good backend translation accuracy
+   
 ### TODO:
-  - using the antlr4 to generate target framework given the source framework grammer file
-  - deploying the program for use
+   - support more backend functionalities and more mobile specific properties
+   - support a client side App for our backend service
+   - deploy the application for use
+   - solve the issues related to different libraries and function calls implementation in various frameworks
  
