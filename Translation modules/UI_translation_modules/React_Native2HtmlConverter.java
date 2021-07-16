@@ -1,13 +1,10 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Map;
-import java.util.HashMap;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
-
 import org.antlr.v4.runtime.tree.ParseTree;
 
 /**
@@ -16,10 +13,11 @@ import org.antlr.v4.runtime.tree.ParseTree;
 public class React_Native2HtmlConverter extends JavaScriptParserBaseListener
 {
 	    private File file;
+	    private  userInterfaceMapper userinterfacemapper;
+	    private  EventCallsMapper eventcallsmapper;
 	    private FileWriter OutputFile;
 	    private boolean inHtmlContent;
 	    private boolean RadioButton;
-	    private  Map <String, String> Jsx2ionicMap;
 	    private String ElementName;
 	    private  boolean has_closing_tag;
 	    private  String AttributeName;
@@ -30,10 +28,11 @@ public class React_Native2HtmlConverter extends JavaScriptParserBaseListener
         private String Styling;
     private boolean has_style;
 
-    public React_Native2HtmlConverter(){
+    public React_Native2HtmlConverter()
+    {
         RadioButton=false;
         inHtmlContent=false;
-        Jsx2ionicMap = new HashMap<>();
+        userinterfacemapper = new userInterfaceMapper();
         hasStyling=false;
         has_style=false;
         ElementName="";
@@ -41,60 +40,9 @@ public class React_Native2HtmlConverter extends JavaScriptParserBaseListener
         has_attribute=false;
         has_closing_tag = false;
         put_label = false;
-        Jsx2ionicMap.put("Button", "ion-button");
-        Jsx2ionicMap.put("Appbar", "ion-toolbar");
-        Jsx2ionicMap.put("label","");
-        Jsx2ionicMap.put("Text", "ion-text");
-        Jsx2ionicMap.put("View", "div");
-        Jsx2ionicMap.put("</TextInput>", "</ion-input>");
-        Jsx2ionicMap.put("</Button>","</ion-button>");
-        Jsx2ionicMap.put("onPress", "(click)");
-        Jsx2ionicMap.put("TextInput","ion-input");
-        Jsx2ionicMap.put("value","value");
-        Jsx2ionicMap.put("onChangeText","(ionChange)");
-        Jsx2ionicMap.put("color","color");
-        Jsx2ionicMap.put("style","class");
-        Jsx2ionicMap.put("title","label");
-        Jsx2ionicMap.put("FlatList","ion-list");
-        Jsx2ionicMap.put("ul","ul");
-        Jsx2ionicMap.put("li","li");
-        Jsx2ionicMap.put("ol","ol");
-        Jsx2ionicMap.put("div","div");
-        Jsx2ionicMap.put("backgroundColor","background-color");
-        Jsx2ionicMap.put("TouchableOpacity","ion-button");
-        Jsx2ionicMap.put("</CheckBox>","</ion-checkbox>");
-        Jsx2ionicMap.put("</RadioButton>","</ion-radio>");
-        Jsx2ionicMap.put("CheckBox","ion-checkbox");
-        Jsx2ionicMap.put("onValueChange","(ionChange)");
-        Jsx2ionicMap.put("placeholder","placeholder");
-        Jsx2ionicMap.put("value","[(ngModel)]");
-        Jsx2ionicMap.put("secureTextEntry","type");
-        Jsx2ionicMap.put("RadioButton","ion-radio slot="+'"'+"start"+'"');
-        Jsx2ionicMap.put("NavigationContainer","");
-    }
-    public void CreateFile()
-    {
-        try
-        {
-             file = new File("ionic.html");
-            if (file.createNewFile())
-            {
-                System.out.println("File created: " + file.getName());
-            }
-            else
-            {
-                System.out.println("File already exists.");
-            }
-            FileWriter myFile = new FileWriter(file.getName(), true);
-            myFile.close();
-        } catch (IOException e)
-        {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-    }
 
-    public void  setOutputFile()
+    }
+    private void  setOutputFile()
     {
         if(!file.getName().isEmpty())
         {
@@ -110,106 +58,76 @@ public class React_Native2HtmlConverter extends JavaScriptParserBaseListener
             }
         }
     }
-    @Override public void enterHtmlElements(JavaScriptParser.HtmlElementsContext ctx)
+    private void writeInOutputFile(String output)
     {
         try
-        {
-            setOutputFile();
-            OutputFile.write("<ion-content>"+"\n");
-            OutputFile.close();
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-        }
+          {
+              setOutputFile();
+              OutputFile.write(output);
+              OutputFile.close();
+          }
+          catch (Exception e)
+          {
+              e.printStackTrace();
+          }
+    }
+    @Override public void enterHtmlElements(JavaScriptParser.HtmlElementsContext ctx)
+    {
+       String OutputCode = "<ion-content>"+"\n";
+       writeInOutputFile(OutputCode);
     }
     @Override public void exitHtmlElements(JavaScriptParser.HtmlElementsContext ctx)
     {
-        try
-        {
-            setOutputFile();
-            OutputFile.write("</ion-content>"+"\n");
-            OutputFile.close();
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-        }
+       String OutputCode = "</ion-content>"+"\n";
+       writeInOutputFile(OutputCode);
     }
     @Override public void enterHtmlElement(JavaScriptParser.HtmlElementContext ctx)
     {
        has_attribute=false;
        has_closing_tag=false;
-
     }
 
     @Override
-    public void exitHtmlElement(JavaScriptParser.HtmlElementContext ctx){
+    public void exitHtmlElement(JavaScriptParser.HtmlElementContext ctx)
+    {
 
-
+        String OutputCode="";
         if(ElementName.equals("Appbar"))
         {
-            try
-            {
-                setOutputFile();
-                OutputFile.write("</ion-toolbar>\n");
-            }
-            catch (IOException e)
-            {
-                e.fillInStackTrace();
-            }
+            OutputCode +="</ion-toolbar>\n";
         }
-
-
         if(!has_closing_tag)
         {
-         try
-       {
-            setOutputFile();
             if(put_label)
-       {
-            OutputFile.write("\n<ion-label>"+Label+"</ion-label>\n");
-       }
-
-            OutputFile.write(Jsx2ionicMap.get("</"+ElementName+">") +"\n");
+            {
+                OutputCode+= "\n<ion-label>"+Label+"</ion-label>\n";
+            }
+            OutputCode += userinterfacemapper.getTagMapping("</"+ElementName+">") +"\n";
            if(ElementName.equals("RadioButton"))
             {
-                OutputFile.write("</ion-radio-group>\n");
+                OutputCode+="</ion-radio-group>\n";
             }
-           if(ElementName.equals("TextInput")) OutputFile.write("</ion-item>\n");
-            OutputFile.close();
+           writeInOutputFile(OutputCode);
         }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-        }
-        }
+
        has_closing_tag=false;
        put_label=false;
        Label="";
        hasStyling=false;
-
     }
 
     @Override
     public void enterHtmlContent(JavaScriptParser.HtmlContentContext ctx)
     {
         inHtmlContent=true;
-         try
-       {
-            setOutputFile();
-            OutputFile.write(">"+"\n");
+        String OutputCode="";
+
+            OutputCode+=">"+"\n";
            if(ElementName.equals("Text")&&ctx.getChild(0).getText().contains("{"))
            {
-               OutputFile.write("{"+ctx.getChild(0).getText()+"}");
+               OutputCode+="{"+ctx.getChild(0).getText()+"}";
            }
-            OutputFile.close();
-        }
-
-        catch(IOException e)
-        {
-            e.printStackTrace();
-        }
+        writeInOutputFile(OutputCode);
         has_closing_tag=false;
     }
 
@@ -224,98 +142,57 @@ public class React_Native2HtmlConverter extends JavaScriptParserBaseListener
     public void enterHtmlTagStartName(JavaScriptParser.HtmlTagStartNameContext ctx)
     {
         has_closing_tag = true;
-         try
-       {
+        String OutputCode="";
             if(ctx.htmlTagName().getText().equals("Appbar"))
             {
-                setOutputFile();
-                OutputFile.write("<ion-header class="+'"'+"Appbar"+'"'+">\n");
-            }
-            else
-            {
-                OutputFile = new FileWriter(file.getName(),true);
+                OutputCode+="<ion-header class="+'"'+"Appbar"+'"'+">\n";
             }
 
-              OutputFile.write("<" + Jsx2ionicMap.get(ctx.htmlTagName().getText()));
-            OutputFile.close();
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-        }
+              OutputCode+="<" + userinterfacemapper.getTagMapping(ctx.htmlTagName().getText());
+              writeInOutputFile(OutputCode);
     }
     @Override
     public void enterHtmlTagClosingName(JavaScriptParser.HtmlTagClosingNameContext ctx)
     {
         has_closing_tag=true;
-         try
-       {
-
-            setOutputFile();
-            OutputFile.write("</"+Jsx2ionicMap.get(ctx.htmlTagName().getText())+">"+"\n");
-            if(ctx.htmlTagName().getText().equals("Appbar"))
-            {
-                OutputFile.write("</"+"ion-header>\n");
-            }
-            OutputFile.close();
-        }
-        catch(IOException e)
+        String OutputCode="";
+        OutputCode+="</"+userinterfacemapper.getTagMapping(ctx.htmlTagName().getText())+">"+"\n";
+        if(ctx.htmlTagName().getText().equals("Appbar"))
         {
-            e.printStackTrace();
+            OutputCode+="</"+"ion-header>\n";
         }
+        writeInOutputFile(OutputCode);
     }
 
 
 
     @Override
-    public void enterHtmlTagName(JavaScriptParser.HtmlTagNameContext ctx) {
-               ElementName = ctx.Identifier().getText();
+    public void enterHtmlTagName(JavaScriptParser.HtmlTagNameContext ctx)
+    {
+        ElementName = ctx.Identifier().getText();
        if(!has_closing_tag)
        {
-         try
-       {
-            setOutputFile();
-           if(ctx.Identifier().getText().equals("TextInput"))
-           {
-               OutputFile.write("<ion-item");
-               OutputFile.write("  class =" + '"' + "container" + '"' + ">\n");
-           }
+           String Outputcode="";
            if(ctx.Identifier().getText().equals("RadioButton"))
            {
-               OutputFile.write("<ion-radio-group>\n");
+              Outputcode+="<ion-radio-group>\n";
            }
-            OutputFile.write("<" + Jsx2ionicMap.get(ctx.Identifier().getText()));
-            OutputFile.close();
+            Outputcode+="<" + userinterfacemapper.getTagMapping(ctx.Identifier().getText());
+            writeInOutputFile(Outputcode);
         }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-        }
-
-       }
     }
 
 
     @Override
-    public void exitHtmlTagName(JavaScriptParser.HtmlTagNameContext ctx) {
+    public void exitHtmlTagName(JavaScriptParser.HtmlTagNameContext ctx)
+    {
 
     }
 
-
     @Override
-    public void enterHtmlAttribute(JavaScriptParser.HtmlAttributeContext ctx) {
-        FileWriter OutputFile = null;
-         try
-       {
-            OutputFile = new FileWriter(file.getName(),true);
-            OutputFile.write("  ");
-            OutputFile.close();
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-        }
-
+    public void enterHtmlAttribute(JavaScriptParser.HtmlAttributeContext ctx)
+    {
+        writeInOutputFile(" ");
         AttributeName =ctx.htmlAttributeName().getText();
         has_attribute=true;
     }
@@ -328,78 +205,58 @@ public class React_Native2HtmlConverter extends JavaScriptParserBaseListener
 
 
     @Override
-    public void enterHtmlAttributeName(JavaScriptParser.HtmlAttributeNameContext ctx) {
-        if(!Jsx2ionicMap.containsKey(AttributeName))return;
+    public void enterHtmlAttributeName(JavaScriptParser.HtmlAttributeNameContext ctx)
+    {
+        if(!userinterfacemapper.ContainsMapping(AttributeName))
+        {
+            return;
+        }
        if(!ctx.getText().equals("label")&&!AttributeName.equals("title"))
        {
-         try
-       {
-            setOutputFile();
-            OutputFile.write(Jsx2ionicMap.get(ctx.getText()));
-            OutputFile.close();
-        }
-        catch(IOException e)
+           String OutputCode="";
+           OutputCode+=userinterfacemapper.getTagMapping(ctx.getText());
+           writeInOutputFile(OutputCode);
+       }
+       else
         {
-            e.printStackTrace();
-        }
-       }
-       else {
            put_label=true;
-       }
+        }
     }
 
     @Override
-    public void exitHtmlAttributeName(JavaScriptParser.HtmlAttributeNameContext ctx) {
-        if(!Jsx2ionicMap.containsKey(AttributeName))return;
+    public void exitHtmlAttributeName(JavaScriptParser.HtmlAttributeNameContext ctx)
+    {
+        if(!userinterfacemapper.ContainsMapping(AttributeName))
+        {
+            return;
+        }
        if(!AttributeName.equals("label")&&!AttributeName.equals("title"))
        {
-         try
-       {
-            setOutputFile();
-            OutputFile.write("=");
-            OutputFile.close();
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-        }
+           String OutputCode="";
+           OutputCode+="=";
+           writeInOutputFile(OutputCode);
        }
     }
 
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
     @Override
     public void enterHtmlChardata(JavaScriptParser.HtmlChardataContext ctx){
         String identifiers = ctx.children.toString();
         System.out.println(identifiers);
        String[] ans= identifiers.split(",");
        String empty="";
-       for(int i =0;i<ans.length;i++)
-       {
-           empty+=ans[i];
-       }
-       System.out.println(empty);
-         try
-       {
-            setOutputFile();
+        for (String an : ans)
+        {
+            empty += an;
+        }
             empty=empty.substring(1,empty.length()-1);
             if(ElementName.equals("Appbar"))
             {
-                OutputFile.write("<ion-title>"+empty+"</ion-title>\n");
+                writeInOutputFile("<ion-title>"+empty+"</ion-title>\n");
             }
             else
             {
-                OutputFile.write(empty);
+                writeInOutputFile(empty);
             }
-            OutputFile.close();
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-        }
 
     }
 
@@ -413,13 +270,20 @@ public class React_Native2HtmlConverter extends JavaScriptParserBaseListener
         {
             answer="primary";
         }
-        if(!Jsx2ionicMap.containsKey(AttributeName))return;
+        if(!userinterfacemapper.ContainsMapping(AttributeName))
+        {
+            return;
+        }
         answer=answer.replace("{","").replace("}","").replace(";","");
+
         if(AttributeName.equals("secureTextEntry"))
         {
             answer='"'+"password"+'"';
         }
-        if(put_label&&(AttributeName.equals("label")|| AttributeName.equals("title"))) Label =answer.substring(1,answer.length()-1);
+        if(put_label&&(AttributeName.equals("label")|| AttributeName.equals("title")))
+        {
+            Label =answer.substring(1,answer.length()-1);
+        }
         if(AttributeName.equals("value"))
         {
             answer='"'+answer+'"';
@@ -428,7 +292,10 @@ public class React_Native2HtmlConverter extends JavaScriptParserBaseListener
         {
 
             answer ='"'+ answer.replace("this","").replace(".","");
-            if(!answer.contains("(")&&!answer.contains(")"))answer+="()";
+            if(!answer.contains("(")&&!answer.contains(")"))
+            {
+                answer+="()";
+            }
             answer+='"';
         }
         else if(AttributeName.equals("style"))
@@ -438,7 +305,6 @@ public class React_Native2HtmlConverter extends JavaScriptParserBaseListener
             {
             hasStyling=true;
             Styling=answer;
-            //answer="container";
             }
             if(ElementName.equals("TextInput")||ElementName.equals("Button")&&AttributeName.equals("style"))
             {
@@ -448,17 +314,7 @@ public class React_Native2HtmlConverter extends JavaScriptParserBaseListener
 
        if(!(AttributeName.equals("label")|| AttributeName.equals("title")))
         {
-         try
-       {
-            setOutputFile();
-            OutputFile.write(answer);
-            OutputFile.close();
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-        }
-
+         writeInOutputFile(answer);
         }
 
     }
@@ -473,27 +329,20 @@ public class React_Native2HtmlConverter extends JavaScriptParserBaseListener
         AttributeName ="";
     }
 
-    @Override public void enterObjectExpressionSequence(JavaScriptParser.ObjectExpressionSequenceContext ctx)
-    {
-        if(inHtmlContent)
-        {
-
-        }
-    }
 
 	@Override public void exitObjectExpressionSequence(JavaScriptParser.ObjectExpressionSequenceContext ctx)
     {
 
     }
 
-	public ParseTree convert(String  uploadedFileName) throws IOException {
+	public ParseTree convert(String  uploadedFileName) throws IOException
+    {
 	    CharStream charStream= CharStreams.fromFileName(uploadedFileName);
         JavaScriptLexer lexer = new JavaScriptLexer(charStream);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JavaScriptParser parser = new JavaScriptParser(tokens);
         parser.setBuildParseTree(true);
         ParseTree tree = parser.program();
-
         return tree;
 	}
 
