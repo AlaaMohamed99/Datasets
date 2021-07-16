@@ -10,7 +10,7 @@
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Convert to EGP"
         app:backgroundTint="#673AB7"
@@ -23,7 +23,7 @@
 
     <EditText
         android:id="@+id/USD1"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:background="#F1F1F1"
         android:ems="10"
@@ -39,7 +39,7 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
