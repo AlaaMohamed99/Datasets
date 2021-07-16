@@ -1,4 +1,4 @@
-// Generated from E:/antler-project/src\TypeScriptParser.g4 by ANTLR 4.9
+// Generated from E:/antlr_project/src\TypeScriptParser.g4 by ANTLR 4.9.1
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -880,6 +880,16 @@ public interface TypeScriptParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitIfStatement(TypeScriptParser.IfStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link TypeScriptParser#elseStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterElseStatement(TypeScriptParser.ElseStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TypeScriptParser#elseStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitElseStatement(TypeScriptParser.ElseStatementContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code DoStatement}
 	 * labeled alternative in {@link TypeScriptParser#iterationStatement}.

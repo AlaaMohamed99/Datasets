@@ -57,6 +57,9 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
     Map<String, ArrayList<String>> stylesMap = new LinkedHashMap<>();
     ArrayList<String> Brackets = new ArrayList<>();
     String PaddingExpression = "";
+    String ControllerName = "";
+
+
 
 
 
@@ -87,6 +90,7 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
             ionContent = 1;
     }
     @Override public void enterIdentifier(Dart2Parser.IdentifierContext ctx){
+
         methodName = ctx.IDENTIFIER().getText();
         if(methodName.equals("Container") && ionContent == 1){
             Ui_widgets.add("ion-content");
@@ -111,6 +115,7 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
         if(methodName.equals("Center"))
             Ui_widgets.add("Center");
 
+      
 
         if(methodName.equals("AssetImage"))
             Ui_widgets.add("AssetImage");
@@ -140,10 +145,20 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
             Ui_widgets.add("RaisedButton");
             counterButton++;
             flag = 0;
+            if (Children == 1){
+                
+            }
+            else{
+                
+            }
             stylesMap.put(".button" + counterButton, new ArrayList<>());
         }
 
 
+        if (methodName.equals("Radio")) {
+            Ui_widgets.add("Radio");
+        }
+       
         //I have a problem identifiying Text when it's just a text but not inside something, as I could wrap it inside a padding, it'll still be indv but inside a child
         if(!(Identifiers.isEmpty())) {
             if((methodName.equals("Text") && !(Identifiers.get(Identifiers.size()-1).equals("child"))) && (methodName.equals("Text") && !(Identifiers.get(Identifiers.size()-1).equals("title")) && !(Identifiers.get(Identifiers.size()-1).equals("content")) && !(Identifiers.get(Identifiers.size()-1).equals("icon"))  && !(Identifiers.get(Identifiers.size()-1).equals("prefixIcon"))) )
@@ -155,8 +170,7 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
         }
 
         Identifiers.add(methodName);
-        System.out.print("this is methodname \n" + methodName + "\n");
-        System.out.print(Ui_widgets + "\n");
+
     }
 
 
@@ -192,19 +206,39 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
         Children = ctx.expressionList().expression().size();
     }
 
+
+    //for the backend of color
+    @Override public void enterDeclaration(Dart2Parser.DeclarationContext ctx) {
+        if(ctx.getChild(0).getClass().toString().equals("class Dart2Parser$DtypeContext")){
+            String type = ctx.dtype().getText();
+            String name = ctx.initializedIdentifierList().getText().substring(0, ctx.initializedIdentifierList().getText().indexOf("="));
+            String expression = "";
+            if (ctx.initializedIdentifierList().getText().contains("="))
+                expression = ctx.initializedIdentifierList().getText().substring(ctx.initializedIdentifierList().getText().indexOf("=") + 1);
+
+            if (type.equals("Color")) {
+                stylesMap.put(":root", new ArrayList<>());
+                stylesMap.get(":root").add("--" + name + ": " + expression.substring(expression.indexOf(".") + 1));
+            }
+        }
+    }
+
     @Override public void enterNamedArgument(Dart2Parser.NamedArgumentContext ctx) {
         String Label = ctx.label().getText();
         String expression = ctx.expression().getText();
 
 
-        System.out.print("this is label and expression" + "\n");
-        System.out.print(ctx.label().getText() + "\n");
-        System.out.print(ctx.expression().getText() + "\n");
 
 
         //Center
         if(!Ui_widgets.isEmpty() && Label.equals("child:") && Ui_widgets.get(Ui_widgets.size()-1).equals("Center")){
             ChildCenter = 1;
+        }
+
+        //Radiobutton
+        if(!Ui_widgets.isEmpty() && Label.equals("value:") && Ui_widgets.get(Ui_widgets.size()-1).equals("Radio")){
+            
+            Ui_widgets.remove("Radio");
         }
 
 
@@ -243,11 +277,10 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
             if(expression.contains("backgroundColor:")){
                 String add = "";
                 String expColors = expression.substring(expression.indexOf("Colors.")+7);
-                //System.out.print(expColors);
-                if(expColors.contains(")")){
+                if(expColors.contains(")") && !expColors.contains(",")){
                     add = expColors.substring(0,expColors.indexOf(")"));
                 }
-                if(expColors.contains(",")){
+                else if(expColors.contains(",")){
                     add = expColors.substring(0,expColors.indexOf(","));
                 }
                 stylesMap.get(".appbar" + counterAppbar).add("--background:"+ add);
@@ -275,7 +308,7 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
                 stylesMap.get("ion-content").add("--background:"+ expression.substring(start));
             }
             else {
-                stylesMap.get("ion-content").add("--background:"+ "\""+ expression + "\"");
+                stylesMap.get("ion-content").add("--background:"+ " var(--"+ expression + ")");
             }
         }
 
@@ -310,7 +343,6 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
             }
             exp = expression.substring(start, end);
             TextfieldTextPosition="floating";
-            //System.out.print(Ui_widgets + "\n");
         }
 
         if (Label.equals("prefixIcon:") || Label.equals("icon:")) {
@@ -327,9 +359,7 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
                 }
                 exp = expression.substring(start, end);
                 TextfieldTextPosition = "fixed";
-                //System.out.print(exp + "\n");
 
-                //System.out.print(Ui_widgets + "\n");
             }
         }
 
@@ -371,22 +401,27 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
             if(expression.equals("true"))
                 TextType="password";
         }
+        if(Label.equals("keyboardType:")){
+            TextType=expression.substring(expression.indexOf(".")+1);
+        }
+        if(Label.equals("controller:")){
+            ControllerName=expression;
+        }
 
         if(Label.equals("style:") && !Brackets.isEmpty() && (Brackets.get(Brackets.size()-1).equals("TextField"))){
             if(expression.contains("color:")){
                 String add = "";
-
                 String expColors = expression.substring(expression.indexOf("Colors.")+7);
-                if(expColors.contains(")")){
+                if(expColors.contains(")") && !expColors.contains(",")){
                     add = expColors.substring(0,expColors.indexOf(")"));
                 }
-                if(expColors.contains(",")){
+                else if(expColors.contains(",")){
                     add = expColors.substring(0,expColors.indexOf(","));
                 }
                 stylesMap.get(".item" + counterTextfield).add("color:"+ add);
             }
-            else
-                stylesMap.get(".item" + counterTextfield).add("color: black");
+                else
+            stylesMap.get(".item" + counterTextfield).add("color: black");
         }
 
         //font-size
@@ -404,7 +439,6 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
 
         //Raisedbutton
         if(Label.equals("child:")) {
-            //System.out.print(methodName);
             if(expression.substring(0,4).equals("Text") && Ui_widgets.contains("RaisedButton")) {
                 int start;
                 int end;
@@ -417,19 +451,17 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
                     end = expression.lastIndexOf("\"");
                 }
                 text = expression.substring(start, end);
-                //System.out.print(text);
                 Ui_widgets.remove("child");
                 if (Ui_widgets.contains("textScaleFactor"))
                     Ui_widgets.remove("textScaleFactor");
 
                 if(expression.contains("color:")){
                     String add = "";
-
                     String expColors = expression.substring(expression.indexOf("Colors.")+7);
-                    if(expColors.contains(")")){
-                        add = expColors.substring(0,expColors.indexOf(")"));
+                    if(expColors.contains(")") && !expColors.contains(",")){
+                         add = expColors.substring(0,expColors.indexOf(")"));
                     }
-                    if(expColors.contains(",")){
+                    else if(expColors.contains(",")){
                         add = expColors.substring(0,expColors.indexOf(","));
                     }
                     stylesMap.get(".button" + counterButton).add("color:"+ add);
@@ -443,8 +475,9 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
                 int start = expression.lastIndexOf("{")+1;
                 int end = expression.indexOf(";");
                 String Functionname = expression.substring(start, end);
-                //System.out.print(Functionname);
+                Functionname = Functionname.substring(0,Functionname.indexOf("("));
                 
+            }
             Ui_widgets.remove("onPressed");
         }
         if (Ui_widgets.contains("RaisedButton") && !Ui_widgets.contains("color")){
@@ -457,6 +490,8 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
             stylesMap.get(".button" + counterButton).add("--background:"+expression.substring(7));
             doneColorButton = 1;
         }
+
+        
 
         //ListTile
         if(Label.equals("leading:")&& !Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("ListTile")){
@@ -481,7 +516,9 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
         }
 
         if(Label.equals("title:") && !Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("ListTile") && isList == 1){
-            
+            if(counterList == 0){
+                
+            }
             counterList++;
             int start;
             int end;
@@ -494,33 +531,43 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
                 end = expression.lastIndexOf("\"");
             }
             listconetent = expression.substring(start, end);
-
+            if(isList == 1){
+                
+            }
 
 
             stylesMap.put(".list"+counterList, new ArrayList<>());
             ListTilecount--;
             isList = 0;
-        }}
+        }
 
     }
 
     @Override public void enterExpressionList(Dart2Parser.ExpressionListContext ctx) {
-
+        if(ListTilecount != 0 && !Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("ListView")){
+            
+        }
     }
     @Override public void exitExpressionList(Dart2Parser.ExpressionListContext ctx) {
     }
 
+    @Override public void exitNamedArgument(Dart2Parser.NamedArgumentContext ctx) {
+
+    }
 
 
     @Override public void exitPostfixExpression(Dart2Parser.PostfixExpressionContext ctx) {
 
-        if (!Ui_widgets.isEmpty() && Ui_widgets.contains("RaisedButton") && !Ui_widgets.contains("child") &&   !Ui_widgets.contains("onPressed")){
 
- 
+        if (!Ui_widgets.isEmpty() && Ui_widgets.contains("RaisedButton") && !Ui_widgets.contains("child") &&   !Ui_widgets.contains("onPressed")){
+            //System.out.print("entered");
+            
             Ui_widgets.clear();
             doneColorButton = 0;
         }
 
+
+        
     }
 
     @Override public void exitStringLiteral(Dart2Parser.StringLiteralContext ctx) {
@@ -532,20 +579,20 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
             counterTextPlain++;
             int start;
             int end;
-            System.out.print(path);
+            //System.out.print(path);
             if(path.contains("\"")){
-                System.out.print("what");
+                //System.out.print("what");
                 start = path.indexOf("\"") + 1;
                 end = path.lastIndexOf("\"");
             }
             else {
                 start = path.indexOf("'") + 1;
                 end = path.lastIndexOf("'");
-                System.out.print(start);
-                System.out.print(end);
+                //System.out.print(start);
+                //System.out.print(end);
             }
             path = path.substring(start, end);
-
+           
             //remove all as there'll be several occarances of AssetImage
             Ui_widgets.remove("Text");
             stylesMap.put(".text"+counterTextPlain, new ArrayList<>());
@@ -590,17 +637,35 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
         }
 
 
+        if(ctx.getChild(ctx.getChildCount()-1).getText().equals(")") && !Brackets.isEmpty() && (Brackets.get(Brackets.size()-1).equals("CheckboxListTile")) && CheckboxPosition.equals("leading")){
+            
+        }
 
+        if(ctx.getChild(ctx.getChildCount()-1).getText().equals(")") && !Brackets.isEmpty() && (Brackets.get(Brackets.size()-1).equals("TextField")) && !exp.equals("")){
+            if(TextfieldTextPosition.equals("floating")){
+                
+                ControllerName="";
+            }
+            else{
+                
+                ControllerName="";
+            }
+        }
+        if(ctx.getChild(ctx.getChildCount()-1).getText().equals(")") && !Brackets.isEmpty() && (Brackets.get(Brackets.size()-1).equals("TextField")) && exp.equals("")){
+           
+            ControllerName="";
+        }
 
+        if (ctx.getChild(ctx.getChildCount()-1).getText().equals(")") && !Brackets.isEmpty() && (Brackets.get(Brackets.size()-1).equals("Container") || Brackets.get(Brackets.size()-1).equals("Column") || Brackets.get(Brackets.size()-1).equals("Row")) ) {
+           
+        }
         if (ctx.getChild(ctx.getChildCount()-1).getText().equals(")") && !Brackets.isEmpty())
             Brackets.remove(Brackets.size()-1);
-
     }
     @Override public void enterArguments(Dart2Parser.ArgumentsContext ctx) {
 
         if(ctx.getChild(0).getText().equals("(") && !Ui_widgets.isEmpty() && !Ui_widgets.get(Ui_widgets.size()-1).equals("ion-content")){
-            Brackets.add(methodName);
-            //System.out.print(Brackets);
+                Brackets.add(methodName);
         }
         if(ctx.getChild(0).getText().equals("(") && !Ui_widgets.isEmpty() && !Ui_widgets.get(Ui_widgets.size()-1).equals("CheckboxListTile")){
             startOfCheckbox = 1;
@@ -608,33 +673,29 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
         if(ctx.getChild(0).getText().equals("(") && !Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("ion-content")){
             Brackets.add("ion-content");
             stylesMap.put("ion-content", new ArrayList<>());
-            //System.out.print(Brackets);
         }
 
 
-//!Ui_widgets.isEmpty() && !Ui_widgets.get(Ui_widgets.size()-1).equals("ion-content")
 
-        if(!Brackets.isEmpty()&& (Brackets.get(Brackets.size()-1).equals("Container") || Brackets.get(Brackets.size()-1).equals("Column") || Brackets.get(Brackets.size()-1).equals("Row"))){
-            counterContainer++;
-            
-            stylesMap.put(".div" + counterContainer, new ArrayList<>());
-            if(Brackets.get(Brackets.size()-1).equals("Column")){
-                stylesMap.get(".div" + counterContainer).add("display: flex");
-                stylesMap.get(".div" + counterContainer).add("flex-direction: column");
-                stylesMap.get(".div" + counterContainer).add("align-items: center");
-            }
-            if(Brackets.get(Brackets.size()-1).equals("Row")){
-                stylesMap.get(".div" + counterContainer).add("display: flex");
+            if(!Brackets.isEmpty()&& (Brackets.get(Brackets.size()-1).equals("Container") || Brackets.get(Brackets.size()-1).equals("Column") || Brackets.get(Brackets.size()-1).equals("Row"))){
+                counterContainer++;
+                
+                stylesMap.put(".div" + counterContainer, new ArrayList<>());
+                if(Brackets.get(Brackets.size()-1).equals("Column")){
+                    stylesMap.get(".div" + counterContainer).add("display: flex");
+                    stylesMap.get(".div" + counterContainer).add("flex-direction: column");
+                    stylesMap.get(".div" + counterContainer).add("align-items: center");
+                }
+                if(Brackets.get(Brackets.size()-1).equals("Row")){
+                    stylesMap.get(".div" + counterContainer).add("display: flex");
 
-                stylesMap.get(".div" + counterContainer).add("align-items: center");
+                    stylesMap.get(".div" + counterContainer).add("align-items: center");
+                }
             }
-        }
 
         if(ChildCenter == 1){
-
             String child = Identifiers.get(Identifiers.size()-1);
             List<String> Keys = new ArrayList<>(stylesMap.keySet());
-
             stylesMap.get(Keys.get(Keys.size()-1)).add("display: flex");
             stylesMap.get(Keys.get(Keys.size()-1)).add("justify-content: center");
             stylesMap.get(Keys.get(Keys.size()-1)).add("align-items: center");
@@ -644,36 +705,34 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
         }
 
 
-        if(ctx.argumentList() != null){
-            String word = ctx.argumentList().getText();
-            if(methodName.equals("TextField") && !(word.contains("fillColor")))
-                stylesMap.get(".item"+counterTextfield).add("--background:transparent");
-
-            ArrayList<Integer> indexesofdots = new ArrayList<>();
-            ArrayList<Integer> indexesofcol = new ArrayList<>();
-            //flag that i entered here before
-            if(!Ui_widgets.isEmpty() && flag == 0 && Ui_widgets.get(Ui_widgets.size()-1).equals("RaisedButton")){
-                int index = 0;
-                int indexcol = 0;
-                int wordLength = 0;
-                int t = 0;
-                while(index >=0){
-                    index = word.indexOf(":", index + 1);  // Slight improvement
-                    if (index != -1) {
-                        indexesofdots.add(index);
+            if(ctx.argumentList() != null){
+                String word = ctx.argumentList().getText();
+                if(methodName.equals("TextField") && !(word.contains("fillColor")))
+                    stylesMap.get(".item"+counterTextfield).add("--background:transparent");
+                
+                ArrayList<Integer> indexesofdots = new ArrayList<>();
+                ArrayList<Integer> indexesofcol = new ArrayList<>();
+                //flag that i entered here before
+                if(!Ui_widgets.isEmpty() && flag == 0 && Ui_widgets.get(Ui_widgets.size()-1).equals("RaisedButton")){
+                    int index = 0;
+                    int indexcol = 0;
+                    int wordLength = 0;
+                    int t = 0;
+                    while(index >=0){
+                        index = word.indexOf(":", index + 1);  // Slight improvement
+                        if (index != -1) {
+                            indexesofdots.add(index);
+                        }
                     }
-                }
-                while(indexcol >=0){
-                    indexcol = word.indexOf(",", indexcol + 1);
-                    if (indexcol != -1) {
-                        indexesofcol.add(indexcol);
+                    while(indexcol >=0){
+                        indexcol = word.indexOf(",", indexcol + 1);
+                        if (indexcol != -1) {
+                            indexesofcol.add(indexcol);
+                        }
                     }
-                }
-                System.out.print(indexesofdots);
-                System.out.print(indexesofcol);
-                System.out.print("WORDDDD "+word);
+                    
                 Ui_widgets.add(word.substring(0, indexesofdots.get(0)));
-                System.out.print(Ui_widgets+ "\n");
+                    
                 for (int i = 0; i < indexesofcol.size(); i++){
                     if (indexesofdots.get(i+1)> indexesofcol.get(i)+1)
                         Ui_widgets.add(word.substring(indexesofcol.get(i)+1, indexesofdots.get(i+1)));
@@ -682,25 +741,25 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
                 }
 
                 flag = 1;
-            }
-
-            if(!Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("Text")){
-                if(word.substring(0,1).equals("'") || word.substring(0,1).equals("\"")) {
-                    Textflag = 0;
-                }
-                else{
-                    Textflag = 1;
-
                 }
 
-            }
+                if(!Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("Text")){
+                    if(word.substring(0,1).equals("'") || word.substring(0,1).equals("\"")) {
+                        Textflag = 0;
+                    }
+                    else{
+                        Textflag = 1;
+                        
+                    }
 
-            if (!Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("ListView")){
-                if (word.contains("ListTile"))
-                    ListTilecount = (word.split("ListTile", -1).length) - 1;
+                }
+                
+                if (!Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("ListView")){
+                    if (word.contains("ListTile"))
+                        ListTilecount = (word.split("ListTile", -1).length) - 1;
 
+                }
             }
-        }
     }
 
 
@@ -717,15 +776,17 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
             finalstyles.add("}\n");
             //System.out.print(finalstyles);
         }
-        for (int i = 0; i< finalstyles.size(); i++) {
-            try {
-                FileWriter outputfile = new FileWriter(file.getName(), true);
+        try {
+            FileWriter outputfile = new FileWriter(file.getName(),false);
+            for (int i = 0; i< finalstyles.size(); i++)
                 outputfile.write(finalstyles.get(i));
-                outputfile.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            outputfile.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        
+        finalstyles.clear();
+        stylesMap.clear();
     }
 
 

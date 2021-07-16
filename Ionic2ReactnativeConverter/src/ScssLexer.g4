@@ -188,7 +188,8 @@ SL_COMMENT
 
 // multiple-line comments
 COMMENT
-	:	'/*' .*? '*/' -> skip
+	:	'/*' .*? '*/'
+//	:	'/*' .*? '*/' -> skip
 	;
 
 mode URL_STARTED;

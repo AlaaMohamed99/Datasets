@@ -9,6 +9,10 @@ import org.antlr.v4.runtime.tree.Tree;
 import java.io.IOException;
 
 public class Main {
+
+    private  String importPublic;
+
+
     public static void main(String [] args)throws IOException {
 
 
@@ -31,6 +35,10 @@ public class Main {
         walker.walk(mylistner,tree);
 
 
+
+
+
+
         /* SCSS Part*/
 //        CharStream charStream_scss= CharStreams.fromFileName("src/test_scss.scss");
 //        ScssLexer scsslexer = new ScssLexer(charStream_scss);
@@ -43,7 +51,6 @@ public class Main {
 //        scss_walker.walk(scss_listener,scss_tree);
 
 
-
-
     }
+
 }

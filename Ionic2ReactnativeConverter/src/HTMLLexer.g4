@@ -247,7 +247,9 @@ fragment SINGLE_QUOTE_STRING
 
 mode Binding;
 
-
+NGMODEL
+    :'ngModel'
+    ;
 
 Property
     : Binding_NameStartChar Binding_NameChar*

@@ -87,15 +87,15 @@ public interface HTMLParserListener extends ParseTreeListener {
 	 */
 	void exitPropertybinding(HTMLParser.PropertybindingContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link HTMLParser#twowaybining}.
+	 * Enter a parse tree produced by {@link HTMLParser#twoWaybining}.
 	 * @param ctx the parse tree
 	 */
-	void enterTwowaybining(HTMLParser.TwowaybiningContext ctx);
+	void enterTwoWaybining(HTMLParser.TwoWaybiningContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link HTMLParser#twowaybining}.
+	 * Exit a parse tree produced by {@link HTMLParser#twoWaybining}.
 	 * @param ctx the parse tree
 	 */
-	void exitTwowaybining(HTMLParser.TwowaybiningContext ctx);
+	void exitTwoWaybining(HTMLParser.TwoWaybiningContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link HTMLParser#htmlContent}.
 	 * @param ctx the parse tree

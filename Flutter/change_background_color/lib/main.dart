@@ -21,11 +21,11 @@ class SIform extends StatefulWidget {
 }
 
 class _SIformstate extends State<SIform> {
-  Color color = Colors.white;
+  Color color1 = Colors.white;
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: color,
+        color: color1,
         child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -77,19 +77,19 @@ class _SIformstate extends State<SIform> {
   }
 
   void red() {
-    color = Colors.red;
+    color1 = Colors.red;
   }
 
   void yellow() {
-    color = Colors.yellow;
+    color1 = Colors.yellow;
   }
 
   void black() {
-    color = Colors.black;
+    color1 = Colors.black;
   }
 
   void green() {
-    color = Colors.green;
+    color1 = Colors.green;
   }
 }
 

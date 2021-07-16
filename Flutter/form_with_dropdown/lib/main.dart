@@ -48,7 +48,7 @@ class _SIformstate extends State<SIform> {
                   Padding(
                     padding: EdgeInsets.all(5.0),
                     child: DropdownButton<String>(
-                      items: _gender.map((String dropdownstringitem) {
+                      items: <String>['Male', 'Female'].map((String dropdownstringitem) {
                         return DropdownMenuItem<String>(
                             value: dropdownstringitem,
                             child: Text(dropdownstringitem));
@@ -66,7 +66,10 @@ class _SIformstate extends State<SIform> {
           RaisedButton(
             child: Text('Done', textScaleFactor: 1.5),
             onPressed: () {
-              dialog(context);
+              setState(() {
+                  dialog(context);
+                });
+
             },
           ),
         ],

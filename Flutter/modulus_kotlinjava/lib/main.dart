@@ -7,7 +7,7 @@ void main() {
       home: Scaffold(
           appBar: AppBar(
             title: Text("APP3", style: TextStyle(fontSize: 24.0)),
-            backgroundColor: Colors.deepPurple,
+            backgroundColor: Colors.deepPurple
           ),
           body: ButtonClick())));
 }

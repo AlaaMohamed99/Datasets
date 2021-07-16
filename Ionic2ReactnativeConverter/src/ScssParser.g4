@@ -32,8 +32,9 @@ options { tokenVocab=ScssLexer ; }
 /*asd*/
 
 stylesheet
-	: statement*
+	:  statement*
 	;
+
 
 statement
   : importDeclaration
@@ -47,8 +48,12 @@ statement
   | forDeclaration
   | whileDeclaration
   | eachDeclaration
+  | comment
   ;
 
+comment
+    :COMMENT
+    ;
 
 //Params to mixins, includes, etc
 params
