@@ -1,5 +1,4 @@
 import com.sun.org.apache.xpath.internal.Arg;
-
 import javax.security.sasl.SaslServer;
 import java.io.File;
 import java.io.FileWriter;
@@ -12,7 +11,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.io.IOException;
 import java.util.Stack;
-
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -63,7 +61,7 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
         in_class=false;
         in_paren_exp=false;
     }
-    public void setOutputFile()
+    private void setOutputFile()
     {
         if(!file.getName().isEmpty())
         {
@@ -78,38 +76,30 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
 
         }
     }
-    public void setTargetFileName(String FileName)
+    private void writeInOutputFile(String output)
     {
-        this.TargetFileName=FileName;
-    }
-    public void setTargetClassName(String class_name)
-    {
-        this.TargetClassName=class_name;
+        try
+          {
+              setOutputFile();
+              OutputFile.write(output);
+              OutputFile.close();
+          }
+          catch (Exception e )
+          {
+              e.printStackTrace();
+          }
     }
     public void onStartTranslation()
     {
-        try
-        {
-            setOutputFile();
-            OutputFile.write("\nimport { Component} from '@angular/core';\n" +
+        String startercode = "" +
+                "\nimport { Component} from '@angular/core';\n" +
                 "@Component({\n" +
-                "  selector:"+"'"+TargetFileName+"'"+",\n" +
+                "  selector:"+"'"+"app-home"+"'"+",\n" +
                 "  templateUrl: 'app.html',\n" +
                 "  styleUrls: ['App.scss'],\n" +
-                "})\n");
-            OutputFile.close();
-        }
-        catch (Exception e)
-        {
-         e.printStackTrace();
-        }
+                "})\n";
+        writeInOutputFile(startercode);
 
-        System.out.println("import { Component} from '@angular/core';\n" +
-                "@Component({\n" +
-                "  selector:"+"'"+TargetFileName+"'"+",\n" +
-                "  templateUrl: 'app.html',\n" +
-                "  styleUrls: ['App.scss'],\n" +
-                "})");
     }
     @Override public void enterExpressionStatement(JavaScriptParser.ExpressionStatementContext ctx)
     {
@@ -124,67 +114,31 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
         }
         if(!(inStyles||in_render))
         {
-           System.out.println(ctx.eos().getText());
-          try
-          {
-              setOutputFile();
-              OutputFile.write(SemiColon+"\n");
-              OutputFile.close();
-          }
-          catch (Exception e )
-          {
-              e.printStackTrace();
-          }
+            writeInOutputFile(SemiColon+"\n");
         }
     }
 	@Override public void enterExportDefaultDeclaration(JavaScriptParser.ExportDefaultDeclarationContext ctx)
     {
         if(ctx.getText().contains("StyleSheet.create"))
-            {
-                inStyles=true;
-            }
+        {
+            inStyles=true;
+        }
+        else
+        {
+            onStartTranslation();
+        }
     }
     @Override public void enterClassExpression(JavaScriptParser.ClassExpressionContext ctx)
     {
-        System.out.println(ctx.Class().getText()+" "+TargetClassName);
-        try
-        {
-          setOutputFile();
-          OutputFile.write(ctx.Class().getText()+" "+ctx.identifier().getText()+"\n");
-          OutputFile.close();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
+        writeInOutputFile("export "+ctx.Class().getText()+" "+ctx.identifier().getText()+"\n");
     }
     @Override public void enterClassTail(JavaScriptParser.ClassTailContext ctx)
     {
-        try
-        {
-         setOutputFile();
-         OutputFile.write(ctx.OpenBrace().getText()+"\n");
-         OutputFile.close();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        System.out.println(ctx.OpenBrace().getText());
+         writeInOutputFile(ctx.OpenBrace().getText()+"\n");
     }
 	@Override public void exitClassTail(JavaScriptParser.ClassTailContext ctx)
     {
-        try
-        {
-            setOutputFile();
-            OutputFile.write(ctx.CloseBrace().getText()+"\n");
-            OutputFile.close();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        System.out.println(ctx.CloseBrace().getText());
+        writeInOutputFile(ctx.CloseBrace().getText()+"\n");
     }
     @Override public void enterClassElement(JavaScriptParser.ClassElementContext ctx)
     {
@@ -204,20 +158,8 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
             else
             {
                 propertyName = ctx.assignable().identifier().getText();
-
             }
-            try {
-                setOutputFile();
-                OutputFile.write(propertyName+ctx.Assign().getText()+"\n"+Attributes);
-                OutputFile.close();
-            }
-            catch (Exception e)
-            {
-                e.printStackTrace();
-            }
-            System.out.println(propertyName+ctx.Assign().getText());
-            System.out.print(Attributes);
-
+            writeInOutputFile(propertyName+ctx.Assign().getText()+"\n"+Attributes);
         }
     }
     @Override public void exitClassElement(JavaScriptParser.ClassElementContext ctx)
@@ -235,43 +177,25 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
      }
      else
      {
-      if(!(in_render||!inStyles))
+      if(!(in_render||inStyles))
       {
           String parameters="";
       if(ctx.formalParameterList()!=null)
       {
           parameters=ctx.formalParameterList().getText();
       }
-      try
-      {
-       setOutputFile();
-       OutputFile.write(ctx.propertyName().getText()+ctx.OpenParen().getText()+parameters+ctx.CloseParen().getText()+"\n"+ctx.OpenBrace()+"\n");
-       OutputFile.close();
-      }
-      catch (Exception e)
-      {
-          e.printStackTrace();
-      }
-         System.out.println(ctx.propertyName().getText()+ctx.OpenParen().getText()+parameters+ctx.CloseParen().getText()+"\n"+ctx.OpenBrace());
+      String OutputCode=ctx.propertyName().getText()+ctx.OpenParen().getText()+parameters+ctx.CloseParen().getText()+"\n"+ctx.OpenBrace()+"\n";
+      writeInOutputFile(OutputCode);
       }
      }
     }
 	@Override public void exitMethodDefinition(JavaScriptParser.MethodDefinitionContext ctx)
     {
-        boolean combination = !(in_render||!inStyles);
+        boolean combination = !(in_render||inStyles);
        if(combination)
        {
-           System.out.println(ctx.CloseBrace());
-           try
-           {
-               setOutputFile();
-               OutputFile.write(ctx.CloseBrace().getText()+"\n");
-               OutputFile.close();
-           }
-           catch (Exception e)
-           {
-               e.printStackTrace();
-           }
+           String OutputCode = ctx.CloseBrace().getText()+"\n";
+           writeInOutputFile(OutputCode);
        }
     }
     @Override public void enterAdditiveExpression(JavaScriptParser.AdditiveExpressionContext ctx)
@@ -333,8 +257,7 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
         {
             inStyles=true;
         }
-        //here we set all our entry conditions for this translation
-        boolean combination = !(inStyles||in_render);
+        boolean combination = !(inStyles||in_render||in_return_statement);
         if(combination)
         {
             if (ctx.getChildCount() > 0)
@@ -348,17 +271,7 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
             }
             if (Condition)
             {
-                try
-                {
-                    setOutputFile();
-                    OutputFile.write(Argument);
-                    OutputFile.close();
-                }
-                catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
-                System.out.print(Argument);
+                writeInOutputFile(Argument);
             }
         }
 
@@ -375,7 +288,7 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
 	@Override public void enterArguments(JavaScriptParser.ArgumentsContext ctx)
     {
         String ArgumentContainer="";
-        boolean combination = !(in_render||inStyles);
+        boolean combination = !(in_render||inStyles||in_return_statement);
         if(combination)
         {
             //so as not to print an extra ")" for childcount < 3
@@ -393,17 +306,7 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
             }
             if (Condition)
             {
-                try
-                {
-                    setOutputFile();
-                    OutputFile.write(OpenParenthes+ArgumentContainer);
-                    OutputFile.close();
-                }
-                catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
-                System.out.print(OpenParenthes + ArgumentContainer);
+              writeInOutputFile(OpenParenthes+ArgumentContainer);
             }
         }
     }
@@ -421,17 +324,7 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
         {
             CloseParenthes="";
         }
-        try
-        {
-            setOutputFile();
-            OutputFile.write(CloseParenthes);
-            OutputFile.close();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-         System.out.print(CloseParenthes);
+          writeInOutputFile(CloseParenthes);
         }
     }
     @Override public void enterMemberDotExpression(JavaScriptParser.MemberDotExpressionContext ctx)
@@ -460,7 +353,6 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
       {
           if (conditionCombination)
           {
-
               if (ctx.formalParameterList() != null)
               {
                   Parameters = ctx.formalParameterList().getText();
@@ -469,32 +361,14 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
               {
                   Parameters = "";
               }
-              try
-              {
-                  setOutputFile();
-                  OutputFile.write(ctx.OpenParen().getText() + Parameters + ctx.CloseParen().getText() + "=>"+"\n");
-                  OutputFile.close();
-              }
-              catch (Exception e)
-              {
-                  e.printStackTrace();
-              }
-              System.out.println(ctx.OpenParen().getText() + Parameters + ctx.CloseParen().getText() + "=>");
+               String OutputCode=ctx.OpenParen().getText() + Parameters + ctx.CloseParen().getText() + "=>"+"\n";
+               writeInOutputFile(OutputCode);
           }
       }
       else
       {
-          try
-              {
-                  setOutputFile();
-                  OutputFile.write(ctx.identifier().getText()+"=>"+"\n");
-                  OutputFile.close();
-              }
-              catch (Exception e)
-              {
-                  e.printStackTrace();
-              }
-          System.out.print(ctx.identifier().getText()+"=>");
+          String OutputCode=ctx.identifier().getText()+"=>"+"\n";
+          writeInOutputFile(OutputCode);
       }
     }
     @Override public void enterArrowFunctionBody(JavaScriptParser.ArrowFunctionBodyContext ctx)
@@ -503,17 +377,9 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
       if(combination)
       {
 
-          try
-          {
-              setOutputFile();
-              OutputFile.write("{\n");
-              OutputFile.close();
-          }
-          catch (Exception e)
-          {
-              e.printStackTrace();
-          }
-          System.out.println("{");
+          String openBrace = "{";
+          openBrace+="\n";
+          writeInOutputFile(openBrace);
       }
     }
 
@@ -522,17 +388,8 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
         boolean conditionCombination = !(in_render||inStyles);
       if(conditionCombination)
       {
-          try
-          {
-             setOutputFile();
-             OutputFile.write("}\n");
-             OutputFile.close();
-          }
-          catch (Exception e)
-          {
-              e.printStackTrace();
-          }
-          System.out.println("}");
+          String OutputCode = "}\n";
+          writeInOutputFile(OutputCode);
       }
     }
 	@Override public void enterVariableStatement(JavaScriptParser.VariableStatementContext ctx)
@@ -542,22 +399,20 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
 
 	@Override public void exitVariableStatement(JavaScriptParser.VariableStatementContext ctx)
     {
-        try
-        {
+            System.out.print(inStyles);
             setOutputFile();
-            OutputFile.write(ctx.eos().SemiColon().getText()+"\n");
-            OutputFile.close();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        System.out.println(ctx.eos().getText());
+            String semiColon="";
+            boolean condition = !(inStyles);
+            if(ctx.eos().SemiColon()!=null&&condition)
+            {
+                semiColon=ctx.eos().SemiColon().getText();
+            }
+            semiColon+="\n";
+            writeInOutputFile(semiColon);
         inVarDeclaration=false;
     }
 	@Override public void enterVariableDeclarationList(JavaScriptParser.VariableDeclarationListContext ctx)
     {
-
         if(ctx.getChild(1).getText().contains("StyleSheet.create"))
         {
             inStyles=true;
@@ -567,32 +422,11 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
         {
             if (ctx.varModifier() != null)
             {
-                try
-                {
-                   setOutputFile();
-                   OutputFile.write(ctx.varModifier().getText()+" ");
-                   OutputFile.close();
-                }
-                catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
-                System.out.print(ctx.varModifier().getText() + " ");
+                String OutputCode= ctx.varModifier().getText()+" ";
+                writeInOutputFile(OutputCode);
             }
-           /* try
-                {
-                   setOutputFile();
-                   OutputFile.write(ctx.getChild(1).getText());
-                   OutputFile.close();
-                }
-                catch (Exception e)
-                {
-                    e.printStackTrace();
-                }*/
-            System.out.print(ctx.getChild(1).getText());
         }
     }
-	@Override public void exitVariableDeclarationList(JavaScriptParser.VariableDeclarationListContext ctx) { }
 
 	@Override public void enterVariableDeclaration(JavaScriptParser.VariableDeclarationContext ctx)
     {
@@ -600,70 +434,36 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
         if(condition)
         {
             String Value = "";
-        //    if (!ctx.getChild(2).getText().contains("("))
-        //    {
-                Value = ctx.getChild(2).getText();
-          //  }
-            try
-            {
+            Value = ctx.getChild(2).getText();
                 if(inForStatement)
                 {
                     Value+=";";
                 }
-                setOutputFile();
-                OutputFile.write(ctx.assignable().getText() + " " + ctx.Assign().getText() + " " + Value);
-                OutputFile.close();
-            }
-            catch (Exception e)
-            {
-                e.printStackTrace();
-            }
+                String OutputCode= ctx.assignable().getText() + " " + ctx.Assign().getText() + " " + Value;
+                writeInOutputFile(OutputCode);
         }
     }
-
-	@Override public void exitVariableDeclaration(JavaScriptParser.VariableDeclarationContext ctx) { }
 
 	@Override public void enterIfStatement(JavaScriptParser.IfStatementContext ctx)
     {
         boolean conditionCombination = !(in_render||inStyles);
-
         if(conditionCombination)
         {
-        if(hasElse)
-        {
-            System.out.print("else ");
-            try
-            {
-                setOutputFile();
-                OutputFile.write("else ");
-                OutputFile.close();
-            }
-            catch (Exception e)
-            {
-                e.printStackTrace();
-            }
+           if(hasElse)
+          {
+            writeInOutputFile("else ");
             hasElse=false;
-        }
-        try
-        {
-         setOutputFile();
-         OutputFile.write(ctx.If().getText()+" "+ctx.OpenParen().getText()+ctx.getChild(2).getText()+ctx.CloseParen().getText()+"\n");
-         OutputFile.close();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        System.out.println(ctx.If().getText()+" "+ctx.OpenParen()+ctx.getChild(2).getText()+ctx.CloseParen());
-        if(ctx.Else()!=null)
-        {
-            //System.out.print("else ");
-            hasElse=true;
-        }
-        if(!ctx.getChild(ctx.getChildCount()-1).getText().contains("if"))
-        {
-            Else="else";
-        }
+          }
+            String OutputCode=ctx.If().getText()+" "+ctx.OpenParen().getText()+ctx.getChild(2).getText()+ctx.CloseParen().getText()+"\n";
+            writeInOutputFile(OutputCode);
+            if(ctx.Else()!=null)
+            {
+                hasElse=true;
+            }
+            if(!ctx.getChild(ctx.getChildCount()-1).getText().contains("if"))
+            {
+                Else="else";
+            }
         }
     }
 
@@ -679,182 +479,89 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
         String Current = ctx.getText();
         if(!Else.isEmpty()&&lastChild.equals(Current))
         {
-            try
-            {
-                setOutputFile();
-                OutputFile.write(Else+"\n");
-                OutputFile.close();
-            }
-            catch (Exception e)
-            {
-                e.printStackTrace();
-            }
+           writeInOutputFile(Else+"\n");
         }
-        System.out.println(ctx.OpenBrace());
-        try
-        {
-           setOutputFile();
-           OutputFile.write(ctx.OpenBrace().getText()+"\n");
-           OutputFile.close();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
+        writeInOutputFile(ctx.OpenBrace().getText()+"\n");
     }
-    @Override public void enterStatement(JavaScriptParser.StatementContext ctx)
-    {
-         boolean conditionCombination = !(in_render||inStyles);
-         if(conditionCombination)
-            {
-                //System.out.print(ctx.getChild(0).getChild(0).getText());
-            }
-
-    }
-
 
 	@Override public void exitBlock(JavaScriptParser.BlockContext ctx)
     {
-	            System.out.println(ctx.CloseBrace());
-	            try
-                {
-                    setOutputFile();
-                    OutputFile.write(ctx.CloseBrace().getText());
-                    OutputFile.close();
-                }
-	            catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
+        System.out.println(ctx.CloseBrace());
+        String OutputCode= ctx.CloseBrace().getText()+"\n";
+        writeInOutputFile(OutputCode);
     }
 
     @Override public void enterAssignmentExpression(JavaScriptParser.AssignmentExpressionContext ctx)
     {
         String identifier = ctx.getChild(0).getText();
-        String Assignn = ctx.Assign().getText();
+        String Assign = ctx.Assign().getText();
         String Body = ctx.getChild(2).getText();
         if(Body.contains("{")||Body.contains("(")||Body.contains("=>"))
         {
-            Body="";
+           Body="";
         }
-        try
-        {
-          setOutputFile();
-          OutputFile.write(identifier+" "+Assignn+" "+Body);
-          OutputFile.close();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
-
-	@Override public void exitAssignmentExpression(JavaScriptParser.AssignmentExpressionContext ctx)
-    {
-
-    }
-    @Override public void enterExportDeclaration(JavaScriptParser.ExportDeclarationContext ctx)
-    {
-
+        writeInOutputFile(identifier+" "+Assign+" "+Body);
     }
 
     @Override public void enterReturnStatement(JavaScriptParser.ReturnStatementContext ctx)
     {
         in_return_statement=true;
-        if(in_render)
-        {
-            System.out.print("YES in render\n");
-        }
         boolean condition = !(in_render||inStyles);
         if(condition)
         {
-            try
-            {
-                setOutputFile();
-                OutputFile.write(ctx.Return().getText() + " " + ctx.getChild(1).getText());
-                OutputFile.close();
-            }
-            catch (Exception e)
-            {
-                e.printStackTrace();
-            }
+            String Output = ctx.Return().getText() + " " + ctx.getChild(1).getText();
+            writeInOutputFile(Output);
         }
-
     }
 	@Override public void exitReturnStatement(JavaScriptParser.ReturnStatementContext ctx)
     {
-        try
+        in_return_statement=false;
+        if(!in_render)
         {
-              setOutputFile();
-              OutputFile.write(ctx.eos().getText());
-              OutputFile.close();
+            String semiColon = ctx.eos().getText();
+            writeInOutputFile(semiColon+ "\n");
         }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-
     }
 
     @Override public void enterForStatement(JavaScriptParser.ForStatementContext ctx)
     {
         inForStatement=true;
-       try
-       {
-           setOutputFile();
-           OutputFile.write(ctx.For().getText()+ctx.OpenParen().getText());
-           OutputFile.close();
-       }
-       catch (Exception e)
-       {
-           e.printStackTrace();
-       }
+        writeInOutputFile(ctx.For().getText()+ctx.OpenParen().getText());
     }
 
 	@Override public void enterPostIncrementExpression(JavaScriptParser.PostIncrementExpressionContext ctx)
     {
-       try
-       {
+
            String Output = ctx.getText();
            if(inForStatement)
            {
                Output+=")";
            }
-           setOutputFile();
-           OutputFile.write(Output);
-           OutputFile.close();
+           writeInOutputFile(Output);
+    }
+    @Override public void enterPostDecreaseExpression(JavaScriptParser.PostDecreaseExpressionContext ctx)
+    {
 
-       }
-       catch (Exception e)
-       {
-           e.printStackTrace();
-       }
+       String Output = ctx.getText();
+       if(inForStatement)
+         {
+           Output+=")";
+         }
+        writeInOutputFile(Output);
     }
     @Override public void enterRelationalExpression(JavaScriptParser.RelationalExpressionContext ctx)
     {
         boolean condition = inForStatement&&!(inVarDeclaration||inStyles||in_render||in_return_statement);
         if(condition)
         {
-            try
+            String Output= ctx.getText();
+            if(inForStatement)
             {
-                String Output= ctx.getText();
-                if(inForStatement)
-                {
-                  Output+=";";
-                }
-               setOutputFile();
-               OutputFile.write(Output);
-               OutputFile.close();
+                Output+=";";
             }
-            catch (Exception e)
-            {
-                e.printStackTrace();
-            }
+            writeInOutputFile(Output);
         }
     }
-
-	@Override public void exitRelationalExpression(JavaScriptParser.RelationalExpressionContext ctx) { }
-
 
     @Override public void exitForStatement(JavaScriptParser.ForStatementContext ctx)
     {
@@ -864,7 +571,6 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
     {
         in_render=true;
     }
-
 	@Override public void exitHtmlElements(JavaScriptParser.HtmlElementsContext ctx)
     {
         in_render=false;
@@ -881,7 +587,6 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
         return tree;
 	}
 
-
 	//@Override
 	public void setFileName(String fileName)
     {
@@ -894,7 +599,6 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
 		// TODO Auto-generated method stub
 		return file;
 	}
-
 }
 
 
