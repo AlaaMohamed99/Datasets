@@ -1,5 +1,8 @@
 .checkbox {
-  display: inline-block; // to make the ion-item not to take full
-  // width and accept items next to it
-  width: 50%; // set ion-item width to 50% to make 2 next to each other
+  /* to make the ion-item not to take full
+   width and accept items next to it */
+  display: inline-block; 
+  /*  set ion-item width to 50% to make 2 next to each other
+} */
+  width: 50%; 
 }

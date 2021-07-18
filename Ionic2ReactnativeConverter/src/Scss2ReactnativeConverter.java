@@ -254,8 +254,4 @@ public class Scss2ReactnativeConverter extends ScssParserBaseListener {
         }
     }
 
-
-
-    @Override public void exitValues(ScssParser.ValuesContext ctx) { }
-    @Override public void enterValues(ScssParser.ValuesContext ctx) { }
 }

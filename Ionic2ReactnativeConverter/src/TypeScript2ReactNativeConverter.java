@@ -16,10 +16,15 @@ private StringBuffer backend = new StringBuffer();
 File file = new File("typescript2reactnative.js");
 
 /* global variables*/
-List<String> states = new ArrayList<String>();
+List<String> classBinding = new ArrayList<String>();
+List<String> states_ngModel = new ArrayList<String>();
+List<String> states_propBinding = new ArrayList<String>();
+List<String> allstates = new ArrayList<String>();
 List<String> newState = new ArrayList<String>();
 String handleFunctions="";
 String state = "";
+
+
 
 
 public  String handleSpaces(String text){
@@ -48,6 +53,9 @@ public void WriteContent(File file , String content  ){
 }
 
 
+/** this func to check if there is state var in the line and convert
+ * it in the proper way
+ * **/
 
 public String handleState(String exp){
         exp = handleSpaces(exp);
@@ -57,33 +65,29 @@ public String handleState(String exp){
         if (posOfEqual > 0){
                 String left = exp.substring(0,posOfEqual);
                 String right = exp.substring(posOfEqual);
-                Boolean flagLeft=false;
+                Boolean flagLeft_twoWayBinding=false;
                 //right
-                for(short i=0;i<states.size();i++){
-                        if (right.contains(states.get(i))){
-                                String st=states.get(i);
-                                right= right.replace(st,"state."+st);
+                /** ngModel two way binding **/
+                for(short i = 0; i< allstates.size(); i++){
+                        if (right.contains(allstates.get(i))){
+                                String st= allstates.get(i);
+                                right= right.replace(st,"state."+st+" ");
                         }
                 }
+
                 //left side
-                for(short i=0;i<states.size();i++) {
-                        if (left.contains(states.get(i))){
-                                /** avoid the error that the on of the state
-                                 * is concatenated with some string on the left side**/
-                                String check= left.substring
-                                        (exp.indexOf(states.get(i)),exp.indexOf("="));
-                                check =check.trim();
-                                if(check.equals(states.get(i))){
-                                        String st=states.get(i);
-                                        left= left.replace(st,"setState({"
-                                                +st+":"+right.replace("=","")+"})");
-                                        flagLeft = true;
-                                }
-                                }
-
-
+                /** ngModel two way binding  **/
+                for(short i = 0; i < allstates.size(); i++) {
+                        if (left.contains(allstates.get(i))){
+                                String st= allstates.get(i);
+                                left= left.replace(st,"setState({"
+                                        +st+":"+right.replace("=","")+"})");
+                                flagLeft_twoWayBinding = true;
+                                break;
+                        }
                 }
-                if(flagLeft){
+
+                if(flagLeft_twoWayBinding){
                         out=left + "\n";
                 }
                 else{
@@ -94,12 +98,19 @@ public String handleState(String exp){
         // no equal sign
         else{
                 String line=  exp;
-                for(short i=0;i<states.size();i++){
-                        if (line.contains(states.get(i))){
-                                String st=states.get(i);
-                                line= line.replace(st,"state."+st);
+                for(short i = 0; i< states_ngModel.size(); i++){
+                        if (line.contains(states_ngModel.get(i))){
+                                String st= states_ngModel.get(i);
+                                line= line.replace(st,"state."+st+" ");
                         }
                 }
+                for(short i = 0; i< states_propBinding.size(); i++){
+                        if (line.contains(states_propBinding.get(i))){
+                                String st= states_propBinding.get(i);
+                                line= line.replace(st,"state."+st+" ");
+                        }
+                }
+
                 out=line + "\n" ;
         }
         return  out;
@@ -129,14 +140,26 @@ TypeScript2ReactNativeConverter() {
                 walker.walk(mylistner,tree);
 
                 /** getting the state **/
-                states = mylistner.ngModel_to_state;
+                states_ngModel = mylistner.ngModel_to_state;
+                states_propBinding= mylistner.propBinding_to_state;
+                classBinding = mylistner.class_binding;
+
+
+                allstates.addAll(states_ngModel);
+                allstates.addAll(states_propBinding);
 
 
                 /* adding :'' to initialize the state's variables*/
-                for(short i=0;i<states.size();i++){
-                        newState.add(i,states.get(i)+": ''");
+                for(short i = 0; i< states_ngModel.size(); i++){
+                        newState.add(i, states_ngModel.get(i)+": ''");
                 }
 
+                for(short i = 0; i< states_propBinding.size(); i++){
+                        newState.add(i, states_propBinding.get(i)+": ''");
+                }
+
+
+                /** convert states array to string to write it **/
                 for (short i=0 ; i<newState.size();i++){
                         if ( i!=0 && i % 3 ==0){
                                 state = "\n"+state+ newState.get(i);
@@ -149,11 +172,11 @@ TypeScript2ReactNativeConverter() {
 
 
                 // handle change functions
-                for (short i=0 ; i<states.size();i++){
+                for (short i = 0; i< states_ngModel.size(); i++){
                         handleFunctions = handleFunctions
-                                +"handleChangeOf"+states.get(i)
+                                +"handleChangeOf"+ states_ngModel.get(i)
                                 +"=(event)=>{\n"+"this.setState({"
-                                +states.get(i) +": event.target.value});"
+                                + states_ngModel.get(i) +": event.target.value});"
                                 +"\n }\n";
                 }
 
@@ -217,21 +240,33 @@ TypeScript2ReactNativeConverter() {
                 we ignore type annotations (Number,String,..)
          **/
 
+        /** handle class binding variable
+         * which should point to a style in the style sheet
+         * **/
+        if(classBinding.contains(ctx.propertyName().identifierName().getText())){
+             String out="";
+             out=ctx.propertyName().getText()+ctx.initializer().Assign().getText()
+                     +"Styles."+ctx.initializer().singleExpression().getText()+" ;";
+             backend.append(out+" \n");
+        }
+
         // do not convert variable which is the state
         String checkStateVar = ctx.propertyName().identifierName().Identifier().getText();
-        if(!states.contains(checkStateVar)) {
+        if(!states_ngModel.contains(checkStateVar)
+        && !classBinding.contains(ctx.propertyName().identifierName().getText())) {
                 if (ctx.initializer() != null) {
                         String st="";
                         String initial=ctx.initializer().getText();
-                        for(short i=0;i<states.size();i++){
-                                if (ctx.initializer().getText().contains(states.get(i))) {
-                                        st = states.get(i);
+                        for(short i = 0; i< states_ngModel.size(); i++){
+                                if (ctx.initializer().getText().contains(states_ngModel.get(i))) {
+                                        st = states_ngModel.get(i);
                                         initial= initial.
                                                 replace(st,"state."+st);
                                 }
                         }
                         String propertyDeclaration = ctx.propertyName().getText()
                                 + initial + ctx.SemiColon();
+
                         backend.append(propertyDeclaration+" \n ");
                 } else {
                         String propertyDeclaration = ctx.propertyName().getText()
@@ -244,9 +279,9 @@ TypeScript2ReactNativeConverter() {
                         String stateVal="";
                         String st="";
                         String initial=ctx.initializer().getText();
-                        for(int i=0;i<states.size();i++){
-                                if (ctx.initializer().getText().contains(states.get(i))) {
-                                        st = states.get(i);
+                        for(int i = 0; i< states_ngModel.size(); i++){
+                                if (ctx.initializer().getText().contains(states_ngModel.get(i))) {
+                                        st = states_ngModel.get(i);
                                         initial= initial.
                                                 replace(st,"this.state."+st);
 
@@ -369,7 +404,7 @@ TypeScript2ReactNativeConverter() {
 @Override public void exitProgram(TypeScriptParser.ProgramContext ctx) {
         StringBuilder finalBackend = new StringBuilder();
 
-        if (!states.isEmpty()){
+        if (!states_ngModel.isEmpty()){
                 finalBackend.append(state);
                 finalBackend.append(backend+"\n"+handleFunctions +" \n ");
 
