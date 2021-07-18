@@ -25,8 +25,8 @@ public class OnStartTranslationHandler
     public String onStartTranslation()
     {
         String DefaultImport="import { Component} from '@angular/core';\n";
-        String Selector = "selector:"+"'"+this.TypescriptFileName+"'\n";
-        String TemplateUrl = "templateUrl:"+"'"+HtmlFileName+"'\n";
+        String Selector = "selector:"+"'"+this.TypescriptFileName+"',\n";
+        String TemplateUrl = "templateUrl:"+"'"+HtmlFileName+"',\n";
         String StyleUrls = "styleUrls:"+"['"+ScssFileName+"']\n";
         return DefaultImport+"@Component({\n"+Selector+TemplateUrl+StyleUrls+"})\n";
     }
