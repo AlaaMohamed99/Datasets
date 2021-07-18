@@ -1,7 +1,6 @@
 import com.sun.org.apache.xpath.internal.Arg;
 import com.sun.tracing.dtrace.FunctionName;
 import jdk.nashorn.internal.ir.FunctionNode;
-
 import javax.security.sasl.SaslServer;
 import java.io.File;
 import java.io.FileWriter;
@@ -17,6 +16,9 @@ import org.antlr.v4.runtime.tree.ParseTree;
 public class ReactNative2ts extends JavaScriptParserBaseListener
 {
     private File file;
+    /**
+     *
+     */
     private ImportStatementHandler importstatementhandler;
     private  boolean in_class;
     private boolean hasSetstate;
@@ -551,6 +553,7 @@ public class ReactNative2ts extends JavaScriptParserBaseListener
 		return file;
 	}
 }
+
 
 
 
