@@ -1,0 +1,31 @@
+
+  <ion-header  (click)="getpos($event)">
+    <ion-toolbar class="toolbar" >
+      <ion-title >
+        Form with Checkbox 
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content (click)="getpos($event)" >
+    <ion-item class="item_display" >
+      <ion-label  position="floating"> User Name</ion-label>
+      <ion-input type="text"  > </ion-input>
+  </ion-item>
+    
+  <ion-item  class="item_display">
+      <ion-label  position="floating"> Password</ion-label>
+      <ion-input  type="password">  </ion-input> 
+   
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Gender</ion-label>
+    <ion-select interface="popover">
+      <ion-select-option >Female</ion-select-option>
+      <ion-select-option >Male</ion-select-option>
+    </ion-select>
+  </ion-item>
+  
+  <ion-button class="btn" >Confirm</ion-button>
+</ion-content>

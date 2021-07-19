@@ -10,11 +10,11 @@ import { Button } from 'protractor';
 
 export class HomePage {
 
-  c_class='';
   
   constructor() {}
+ 
+  c_class='';
 
-    /* chnage background color*/ 
     red(){
       this.c_class="red";
     }
@@ -31,3 +31,4 @@ export class HomePage {
   
     }
 
+  }

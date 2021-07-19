@@ -1,16 +1,18 @@
-<ion-content id="color:'green';font:50px;font-weight:bold" >
-<ion-text disabled >
-    asdasd    lj
-</ion-text>
-
-<div> Text h1</div>
-    <navbar style="font-size:red;"> navbar</navbar>
-    <ion-label> label</ion-label>
-
-    <ion-button>asd </ion-button>
-
-    <ion-input>ss</ion-input>
-
-</ion-content>
-
-<ion-footer> footer</ion-footer>
+<ion-header >
+    <ion-toolbar class="toolbar_background">
+      <ion-title class="title" >
+        Change Background
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [style.--background]="c_class" >
+    <ion-text [class.test_class_binding]="true" >  color is orange</ion-text>
+    <div class="center" > 
+      <ion-button [disabled] ="test_other_binding"  (click)="red()" class="red" > Red</ion-button> 
+      <ion-button  (click)="yellow()"   class="yellow"  > Yellow</ion-button> 
+      <ion-button  (click)="black()"   class="black" > Black</ion-button> 
+      <ion-button  (click)="green()"  class="green" > Green</ion-button> 
+    </div>
+    <ion-input (ionChange)="ionchange()" [value]="c_class"></ion-input>
+  </ion-content>
