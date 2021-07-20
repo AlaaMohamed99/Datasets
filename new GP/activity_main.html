@@ -1,0 +1,21 @@
+<ion-content class="main" >
+
+<ion-toolbar>
+  <ion-title>>Age Calc.</ion-title>
+</ion-toolbar>
+
+<ion-button  class="button1" (click)="getAgeButton()"> Get age</ion-button>
+
+<ion-text  class="textView" > Your age is {{ age }} years </ion-text>
+
+<ion-item class="EnterDOB">
+<ion-label>Enter your DOB</ion-label>
+<ion-input type="number" [(ngModel)]= "EnterDOB"[(ngModel)]= "myDOB"> 
+</ion-input>
+</ion-item>
+
+
+
+</ion-content>
+
+
