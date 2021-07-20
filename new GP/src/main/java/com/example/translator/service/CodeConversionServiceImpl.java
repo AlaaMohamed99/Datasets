@@ -132,7 +132,20 @@ public class CodeConversionServiceImpl implements CodeConversionService  {
 				File generatedFile = requiredConverter.getFile();
 				generateFiles.add(generatedFile);
 
-			 }	 
+			 }	
+			
+			for (File dartFile : flutterDTO.getDartFiles()) {
+				CodeConverter requiredConverter = converters.get(inLanguage + "2" + "Typescript" + "Converter");
+				
+				requiredConverter.setFileName(dartFile.getName().split("\\.")[0].split("\\(")[0] + ".ts");
+				ParseTree parsetree = requiredConverter
+						.convert(flutterDTO.getFolderPath() + File.separator + dartFile.getName());
+				ParseTreeWalker walker = new ParseTreeWalker();
+				walker.walk((ParseTreeListener) requiredConverter, parsetree);
+				File generatedFile = requiredConverter.getFile();
+				generateFiles.add(generatedFile);
+
+			 }	
 		 }
 		 
 			// flutter to ionic parts
