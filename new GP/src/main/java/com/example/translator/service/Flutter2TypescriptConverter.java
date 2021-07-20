@@ -1,7 +1,5 @@
 package com.example.translator.service;
 
-
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -22,10 +20,9 @@ import com.example.translator.Dart2BaseListener;
 import com.example.translator.Dart2Lexer;
 import com.example.translator.Dart2Parser;
 
-@Scope("prototype")
-@Component("Dart2TypescriptConverter")
 
-public class Dart2TypescriptConverter extends Dart2BaseListener  implements CodeConverter{
+@Component("Flutter2TypescriptConverter")
+public class Flutter2TypescriptConverter extends Dart2BaseListener  implements CodeConverter{
 	
 	private  File file;
 	Map<String, ArrayList<String>> FunctionNameAndBody = new LinkedHashMap<>();
@@ -276,7 +273,7 @@ public class Dart2TypescriptConverter extends Dart2BaseListener  implements Code
 
     @Override public void exitCompilationUnit(Dart2Parser.CompilationUnitContext ctx) {
         try {
-            FileWriter outputfile = new FileWriter("home.page.ts");
+            FileWriter outputfile = new FileWriter(file.getName());
             outputfile.write("import { Component } from '@angular/core';\n");
             outputfile.close();
         } catch (IOException e) {
@@ -284,7 +281,7 @@ public class Dart2TypescriptConverter extends Dart2BaseListener  implements Code
         }
         for(int i = 0; i< NeededImports.size(); i++){
             try {
-                FileWriter outputfile = new FileWriter("home.page.ts",true);
+                FileWriter outputfile = new FileWriter(file.getName(),true);
                 outputfile.write(NeededImports.get(i) + "\n");
                 outputfile.close();
             } catch (IOException e) {
@@ -292,7 +289,7 @@ public class Dart2TypescriptConverter extends Dart2BaseListener  implements Code
             }
         }
         try {
-            FileWriter outputfile = new FileWriter("home.page.ts",true);
+            FileWriter outputfile = new FileWriter(file.getName(),true);
             outputfile.write("\n" +
                     "@Component({\n" +
                     "  selector: 'app-home',\n" +
@@ -309,7 +306,7 @@ public class Dart2TypescriptConverter extends Dart2BaseListener  implements Code
             List<String> identifier =  InitializedIdentifiers.get(key);
             for(int i = 0; i< identifier.size(); i++){
                 try {
-                    FileWriter outputfile = new FileWriter("home.page.ts",true);
+                    FileWriter outputfile = new FileWriter(file.getName(),true);
                     if(key.equals("String") || key.equals("TextEditingController"))
                         outputfile.write(identifier.get(i) +":"+" string;\n");
                     if(key.equals("int") || key.equals("double"))
@@ -326,7 +323,7 @@ public class Dart2TypescriptConverter extends Dart2BaseListener  implements Code
 
         }
         try {
-            FileWriter outputfile = new FileWriter("home.page.ts", true);
+            FileWriter outputfile = new FileWriter(file.getName(), true);
             outputfile.write("constructor(");
             for (int i=0; i<DefinedinConstructor.size(); i++)
                 outputfile.write(DefinedinConstructor.get(i));
@@ -337,7 +334,7 @@ public class Dart2TypescriptConverter extends Dart2BaseListener  implements Code
         }
         for(int i = 0; i< InsideConstructor.size(); i++){
             try {
-                FileWriter outputfile = new FileWriter("home.page.ts", true);
+                FileWriter outputfile = new FileWriter(file.getName(), true);
                 outputfile.write(InsideConstructor.get(i) + "\n");
                 outputfile.close();
             } catch (IOException e) {
@@ -345,7 +342,7 @@ public class Dart2TypescriptConverter extends Dart2BaseListener  implements Code
             }
         }
         try {
-            FileWriter outputfile = new FileWriter("home.page.ts", true);
+            FileWriter outputfile = new FileWriter(file.getName(), true);
             outputfile.write( "}\n");
             outputfile.close();
         } catch (IOException e) {
@@ -354,7 +351,7 @@ public class Dart2TypescriptConverter extends Dart2BaseListener  implements Code
         for(String key : FunctionNameAndBody.keySet()){
             List<String> body =  FunctionNameAndBody.get(key);
             try {
-                FileWriter outputfile = new FileWriter("home.page.ts", true);
+                FileWriter outputfile = new FileWriter(file.getName(), true);
                 if(body.get(1).contains("alertDialog.create") || body.get(1).contains(".callNumber"))
                     outputfile.write("async " + key + "()\n");
                 else
@@ -366,7 +363,7 @@ public class Dart2TypescriptConverter extends Dart2BaseListener  implements Code
 
             for(int i = 0; i< body.size(); i++){
                 try {
-                    FileWriter outputfile = new FileWriter("home.page.ts", true);
+                    FileWriter outputfile = new FileWriter(file.getName(), true);
                     outputfile.write(body.get(i) + "\n");
                     outputfile.close();
                 } catch (IOException e) {
@@ -377,15 +374,14 @@ public class Dart2TypescriptConverter extends Dart2BaseListener  implements Code
 
         }
         try {
-            FileWriter outputfile = new FileWriter("home.page.ts", true);
+            FileWriter outputfile = new FileWriter(file.getName(), true);
             outputfile.write( "}\n ");
             outputfile.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-	
-	
+
     @Override
     public ParseTree convert(String  uploadedFileName) throws IOException {
         CharStream charStream= CharStreams.fromFileName(uploadedFileName);
