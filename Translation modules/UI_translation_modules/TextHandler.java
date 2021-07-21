@@ -4,7 +4,7 @@ import java.util.Map;
 
 import org.antlr.v4.runtime.tree.ParseTree;
 
-public class TextHandler
+public class TextHandler implements UIElementHandler
 {
        private JavaScriptParser.HtmlContentContext contentCtx;
     private String ElementName;
@@ -19,6 +19,7 @@ public class TextHandler
       Mapper = new HashMap<>();
       Mapper.put("style","class");
     }
+  @Override
   public void setHtmlElementContext(JavaScriptParser.HtmlElementContext ctx)
     {
 
@@ -54,7 +55,7 @@ public class TextHandler
         }
         return atrributeValue;
     }
-    private  String convertattributes()
+    protected  String convertattributes()
     {
         String ConvertedCode="";
         for(JavaScriptParser.HtmlAttributeContext ctx:Atributes)
@@ -72,6 +73,7 @@ public class TextHandler
       return  ConvertedOutput;
     }
 
+    @Override
     public String convertCode()
     {
         ConvertedCode+="<ion-text ";

@@ -2,9 +2,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TextInputHandler
+public class TextInputHandler implements UIElementHandler
 {
-        private JavaScriptParser.HtmlContentContext contentCtx;
+    private JavaScriptParser.HtmlContentContext contentCtx;
     private String ElementName;
     private  String Label;
     private Map<String,String> Mapper;
@@ -24,6 +24,7 @@ public class TextInputHandler
       Mapper.put("secureTextEntry","type");
       Mapper.put("label","label");
     }
+  @Override
   public void setHtmlElementContext(JavaScriptParser.HtmlElementContext ctx)
     {
         ElementName = ctx.htmlTagName().getText();
@@ -49,37 +50,36 @@ public class TextInputHandler
     private  String convertAtrributeValue(String AtrributeName,String AtrributeValue)
     {
         String atrributeValue = AtrributeValue;
-        if(AtrributeName.equals("style"))
+        atrributeValue = atrributeValue.replace("{","");
+        atrributeValue = atrributeValue.replace("}","");
+        if("style".equals(AtrributeName))
         {
-           atrributeValue = atrributeValue.replace("this","").replace("{","");
-           atrributeValue = atrributeValue.replace("}","");
+           atrributeValue = atrributeValue.replace("this","");
            atrributeValue = atrributeValue.replace("styles","");
            atrributeValue = atrributeValue.replace(".","");
            atrributeValue = '"'+atrributeValue+'"';
         }
-        else if(AtrributeName.equals("onChangeText"))
+        else if("onChangeText".equals(AtrributeName))
         {
-           atrributeValue = atrributeValue.replace("this","").replace("{","");
-           atrributeValue = atrributeValue.replace("}","");
-           atrributeValue = atrributeValue.replace(".","");
-           atrributeValue = '"'+atrributeValue+"()"+'"';
+           atrributeValue = '"'+atrributeValue.replace("this.","")+"()"+'"';
         }
-        else if(AtrributeName.equals("value"))
-        {
-            atrributeValue = '"'+atrributeValue.replace("{","").replace("}","")+'"';
-        }
-        else if(AtrributeName.equals("secureTextEntry"))
+
+        else if("secureTextEntry".equals(AtrributeName))
         {
             atrributeValue = '"'+"password"+'"';
         }
-        else if(AtrributeName.equals("label"))
+        else if("label".equals(AtrributeName))
         {
             Label="<ion-label position="+'"'+"fixed"+'"'+">"+atrributeValue.substring(1,atrributeValue.length()-1)+"</ion-label>";
-
+        }
+        else if("value".equals(AtrributeName))
+        {
+            atrributeValue='"'+atrributeValue+'"';
         }
         return atrributeValue;
     }
-    private  String convertattributes()
+
+    protected  String convertattributes()
     {
         String ConvertedCode="";
         for(JavaScriptParser.HtmlAttributeContext ctx:Atributes)
@@ -91,9 +91,9 @@ public class TextInputHandler
     }
 
 
+    @Override
     public String convertCode()
     {
-
         ConvertedCode+=Label;
         ConvertedCode= "<ion-input ";
         ConvertedCode+=convertattributes();

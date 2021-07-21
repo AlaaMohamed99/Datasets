@@ -6,7 +6,7 @@ public class OnStartTranslationHandler
     public OnStartTranslationHandler()
     {
         HtmlFileName="App.html";
-        TypescriptFileName="App.ts";
+        TypescriptFileName="app-home";
         ScssFileName="App.scss";
     }
 

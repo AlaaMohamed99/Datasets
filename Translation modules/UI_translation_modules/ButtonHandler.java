@@ -4,7 +4,7 @@ import java.util.Map;
 
 import org.antlr.v4.runtime.tree.ParseTree;
 
-public class ButtonHandler
+public class ButtonHandler implements UIElementHandler
 {
     private  String Label;
     private JavaScriptParser.HtmlContentContext contentCtx;
@@ -27,14 +27,13 @@ public class ButtonHandler
       Mapper.put('"'+"blue"+'"',"primary");
       Mapper.put('"'+"title"+'"',"title");
     }
+  @Override
   public void setHtmlElementContext(JavaScriptParser.HtmlElementContext ctx)
     {
 
         ElementName = ctx.htmlTagName().getText();
         Atributes   = ctx.htmlAttribute();
         contentCtx = ctx.htmlContent();
-
-
     }
     private boolean isSupported(String AttributeName)
     {
@@ -88,7 +87,7 @@ public class ButtonHandler
         }
         return atrributeValue;
     }
-    private  String convertattributes()
+    protected   String convertattributes()
     {
         String ConvertedCode="";
         for(JavaScriptParser.HtmlAttributeContext ctx:Atributes)
@@ -99,6 +98,7 @@ public class ButtonHandler
         return ConvertedCode;
     }
 
+   @Override
    public String convertCode()
     {
         ConvertedCode= "<ion-button ";

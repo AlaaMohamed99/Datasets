@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CheckBoxHandler
+public class CheckBoxHandler implements  UIElementHandler
 {
     private JavaScriptParser.HtmlContentContext contentCtx;
     private String ElementName;
@@ -19,6 +19,7 @@ public class CheckBoxHandler
       Mapper.put("onPress","(click)");
       Mapper.put("checked","checked");
     }
+  @Override
   public void setHtmlElementContext(JavaScriptParser.HtmlElementContext ctx)
     {
         ElementName = ctx.htmlTagName().getText();
@@ -65,7 +66,7 @@ public class CheckBoxHandler
         }
         return atrributeValue;
     }
-    private  String convertattributes()
+    protected  String convertattributes()
     {
         String ConvertedCode="";
         for(JavaScriptParser.HtmlAttributeContext ctx:Atributes)
@@ -76,6 +77,7 @@ public class CheckBoxHandler
         return ConvertedCode;
     }
 
+   @Override
    public String convertCode()
     {
         ConvertedCode= "<ion-checkbox ";
