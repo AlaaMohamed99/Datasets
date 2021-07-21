@@ -57,18 +57,20 @@ htmlElement
 binding
     :propertybinding // class or style or id ...etc
     |structural_binding //  builtin directives like ngFor*
-    |twoWaybining // two way binding
+    |twowaybining // two way binding
     |eventbinding
     ;
 
+
 structural_binding : Astrict TAG_NAME TAG_EQUALS ATTVALUE_VALUE;
+
 eventbinding : OPEN_PAR Property  CLOSE_PAR TAG_EQUALS ATTVALUE_VALUE  ;
+
 propertybinding:OPEN_SQUARE_PARKET   Property CLOSE_SQUARE_PARKET TAG_EQUALS ATTVALUE_VALUE;
-<<<<<<< Updated upstream
+
 twowaybining: Two_way_binding_open NGMODEL  Two_way_binding_close  TAG_EQUALS ATTVALUE_VALUE ;
-=======
-twoWaybining: Two_way_binding_open NGMODEL  Two_way_binding_close  TAG_EQUALS ATTVALUE_VALUE ;
->>>>>>> Stashed changes
+
+
 
 htmlContent
     : htmlChardata? ((htmlElement | CDATA | htmlComment | interpolation) htmlChardata?)*

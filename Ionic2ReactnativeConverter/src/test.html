@@ -1,38 +1,30 @@
-<<<<<<< Updated upstream
 <ion-header >
-    <ion-toolbar class="toolbar_background">
-        <ion-title class="title" >
-            Change Background
+    <ion-toolbar class="toolbar" >
+        <ion-title >
+            Form with Checkbox
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
-<ion-content [style.--background]="c_class" [class]="color" >
-    <ion-text [class.test_class_binding]="false" >  color is orange</ion-text>
-    <div class="center" >
-        <ion-button [disabled] ="test_other_binding"  (click)="red()" class="red" > Red</ion-button>
-        <ion-button  (click)="yellow()"   class="yellow"  > Yellow</ion-button>
-        <ion-button  (click)="black()"   class="black" > Black</ion-button>
-        <ion-button  (click)="green($event)"  class="green" > Green</ion-button>
-        <ion-input (ionChange)="ionchange()" [value]="c_class"></ion-input>
-=======
-<ion-header>
-<ion-toolbar class="toolbar">
-    <ion-title>
-        Modulus app
-    </ion-title>
-</ion-toolbar>
-</ion-header>
+<ion-content >
+    <ion-item class="item_display" >
+        <ion-label  position="floating"> User Name</ion-label>
+        <ion-input type="text"  > </ion-input>
+    </ion-item>
 
-<ion-content class="content_background">
-    <div class="center">
-        <ion-item class="item" lines="none">
-            <ion-input class="modulus_input" [(ngModel)]="modulus_inp1"></ion-input>
-            <h3 class="text_color">Modulu</h3>
-            <ion-input class="modulus_input"  [(ngModel)]="modulus_inp2"></ion-input>
-        </ion-item>
-        <h3> {{result}}</h3>
-        <ion-button (click)="modulu()" class="modulus_button"> Result</ion-button>
->>>>>>> Stashed changes
-    </div>
+    <ion-item  class="item_display">
+        <ion-label  position="floating"> Password</ion-label>
+        <ion-input  type="password">  </ion-input>
+
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Gender</ion-label>
+        <ion-select interface="popover">
+            <ion-select-option >Female</ion-select-option>
+            <ion-select-option >Male</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-button class="btn" >Confirm</ion-button>
 </ion-content>

@@ -4,6 +4,9 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.antlr.v4.runtime.tree.Tree;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 
 
@@ -19,5 +22,10 @@ public class Main_TypeScript {
         ParseTreeWalker typescript_walker = new ParseTreeWalker();
         TypeScript2ReactNativeConverter typescript_listener = new TypeScript2ReactNativeConverter();
         typescript_walker.walk(typescript_listener,typescript_tree);
+
+
     }
+
+
+
 }

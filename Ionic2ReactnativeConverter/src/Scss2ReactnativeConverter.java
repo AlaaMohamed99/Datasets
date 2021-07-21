@@ -181,9 +181,9 @@ public class Scss2ReactnativeConverter extends ScssParserBaseListener {
 
 
         /* #4546 ==> hashes*/
-         if(ctx.StringLiteral() != null){
-            property_value = ctx.StringLiteral().getText();
-            property_value.replace("\"","'");
+         if(ctx.Color() != null){
+            property_value = ctx.Color().getText();
+            property_value = "'"+ property_value+"'";
 
          }
         /* rgb()*/
@@ -232,7 +232,6 @@ public class Scss2ReactnativeConverter extends ScssParserBaseListener {
         }
     }
 
-    @Override public void exitExpression(ScssParser.ExpressionContext ctx) { }
     @Override public void exitCommandStatement(ScssParser.CommandStatementContext ctx) {
         String num = "";
 
@@ -254,11 +253,4 @@ public class Scss2ReactnativeConverter extends ScssParserBaseListener {
         }
     }
 
-<<<<<<< Updated upstream
-=======
-
-
-    @Override public void exitValues(ScssParser.ValuesContext ctx) { }
-    @Override public void enterValues(ScssParser.ValuesContext ctx) { }
->>>>>>> Stashed changes
 }

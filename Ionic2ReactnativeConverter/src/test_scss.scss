@@ -1,25 +1,22 @@
 .toolbar {
-  --background: rgb(131, 9, 245);
+  --background: #488aff;
 }
-.content_background {
-  --background: rgb(52, 168, 207);
+.btn_color{
+  --background:gray;
+  width:100%
 }
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.item {
-  --background: rgb(52, 168, 207);
-  border: 0px;
-}
-
-.modulus_input {
-  border-bottom-width: 1px;
-  border-bottom-color: white;
-  border-bottom-style: solid;
-}
-.text_color {
-  color: orange;
+.radio {
+  display: inline-block;
+  width: 50%;
+} 
+.item_display{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border:2px;
+  border-color: gray;
+  border-style: solid;
+  border-radius: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-decoration: none;
 }

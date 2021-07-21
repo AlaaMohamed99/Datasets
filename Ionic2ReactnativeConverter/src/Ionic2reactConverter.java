@@ -19,6 +19,9 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
 
 
     Boolean flag_Text=false; // to indicate if Text component is added
+    Boolean flag_checkbox=false;
+    Boolean flag_Picker=false;
+    Boolean flag_radiobutton=false;
     Boolean flag_Slider=false;
     Boolean flag_Appbar=false;
     Boolean flag_View=false;
@@ -27,20 +30,18 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
     Boolean flag_Input=false;
     Boolean flag_Icon=false;
     Boolean flagOfList=false;
+    Boolean checkbox_flag =false;
 
-    Boolean checkTextImport = false;
     String globalAtrributevalue="";
-
+    String label_of_Picker="";
+    String checkbox_title="";
+    String radio_group_value="";
+    Boolean checkTextImport = false;
     ArrayList <String> finalStyle=  new ArrayList<>();
-<<<<<<< Updated upstream
-    ArrayList<String> ngModel_to_state = new ArrayList<String>();
+    ArrayList<String> ngModel_to_state_with_func = new ArrayList<String>();
+    ArrayList<String> ngModel_to_state_without_func = new ArrayList<String>();
     ArrayList<String> propBinding_to_state = new ArrayList<String>();
     ArrayList<String> class_binding = new ArrayList<String>();
-=======
-    List<String> ngModel_to_state = new ArrayList<String>();
-    List<String> propBinding_to_state = new ArrayList<String>();
-    List<String> class_binding = new ArrayList<String>();
->>>>>>> Stashed changes
 
 
     Ionic2reactConverter() throws IOException {
@@ -48,12 +49,13 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
 
         events = new HashMap<String,String>();
         events.put("click","onPress");
-        events.put("ionchange","onChange");
+        events.put("ionChange","onChange");
 
         attributeValue = new HashMap<String,String>();
         attribute =new HashMap<String,String>();
         attribute.put("class","style");
         attribute.put("id","style");
+        attribute.put("value","value");
         attribute.put("color","color");
         attribute.put("size","size");
         attribute.put("disabled","disabled");
@@ -85,6 +87,9 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
         closingTagElemnts.put("h5","Text");
         closingTagElemnts.put("h6","Text");
         closingTagElemnts.put("ion-list","ul");
+        closingTagElemnts.put("ion-radio-group","View");
+        closingTagElemnts.put("ion-select","Picker");
+        closingTagElemnts.put("ion-select-option","Picker.Item");
 
 
         html_element = new HashMap<String,String>();
@@ -99,6 +104,9 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
         notClosingTagElemnts.put("ion-icon","Icon");
         notClosingTagElemnts.put("ion-input","TextInput");
         notClosingTagElemnts.put("ion-range","Slider");
+        notClosingTagElemnts.put("ion-checkbox","CheckBox");
+        notClosingTagElemnts.put("ion-radio","RadioButton");
+
 
 
 
@@ -229,6 +237,7 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
             String styles="";
             for (String cons_styles : post_styles.values()){
                 styles = styles + cons_styles+"\n";
+//                System.out.println("styles "+styles);
             }
             // add styles
             content = content.substring(0,index_of_return)
@@ -241,44 +250,6 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
             e.printStackTrace();
         }
 
-<<<<<<< Updated upstream
-=======
-        /* get number of line where export exists
-        ** to add the list of state of ngmodel conversion
-        * */
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(file.getName()));
-            StringBuilder stringBuilder = new StringBuilder();
-            String line = null;
-            String ls = System.getProperty("line.separator");
-            while ((line = reader.readLine()) != null) {
-                stringBuilder.append(line);
-                stringBuilder.append(ls);
-            }
-            // delete the last new line separator
-            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-            reader.close();
-            String content = stringBuilder.toString();
-            short index_of_return= (short)content.indexOf("export");
-
-            String state = "";
-            for (short i=0 ;i<ngModel_to_state.size();i++){
-                state += ngModel_to_state.get(i);
-            }
-
-            /* get all style predefined */
-            content = content.substring(0,index_of_return)
-                    + state + content.substring(index_of_return);
-
-            FileOutputStream fos = new FileOutputStream(file.getName());
-            fos.write(content.getBytes());
-            fos.flush();
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-
->>>>>>> Stashed changes
         try {
             int count =0;
             /* count the number of lines in the file*/
@@ -289,14 +260,12 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
             }
             // number of lines inside the file
             int lastline_index = count ;
-            System.out.println("Number of lines in the file are :"+lastline_index);
         }
         catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    /* Flag to indicate that there is ion-item inside ion-list and handle it with ion-label*/
 
     @Override
     public void enterHtmlElement(HTMLParser.HtmlElementContext ctx) {
@@ -321,98 +290,137 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
 
         /* handle ion-items inside ion-list */
         if (oldElement.equals("ion-list")){
-            closingTagElemnts.replace("ion-item","li");
+            closingTagElemnts.replace("ion-item","li ");
             flagOfList= true;
         }
+        if (oldElement.equals("ion-select-option")){
+           label_of_Picker = ctx.htmlContent().getText();
+            System.out.println("label "+label_of_Picker);
+        }
+
+        // handle ion-label inside ion-item with checkbox
+        if (oldElement.equals("ion-item")  ){
+
+            if ( ctx.htmlContent().getText().contains("ion-label") && ctx.htmlContent().getText().contains("ion-checkbox") ){
+                closingTagElemnts.remove("ion-label");
+                checkbox_flag= true;
+
+                /* getting content of ion-label inside*/
+                String content = ctx.htmlContent().getText();
+                content = content.substring(content.indexOf("ion-label"));
+                content = content.substring(content.indexOf(">")+1,content.indexOf("<"));
+                checkbox_title = content;
+            }
+
+        }
+
+        // to make ion-radio inline with text inside the view
+        if (oldElement.equals("ion-item") &&  ctx.htmlContent().getText().contains("ion-radio")){
+
+            String ion_item_with_ion_radio_style = "flexDirection:row";
+        }
+
+
 
         /* Ionic to react  closing tags */
         if(closingTagElemnts.containsKey(oldElement)){
             final_ui = (String) closingTagElemnts.get(oldElement);
             finalOutput = opentag + final_ui + " ";
 
+//            if (final_ui.equals("li")) {
+//                finalOutput = opentag + final_ui + " asd";
+//            }
+
+            if (oldElement.equals("ion-select-option")){
+                finalOutput = opentag + final_ui + " label = '"+label_of_Picker +"' ";
+            }
+
             /* ion-label after ion-list or  handle ion-label inside ion-item with ion-input */
             if (oldElement.equals("ion-label") && (flagOfList)  ){
                 finalOutput = "";
             }
 
-            /** some default styles to make it close to ionic **/
-//            if (final_ui.equals("Text")){
-//                globalAtrributevalue = "Text_style";
-//                post_styles.put(oldElement,"const Text_style ={"
-//                        + "color:'white'"+
-//                        "} ");
-//            }
 
-            if(oldElement.equals("ion-title")){
-                globalAtrributevalue = "Tilte_style";
-                post_styles.put(oldElement,"const Tilte_style ={"
-                        + "fontSize:20,fontWeight:500, color:'white',minHeight:23,width:'100%',paddingLeft:20,paddingReight:20"+
-                        "} ");
-            }
-            /* ion-item should be before li*/
-            if(oldElement.equals("ion-item")){
+
+            /** some pre defined default styles to make it close to ionic in view **/
+
+
+             if(oldElement.equals("ion-item") && !ctx.parent.getText().contains("ion-list") && !ctx.htmlContent().getText().contains("ion-radio")){
+
                 globalAtrributevalue = "ionItem_style";
                 post_styles.put(oldElement,"const ionItem_style=" +
-                        "{borderBottomWidth:1,marginLeft:20," +
+                        "{borderBottomWidth:1,paddingRight:20,paddingLeft:20," +
                         " alignSelf:'stretch',alignItems:'center'," +
                         "flexDirection:'row',justifyContent:'center'," +
                         "minHeight:48,minWidth:'fit-content'  }");
             }
-            if(final_ui.equals("li")){
-                globalAtrributevalue = "li_style";
-                post_styles.put(oldElement,"const li_style ={"
-                        + "marginTop:10 , marginRight:8,marginBottom:10  ,paddingLeft:0"+
-                        "} ");
-            }
-            if(final_ui.equals("Appbar")){
-                globalAtrributevalue = "Appbar_style";
-                post_styles.put(oldElement,"const Appbar_style={\n" +
-                        "height:56,maxHeigth:100,width:'100%'"+
-                        "}");
-            }
-            if(final_ui.equals("TouchableOpacity")){
-                globalAtrributevalue = "TouchableOpacity_style";
-                post_styles.put(oldElement,"const TouchableOpacity_style = {" +
-                        "alignItems:'center'," +
-                        "borderRadius:6," +
-                        "display:'inline-block'," +
-                        "padding: 10," +
-                        "backgroundColor:'#3880ff'," +
-                        "minHeigth:36,minWidth:92,maxWidth:'fit-content'," +
-                        "textTransform:'uppercase'," +
-                        "letterSpacing:1," +
-                        "paddingRight:15," +
-                        "paddingLeft:15," +
-                        "overflow:'hidden'," +
-                        "textAlign:'center'," +
-                        "marginTop:4," +
-                        "marginBottom:4," +
-                        "marginLeft:2," +
-                        "marginRight:2," +
-                        "  " +
-                        "}");
-            }
-            if(oldElement.equals("ion-list-header")){
-                globalAtrributevalue = "ion_list_style";
-                post_styles.put(oldElement,"const ion_list_style ={"
-                        + "fontSize:22,margin:0"+
-                        "} ");
+             if(oldElement.equals("ion-item") && ctx.htmlContent().getText().contains("ion-radio")){
 
-            }if(oldElement.equals("ion-content")){
-                globalAtrributevalue = "content_100vh";
-                post_styles.put(oldElement,"const content_100vh = {" +
-                        "height:'100vh'," +"} ");
-            }
+                 globalAtrributevalue = "radio_btn_style";
+                 post_styles.put(oldElement+" ","const radio_btn_style ={"
+                         +   "flexDirection:'row'"+
+                         "}");
+             }
 
-            /* if ui is li  ==>  should be no bullets at start of li in reactnative */
-            /* some default styles to make it close to ionic*/
-            if(final_ui.equals("ul")){
-                globalAtrributevalue = "ul_style";
-                post_styles.put(oldElement,"const ul_style ={"
-                        + "fontSize:22,margin:0 , paddingLeft:16, paddingTop:8 ,listStyle:'none'"+
-                        "} ");
+            else{
+                 if(oldElement.equals("ion-title")){
+                     globalAtrributevalue = "Title_style";
+                     post_styles.put(oldElement,"const Title_style ={"
+                             + "fontSize:20,fontWeight:500,minHeight:23,width:'100%',paddingLeft:20,paddingReight:20"+
+                             "} ");
+                 }
+                 /* ion-item should be before li*/
 
-            }
+
+                 if(final_ui.equals("Appbar")){
+                     globalAtrributevalue = "Appbar_style";
+                     post_styles.put(oldElement,"const Appbar_style={" +
+                             "height:56,maxHeigth:100,width:'100%'"+
+                             "}");
+                 }
+                 if(final_ui.equals("TouchableOpacity")){
+                     globalAtrributevalue = "TouchableOpacity_style";
+                     post_styles.put(oldElement,"const TouchableOpacity_style = {" +
+                             "alignItems:'center'," +
+                             "borderRadius:6," +
+                             "display:'inline-block'," +
+                             "padding: 10," +
+                             "backgroundColor:'#3880ff'," +
+                             "minHeigth:36,minWidth:92,maxWidth:'fit-content'," +
+                             "textTransform:'uppercase'," +
+                             "letterSpacing:1," +
+                             "paddingRight:15," +
+                             "paddingLeft:15," +
+                             "overflow:'hidden'," +
+                             "textAlign:'center'," +
+                             "marginTop:4," +
+                             "marginBottom:4," +
+                             "marginLeft:2," +
+                             "marginRight:2," +
+                             "  " +
+                             "}");
+                 }
+                 if(oldElement.equals("ion-list-header")){
+                     globalAtrributevalue = "ion_list_style";
+                     post_styles.put(oldElement,"const ion_list_style ={"
+                             + "fontSize:22,margin:0"+
+                             "} ");
+
+                 }if(oldElement.equals("ion-content")){
+                     globalAtrributevalue = "content_100vh";
+                     post_styles.put(oldElement,"const content_100vh = {" +
+                             "height:'100vh'," +"} ");
+                 }
+
+                 /* if ui is li  ==>  should be no bullets at start of li in reactnative */
+                 /* some default styles to make it close to ionic*/
+                 if(final_ui.equals("ul")){
+                     finalStyle.add("{"
+                             + "fontSize:22,margin:0 , paddingLeft:16, paddingTop:8 ,listStyle:'none'"+
+                             "}");
+                 }
+             }
+
             short addGlobalAttribute=0;
 
             try {
@@ -424,11 +432,18 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
             }
         }
 
-
         /* Ionic to react not closing tags */
       else if(notClosingTagElemnts.containsKey(oldElement)){
             final_ui = (String) notClosingTagElemnts.get(oldElement);
             finalOutput = opentag + final_ui + " ";
+
+            // write title attr with checkbox
+            if (checkbox_flag && oldElement.equals("ion-checkbox" )){
+                finalOutput = opentag + final_ui + " "+"title="+"'"+checkbox_title.trim() +"'";
+
+            }
+
+
 
             /* handle ion-input and ion-label together inside ion-item*/
 //            if(oldElement.equals("ion-input") && labelFlag){
@@ -438,13 +453,19 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
             /* handle TextInput predefined style */
             if(final_ui.equals("TextInput")){
                 globalAtrributevalue = "TextInput_style";
-                post_styles.put(oldElement,"const TextInput_style={\n" +
-                        "    minHeight:38,width:'100%',\n" +
-                        "    display:'block'\n" +
-                        "    ,paddingTop:10,\n" +
-                        "    paddingBottom:10,\n" +
-                        "    paddingLeft:8\n" +
-                        "   }");
+                post_styles.put(oldElement,"const TextInput_style={ " +
+                        "minHeight:38,width:'100%'," +
+                        "display:'block'," +
+                        "paddingTop:10," +
+                        "paddingBottom:10," +
+                        "paddingLeft:8" +
+                        " }");
+            }
+            if(final_ui.equals("Image")){
+                globalAtrributevalue = "Image_size_style";
+                post_styles.put(oldElement,"const Image_size_style={" +
+                        "width:200,height:200" +
+                        " }");
             }
 
             for (short i=0;i<ctx.htmlAttribute().size();i++){
@@ -470,13 +491,8 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
             }
         }
 
-<<<<<<< Updated upstream
 
 
-=======
-
-
->>>>>>> Stashed changes
        else {
            //nothing
         }
@@ -526,10 +542,26 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
                 }
 
                 if (final_ui != null) {
-                    if((!flag_Text ) && final_ui.equals("Text")){
+                    if((!flag_Text ) && (final_ui.equals("Text") )){
                         result = ImportStmnt1 + result;
                         flag_Text = true;
                     }
+
+                    if((!flag_Picker ) && (final_ui.equals("Picker") )){
+                        result = ImportStmnt1 + result;
+                        flag_Picker = true;
+                    }
+
+                    if((!flag_radiobutton ) && (final_ui.equals("RadioButton") )){
+                        result = ImportStmnt3 + result;
+                        flag_radiobutton = true;
+                    }
+
+                    if((!flag_checkbox ) && (final_ui.equals("CheckBox") )){
+                        result = ImportStmnt2 + result;
+                        flag_checkbox = true;
+                    }
+
                     if(!flag_View  && final_ui.equals("View")){
                         result = ImportStmnt1 + result;
                         flag_View = true;
@@ -582,7 +614,23 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
     public void exitHtmlElement(HTMLParser.HtmlElementContext ctx) {
         String oldElement = ctx.TAG_NAME().get(0).getText();
 
+        // clear label_of_Picker every exit
+        if (oldElement.equals("ion-select-option")){
+            label_of_Picker = "";
+        }
 
+        // clear radio_group_value
+        if(ctx.TAG_NAME(0).equals("ion-radio-group")){
+            radio_group_value="";
+            System.out.println("radio_group_value"+radio_group_value);
+        }
+
+
+        // handle ion-label inside ion-item with checkbox
+        if (oldElement.equals("ion-item") && ctx.htmlContent().getText().contains("ion-checkbox")){
+            closingTagElemnts.put("ion-label","Text");
+            checkbox_flag= false;
+        }
 
         /* handle ion-label inside ion-list and replace again ion-item with View */
         if (oldElement.equals("ion-list")){
@@ -594,13 +642,14 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
         String closetag=">";
 
         /* Ionic to react closing tag element */
-//        if (converted_ui1 != null && converted_ui2 == null)
+
         if (closingTagElemnts.containsKey(oldElement))
         {
             String Ionic_closed_tag = (String) closingTagElemnts.get(oldElement);
             String output = opentag + "/" + Ionic_closed_tag + " " + closetag + "\n";
 
-        /* handle ion-label inside ion-list or handle ion-label inside ion-item with ion-input*/
+
+                /* handle ion-label inside ion-list or handle ion-label inside ion-item with ion-input*/
             if (oldElement.equals("ion-label") && (flagOfList )){
                 output = "";
             }
@@ -615,13 +664,15 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
         }
 
 
-
         else{
             // do nothing
         }
 
         /* global attribute value */
         globalAtrributevalue="";
+
+
+
     }
 
     @Override public void enterHtmlAttribute(HTMLParser.HtmlAttributeContext ctx) {
@@ -750,9 +801,7 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
 
             /* handle post_styles */
             if (!globalAtrributevalue.isEmpty()){
-                System.out.println("Not empty"+tagName );
                 if(html_element.containsKey(tagName)){
-                    System.out.println("containes "+tagName);
                     String style = (String) post_styles.get(tagName);
                     style= style.substring(0,style.lastIndexOf("}"))
                        +", " + newAttributeValue +"}";
@@ -807,16 +856,35 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
 
         /*   attributes are not style or class or Id   */
         else{
+
             /* attributes are inside the list of attributes which is predefined */
             if (attribute.containsKey(attributeName) ){
                 if (ctx.ATTVALUE_VALUE() != null){
                     newAtrribute = (String) attribute.get(attributeName) + "= "
                             + attributeValue;
+
+
+                    if(ctx.getParent().getText().contains("ion-radio-group")){
+
+                            radio_group_value = attributeValue.replace("\"","");
+//                            System.out.println("contains radio "+ radio_group_value.replace("\"",""));
+                            ngModel_to_state_without_func.add(radio_group_value);
+//                            System.out.println(ngModel_to_state_without_func);
+
+                    }
+                    if(flag_radiobutton && ctx.getParent().getText().contains("ion-radio")){
+
+                        newAtrribute = newAtrribute+ " \nonPress={()=> this.setState({"+radio_group_value+":"+attributeValue+ "})}" +
+                                "\nstatus ={this.state."+radio_group_value +"== "+attributeValue +" ? 'checked':'unchecked'}"+" ";
+                    }
+
+
                 }
                 else{
                     newAtrribute = (String) attribute.get(attributeName);
                 }
             }
+
             else{
                 // TODO
             }
@@ -845,6 +913,8 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
                 newAtrribute =newAtrribute + "secureTextEntry";
             }
 
+
+
             try {
                 FileWriter outputfile = new FileWriter(file.getName(), true);
                 outputfile.write(newAtrribute);
@@ -856,16 +926,17 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
     }
 
     @Override public void exitHtmlAttribute(HTMLParser.HtmlAttributeContext ctx) {
+        if(ctx.getParent().getChild(1).getText().equals("ion-checkbox")){
+//            System.out.println("contain ");
+        }
 
     }
-<<<<<<< Updated upstream
 
     @Override public void enterHtmlContent(HTMLParser.HtmlContentContext ctx) {
 
         /* global attribute value */
         globalAtrributevalue="";
 
-        System.out.println("final style "+finalStyle);
 
         /**handle the style will be written **/
         Set <String> style = new LinkedHashSet<>(finalStyle);
@@ -875,26 +946,12 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
             finalStyleOut = finalStyleOut + finalStyle.get(i)+",";
         }
 
-=======
-
-    @Override public void enterHtmlContent(HTMLParser.HtmlContentContext ctx) {
-
-        /* global attribute value */
-        globalAtrributevalue="";
-
-        /**handle the style will be written **/
-        Set <String> style = new LinkedHashSet<>(finalStyle);
-        finalStyle =  new ArrayList<>(style);
-        String finalStyleOut = "";
-        for(short i=0;i<finalStyle.size();i++){
-            finalStyleOut = finalStyleOut + finalStyle.get(i)+",";
-        }
-
->>>>>>> Stashed changes
         /* handle final style that contains all style */
         if(!finalStyle.isEmpty()) {
             try {
                 FileWriter outputfile = new FileWriter(file.getName(), true);
+
+
                 outputfile.write(" style = {[ "+ finalStyleOut+" ]} ");
                 outputfile.close();
             } catch (Exception e) {
@@ -908,13 +965,23 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
         /* handle  the closing > of the element*/
         short i_of_nl= (short) ctx.getParent().getText().indexOf(">");
         String b_check= ctx.getParent().getText().substring(0,i_of_nl+1);
+
         try{
             FileWriter outputfile =new FileWriter(file.getName(),true);
-            if(b_check.contains("input")||b_check.contains("img")
-                ||b_check.contains("range")||b_check.contains("icon") ){
+            String par =ctx.getParent().getChild(1).getText();
+            if(par.equals("ion-checkbox") ||par.equals("ion-input")||par.equals("ion-img")||par.equals("ion-icon")||par.equals("ion-range")
+                    ||par.equals("ion-radio") ){
                 outputfile.write("/>\n");
                 outputfile.close();
             }
+//            if(b_check.contains("input")||b_check.contains("img")
+//                ||b_check.contains("range")||b_check.contains("icon")
+//                    ){
+//                outputfile.write("/>\n");
+//                outputfile.close();
+//
+//            }
+
             else{
                 String finalOutput = ">\n";
 
@@ -943,10 +1010,12 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
             String b_check= ctx.getParent().getParent().getText().substring(0,i_of_nl+1);
 
             String Text= ctx.HTML_TEXT().getText().trim();
-            if (b_check.contains("label") || b_check.contains("text")||b_check.contains("p")
+            if ((b_check.contains("label") || b_check.contains("text")||b_check.contains("p")
                 || b_check.contains("title") || b_check.contains("h1")
-                || b_check.contains("h2")||b_check.contains("h3") ){
-
+                || b_check.contains("h2")||b_check.contains("h3") )&& !b_check.contains("select") ){
+//                if(b_check.contains("button")){
+//                    System.out.println("btn");
+//                }
                 try {
                     FileWriter outputfile =new FileWriter(file.getName(),true);
                     outputfile.write( Text+"\n");
@@ -954,12 +1023,16 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
                 }
                 catch (Exception e){
                     e.printStackTrace();
-<<<<<<< Updated upstream
                 }
+            }
+            // with ion-slect we don't write any content instead will be label attribute
+            else if( b_check.contains("select")){
+                // write nothing
             }
             else{
                 try {
                     FileWriter outputfile =new FileWriter(file.getName(),true);
+
                     outputfile.write("<Text>"+ Text+"</Text>\n");
                     outputfile.close();
                     checkTextImport = true;
@@ -968,21 +1041,6 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
                     e.printStackTrace();
                 }
             }
-=======
-                }
-            }
-            else{
-                try {
-                    FileWriter outputfile =new FileWriter(file.getName(),true);
-                    outputfile.write("<Text>"+ Text+"</Text>\n");
-                    outputfile.close();
-                    checkTextImport = true;
-                }
-                catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
->>>>>>> Stashed changes
 
         }
     }
@@ -1064,10 +1122,15 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
         String interpolation = ctx.Interpolation_inside().getText();
         String out="";
 
-        out="{"+interpolation+"}";
+        out="{"+"this."+interpolation.trim()+"}\n";
+
+        if(ngModel_to_state_with_func.contains(interpolation) || ngModel_to_state_without_func.contains(interpolation)){
+            out="{"+"this.state."+interpolation.trim()+"}\n";
+
+        }
         try {
             FileWriter outputfile =new FileWriter(file.getName(),true);
-            outputfile.write(interpolation);
+            outputfile.write(out);
             outputfile.close();
         }
         catch (Exception e){
@@ -1083,33 +1146,18 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
 
         // style binding
         if(prop1.contains("style")) {
-<<<<<<< Updated upstream
             prop2 = handleProperty(prop2);
 
             if(prop2.equals("background")){
                 prop2 = "backgroundColor";
             }
-            propBinding_to_state.add(prop2);
+            propBinding_to_state.add(prop_value);
             finalStyle.add("{"+prop2+":this.state."+prop_value+"} ");
-=======
-
-            prop2 = handleProperty(prop2);
-            propBinding_to_state.add(prop2);
-            try {
-                String out= " style={{"+prop2+":this.state."+prop_value+"}}";
-                FileWriter outputfile = new FileWriter(file.getName(), true);
-                outputfile.write(out);
-                outputfile.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
->>>>>>> Stashed changes
         }
 
         /** ngStyle **/
         else if(prop1.equals("ngStyle")){
             prop2 = handleProperty(prop2);
-<<<<<<< Updated upstream
             finalStyle.add("{"+"this.state."+prop_value+"} ");
 
         }
@@ -1117,46 +1165,13 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
         // class binding
         else if (prop1.equals("class") ||prop1.equals("id") ){
             class_binding.add(prop_value);
-            finalStyle.add("this."+prop_value+"}");
+            finalStyle.add("this."+prop_value);
 
-=======
-            try {
-                String out= " style={{"+prop2+":this.state."+prop_value+"}}";
-                FileWriter outputfile = new FileWriter(file.getName(), true);
-                outputfile.write(out);
-                outputfile.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        // class binding
-        else if (prop1.equals("class") ||prop1.equals("id") ){
-            class_binding.add(prop2);
-            try {
-                String out= " style={"+"this."+prop_value+"}";
-                FileWriter outputfile = new FileWriter(file.getName(), true);
-                outputfile.write(out);
-                outputfile.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
->>>>>>> Stashed changes
         }
         // add class if boolean is true
         else if (prop1.contains("class.")){
             if (prop_value.equals("true") || prop_value.equals("!false")){
-<<<<<<< Updated upstream
-                finalStyle.add("this."+prop2+"}");
-=======
-                try {
-                    String out= " style={"+"this."+prop2+"}";
-                    FileWriter outputfile = new FileWriter(file.getName(), true);
-                    outputfile.write(out);
-                    outputfile.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
->>>>>>> Stashed changes
+                finalStyle.add("this."+prop2);
             }
             else if(prop_value.equals("false") || prop_value.equals("!true")){
                 // nothing boolean was false
@@ -1182,14 +1197,14 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
                    }
                }
                // ex ==> [disabled]="false"
-               else if(prop_value.equals("flase")){
+               else if(prop_value.equals("false")){
                    // do not write it
                }
                // ex ==> [disabled]="variableNmae"
                else{
                    try {
                        String out=  attribute.get(prop1)+" = "
-                               + "{this."+prop_value+"? " +"true:flase} ";
+                               + "{this."+prop_value+"? " +"true:false} ";
                        FileWriter outputfile = new FileWriter(file.getName(), true);
                        outputfile.write(out);
                        outputfile.close();
@@ -1202,20 +1217,21 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
 
     }
     /* all ngModel will be stored in a list global list then */
-<<<<<<< Updated upstream
     @Override public void enterTwowaybining(HTMLParser.TwowaybiningContext ctx) {
         String out = "";
         String parent = ctx.parent.getParent().getText();
         String variableName = ctx.ATTVALUE_VALUE().getText().replace("\"","").trim();
-=======
-    @Override public void enterTwoWaybining(HTMLParser.TwoWaybiningContext ctx) {
-        String out = "";
-        String parent = ctx.parent.getParent().getText();
-        String variableName = ctx.ATTVALUE_VALUE().getText().replace("\"","").trim();
-        String variableNmaeStored="";
-        variableNmaeStored = variableName + ":'',";
->>>>>>> Stashed changes
-        ngModel_to_state.add(variableName);
+
+        if (ctx.getParent().getParent().getText().contains("ion-checkbox")){
+         ngModel_to_state_without_func.add(variableName);
+        }
+        else{
+
+            ngModel_to_state_with_func.add(variableName);
+        }
+
+        System.out.println("model1 "+ ngModel_to_state_with_func);
+        System.out.println("model2 "+ ngModel_to_state_without_func);
 
         /* parent is ion-input*/
         if (parent.contains("ion-input")){
@@ -1224,6 +1240,13 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
                     "(event)=>this.handleChangeOf"+variableName+"(event)"+"}";
             out =value + "\n"+onchangetext;
         }
+
+        if(checkbox_flag && ctx.getParent().getParent().getText().contains("ion-checkbox")){
+            out = " checked={this.state."+variableName+"}  " +
+                    "\n "+ " onPress={()=>this.setState({"+variableName+":!this.state."+variableName+"})" +"}" ;
+
+        }
+
         try {
             FileWriter outputfile = new FileWriter(file.getName(), true);
             outputfile.write(out);
