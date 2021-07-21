@@ -27,13 +27,13 @@ public class HTMLParser extends Parser {
 	public static final int
 		RULE_htmlDocument = 0, RULE_scriptletOrSeaWs = 1, RULE_htmlElements = 2, 
 		RULE_htmlElement = 3, RULE_binding = 4, RULE_structural_binding = 5, RULE_eventbinding = 6, 
-		RULE_propertybinding = 7, RULE_twowaybining = 8, RULE_htmlContent = 9, 
+		RULE_propertybinding = 7, RULE_twoWaybining = 8, RULE_htmlContent = 9, 
 		RULE_htmlAttribute = 10, RULE_htmlChardata = 11, RULE_htmlMisc = 12, RULE_htmlComment = 13, 
 		RULE_script = 14, RULE_style = 15, RULE_interpolation = 16;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"htmlDocument", "scriptletOrSeaWs", "htmlElements", "htmlElement", "binding", 
-			"structural_binding", "eventbinding", "propertybinding", "twowaybining", 
+			"structural_binding", "eventbinding", "propertybinding", "twoWaybining", 
 			"htmlContent", "htmlAttribute", "htmlChardata", "htmlMisc", "htmlComment", 
 			"script", "style", "interpolation"
 		};
@@ -564,8 +564,8 @@ public class HTMLParser extends Parser {
 		public Structural_bindingContext structural_binding() {
 			return getRuleContext(Structural_bindingContext.class,0);
 		}
-		public TwowaybiningContext twowaybining() {
-			return getRuleContext(TwowaybiningContext.class,0);
+		public TwoWaybiningContext twoWaybining() {
+			return getRuleContext(TwoWaybiningContext.class,0);
 		}
 		public EventbindingContext eventbinding() {
 			return getRuleContext(EventbindingContext.class,0);
@@ -609,7 +609,7 @@ public class HTMLParser extends Parser {
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(108);
-				twowaybining();
+				twoWaybining();
 				}
 				break;
 			case OPEN_PAR:
@@ -778,29 +778,29 @@ public class HTMLParser extends Parser {
 		return _localctx;
 	}
 
-	public static class TwowaybiningContext extends ParserRuleContext {
+	public static class TwoWaybiningContext extends ParserRuleContext {
 		public TerminalNode Two_way_binding_open() { return getToken(HTMLParser.Two_way_binding_open, 0); }
 		public TerminalNode NGMODEL() { return getToken(HTMLParser.NGMODEL, 0); }
 		public TerminalNode Two_way_binding_close() { return getToken(HTMLParser.Two_way_binding_close, 0); }
 		public TerminalNode TAG_EQUALS() { return getToken(HTMLParser.TAG_EQUALS, 0); }
 		public TerminalNode ATTVALUE_VALUE() { return getToken(HTMLParser.ATTVALUE_VALUE, 0); }
-		public TwowaybiningContext(ParserRuleContext parent, int invokingState) {
+		public TwoWaybiningContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_twowaybining; }
+		@Override public int getRuleIndex() { return RULE_twoWaybining; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).enterTwowaybining(this);
+			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).enterTwoWaybining(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).exitTwowaybining(this);
+			if ( listener instanceof HTMLParserListener ) ((HTMLParserListener)listener).exitTwoWaybining(this);
 		}
 	}
 
-	public final TwowaybiningContext twowaybining() throws RecognitionException {
-		TwowaybiningContext _localctx = new TwowaybiningContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_twowaybining);
+	public final TwoWaybiningContext twoWaybining() throws RecognitionException {
+		TwoWaybiningContext _localctx = new TwoWaybiningContext(_ctx, getState());
+		enterRule(_localctx, 16, RULE_twoWaybining);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{

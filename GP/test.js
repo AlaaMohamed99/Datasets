@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import {TextInput} from 'react-native'
 import {TouchableOpacity} from 'react-native'
 import {Text} from 'react-native'
@@ -51,6 +52,50 @@ onPress= {this.green}  style = {[ TouchableOpacity_style,Styles.green, ]} >
 </View >
 <TextInput 
 onChange= {this.ionchange}  style = {[ TextInput_style, ]} />
+=======
+import React from 'react'; 
+import {StyleSheet} from 'react-native' ;
+export default class testextends React.Component {
+ render (){
+	 const TouchableOpacity_style = {alignItems:'center',borderRadius:6,display:'inline-block',padding: 10,backgroundColor:'#3880ff',minHeigth:36,minWidth:92,maxWidth:'fit-content',textTransform:'uppercase',letterSpacing:1,paddingRight:15,paddingLeft:15,overflow:'hidden',textAlign:'center',marginTop:4,marginBottom:4,marginLeft:2,marginRight:2,  }
+const TextInput_style={
+    minHeight:38,width:'100%',
+    display:'block'
+    ,paddingTop:10,
+    paddingBottom:10,
+    paddingLeft:8
+   }
+const content_100vh = {height:'100vh',} 
+return (
+ 	<View style={{display:'blcok'}}> 
+ <View style={content_100vh} 
+ style={[content_100vh,Styles.color:'green';font:50px;font_weight:bold]} >
+<Text 
+ disabled >
+asdasd    lj
+</Text >
+<View 
+>
+<Text>Text h1</Text>
+</View >
+ style={{fontSize:'red'}} >
+<Text>navbar</Text>
+<Text 
+>
+label
+</Text >
+<TouchableOpacity style={TouchableOpacity_style} 
+>
+<Text>asd</Text>
+</TouchableOpacity >
+<TextInput style={TextInput_style} 
+/>
+ss
+</View >
+<View 
+>
+<Text>footer</Text>
+>>>>>>> Stashed changes
 </View >
 	</View>
   );

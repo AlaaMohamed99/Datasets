@@ -32,9 +32,15 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
     String globalAtrributevalue="";
 
     ArrayList <String> finalStyle=  new ArrayList<>();
+<<<<<<< Updated upstream
     ArrayList<String> ngModel_to_state = new ArrayList<String>();
     ArrayList<String> propBinding_to_state = new ArrayList<String>();
     ArrayList<String> class_binding = new ArrayList<String>();
+=======
+    List<String> ngModel_to_state = new ArrayList<String>();
+    List<String> propBinding_to_state = new ArrayList<String>();
+    List<String> class_binding = new ArrayList<String>();
+>>>>>>> Stashed changes
 
 
     Ionic2reactConverter() throws IOException {
@@ -235,6 +241,44 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
             e.printStackTrace();
         }
 
+<<<<<<< Updated upstream
+=======
+        /* get number of line where export exists
+        ** to add the list of state of ngmodel conversion
+        * */
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(file.getName()));
+            StringBuilder stringBuilder = new StringBuilder();
+            String line = null;
+            String ls = System.getProperty("line.separator");
+            while ((line = reader.readLine()) != null) {
+                stringBuilder.append(line);
+                stringBuilder.append(ls);
+            }
+            // delete the last new line separator
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            reader.close();
+            String content = stringBuilder.toString();
+            short index_of_return= (short)content.indexOf("export");
+
+            String state = "";
+            for (short i=0 ;i<ngModel_to_state.size();i++){
+                state += ngModel_to_state.get(i);
+            }
+
+            /* get all style predefined */
+            content = content.substring(0,index_of_return)
+                    + state + content.substring(index_of_return);
+
+            FileOutputStream fos = new FileOutputStream(file.getName());
+            fos.write(content.getBytes());
+            fos.flush();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+>>>>>>> Stashed changes
         try {
             int count =0;
             /* count the number of lines in the file*/
@@ -426,8 +470,13 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
             }
         }
 
+<<<<<<< Updated upstream
 
 
+=======
+
+
+>>>>>>> Stashed changes
        else {
            //nothing
         }
@@ -809,6 +858,7 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
     @Override public void exitHtmlAttribute(HTMLParser.HtmlAttributeContext ctx) {
 
     }
+<<<<<<< Updated upstream
 
     @Override public void enterHtmlContent(HTMLParser.HtmlContentContext ctx) {
 
@@ -825,6 +875,22 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
             finalStyleOut = finalStyleOut + finalStyle.get(i)+",";
         }
 
+=======
+
+    @Override public void enterHtmlContent(HTMLParser.HtmlContentContext ctx) {
+
+        /* global attribute value */
+        globalAtrributevalue="";
+
+        /**handle the style will be written **/
+        Set <String> style = new LinkedHashSet<>(finalStyle);
+        finalStyle =  new ArrayList<>(style);
+        String finalStyleOut = "";
+        for(short i=0;i<finalStyle.size();i++){
+            finalStyleOut = finalStyleOut + finalStyle.get(i)+",";
+        }
+
+>>>>>>> Stashed changes
         /* handle final style that contains all style */
         if(!finalStyle.isEmpty()) {
             try {
@@ -888,6 +954,7 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
                 }
                 catch (Exception e){
                     e.printStackTrace();
+<<<<<<< Updated upstream
                 }
             }
             else{
@@ -901,6 +968,21 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
                     e.printStackTrace();
                 }
             }
+=======
+                }
+            }
+            else{
+                try {
+                    FileWriter outputfile =new FileWriter(file.getName(),true);
+                    outputfile.write("<Text>"+ Text+"</Text>\n");
+                    outputfile.close();
+                    checkTextImport = true;
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+>>>>>>> Stashed changes
 
         }
     }
@@ -1001,6 +1083,7 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
 
         // style binding
         if(prop1.contains("style")) {
+<<<<<<< Updated upstream
             prop2 = handleProperty(prop2);
 
             if(prop2.equals("background")){
@@ -1008,11 +1091,25 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
             }
             propBinding_to_state.add(prop2);
             finalStyle.add("{"+prop2+":this.state."+prop_value+"} ");
+=======
+
+            prop2 = handleProperty(prop2);
+            propBinding_to_state.add(prop2);
+            try {
+                String out= " style={{"+prop2+":this.state."+prop_value+"}}";
+                FileWriter outputfile = new FileWriter(file.getName(), true);
+                outputfile.write(out);
+                outputfile.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+>>>>>>> Stashed changes
         }
 
         /** ngStyle **/
         else if(prop1.equals("ngStyle")){
             prop2 = handleProperty(prop2);
+<<<<<<< Updated upstream
             finalStyle.add("{"+"this.state."+prop_value+"} ");
 
         }
@@ -1022,11 +1119,44 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
             class_binding.add(prop_value);
             finalStyle.add("this."+prop_value+"}");
 
+=======
+            try {
+                String out= " style={{"+prop2+":this.state."+prop_value+"}}";
+                FileWriter outputfile = new FileWriter(file.getName(), true);
+                outputfile.write(out);
+                outputfile.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        // class binding
+        else if (prop1.equals("class") ||prop1.equals("id") ){
+            class_binding.add(prop2);
+            try {
+                String out= " style={"+"this."+prop_value+"}";
+                FileWriter outputfile = new FileWriter(file.getName(), true);
+                outputfile.write(out);
+                outputfile.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+>>>>>>> Stashed changes
         }
         // add class if boolean is true
         else if (prop1.contains("class.")){
             if (prop_value.equals("true") || prop_value.equals("!false")){
+<<<<<<< Updated upstream
                 finalStyle.add("this."+prop2+"}");
+=======
+                try {
+                    String out= " style={"+"this."+prop2+"}";
+                    FileWriter outputfile = new FileWriter(file.getName(), true);
+                    outputfile.write(out);
+                    outputfile.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+>>>>>>> Stashed changes
             }
             else if(prop_value.equals("false") || prop_value.equals("!true")){
                 // nothing boolean was false
@@ -1072,10 +1202,19 @@ public class Ionic2reactConverter extends HTMLParserBaseListener{
 
     }
     /* all ngModel will be stored in a list global list then */
+<<<<<<< Updated upstream
     @Override public void enterTwowaybining(HTMLParser.TwowaybiningContext ctx) {
         String out = "";
         String parent = ctx.parent.getParent().getText();
         String variableName = ctx.ATTVALUE_VALUE().getText().replace("\"","").trim();
+=======
+    @Override public void enterTwoWaybining(HTMLParser.TwoWaybiningContext ctx) {
+        String out = "";
+        String parent = ctx.parent.getParent().getText();
+        String variableName = ctx.ATTVALUE_VALUE().getText().replace("\"","").trim();
+        String variableNmaeStored="";
+        variableNmaeStored = variableName + ":'',";
+>>>>>>> Stashed changes
         ngModel_to_state.add(variableName);
 
         /* parent is ion-input*/

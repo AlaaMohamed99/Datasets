@@ -16,10 +16,11 @@ export default class Mynewproject extends Component {
 
     }
   }
+  
  
-  red=()=>{
+   red(){
     this.setState({
-      BackgroundColour : '#ff0000',
+      BackgroundColour : 'red',
     })
  
   }
