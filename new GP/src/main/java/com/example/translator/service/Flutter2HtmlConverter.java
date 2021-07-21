@@ -41,7 +41,6 @@ public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConv
     int counterTextPlain = 0;
     int counterContainer = 0;
     int counterList = 0;
-    int counterSelect = 0;
     int isList = 0;
     int Textflag = 0;
     String TextType = "text";
@@ -62,8 +61,6 @@ public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConv
     ArrayList<String> Brackets = new ArrayList<>();
     String PaddingExpression = "";
     String ControllerName = "";
-    String HintText = "";
-
 
 
     @Override
@@ -129,11 +126,6 @@ public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConv
 
         if(methodName.equals("ListTile"))
             Ui_widgets.add("ListTile");
-        
-        if(methodName.equals("DropdownButton")) {
-            Ui_widgets.add("DropdownButton");
-            stylesMap.put(".select" + counterSelect, new ArrayList<>());
-        }
 
         if(methodName.equals("CheckboxListTile"))
             Ui_widgets.add("CheckboxListTile");
@@ -182,6 +174,7 @@ public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConv
             Ui_widgets.add("Radio");
         }
         
+        //I have a problem identifiying Text when it's just a text but not inside something, as I could wrap it inside a padding, it'll still be indv but inside a child
         if(!(Identifiers.isEmpty())) {
             if((methodName.equals("Text") && !(Identifiers.get(Identifiers.size()-1).equals("child"))) && (methodName.equals("Text") && !(Identifiers.get(Identifiers.size()-1).equals("title")) && !(Identifiers.get(Identifiers.size()-1).equals("content")) && !(Identifiers.get(Identifiers.size()-1).equals("icon"))  && !(Identifiers.get(Identifiers.size()-1).equals("prefixIcon"))) )
                 Ui_widgets.add("Text");
@@ -302,16 +295,8 @@ public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConv
         if(Label.equals("appBar:")){
             counterAppbar++;
             String appbar = ctx.expression().getText();
-            int start;
-            int end;
-            if(expression.contains("'")){
-                start = expression.indexOf("'") + 1;
-                end = expression.lastIndexOf("'");
-            }
-            else {
-                start = expression.indexOf("\"") + 1;
-                end = expression.lastIndexOf("\"");
-            }
+            int start = appbar.indexOf("\"") + 1;
+            int end = appbar.lastIndexOf("\"");
             String appName = appbar.substring(start,end);
             try {
                 FileWriter outputfile = new FileWriter(file.getName(), false);
@@ -357,26 +342,6 @@ public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConv
             }
             else {
                 stylesMap.get("ion-content").add("--background:"+ " var(--"+ expression + ")");
-            }
-        }
-        
-      //Dropdown
-        if(Label.equals("items:") && !Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("DropdownButton")){
-            if(expression.contains("[")){
-                String choices = expression.substring(expression.indexOf("[")+1,expression.indexOf("]"));
-                List<String> res = Arrays.asList(choices.split(","));
-                try {
-                    FileWriter outputfile = new FileWriter(file.getName(), true);
-                    outputfile.write("<ion-select interface=\"popover\" class=\"select"+counterSelect +"\">\n");
-                    for (int i = 0; i< res.size(); i++)
-                        outputfile.write("<ion-select-option> "+res.get(i) + " </ion-select-option> \n");
-                    outputfile.write("</ion-select>" +"\n");
-                    outputfile.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                stylesMap.get(".select" + counterSelect).add("width:40%");
-
             }
         }
 
@@ -431,17 +396,12 @@ public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConv
                 
             }
         }
-        if (Label.equals("hintText:")) {
-            HintText= expression;
-            
-        }
-        
 
         if (Label.equals("enabledBorder:")) {
             if(expression.contains("OutlineInputBorder")){
                 stylesMap.get(".item" + counterTextfield).add("border: 1px solid grey");
                 stylesMap.get(".item" + counterTextfield).add("margin: 5px auto");
-                stylesMap.get(".item" + counterTextfield).add("width: 100%");
+                stylesMap.get(".item" + counterTextfield).add("width: 97%");
             }
             if(expression.contains("UnderlineInputBorder")){
                 stylesMap.get(".item" + counterTextfield).add("border-bottom: 1px solid");
@@ -452,7 +412,7 @@ public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConv
             if(expression.contains("OutlineInputBorder")){
                 stylesMap.get(".item" + counterTextfield).add("border: 1px solid grey");
                 stylesMap.get(".item" + counterTextfield).add("margin: 5px auto");
-                stylesMap.get(".item" + counterTextfield).add("width: 100%");
+                stylesMap.get(".item" + counterTextfield).add("width: 97%");
             }
             if(expression.contains("UnderlineInputBorder")){
                 stylesMap.get(".item" + counterTextfield).add("border-bottom: 1px solid");
@@ -560,15 +520,6 @@ public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConv
                 try {
                     FileWriter outputfile = new FileWriter(file.getName(), true);
                     outputfile.write(" (click)=\"" + Functionname + "()\"");
-                    outputfile.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            else{
-                try {
-                    FileWriter outputfile = new FileWriter(file.getName(), true);
-                    outputfile.write(" (click)=\"" + expression + "()\"");
                     outputfile.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -798,16 +749,13 @@ public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConv
                     outputfile.write("<ion-item lines=\"none\" class = \"item"+ counterTextfield + "\" >" + "\n" + "<ion-label position=\""+TextfieldTextPosition+"\" >" + exp + " </ion-label>" + "\n");
                     outputfile.write("<ion-input type=\""+TextType+"\" ");
                     if(!ControllerName.equals(""))
-                        outputfile.write("[(ngModel)]=\""+ControllerName+"\" ");
-                    if(!HintText.equals(""))
-                        outputfile.write("placeholder="+HintText+" ");
+                        outputfile.write("[(ngModel)]=\""+ControllerName+"\"");
                     outputfile.write("> </ion-input> \n" + "</ion-item>" + "\n");
                     outputfile.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 ControllerName="";
-                HintText="";
             }
             else{
                 try {
@@ -815,16 +763,13 @@ public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConv
                     outputfile.write("<ion-item lines=\"none\" class = \"item"+ counterTextfield + "\" >" + "\n" + "<ion-label> " + exp + " </ion-label>" + "\n");
                     outputfile.write("<ion-input type=\""+TextType+"\"");
                     if(!ControllerName.equals(""))
-                        outputfile.write("[(ngModel)]=\""+ControllerName+"\" ");
-                    if(!HintText.equals(""))
-                        outputfile.write("placeholder="+HintText+" ");
+                        outputfile.write("[(ngModel)]=\""+ControllerName+"\"");
                     outputfile.write("> </ion-input> \n" + "</ion-item>" + "\n");
                     outputfile.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 ControllerName="";
-                HintText="";
             }
         }
         if(ctx.getChild(ctx.getChildCount()-1).getText().equals(")") && !Brackets.isEmpty() && (Brackets.get(Brackets.size()-1).equals("TextField")) && exp.equals("")){
@@ -832,16 +777,13 @@ public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConv
                 FileWriter outputfile = new FileWriter(file.getName(), true);
                 outputfile.write("<ion-input type=\""+TextType+"\" class = \"item" + counterTextfield + "\" ");
                 if(!ControllerName.equals(""))
-                    outputfile.write("[(ngModel)]=\""+ControllerName+"\" ");
-                if(!HintText.equals(""))
-                    outputfile.write("placeholder="+HintText+" ");
+                    outputfile.write("[(ngModel)]=\""+ControllerName+"\"");
                 outputfile.write("> </ion-input> \n");
                 outputfile.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             ControllerName="";
-            HintText="";
         }
 
         if (ctx.getChild(ctx.getChildCount()-1).getText().equals(")") && !Brackets.isEmpty() && (Brackets.get(Brackets.size()-1).equals("Container") || Brackets.get(Brackets.size()-1).equals("Column") || Brackets.get(Brackets.size()-1).equals("Row")) ) {
@@ -1020,4 +962,3 @@ public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConv
 
 
 }
-
