@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TouchableOpacityHandler
+public class TouchableOpacityHandler implements UIElementHandler
 {
     private String ElementName;
     private Map<String,String> Mapper;
@@ -17,6 +17,7 @@ public class TouchableOpacityHandler
       Mapper.put("style","class");
       Mapper.put("onPress","(click)");
     }
+      @Override
       public void setHtmlElementContext(JavaScriptParser.HtmlElementContext ctx)
     {
         ElementName = ctx.htmlTagStartName().get(0).getText();
@@ -59,7 +60,7 @@ public class TouchableOpacityHandler
         }
         return atrributeValue;
     }
-    private  String convertattributes()
+    protected  String convertattributes()
     {
         String ConvertedCode="";
         for(JavaScriptParser.HtmlAttributeContext ctx:Atributes)
@@ -75,6 +76,7 @@ public class TouchableOpacityHandler
         return "</ion-button>\n";
     }
 
+       @Override
        public String convertCode()
     {
         ConvertedCode+="<ion-button ";

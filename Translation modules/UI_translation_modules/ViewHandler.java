@@ -4,7 +4,7 @@ import java.util.Map;
 
 import org.antlr.v4.runtime.tree.ParseTree;
 
-public class ViewHandler
+public class ViewHandler implements UIElementHandler
 {
     private String ElementName;
     private Map<String,String> Mapper;
@@ -20,9 +20,9 @@ public class ViewHandler
       Mapper.put("onPress", "(click)");
 
     }
+      @Override
       public void setHtmlElementContext(JavaScriptParser.HtmlElementContext ctx)
     {
-
         ElementName = ctx.htmlTagStartName().get(0).getText();
         Atributes   = ctx.htmlAttribute();
     }
@@ -54,7 +54,7 @@ public class ViewHandler
         }
         return atrributeValue;
     }
-    private  String convertattributes()
+    protected  String convertattributes()
     {
         String ConvertedCode="";
         for(JavaScriptParser.HtmlAttributeContext ctx:Atributes)
@@ -68,6 +68,7 @@ public class ViewHandler
     {
         return "</div>\n";
     }
+    @Override
     public String convertCode()
     {
         ConvertedCode= "<div ";

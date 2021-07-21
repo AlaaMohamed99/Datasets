@@ -4,7 +4,7 @@ import java.util.Map;
 
 import org.antlr.v4.runtime.tree.ParseTree;
 
-public class AppbarHandler
+public class AppbarHandler implements  UIElementHandler
 {
     private JavaScriptParser.HtmlContentContext contentCtx;
     private String ElementName;
@@ -13,14 +13,15 @@ public class AppbarHandler
     private List<String> AtrributeValues;
     private String ConvertedCode;
 
-    public AppbarHandler()
+    public  AppbarHandler()
     {
       ConvertedCode="";
       Mapper = new HashMap<>();
       Mapper.put("style","class");
       Mapper.put("onPress", "(click)");
     }
-  public void setHtmlElementContext(JavaScriptParser.HtmlElementContext ctx)
+  @Override
+  public void   setHtmlElementContext(JavaScriptParser.HtmlElementContext ctx)
     {
 
         ElementName = ctx.htmlTagStartName().get(0).getText();
@@ -55,7 +56,7 @@ public class AppbarHandler
         }
         return atrributeValue;
     }
-    private  String convertattributes()
+    protected   String convertattributes()
     {
         String ConvertedCode="";
         for(JavaScriptParser.HtmlAttributeContext ctx:Atributes)
@@ -83,6 +84,7 @@ public class AppbarHandler
         return  Output;
     }
 
+    @Override
     public String convertCode()
     {
         ConvertedCode= "<ion-header "+"class = "+'"'+"Appbar"+'"'+">"+"\n";

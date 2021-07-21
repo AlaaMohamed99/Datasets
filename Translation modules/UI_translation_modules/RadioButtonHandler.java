@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class RadioButtonHandler
+public class RadioButtonHandler implements  UIElementHandler
 {
     private JavaScriptParser.HtmlContentContext contentCtx;
     private String ElementName;
@@ -19,6 +19,7 @@ public class RadioButtonHandler
       Mapper.put("onPress","(click)");
       Mapper.put("value","[(ngModel)]");
     }
+  @Override
   public void setHtmlElementContext(JavaScriptParser.HtmlElementContext ctx)
     {
         ElementName = ctx.htmlTagName().getText();
@@ -66,7 +67,7 @@ public class RadioButtonHandler
         }
         return atrributeValue;
     }
-    private  String convertattributes()
+    protected   String convertattributes()
     {
         String ConvertedCode="";
         for(JavaScriptParser.HtmlAttributeContext ctx:Atributes)
@@ -77,6 +78,7 @@ public class RadioButtonHandler
         return ConvertedCode;
     }
 
+   @Override
    public String convertCode()
     {
         ConvertedCode= "<ion-radio-group>\n";
