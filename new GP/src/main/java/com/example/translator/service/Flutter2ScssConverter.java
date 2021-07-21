@@ -4,8 +4,6 @@ package com.example.translator.service;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.*;
 
 import org.antlr.v4.runtime.CharStream;
@@ -38,6 +36,7 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
     int counterTextPlain = 0;
     int counterContainer = 0;
     int counterList = 0;
+    int counterSelect = 0;
     int isList = 0;
     int Textflag = 0;
     String TextType = "text";
@@ -58,7 +57,7 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
     ArrayList<String> Brackets = new ArrayList<>();
     String PaddingExpression = "";
     String ControllerName = "";
-
+    String HintText = "";
 
 
 
@@ -115,7 +114,10 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
         if(methodName.equals("Center"))
             Ui_widgets.add("Center");
 
-      
+        if(methodName.equals("DropdownButton")) {
+            Ui_widgets.add("DropdownButton");
+            stylesMap.put(".select" + counterSelect, new ArrayList<>());
+        }
 
         if(methodName.equals("AssetImage"))
             Ui_widgets.add("AssetImage");
@@ -159,7 +161,7 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
             Ui_widgets.add("Radio");
         }
        
-        //I have a problem identifiying Text when it's just a text but not inside something, as I could wrap it inside a padding, it'll still be indv but inside a child
+        
         if(!(Identifiers.isEmpty())) {
             if((methodName.equals("Text") && !(Identifiers.get(Identifiers.size()-1).equals("child"))) && (methodName.equals("Text") && !(Identifiers.get(Identifiers.size()-1).equals("title")) && !(Identifiers.get(Identifiers.size()-1).equals("content")) && !(Identifiers.get(Identifiers.size()-1).equals("icon"))  && !(Identifiers.get(Identifiers.size()-1).equals("prefixIcon"))) )
                 Ui_widgets.add("Text");
@@ -269,8 +271,16 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
         if(Label.equals("appBar:")){
             counterAppbar++;
             String appbar = ctx.expression().getText();
-            int start = appbar.indexOf("\"") + 1;
-            int end = appbar.lastIndexOf("\"");
+            int start;
+            int end;
+            if(expression.contains("'")){
+                start = expression.indexOf("'") + 1;
+                end = expression.lastIndexOf("'");
+            }
+            else {
+                start = expression.indexOf("\"") + 1;
+                end = expression.lastIndexOf("\"");
+            }
             String appName = appbar.substring(start,end);
             
             stylesMap.put(".appbar" + counterAppbar, new ArrayList<>());
@@ -312,7 +322,25 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
             }
         }
 
+      //Dropdown
+        if(Label.equals("items:") && !Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("DropdownButton")){
+            if(expression.contains("[")){
+                String choices = expression.substring(expression.indexOf("[")+1,expression.indexOf("]"));
+                List<String> res = Arrays.asList(choices.split(","));
+                try {
+                    FileWriter outputfile = new FileWriter("Ionic.html", true);
+                    outputfile.write("<ion-select interface=\"popover\" class=\"select"+counterSelect +"\">\n");
+                    for (int i = 0; i< res.size(); i++)
+                        outputfile.write("<ion-select-option> "+res.get(i) + " </ion-select-option> \n");
+                    outputfile.write("</ion-select>" +"\n");
+                    outputfile.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                stylesMap.get(".select" + counterSelect).add("width:40%");
 
+            }
+        }
         //CheckboxListTile
         if(Label.equals("title:") && !Ui_widgets.isEmpty() && Ui_widgets.get(Ui_widgets.size()-1).equals("CheckboxListTile")){
             int start;
@@ -362,12 +390,18 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
 
             }
         }
+        
+        if (Label.equals("hintText:")) {
+            HintText= expression;
+            
+        }
+        
 
         if (Label.equals("enabledBorder:")) {
             if(expression.contains("OutlineInputBorder")){
                 stylesMap.get(".item" + counterTextfield).add("border: 1px solid grey");
                 stylesMap.get(".item" + counterTextfield).add("margin: 5px auto");
-                stylesMap.get(".item" + counterTextfield).add("width: 97%");
+                stylesMap.get(".item" + counterTextfield).add("width: 100%");
             }
             if(expression.contains("UnderlineInputBorder")){
                 stylesMap.get(".item" + counterTextfield).add("border-bottom: 1px solid");
@@ -378,7 +412,7 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
             if(expression.contains("OutlineInputBorder")){
                 stylesMap.get(".item" + counterTextfield).add("border: 1px solid grey");
                 stylesMap.get(".item" + counterTextfield).add("margin: 5px auto");
-                stylesMap.get(".item" + counterTextfield).add("width: 97%");
+                stylesMap.get(".item" + counterTextfield).add("width: 100%");
             }
             if(expression.contains("UnderlineInputBorder")){
                 stylesMap.get(".item" + counterTextfield).add("border-bottom: 1px solid");
@@ -643,16 +677,16 @@ public class Flutter2ScssConverter extends Dart2BaseListener implements CodeConv
 
         if(ctx.getChild(ctx.getChildCount()-1).getText().equals(")") && !Brackets.isEmpty() && (Brackets.get(Brackets.size()-1).equals("TextField")) && !exp.equals("")){
             if(TextfieldTextPosition.equals("floating")){
-                
+                HintText="";
                 ControllerName="";
             }
             else{
-                
+                HintText="";
                 ControllerName="";
             }
         }
         if(ctx.getChild(ctx.getChildCount()-1).getText().equals(")") && !Brackets.isEmpty() && (Brackets.get(Brackets.size()-1).equals("TextField")) && exp.equals("")){
-           
+        	HintText="";
             ControllerName="";
         }
 
