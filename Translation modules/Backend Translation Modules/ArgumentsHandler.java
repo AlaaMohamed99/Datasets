@@ -4,20 +4,16 @@ import java.util.Map;
 public class ArgumentsHandler
 {
     private String FunctionName;
+    private String ArgumentContent;
     private Map<String,String> ArgumentsMapper;
+    private JavaScriptParser.ArgumentsExpressionContext ctx;
     ArgumentsHandler()
     {
         ArgumentsMapper = new HashMap<>();
         ArgumentsMapper.put("this.setState","this.state.");
-        ArgumentsMapper.put("call","this.callNumber.call");
+        ArgumentsMapper.put("call","this.callNumber.callNumber");
     }
-    public void setArguments(JavaScriptParser.ArgumentsExpressionContext ctx)
-    {
-        if(ctx.getChildCount()>0)
-        {
-            FunctionName = ctx.getChild(0).getText();
-        }
-    }
+
     public boolean isinStyling()
     {
       return FunctionName.contains("StyleSheet.create");
@@ -32,6 +28,11 @@ public class ArgumentsHandler
         {
           return ArgumentsMapper.get(FunctionName);
         }
-        return "";
+        return FunctionName;
+    }
+
+    public void setArguments(JavaScriptParser.ArgumentsExpressionContext ctx)
+    {
+        FunctionName = ctx.getChild(0).getText();
     }
 }
