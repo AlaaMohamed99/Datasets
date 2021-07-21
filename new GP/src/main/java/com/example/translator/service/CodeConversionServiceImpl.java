@@ -40,7 +40,8 @@ import com.example.translator.utils.FileUtils;
 
 
 @Component
-public class CodeConversionServiceImpl implements CodeConversionService  {
+public class CodeConversionServiceImpl implements CodeConversionService  
+{
 
 	@Autowired
 	Map <String,CodeConverter> converters;
@@ -88,7 +89,8 @@ public class CodeConversionServiceImpl implements CodeConversionService  {
 			}
 		 }
 	 // Ionic to React part
-		 else if(inLanguage.equals(Languages.REACT_NATIVE.getLanguage()) && outLanguage.equals(Languages.IONIC.getLanguage())) {
+		 else if(inLanguage.equals(Languages.REACT_NATIVE.getLanguage()) && outLanguage.equals(Languages.IONIC.getLanguage())) 
+		 {
 
 			React_NativeDTO react_NativeDTO = React_NativeHandler.prepareFiles(uploadedFileName);
 			for (File javaScriptFile : react_NativeDTO.getJavascriptFiles()) {
@@ -102,7 +104,32 @@ public class CodeConversionServiceImpl implements CodeConversionService  {
 				generateFiles.add(generatedFile);
 
 			}
+			for (File javaScriptFile : react_NativeDTO.getJavascriptFiles()) 
+			{
+				CodeConverter requiredConverter = converters.get(inLanguage + "2" + "Scss" + "Converter");
+				requiredConverter.setFileName(javaScriptFile.getName().split("\\.")[0].split("\\(")[0] + ".scss");
+				ParseTree parsetree = requiredConverter
+						.convert(react_NativeDTO.getFolderPath() + File.separator + javaScriptFile.getName());
+				ParseTreeWalker walker = new ParseTreeWalker();
+				walker.walk((ParseTreeListener) requiredConverter, parsetree);
+				File generatedFile = requiredConverter.getFile();
+				generateFiles.add(generatedFile);
+
+			}
+			
+			for (File javaScriptFile : react_NativeDTO.getJavascriptFiles()) 
+			{			
+				CodeConverter requiredConverter = converters.get(inLanguage + "2" + "Typescript" + "Converter");
+				
+				requiredConverter.setFileName(javaScriptFile.getName().split("\\.")[0].split("\\(")[0] + ".ts");
+				ParseTree parsetree = requiredConverter
+						.convert(react_NativeDTO.getFolderPath() + File.separator + javaScriptFile.getName());
+				ParseTreeWalker walker = new ParseTreeWalker();
+				walker.walk((ParseTreeListener) requiredConverter, parsetree);
+				File generatedFile = requiredConverter.getFile();
+				generateFiles.add(generatedFile);
 			 // Ionic to React part 
+			}
 		 }
 		 
 		// flutter to ionic part
@@ -132,9 +159,11 @@ public class CodeConversionServiceImpl implements CodeConversionService  {
 				File generatedFile = requiredConverter.getFile();
 				generateFiles.add(generatedFile);
 
-			 }	
+			 }
 			
-			for (File dartFile : flutterDTO.getDartFiles()) {
+			
+			for (File dartFile : flutterDTO.getDartFiles()) 
+			{
 				CodeConverter requiredConverter = converters.get(inLanguage + "2" + "Typescript" + "Converter");
 				
 				requiredConverter.setFileName(dartFile.getName().split("\\.")[0].split("\\(")[0] + ".ts");

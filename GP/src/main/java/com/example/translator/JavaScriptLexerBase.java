@@ -1,5 +1,3 @@
-package com.example.translator;
-
 import org.antlr.v4.runtime.*;
 
 import java.util.Stack;

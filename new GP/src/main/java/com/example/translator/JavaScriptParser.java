@@ -1,4 +1,3 @@
-// Generated from JavaScriptParser.g4 by ANTLR 4.4
 package com.example.translator;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -11,61 +10,38 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class JavaScriptParser extends JavaScriptParserBase {
-	static { RuntimeMetaData.checkVersion("4.4", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.9", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		OpenBracket=6, Delete=94, Enum=100, OpenParen=8, Or=46, Import=105, Var=78, 
-		TagOpen=126, CloseParen=9, Break=71, NonStrictLet=110, IdentityEquals=40, 
-		Throw=93, Private=111, Extends=101, BigHexIntegerLiteral=67, ModulusAssign=49, 
-		Dot=18, BitOrAssign=57, HexIntegerLiteral=63, Switch=85, StringLiteral=119, 
-		Modulus=27, BitAnd=42, BitNot=23, Package=114, NullLiteral=60, If=92, 
-		Minus=22, LessThanEquals=36, Finally=80, MinusAssign=51, In=95, Attribute=132, 
-		Catch=79, TagEquals=133, Case=75, Comma=13, As=97, ARROW=59, JsxComment=2, 
-		CDataComment=124, DecimalLiteral=62, BigDecimalIntegerLiteral=70, Export=104, 
-		TagClose=127, BigBinaryIntegerLiteral=69, BitAndAssign=55, Hashtag=30, 
-		OctalIntegerLiteral=64, BitOr=44, LeftShiftArithmetic=32, CloseBrace=11, 
-		Default=91, SemiColon=12, RightShiftArithmetic=31, LineTerminator=122, 
-		GreaterThanEquals=37, QuestionMark=15, Else=76, Assign=14, Yield=117, 
-		MoreThan=35, Power=28, Interface=113, CloseBracket=7, New=77, AttributeValue=131, 
-		RegularExpressionLiteral=5, NullCoalesce=29, Typeof=74, TagSlash=129, 
-		OctalIntegerLiteral2=65, TagSlashClose=128, HtmlComment=123, Divide=26, 
-		LessThan=34, Implements=108, BinaryIntegerLiteral=66, Super=102, Identifier=118, 
-		Async=106, Multiply=25, This=89, Try=96, Plus=21, Void=82, Protected=115, 
-		Const=103, For=84, SingleLineComment=4, RightShiftLogicalAssign=54, TemplateStringLiteral=120, 
-		Do=72, Public=112, RightShiftArithmeticAssign=53, HashBangLine=1, NotEquals=39, 
-		Not=24, And=45, BitXorAssign=56, Class=99, Static=116, CDATA=125, Debugger=87, 
-		DivideAssign=48, TagName=130, PowerAssign=58, BooleanLiteral=61, RightShiftLogical=33, 
-		Continue=83, MinusMinus=20, With=90, Function=88, BitXOr=43, MultiplyAssign=47, 
-		PlusPlus=19, PlusAssign=50, Instanceof=73, Colon=16, Equals_=38, LeftShiftArithmeticAssign=52, 
-		Return=81, StrictLet=109, MultiLineComment=3, Ellipsis=17, OpenBrace=10, 
-		While=86, From=98, IdentityNotEquals=41, BigOctalIntegerLiteral=68, WhiteSpaces=121, 
-		Await=107;
-	public static final String[] tokenNames = {
-		"<INVALID>", "HashBangLine", "JsxComment", "MultiLineComment", "SingleLineComment", 
-		"RegularExpressionLiteral", "'['", "']'", "'('", "')'", "'{'", "'}'", 
-		"';'", "','", "'='", "'?'", "':'", "'...'", "'.'", "'++'", "'--'", "'+'", 
-		"'-'", "'~'", "'!'", "'*'", "'/'", "'%'", "'**'", "'??'", "'#'", "'>>'", 
-		"'<<'", "'>>>'", "'<'", "'>'", "'<='", "'>='", "'=='", "'!='", "'==='", 
-		"'!=='", "'&'", "'^'", "'|'", "'&&'", "'||'", "'*='", "'/='", "'%='", 
-		"'+='", "'-='", "'<<='", "'>>='", "'>>>='", "'&='", "'^='", "'|='", "'**='", 
-		"'=>'", "'null'", "BooleanLiteral", "DecimalLiteral", "HexIntegerLiteral", 
-		"OctalIntegerLiteral", "OctalIntegerLiteral2", "BinaryIntegerLiteral", 
-		"BigHexIntegerLiteral", "BigOctalIntegerLiteral", "BigBinaryIntegerLiteral", 
-		"BigDecimalIntegerLiteral", "'break'", "'do'", "'instanceof'", "'typeof'", 
-		"'case'", "'else'", "'new'", "'var'", "'catch'", "'finally'", "'return'", 
-		"'void'", "'continue'", "'for'", "'switch'", "'while'", "'debugger'", 
-		"'function'", "'this'", "'with'", "'default'", "'if'", "'throw'", "'delete'", 
-		"'in'", "'try'", "'as'", "'from'", "'class'", "'enum'", "'extends'", "'super'", 
-		"'const'", "'export'", "'import'", "'async'", "'await'", "'implements'", 
-		"StrictLet", "NonStrictLet", "'private'", "'public'", "'interface'", "'package'", 
-		"'protected'", "'static'", "'yield'", "Identifier", "StringLiteral", "TemplateStringLiteral", 
-		"WhiteSpaces", "LineTerminator", "HtmlComment", "CDataComment", "CDATA", 
-		"TagOpen", "TagClose", "'/>'", "TagSlash", "TagName", "AttributeValue", 
-		"Attribute", "TagEquals"
-	};
+		HashBangLine=1, JsxComment=2, MultiLineComment=3, SingleLineComment=4, 
+		RegularExpressionLiteral=5, OpenBracket=6, CloseBracket=7, OpenParen=8, 
+		CloseParen=9, OpenBrace=10, CloseBrace=11, SemiColon=12, Comma=13, Assign=14, 
+		QuestionMark=15, Colon=16, Ellipsis=17, Dot=18, PlusPlus=19, MinusMinus=20, 
+		Plus=21, Minus=22, BitNot=23, Not=24, Multiply=25, Divide=26, Modulus=27, 
+		Power=28, NullCoalesce=29, Hashtag=30, RightShiftArithmetic=31, LeftShiftArithmetic=32, 
+		RightShiftLogical=33, LessThan=34, MoreThan=35, LessThanEquals=36, GreaterThanEquals=37, 
+		Equals_=38, NotEquals=39, IdentityEquals=40, IdentityNotEquals=41, BitAnd=42, 
+		BitXOr=43, BitOr=44, And=45, Or=46, MultiplyAssign=47, DivideAssign=48, 
+		ModulusAssign=49, PlusAssign=50, MinusAssign=51, LeftShiftArithmeticAssign=52, 
+		RightShiftArithmeticAssign=53, RightShiftLogicalAssign=54, BitAndAssign=55, 
+		BitXorAssign=56, BitOrAssign=57, PowerAssign=58, ARROW=59, NullLiteral=60, 
+		BooleanLiteral=61, DecimalLiteral=62, HexIntegerLiteral=63, OctalIntegerLiteral=64, 
+		OctalIntegerLiteral2=65, BinaryIntegerLiteral=66, BigHexIntegerLiteral=67, 
+		BigOctalIntegerLiteral=68, BigBinaryIntegerLiteral=69, BigDecimalIntegerLiteral=70, 
+		Break=71, Do=72, Instanceof=73, Typeof=74, Case=75, Else=76, New=77, Var=78, 
+		Catch=79, Finally=80, Return=81, Void=82, Continue=83, For=84, Switch=85, 
+		While=86, Debugger=87, Function=88, This=89, With=90, Default=91, If=92, 
+		Throw=93, Delete=94, In=95, Try=96, As=97, From=98, Class=99, Enum=100, 
+		Extends=101, Super=102, Const=103, Export=104, Import=105, Async=106, 
+		Await=107, Implements=108, StrictLet=109, NonStrictLet=110, Private=111, 
+		Public=112, Interface=113, Package=114, Protected=115, Static=116, Yield=117, 
+		Identifier=118, StringLiteral=119, TemplateStringLiteral=120, WhiteSpaces=121, 
+		LineTerminator=122, HtmlComment=123, CDataComment=124, UnexpectedCharacter=125, 
+		CDATA=126, TagOpen=127, TagClose=128, TagSlashClose=129, TagSlash=130, 
+		TagName=131, AttributeValue=132, Attribute=133, TagEquals=134;
 	public static final int
 		RULE_program = 0, RULE_sourceElement = 1, RULE_statement = 2, RULE_block = 3, 
 		RULE_statementList = 4, RULE_importStatement = 5, RULE_importFromBlock = 6, 
@@ -95,33 +71,117 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		RULE_numericLiteral = 76, RULE_bigintLiteral = 77, RULE_getter = 78, RULE_setter = 79, 
 		RULE_identifierName = 80, RULE_identifier = 81, RULE_reservedWord = 82, 
 		RULE_keyword = 83, RULE_let = 84, RULE_eos = 85;
-	public static final String[] ruleNames = {
-		"program", "sourceElement", "statement", "block", "statementList", "importStatement", 
-		"importFromBlock", "moduleItems", "importDefault", "importNamespace", 
-		"importFrom", "aliasName", "exportStatement", "exportFromBlock", "declaration", 
-		"variableStatement", "variableDeclarationList", "variableDeclaration", 
-		"emptyStatement", "expressionStatement", "ifStatement", "iterationStatement", 
-		"varModifier", "continueStatement", "breakStatement", "returnStatement", 
-		"yieldStatement", "withStatement", "switchStatement", "caseBlock", "caseClauses", 
-		"caseClause", "defaultClause", "labelledStatement", "throwStatement", 
-		"tryStatement", "catchProduction", "finallyProduction", "debuggerStatement", 
-		"functionDeclaration", "classDeclaration", "classTail", "classElement", 
-		"methodDefinition", "formalParameterList", "formalParameterArg", "lastFormalParameterArg", 
-		"functionBody", "sourceElements", "arrayLiteral", "elementList", "arrayElement", 
-		"propertyAssignment", "propertyName", "arguments", "argument", "expressionSequence", 
-		"singleExpression", "htmlElements", "htmlElement", "htmlContent", "htmlTagStartName", 
-		"htmlTagClosingName", "htmlTagName", "htmlAttribute", "htmlAttributeName", 
-		"htmlChardata", "htmlAttributeValue", "assignable", "objectLiteral", "objectExpressionSequence", 
-		"anoymousFunction", "arrowFunctionParameters", "arrowFunctionBody", "assignmentOperator", 
-		"literal", "numericLiteral", "bigintLiteral", "getter", "setter", "identifierName", 
-		"identifier", "reservedWord", "keyword", "let", "eos"
-	};
+	private static String[] makeRuleNames() {
+		return new String[] {
+			"program", "sourceElement", "statement", "block", "statementList", "importStatement", 
+			"importFromBlock", "moduleItems", "importDefault", "importNamespace", 
+			"importFrom", "aliasName", "exportStatement", "exportFromBlock", "declaration", 
+			"variableStatement", "variableDeclarationList", "variableDeclaration", 
+			"emptyStatement", "expressionStatement", "ifStatement", "iterationStatement", 
+			"varModifier", "continueStatement", "breakStatement", "returnStatement", 
+			"yieldStatement", "withStatement", "switchStatement", "caseBlock", "caseClauses", 
+			"caseClause", "defaultClause", "labelledStatement", "throwStatement", 
+			"tryStatement", "catchProduction", "finallyProduction", "debuggerStatement", 
+			"functionDeclaration", "classDeclaration", "classTail", "classElement", 
+			"methodDefinition", "formalParameterList", "formalParameterArg", "lastFormalParameterArg", 
+			"functionBody", "sourceElements", "arrayLiteral", "elementList", "arrayElement", 
+			"propertyAssignment", "propertyName", "arguments", "argument", "expressionSequence", 
+			"singleExpression", "htmlElements", "htmlElement", "htmlContent", "htmlTagStartName", 
+			"htmlTagClosingName", "htmlTagName", "htmlAttribute", "htmlAttributeName", 
+			"htmlChardata", "htmlAttributeValue", "assignable", "objectLiteral", 
+			"objectExpressionSequence", "anoymousFunction", "arrowFunctionParameters", 
+			"arrowFunctionBody", "assignmentOperator", "literal", "numericLiteral", 
+			"bigintLiteral", "getter", "setter", "identifierName", "identifier", 
+			"reservedWord", "keyword", "let", "eos"
+		};
+	}
+	public static final String[] ruleNames = makeRuleNames();
+
+	private static String[] makeLiteralNames() {
+		return new String[] {
+			null, null, null, null, null, null, "'['", "']'", "'('", "')'", "'{'", 
+			"'}'", "';'", "','", "'='", "'?'", "':'", "'...'", "'.'", "'++'", "'--'", 
+			"'+'", "'-'", "'~'", "'!'", "'*'", "'/'", "'%'", "'**'", "'??'", "'#'", 
+			"'>>'", "'<<'", "'>>>'", "'<'", "'>'", "'<='", "'>='", "'=='", "'!='", 
+			"'==='", "'!=='", "'&'", "'^'", "'|'", "'&&'", "'||'", "'*='", "'/='", 
+			"'%='", "'+='", "'-='", "'<<='", "'>>='", "'>>>='", "'&='", "'^='", "'|='", 
+			"'**='", "'=>'", "'null'", null, null, null, null, null, null, null, 
+			null, null, null, "'break'", "'do'", "'instanceof'", "'typeof'", "'case'", 
+			"'else'", "'new'", "'var'", "'catch'", "'finally'", "'return'", "'void'", 
+			"'continue'", "'for'", "'switch'", "'while'", "'debugger'", "'function'", 
+			"'this'", "'with'", "'default'", "'if'", "'throw'", "'delete'", "'in'", 
+			"'try'", "'as'", "'from'", "'class'", "'enum'", "'extends'", "'super'", 
+			"'const'", "'export'", "'import'", "'async'", "'await'", "'implements'", 
+			null, null, "'private'", "'public'", "'interface'", "'package'", "'protected'", 
+			"'static'", "'yield'", null, null, null, null, null, null, null, null, 
+			null, null, null, "'/>'"
+		};
+	}
+	private static final String[] _LITERAL_NAMES = makeLiteralNames();
+	private static String[] makeSymbolicNames() {
+		return new String[] {
+			null, "HashBangLine", "JsxComment", "MultiLineComment", "SingleLineComment", 
+			"RegularExpressionLiteral", "OpenBracket", "CloseBracket", "OpenParen", 
+			"CloseParen", "OpenBrace", "CloseBrace", "SemiColon", "Comma", "Assign", 
+			"QuestionMark", "Colon", "Ellipsis", "Dot", "PlusPlus", "MinusMinus", 
+			"Plus", "Minus", "BitNot", "Not", "Multiply", "Divide", "Modulus", "Power", 
+			"NullCoalesce", "Hashtag", "RightShiftArithmetic", "LeftShiftArithmetic", 
+			"RightShiftLogical", "LessThan", "MoreThan", "LessThanEquals", "GreaterThanEquals", 
+			"Equals_", "NotEquals", "IdentityEquals", "IdentityNotEquals", "BitAnd", 
+			"BitXOr", "BitOr", "And", "Or", "MultiplyAssign", "DivideAssign", "ModulusAssign", 
+			"PlusAssign", "MinusAssign", "LeftShiftArithmeticAssign", "RightShiftArithmeticAssign", 
+			"RightShiftLogicalAssign", "BitAndAssign", "BitXorAssign", "BitOrAssign", 
+			"PowerAssign", "ARROW", "NullLiteral", "BooleanLiteral", "DecimalLiteral", 
+			"HexIntegerLiteral", "OctalIntegerLiteral", "OctalIntegerLiteral2", "BinaryIntegerLiteral", 
+			"BigHexIntegerLiteral", "BigOctalIntegerLiteral", "BigBinaryIntegerLiteral", 
+			"BigDecimalIntegerLiteral", "Break", "Do", "Instanceof", "Typeof", "Case", 
+			"Else", "New", "Var", "Catch", "Finally", "Return", "Void", "Continue", 
+			"For", "Switch", "While", "Debugger", "Function", "This", "With", "Default", 
+			"If", "Throw", "Delete", "In", "Try", "As", "From", "Class", "Enum", 
+			"Extends", "Super", "Const", "Export", "Import", "Async", "Await", "Implements", 
+			"StrictLet", "NonStrictLet", "Private", "Public", "Interface", "Package", 
+			"Protected", "Static", "Yield", "Identifier", "StringLiteral", "TemplateStringLiteral", 
+			"WhiteSpaces", "LineTerminator", "HtmlComment", "CDataComment", "UnexpectedCharacter", 
+			"CDATA", "TagOpen", "TagClose", "TagSlashClose", "TagSlash", "TagName", 
+			"AttributeValue", "Attribute", "TagEquals"
+		};
+	}
+	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
+	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
+
+	/**
+	 * @deprecated Use {@link #VOCABULARY} instead.
+	 */
+	@Deprecated
+	public static final String[] tokenNames;
+	static {
+		tokenNames = new String[_SYMBOLIC_NAMES.length];
+		for (int i = 0; i < tokenNames.length; i++) {
+			tokenNames[i] = VOCABULARY.getLiteralName(i);
+			if (tokenNames[i] == null) {
+				tokenNames[i] = VOCABULARY.getSymbolicName(i);
+			}
+
+			if (tokenNames[i] == null) {
+				tokenNames[i] = "<INVALID>";
+			}
+		}
+	}
+
+	@Override
+	@Deprecated
+	public String[] getTokenNames() {
+		return tokenNames;
+	}
+
+	@Override
+
+	public Vocabulary getVocabulary() {
+		return VOCABULARY;
+	}
 
 	@Override
 	public String getGrammarFileName() { return "JavaScriptParser.g4"; }
-
-	@Override
-	public String[] getTokenNames() { return tokenNames; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -136,12 +196,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
+
 	public static class ProgramContext extends ParserRuleContext {
 		public TerminalNode EOF() { return getToken(JavaScriptParser.EOF, 0); }
+		public TerminalNode HashBangLine() { return getToken(JavaScriptParser.HashBangLine, 0); }
 		public SourceElementsContext sourceElements() {
 			return getRuleContext(SourceElementsContext.class,0);
 		}
-		public TerminalNode HashBangLine() { return getToken(JavaScriptParser.HashBangLine, 0); }
 		public ProgramContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -168,22 +229,27 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(173);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
 			case 1:
 				{
-				setState(172); match(HashBangLine);
+				setState(172);
+				match(HashBangLine);
 				}
 				break;
 			}
 			setState(176);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
 			case 1:
 				{
-				setState(175); sourceElements();
+				setState(175);
+				sourceElements();
 				}
 				break;
 			}
-			setState(178); match(EOF);
+			setState(178);
+			match(EOF);
 			}
 		}
 		catch (RecognitionException re) {
@@ -226,7 +292,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(180); statement();
+			setState(180);
+			statement();
 			}
 		}
 		catch (RecognitionException re) {
@@ -241,41 +308,20 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class StatementContext extends ParserRuleContext {
-		public YieldStatementContext yieldStatement() {
-			return getRuleContext(YieldStatementContext.class,0);
+		public BlockContext block() {
+			return getRuleContext(BlockContext.class,0);
 		}
-		public TryStatementContext tryStatement() {
-			return getRuleContext(TryStatementContext.class,0);
-		}
-		public SwitchStatementContext switchStatement() {
-			return getRuleContext(SwitchStatementContext.class,0);
-		}
-		public WithStatementContext withStatement() {
-			return getRuleContext(WithStatementContext.class,0);
-		}
-		public DebuggerStatementContext debuggerStatement() {
-			return getRuleContext(DebuggerStatementContext.class,0);
-		}
-		public LabelledStatementContext labelledStatement() {
-			return getRuleContext(LabelledStatementContext.class,0);
-		}
-		public EmptyStatementContext emptyStatement() {
-			return getRuleContext(EmptyStatementContext.class,0);
-		}
-		public BreakStatementContext breakStatement() {
-			return getRuleContext(BreakStatementContext.class,0);
+		public VariableStatementContext variableStatement() {
+			return getRuleContext(VariableStatementContext.class,0);
 		}
 		public ImportStatementContext importStatement() {
 			return getRuleContext(ImportStatementContext.class,0);
 		}
-		public IfStatementContext ifStatement() {
-			return getRuleContext(IfStatementContext.class,0);
+		public ExportStatementContext exportStatement() {
+			return getRuleContext(ExportStatementContext.class,0);
 		}
-		public FunctionDeclarationContext functionDeclaration() {
-			return getRuleContext(FunctionDeclarationContext.class,0);
-		}
-		public VariableStatementContext variableStatement() {
-			return getRuleContext(VariableStatementContext.class,0);
+		public EmptyStatementContext emptyStatement() {
+			return getRuleContext(EmptyStatementContext.class,0);
 		}
 		public ClassDeclarationContext classDeclaration() {
 			return getRuleContext(ClassDeclarationContext.class,0);
@@ -283,8 +329,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		public ExpressionStatementContext expressionStatement() {
 			return getRuleContext(ExpressionStatementContext.class,0);
 		}
-		public ThrowStatementContext throwStatement() {
-			return getRuleContext(ThrowStatementContext.class,0);
+		public IfStatementContext ifStatement() {
+			return getRuleContext(IfStatementContext.class,0);
 		}
 		public IterationStatementContext iterationStatement() {
 			return getRuleContext(IterationStatementContext.class,0);
@@ -292,14 +338,35 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		public ContinueStatementContext continueStatement() {
 			return getRuleContext(ContinueStatementContext.class,0);
 		}
-		public BlockContext block() {
-			return getRuleContext(BlockContext.class,0);
+		public BreakStatementContext breakStatement() {
+			return getRuleContext(BreakStatementContext.class,0);
 		}
 		public ReturnStatementContext returnStatement() {
 			return getRuleContext(ReturnStatementContext.class,0);
 		}
-		public ExportStatementContext exportStatement() {
-			return getRuleContext(ExportStatementContext.class,0);
+		public YieldStatementContext yieldStatement() {
+			return getRuleContext(YieldStatementContext.class,0);
+		}
+		public WithStatementContext withStatement() {
+			return getRuleContext(WithStatementContext.class,0);
+		}
+		public LabelledStatementContext labelledStatement() {
+			return getRuleContext(LabelledStatementContext.class,0);
+		}
+		public SwitchStatementContext switchStatement() {
+			return getRuleContext(SwitchStatementContext.class,0);
+		}
+		public ThrowStatementContext throwStatement() {
+			return getRuleContext(ThrowStatementContext.class,0);
+		}
+		public TryStatementContext tryStatement() {
+			return getRuleContext(TryStatementContext.class,0);
+		}
+		public DebuggerStatementContext debuggerStatement() {
+			return getRuleContext(DebuggerStatementContext.class,0);
+		}
+		public FunctionDeclarationContext functionDeclaration() {
+			return getRuleContext(FunctionDeclarationContext.class,0);
 		}
 		public StatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -325,125 +392,146 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		enterRule(_localctx, 4, RULE_statement);
 		try {
 			setState(202);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(182); block();
+				setState(182);
+				block();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(183); variableStatement();
+				setState(183);
+				variableStatement();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(184); importStatement();
+				setState(184);
+				importStatement();
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(185); exportStatement();
+				setState(185);
+				exportStatement();
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(186); emptyStatement();
+				setState(186);
+				emptyStatement();
 				}
 				break;
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(187); classDeclaration();
+				setState(187);
+				classDeclaration();
 				}
 				break;
 			case 7:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(188); expressionStatement();
+				setState(188);
+				expressionStatement();
 				}
 				break;
 			case 8:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(189); ifStatement();
+				setState(189);
+				ifStatement();
 				}
 				break;
 			case 9:
 				enterOuterAlt(_localctx, 9);
 				{
-				setState(190); iterationStatement();
+				setState(190);
+				iterationStatement();
 				}
 				break;
 			case 10:
 				enterOuterAlt(_localctx, 10);
 				{
-				setState(191); continueStatement();
+				setState(191);
+				continueStatement();
 				}
 				break;
 			case 11:
 				enterOuterAlt(_localctx, 11);
 				{
-				setState(192); breakStatement();
+				setState(192);
+				breakStatement();
 				}
 				break;
 			case 12:
 				enterOuterAlt(_localctx, 12);
 				{
-				setState(193); returnStatement();
+				setState(193);
+				returnStatement();
 				}
 				break;
 			case 13:
 				enterOuterAlt(_localctx, 13);
 				{
-				setState(194); yieldStatement();
+				setState(194);
+				yieldStatement();
 				}
 				break;
 			case 14:
 				enterOuterAlt(_localctx, 14);
 				{
-				setState(195); withStatement();
+				setState(195);
+				withStatement();
 				}
 				break;
 			case 15:
 				enterOuterAlt(_localctx, 15);
 				{
-				setState(196); labelledStatement();
+				setState(196);
+				labelledStatement();
 				}
 				break;
 			case 16:
 				enterOuterAlt(_localctx, 16);
 				{
-				setState(197); switchStatement();
+				setState(197);
+				switchStatement();
 				}
 				break;
 			case 17:
 				enterOuterAlt(_localctx, 17);
 				{
-				setState(198); throwStatement();
+				setState(198);
+				throwStatement();
 				}
 				break;
 			case 18:
 				enterOuterAlt(_localctx, 18);
 				{
-				setState(199); tryStatement();
+				setState(199);
+				tryStatement();
 				}
 				break;
 			case 19:
 				enterOuterAlt(_localctx, 19);
 				{
-				setState(200); debuggerStatement();
+				setState(200);
+				debuggerStatement();
 				}
 				break;
 			case 20:
 				enterOuterAlt(_localctx, 20);
 				{
-				setState(201); functionDeclaration();
+				setState(201);
+				functionDeclaration();
 				}
 				break;
 			}
@@ -460,6 +548,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class BlockContext extends ParserRuleContext {
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
 		public StatementListContext statementList() {
 			return getRuleContext(StatementListContext.class,0);
 		}
@@ -488,16 +578,20 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(204); match(OpenBrace);
+			setState(204);
+			match(OpenBrace);
 			setState(206);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
 			case 1:
 				{
-				setState(205); statementList();
+				setState(205);
+				statementList();
 				}
 				break;
 			}
-			setState(208); match(CloseBrace);
+			setState(208);
+			match(CloseBrace);
 			}
 		}
 		catch (RecognitionException re) {
@@ -512,11 +606,11 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class StatementListContext extends ParserRuleContext {
-		public StatementContext statement(int i) {
-			return getRuleContext(StatementContext.class,i);
-		}
 		public List<StatementContext> statement() {
 			return getRuleContexts(StatementContext.class);
+		}
+		public StatementContext statement(int i) {
+			return getRuleContext(StatementContext.class,i);
 		}
 		public StatementListContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -552,7 +646,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				case 1:
 					{
 					{
-					setState(210); statement();
+					setState(210);
+					statement();
 					}
 					}
 					break;
@@ -606,8 +701,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(215); match(Import);
-			setState(216); importFromBlock();
+			setState(215);
+			match(Import);
+			setState(216);
+			importFromBlock();
 			}
 		}
 		catch (RecognitionException re) {
@@ -622,22 +719,22 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class ImportFromBlockContext extends ParserRuleContext {
+		public ImportFromContext importFrom() {
+			return getRuleContext(ImportFromContext.class,0);
+		}
+		public EosContext eos() {
+			return getRuleContext(EosContext.class,0);
+		}
 		public ImportNamespaceContext importNamespace() {
 			return getRuleContext(ImportNamespaceContext.class,0);
+		}
+		public ModuleItemsContext moduleItems() {
+			return getRuleContext(ModuleItemsContext.class,0);
 		}
 		public ImportDefaultContext importDefault() {
 			return getRuleContext(ImportDefaultContext.class,0);
 		}
 		public TerminalNode StringLiteral() { return getToken(JavaScriptParser.StringLiteral, 0); }
-		public EosContext eos() {
-			return getRuleContext(EosContext.class,0);
-		}
-		public ModuleItemsContext moduleItems() {
-			return getRuleContext(ModuleItemsContext.class,0);
-		}
-		public ImportFromContext importFrom() {
-			return getRuleContext(ImportFromContext.class,0);
-		}
 		public ImportFromBlockContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -662,6 +759,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		enterRule(_localctx, 12, RULE_importFromBlock);
 		try {
 			setState(230);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case OpenBrace:
 			case Multiply:
@@ -718,14 +816,17 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(219);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
 				case 1:
 					{
-					setState(218); importDefault();
+					setState(218);
+					importDefault();
 					}
 					break;
 				}
 				setState(223);
+				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case Multiply:
 				case NullLiteral:
@@ -779,26 +880,32 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				case Yield:
 				case Identifier:
 					{
-					setState(221); importNamespace();
+					setState(221);
+					importNamespace();
 					}
 					break;
 				case OpenBrace:
 					{
-					setState(222); moduleItems();
+					setState(222);
+					moduleItems();
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(225); importFrom();
-				setState(226); eos();
+				setState(225);
+				importFrom();
+				setState(226);
+				eos();
 				}
 				break;
 			case StringLiteral:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(228); match(StringLiteral);
-				setState(229); eos();
+				setState(228);
+				match(StringLiteral);
+				setState(229);
+				eos();
 				}
 				break;
 			default:
@@ -817,11 +924,17 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class ModuleItemsContext extends ParserRuleContext {
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
 		public List<AliasNameContext> aliasName() {
 			return getRuleContexts(AliasNameContext.class);
 		}
 		public AliasNameContext aliasName(int i) {
 			return getRuleContext(AliasNameContext.class,i);
+		}
+		public List<TerminalNode> Comma() { return getTokens(JavaScriptParser.Comma); }
+		public TerminalNode Comma(int i) {
+			return getToken(JavaScriptParser.Comma, i);
 		}
 		public ModuleItemsContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -850,7 +963,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(232); match(OpenBrace);
+			setState(232);
+			match(OpenBrace);
 			setState(238);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
@@ -858,8 +972,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(233); aliasName();
-					setState(234); match(Comma);
+					setState(233);
+					aliasName();
+					setState(234);
+					match(Comma);
 					}
 					} 
 				}
@@ -868,22 +984,27 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
 			}
 			setState(245);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (((((_la - 60)) & ~0x3f) == 0 && ((1L << (_la - 60)) & ((1L << (NullLiteral - 60)) | (1L << (BooleanLiteral - 60)) | (1L << (Break - 60)) | (1L << (Do - 60)) | (1L << (Instanceof - 60)) | (1L << (Typeof - 60)) | (1L << (Case - 60)) | (1L << (Else - 60)) | (1L << (New - 60)) | (1L << (Var - 60)) | (1L << (Catch - 60)) | (1L << (Finally - 60)) | (1L << (Return - 60)) | (1L << (Void - 60)) | (1L << (Continue - 60)) | (1L << (For - 60)) | (1L << (Switch - 60)) | (1L << (While - 60)) | (1L << (Debugger - 60)) | (1L << (Function - 60)) | (1L << (This - 60)) | (1L << (With - 60)) | (1L << (Default - 60)) | (1L << (If - 60)) | (1L << (Throw - 60)) | (1L << (Delete - 60)) | (1L << (In - 60)) | (1L << (Try - 60)) | (1L << (As - 60)) | (1L << (From - 60)) | (1L << (Class - 60)) | (1L << (Enum - 60)) | (1L << (Extends - 60)) | (1L << (Super - 60)) | (1L << (Const - 60)) | (1L << (Export - 60)) | (1L << (Import - 60)) | (1L << (Async - 60)) | (1L << (Await - 60)) | (1L << (Implements - 60)) | (1L << (StrictLet - 60)) | (1L << (NonStrictLet - 60)) | (1L << (Private - 60)) | (1L << (Public - 60)) | (1L << (Interface - 60)) | (1L << (Package - 60)) | (1L << (Protected - 60)) | (1L << (Static - 60)) | (1L << (Yield - 60)) | (1L << (Identifier - 60)))) != 0)) {
 				{
-				setState(241); aliasName();
+				setState(241);
+				aliasName();
 				setState(243);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Comma) {
 					{
-					setState(242); match(Comma);
+					setState(242);
+					match(Comma);
 					}
 				}
 
 				}
 			}
 
-			setState(247); match(CloseBrace);
+			setState(247);
+			match(CloseBrace);
 			}
 		}
 		catch (RecognitionException re) {
@@ -901,6 +1022,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		public AliasNameContext aliasName() {
 			return getRuleContext(AliasNameContext.class,0);
 		}
+		public TerminalNode Comma() { return getToken(JavaScriptParser.Comma, 0); }
 		public ImportDefaultContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -926,8 +1048,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(249); aliasName();
-			setState(250); match(Comma);
+			setState(249);
+			aliasName();
+			setState(250);
+			match(Comma);
 			}
 		}
 		catch (RecognitionException re) {
@@ -942,13 +1066,14 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class ImportNamespaceContext extends ParserRuleContext {
+		public TerminalNode Multiply() { return getToken(JavaScriptParser.Multiply, 0); }
+		public List<IdentifierNameContext> identifierName() {
+			return getRuleContexts(IdentifierNameContext.class);
+		}
 		public IdentifierNameContext identifierName(int i) {
 			return getRuleContext(IdentifierNameContext.class,i);
 		}
 		public TerminalNode As() { return getToken(JavaScriptParser.As, 0); }
-		public List<IdentifierNameContext> identifierName() {
-			return getRuleContexts(IdentifierNameContext.class);
-		}
 		public ImportNamespaceContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -976,10 +1101,12 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(254);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case Multiply:
 				{
-				setState(252); match(Multiply);
+				setState(252);
+				match(Multiply);
 				}
 				break;
 			case NullLiteral:
@@ -1033,18 +1160,22 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			case Yield:
 			case Identifier:
 				{
-				setState(253); identifierName();
+				setState(253);
+				identifierName();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
 			setState(258);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==As) {
 				{
-				setState(256); match(As);
-				setState(257); identifierName();
+				setState(256);
+				match(As);
+				setState(257);
+				identifierName();
 				}
 			}
 
@@ -1062,8 +1193,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class ImportFromContext extends ParserRuleContext {
-		public TerminalNode StringLiteral() { return getToken(JavaScriptParser.StringLiteral, 0); }
 		public TerminalNode From() { return getToken(JavaScriptParser.From, 0); }
+		public TerminalNode StringLiteral() { return getToken(JavaScriptParser.StringLiteral, 0); }
 		public ImportFromContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1089,8 +1220,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(260); match(From);
-			setState(261); match(StringLiteral);
+			setState(260);
+			match(From);
+			setState(261);
+			match(StringLiteral);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1105,13 +1238,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class AliasNameContext extends ParserRuleContext {
+		public List<IdentifierNameContext> identifierName() {
+			return getRuleContexts(IdentifierNameContext.class);
+		}
 		public IdentifierNameContext identifierName(int i) {
 			return getRuleContext(IdentifierNameContext.class,i);
 		}
 		public TerminalNode As() { return getToken(JavaScriptParser.As, 0); }
-		public List<IdentifierNameContext> identifierName() {
-			return getRuleContexts(IdentifierNameContext.class);
-		}
 		public AliasNameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1138,13 +1271,17 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(263); identifierName();
+			setState(263);
+			identifierName();
 			setState(266);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==As) {
 				{
-				setState(264); match(As);
-				setState(265); identifierName();
+				setState(264);
+				match(As);
+				setState(265);
+				identifierName();
 				}
 			}
 
@@ -1173,13 +1310,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class ExportDefaultDeclarationContext extends ExportStatementContext {
-		public TerminalNode Default() { return getToken(JavaScriptParser.Default, 0); }
-		public EosContext eos() {
-			return getRuleContext(EosContext.class,0);
-		}
 		public TerminalNode Export() { return getToken(JavaScriptParser.Export, 0); }
+		public TerminalNode Default() { return getToken(JavaScriptParser.Default, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
+		}
+		public EosContext eos() {
+			return getRuleContext(EosContext.class,0);
 		}
 		public ExportDefaultDeclarationContext(ExportStatementContext ctx) { copyFrom(ctx); }
 		@Override
@@ -1197,13 +1334,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class ExportDeclarationContext extends ExportStatementContext {
-		public ExportFromBlockContext exportFromBlock() {
-			return getRuleContext(ExportFromBlockContext.class,0);
-		}
+		public TerminalNode Export() { return getToken(JavaScriptParser.Export, 0); }
 		public EosContext eos() {
 			return getRuleContext(EosContext.class,0);
 		}
-		public TerminalNode Export() { return getToken(JavaScriptParser.Export, 0); }
+		public ExportFromBlockContext exportFromBlock() {
+			return getRuleContext(ExportFromBlockContext.class,0);
+		}
 		public DeclarationContext declaration() {
 			return getRuleContext(DeclarationContext.class,0);
 		}
@@ -1228,36 +1365,46 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		enterRule(_localctx, 24, RULE_exportStatement);
 		try {
 			setState(280);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,15,_ctx) ) {
 			case 1:
 				_localctx = new ExportDeclarationContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(268); match(Export);
+				setState(268);
+				match(Export);
 				setState(271);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,14,_ctx) ) {
 				case 1:
 					{
-					setState(269); exportFromBlock();
+					setState(269);
+					exportFromBlock();
 					}
 					break;
 				case 2:
 					{
-					setState(270); declaration();
+					setState(270);
+					declaration();
 					}
 					break;
 				}
-				setState(273); eos();
+				setState(273);
+				eos();
 				}
 				break;
 			case 2:
 				_localctx = new ExportDefaultDeclarationContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(275); match(Export);
-				setState(276); match(Default);
-				setState(277); singleExpression(0);
-				setState(278); eos();
+				setState(275);
+				match(Export);
+				setState(276);
+				match(Default);
+				setState(277);
+				singleExpression(0);
+				setState(278);
+				eos();
 				}
 				break;
 			}
@@ -1277,14 +1424,14 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		public ImportNamespaceContext importNamespace() {
 			return getRuleContext(ImportNamespaceContext.class,0);
 		}
+		public ImportFromContext importFrom() {
+			return getRuleContext(ImportFromContext.class,0);
+		}
 		public EosContext eos() {
 			return getRuleContext(EosContext.class,0);
 		}
 		public ModuleItemsContext moduleItems() {
 			return getRuleContext(ModuleItemsContext.class,0);
-		}
-		public ImportFromContext importFrom() {
-			return getRuleContext(ImportFromContext.class,0);
 		}
 		public ExportFromBlockContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1310,6 +1457,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		enterRule(_localctx, 26, RULE_exportFromBlock);
 		try {
 			setState(292);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case Multiply:
 			case NullLiteral:
@@ -1364,24 +1512,31 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			case Identifier:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(282); importNamespace();
-				setState(283); importFrom();
-				setState(284); eos();
+				setState(282);
+				importNamespace();
+				setState(283);
+				importFrom();
+				setState(284);
+				eos();
 				}
 				break;
 			case OpenBrace:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(286); moduleItems();
+				setState(286);
+				moduleItems();
 				setState(288);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,16,_ctx) ) {
 				case 1:
 					{
-					setState(287); importFrom();
+					setState(287);
+					importFrom();
 					}
 					break;
 				}
-				setState(290); eos();
+				setState(290);
+				eos();
 				}
 				break;
 			default:
@@ -1400,14 +1555,14 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class DeclarationContext extends ParserRuleContext {
-		public FunctionDeclarationContext functionDeclaration() {
-			return getRuleContext(FunctionDeclarationContext.class,0);
-		}
 		public VariableStatementContext variableStatement() {
 			return getRuleContext(VariableStatementContext.class,0);
 		}
 		public ClassDeclarationContext classDeclaration() {
 			return getRuleContext(ClassDeclarationContext.class,0);
+		}
+		public FunctionDeclarationContext functionDeclaration() {
+			return getRuleContext(FunctionDeclarationContext.class,0);
 		}
 		public DeclarationContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1433,6 +1588,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		enterRule(_localctx, 28, RULE_declaration);
 		try {
 			setState(297);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case Var:
 			case Const:
@@ -1440,20 +1596,23 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			case NonStrictLet:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(294); variableStatement();
+				setState(294);
+				variableStatement();
 				}
 				break;
 			case Class:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(295); classDeclaration();
+				setState(295);
+				classDeclaration();
 				}
 				break;
 			case Function:
 			case Async:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(296); functionDeclaration();
+				setState(296);
+				functionDeclaration();
 				}
 				break;
 			default:
@@ -1472,11 +1631,11 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class VariableStatementContext extends ParserRuleContext {
-		public EosContext eos() {
-			return getRuleContext(EosContext.class,0);
-		}
 		public VariableDeclarationListContext variableDeclarationList() {
 			return getRuleContext(VariableDeclarationListContext.class,0);
+		}
+		public EosContext eos() {
+			return getRuleContext(EosContext.class,0);
 		}
 		public VariableStatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1503,8 +1662,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(299); variableDeclarationList();
-			setState(300); eos();
+			setState(299);
+			variableDeclarationList();
+			setState(300);
+			eos();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1519,14 +1680,18 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class VariableDeclarationListContext extends ParserRuleContext {
+		public VarModifierContext varModifier() {
+			return getRuleContext(VarModifierContext.class,0);
+		}
 		public List<VariableDeclarationContext> variableDeclaration() {
 			return getRuleContexts(VariableDeclarationContext.class);
 		}
 		public VariableDeclarationContext variableDeclaration(int i) {
 			return getRuleContext(VariableDeclarationContext.class,i);
 		}
-		public VarModifierContext varModifier() {
-			return getRuleContext(VarModifierContext.class,0);
+		public List<TerminalNode> Comma() { return getTokens(JavaScriptParser.Comma); }
+		public TerminalNode Comma(int i) {
+			return getToken(JavaScriptParser.Comma, i);
 		}
 		public VariableDeclarationListContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1554,8 +1719,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(302); varModifier();
-			setState(303); variableDeclaration();
+			setState(302);
+			varModifier();
+			setState(303);
+			variableDeclaration();
 			setState(308);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,19,_ctx);
@@ -1563,8 +1730,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(304); match(Comma);
-					setState(305); variableDeclaration();
+					setState(304);
+					match(Comma);
+					setState(305);
+					variableDeclaration();
 					}
 					} 
 				}
@@ -1589,6 +1758,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		public AssignableContext assignable() {
 			return getRuleContext(AssignableContext.class,0);
 		}
+		public TerminalNode Assign() { return getToken(JavaScriptParser.Assign, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
@@ -1617,13 +1787,17 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(311); assignable();
+			setState(311);
+			assignable();
 			setState(314);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,20,_ctx) ) {
 			case 1:
 				{
-				setState(312); match(Assign);
-				setState(313); singleExpression(0);
+				setState(312);
+				match(Assign);
+				setState(313);
+				singleExpression(0);
 				}
 				break;
 			}
@@ -1667,7 +1841,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(316); match(SemiColon);
+			setState(316);
+			match(SemiColon);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1715,8 +1890,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			{
 			setState(318);
 			if (!(this.notOpenBraceAndNotFunction())) throw new FailedPredicateException(this, "this.notOpenBraceAndNotFunction()");
-			setState(319); expressionSequence();
-			setState(320); eos();
+			setState(319);
+			expressionSequence();
+			setState(320);
+			eos();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1731,17 +1908,19 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class IfStatementContext extends ParserRuleContext {
+		public TerminalNode If() { return getToken(JavaScriptParser.If, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
-		public TerminalNode Else() { return getToken(JavaScriptParser.Else, 0); }
-		public StatementContext statement(int i) {
-			return getRuleContext(StatementContext.class,i);
-		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public List<StatementContext> statement() {
 			return getRuleContexts(StatementContext.class);
 		}
-		public TerminalNode If() { return getToken(JavaScriptParser.If, 0); }
+		public StatementContext statement(int i) {
+			return getRuleContext(StatementContext.class,i);
+		}
+		public TerminalNode Else() { return getToken(JavaScriptParser.Else, 0); }
 		public IfStatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1767,17 +1946,25 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(322); match(If);
-			setState(323); match(OpenParen);
-			setState(324); expressionSequence();
-			setState(325); match(CloseParen);
-			setState(326); statement();
+			setState(322);
+			match(If);
+			setState(323);
+			match(OpenParen);
+			setState(324);
+			expressionSequence();
+			setState(325);
+			match(CloseParen);
+			setState(326);
+			statement();
 			setState(329);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,21,_ctx) ) {
 			case 1:
 				{
-				setState(327); match(Else);
-				setState(328); statement();
+				setState(327);
+				match(Else);
+				setState(328);
+				statement();
 				}
 				break;
 			}
@@ -1806,16 +1993,18 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class DoStatementContext extends IterationStatementContext {
+		public TerminalNode Do() { return getToken(JavaScriptParser.Do, 0); }
+		public StatementContext statement() {
+			return getRuleContext(StatementContext.class,0);
+		}
 		public TerminalNode While() { return getToken(JavaScriptParser.While, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
-		public TerminalNode Do() { return getToken(JavaScriptParser.Do, 0); }
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public EosContext eos() {
 			return getRuleContext(EosContext.class,0);
-		}
-		public StatementContext statement() {
-			return getRuleContext(StatementContext.class,0);
 		}
 		public DoStatementContext(IterationStatementContext ctx) { copyFrom(ctx); }
 		@Override
@@ -1834,9 +2023,11 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 	public static class WhileStatementContext extends IterationStatementContext {
 		public TerminalNode While() { return getToken(JavaScriptParser.While, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
@@ -1856,18 +2047,24 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class ForStatementContext extends IterationStatementContext {
-		public List<ExpressionSequenceContext> expressionSequence() {
-			return getRuleContexts(ExpressionSequenceContext.class);
-		}
 		public TerminalNode For() { return getToken(JavaScriptParser.For, 0); }
-		public VariableDeclarationListContext variableDeclarationList() {
-			return getRuleContext(VariableDeclarationListContext.class,0);
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
+		public List<TerminalNode> SemiColon() { return getTokens(JavaScriptParser.SemiColon); }
+		public TerminalNode SemiColon(int i) {
+			return getToken(JavaScriptParser.SemiColon, i);
 		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
+		public List<ExpressionSequenceContext> expressionSequence() {
+			return getRuleContexts(ExpressionSequenceContext.class);
+		}
 		public ExpressionSequenceContext expressionSequence(int i) {
 			return getRuleContext(ExpressionSequenceContext.class,i);
+		}
+		public VariableDeclarationListContext variableDeclarationList() {
+			return getRuleContext(VariableDeclarationListContext.class,0);
 		}
 		public ForStatementContext(IterationStatementContext ctx) { copyFrom(ctx); }
 		@Override
@@ -1885,19 +2082,21 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class ForInStatementContext extends IterationStatementContext {
+		public TerminalNode For() { return getToken(JavaScriptParser.For, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
+		public TerminalNode In() { return getToken(JavaScriptParser.In, 0); }
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
-		public TerminalNode In() { return getToken(JavaScriptParser.In, 0); }
-		public TerminalNode For() { return getToken(JavaScriptParser.For, 0); }
-		public VariableDeclarationListContext variableDeclarationList() {
-			return getRuleContext(VariableDeclarationListContext.class,0);
-		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
+		}
+		public VariableDeclarationListContext variableDeclarationList() {
+			return getRuleContext(VariableDeclarationListContext.class,0);
 		}
 		public ForInStatementContext(IterationStatementContext ctx) { copyFrom(ctx); }
 		@Override
@@ -1915,23 +2114,25 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class ForOfStatementContext extends IterationStatementContext {
-		public ExpressionSequenceContext expressionSequence() {
-			return getRuleContext(ExpressionSequenceContext.class,0);
-		}
-		public TerminalNode Await() { return getToken(JavaScriptParser.Await, 0); }
 		public TerminalNode For() { return getToken(JavaScriptParser.For, 0); }
-		public VariableDeclarationListContext variableDeclarationList() {
-			return getRuleContext(VariableDeclarationListContext.class,0);
-		}
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public IdentifierContext identifier() {
 			return getRuleContext(IdentifierContext.class,0);
 		}
+		public ExpressionSequenceContext expressionSequence() {
+			return getRuleContext(ExpressionSequenceContext.class,0);
+		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
+		public VariableDeclarationListContext variableDeclarationList() {
+			return getRuleContext(VariableDeclarationListContext.class,0);
+		}
+		public TerminalNode Await() { return getToken(JavaScriptParser.Await, 0); }
 		public ForOfStatementContext(IterationStatementContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -1954,130 +2155,176 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		int _la;
 		try {
 			setState(387);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,28,_ctx) ) {
 			case 1:
 				_localctx = new DoStatementContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(331); match(Do);
-				setState(332); statement();
-				setState(333); match(While);
-				setState(334); match(OpenParen);
-				setState(335); expressionSequence();
-				setState(336); match(CloseParen);
-				setState(337); eos();
+				setState(331);
+				match(Do);
+				setState(332);
+				statement();
+				setState(333);
+				match(While);
+				setState(334);
+				match(OpenParen);
+				setState(335);
+				expressionSequence();
+				setState(336);
+				match(CloseParen);
+				setState(337);
+				eos();
 				}
 				break;
 			case 2:
 				_localctx = new WhileStatementContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(339); match(While);
-				setState(340); match(OpenParen);
-				setState(341); expressionSequence();
-				setState(342); match(CloseParen);
-				setState(343); statement();
+				setState(339);
+				match(While);
+				setState(340);
+				match(OpenParen);
+				setState(341);
+				expressionSequence();
+				setState(342);
+				match(CloseParen);
+				setState(343);
+				statement();
 				}
 				break;
 			case 3:
 				_localctx = new ForStatementContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(345); match(For);
-				setState(346); match(OpenParen);
+				setState(345);
+				match(For);
+				setState(346);
+				match(OpenParen);
 				setState(349);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,22,_ctx) ) {
 				case 1:
 					{
-					setState(347); expressionSequence();
+					setState(347);
+					expressionSequence();
 					}
 					break;
 				case 2:
 					{
-					setState(348); variableDeclarationList();
+					setState(348);
+					variableDeclarationList();
 					}
 					break;
 				}
-				setState(351); match(SemiColon);
+				setState(351);
+				match(SemiColon);
 				setState(353);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << Ellipsis) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << LessThan) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (OctalIntegerLiteral - 64)) | (1L << (OctalIntegerLiteral2 - 64)) | (1L << (BinaryIntegerLiteral - 64)) | (1L << (BigHexIntegerLiteral - 64)) | (1L << (BigOctalIntegerLiteral - 64)) | (1L << (BigBinaryIntegerLiteral - 64)) | (1L << (BigDecimalIntegerLiteral - 64)) | (1L << (Typeof - 64)) | (1L << (New - 64)) | (1L << (Void - 64)) | (1L << (Function - 64)) | (1L << (This - 64)) | (1L << (Delete - 64)) | (1L << (Class - 64)) | (1L << (Super - 64)) | (1L << (Import - 64)) | (1L << (Async - 64)) | (1L << (Await - 64)) | (1L << (NonStrictLet - 64)) | (1L << (Yield - 64)) | (1L << (Identifier - 64)) | (1L << (StringLiteral - 64)) | (1L << (TemplateStringLiteral - 64)))) != 0)) {
 					{
-					setState(352); expressionSequence();
+					setState(352);
+					expressionSequence();
 					}
 				}
 
-				setState(355); match(SemiColon);
+				setState(355);
+				match(SemiColon);
 				setState(357);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << Ellipsis) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << LessThan) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (OctalIntegerLiteral - 64)) | (1L << (OctalIntegerLiteral2 - 64)) | (1L << (BinaryIntegerLiteral - 64)) | (1L << (BigHexIntegerLiteral - 64)) | (1L << (BigOctalIntegerLiteral - 64)) | (1L << (BigBinaryIntegerLiteral - 64)) | (1L << (BigDecimalIntegerLiteral - 64)) | (1L << (Typeof - 64)) | (1L << (New - 64)) | (1L << (Void - 64)) | (1L << (Function - 64)) | (1L << (This - 64)) | (1L << (Delete - 64)) | (1L << (Class - 64)) | (1L << (Super - 64)) | (1L << (Import - 64)) | (1L << (Async - 64)) | (1L << (Await - 64)) | (1L << (NonStrictLet - 64)) | (1L << (Yield - 64)) | (1L << (Identifier - 64)) | (1L << (StringLiteral - 64)) | (1L << (TemplateStringLiteral - 64)))) != 0)) {
 					{
-					setState(356); expressionSequence();
+					setState(356);
+					expressionSequence();
 					}
 				}
 
-				setState(359); match(CloseParen);
-				setState(360); statement();
+				setState(359);
+				match(CloseParen);
+				setState(360);
+				statement();
 				}
 				break;
 			case 4:
 				_localctx = new ForInStatementContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(361); match(For);
-				setState(362); match(OpenParen);
+				setState(361);
+				match(For);
+				setState(362);
+				match(OpenParen);
 				setState(365);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,25,_ctx) ) {
 				case 1:
 					{
-					setState(363); singleExpression(0);
+					setState(363);
+					singleExpression(0);
 					}
 					break;
 				case 2:
 					{
-					setState(364); variableDeclarationList();
+					setState(364);
+					variableDeclarationList();
 					}
 					break;
 				}
-				setState(367); match(In);
-				setState(368); expressionSequence();
-				setState(369); match(CloseParen);
-				setState(370); statement();
+				setState(367);
+				match(In);
+				setState(368);
+				expressionSequence();
+				setState(369);
+				match(CloseParen);
+				setState(370);
+				statement();
 				}
 				break;
 			case 5:
 				_localctx = new ForOfStatementContext(_localctx);
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(372); match(For);
+				setState(372);
+				match(For);
 				setState(374);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Await) {
 					{
-					setState(373); match(Await);
+					setState(373);
+					match(Await);
 					}
 				}
 
-				setState(376); match(OpenParen);
+				setState(376);
+				match(OpenParen);
 				setState(379);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,27,_ctx) ) {
 				case 1:
 					{
-					setState(377); singleExpression(0);
+					setState(377);
+					singleExpression(0);
 					}
 					break;
 				case 2:
 					{
-					setState(378); variableDeclarationList();
+					setState(378);
+					variableDeclarationList();
 					}
 					break;
 				}
-				setState(381); identifier();
+				setState(381);
+				identifier();
 				setState(382);
 				if (!(this.p("of"))) throw new FailedPredicateException(this, "this.p(\"of\")");
-				setState(383); expressionSequence();
-				setState(384); match(CloseParen);
-				setState(385); statement();
+				setState(383);
+				expressionSequence();
+				setState(384);
+				match(CloseParen);
+				setState(385);
+				statement();
 				}
 				break;
 			}
@@ -2094,10 +2341,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class VarModifierContext extends ParserRuleContext {
+		public TerminalNode Var() { return getToken(JavaScriptParser.Var, 0); }
 		public LetContext let() {
 			return getRuleContext(LetContext.class,0);
 		}
-		public TerminalNode Var() { return getToken(JavaScriptParser.Var, 0); }
 		public TerminalNode Const() { return getToken(JavaScriptParser.Const, 0); }
 		public VarModifierContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -2123,24 +2370,28 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		enterRule(_localctx, 44, RULE_varModifier);
 		try {
 			setState(392);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case Var:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(389); match(Var);
+				setState(389);
+				match(Var);
 				}
 				break;
 			case StrictLet:
 			case NonStrictLet:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(390); let();
+				setState(390);
+				let();
 				}
 				break;
 			case Const:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(391); match(Const);
+				setState(391);
+				match(Const);
 				}
 				break;
 			default:
@@ -2191,18 +2442,22 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(394); match(Continue);
+			setState(394);
+			match(Continue);
 			setState(397);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,30,_ctx) ) {
 			case 1:
 				{
 				setState(395);
 				if (!(this.notLineTerminator())) throw new FailedPredicateException(this, "this.notLineTerminator()");
-				setState(396); identifier();
+				setState(396);
+				identifier();
 				}
 				break;
 			}
-			setState(399); eos();
+			setState(399);
+			eos();
 			}
 		}
 		catch (RecognitionException re) {
@@ -2217,13 +2472,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class BreakStatementContext extends ParserRuleContext {
+		public TerminalNode Break() { return getToken(JavaScriptParser.Break, 0); }
 		public EosContext eos() {
 			return getRuleContext(EosContext.class,0);
 		}
 		public IdentifierContext identifier() {
 			return getRuleContext(IdentifierContext.class,0);
 		}
-		public TerminalNode Break() { return getToken(JavaScriptParser.Break, 0); }
 		public BreakStatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -2249,18 +2504,22 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(401); match(Break);
+			setState(401);
+			match(Break);
 			setState(404);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,31,_ctx) ) {
 			case 1:
 				{
 				setState(402);
 				if (!(this.notLineTerminator())) throw new FailedPredicateException(this, "this.notLineTerminator()");
-				setState(403); identifier();
+				setState(403);
+				identifier();
 				}
 				break;
 			}
-			setState(406); eos();
+			setState(406);
+			eos();
 			}
 		}
 		catch (RecognitionException re) {
@@ -2275,16 +2534,18 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class ReturnStatementContext extends ParserRuleContext {
-		public ExpressionSequenceContext expressionSequence() {
-			return getRuleContext(ExpressionSequenceContext.class,0);
-		}
+		public TerminalNode Return() { return getToken(JavaScriptParser.Return, 0); }
 		public EosContext eos() {
 			return getRuleContext(EosContext.class,0);
 		}
-		public TerminalNode Return() { return getToken(JavaScriptParser.Return, 0); }
+		public ExpressionSequenceContext expressionSequence() {
+			return getRuleContext(ExpressionSequenceContext.class,0);
+		}
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public HtmlElementsContext htmlElements() {
 			return getRuleContext(HtmlElementsContext.class,0);
 		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public ReturnStatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -2309,32 +2570,42 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		enterRule(_localctx, 50, RULE_returnStatement);
 		try {
 			setState(420);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,33,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(408); match(Return);
+				setState(408);
+				match(Return);
 				setState(411);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,32,_ctx) ) {
 				case 1:
 					{
 					setState(409);
 					if (!(this.notLineTerminator())) throw new FailedPredicateException(this, "this.notLineTerminator()");
-					setState(410); expressionSequence();
+					setState(410);
+					expressionSequence();
 					}
 					break;
 				}
-				setState(413); eos();
+				setState(413);
+				eos();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(414); match(Return);
-				setState(415); match(OpenParen);
-				setState(416); htmlElements();
-				setState(417); match(CloseParen);
-				setState(418); eos();
+				setState(414);
+				match(Return);
+				setState(415);
+				match(OpenParen);
+				setState(416);
+				htmlElements();
+				setState(417);
+				match(CloseParen);
+				setState(418);
+				eos();
 				}
 				break;
 			}
@@ -2351,13 +2622,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class YieldStatementContext extends ParserRuleContext {
-		public ExpressionSequenceContext expressionSequence() {
-			return getRuleContext(ExpressionSequenceContext.class,0);
-		}
+		public TerminalNode Yield() { return getToken(JavaScriptParser.Yield, 0); }
 		public EosContext eos() {
 			return getRuleContext(EosContext.class,0);
 		}
-		public TerminalNode Yield() { return getToken(JavaScriptParser.Yield, 0); }
+		public ExpressionSequenceContext expressionSequence() {
+			return getRuleContext(ExpressionSequenceContext.class,0);
+		}
 		public YieldStatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -2383,18 +2654,22 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(422); match(Yield);
+			setState(422);
+			match(Yield);
 			setState(425);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,34,_ctx) ) {
 			case 1:
 				{
 				setState(423);
 				if (!(this.notLineTerminator())) throw new FailedPredicateException(this, "this.notLineTerminator()");
-				setState(424); expressionSequence();
+				setState(424);
+				expressionSequence();
 				}
 				break;
 			}
-			setState(427); eos();
+			setState(427);
+			eos();
 			}
 		}
 		catch (RecognitionException re) {
@@ -2409,13 +2684,15 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class WithStatementContext extends ParserRuleContext {
+		public TerminalNode With() { return getToken(JavaScriptParser.With, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
-		public TerminalNode With() { return getToken(JavaScriptParser.With, 0); }
 		public WithStatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -2441,11 +2718,16 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(429); match(With);
-			setState(430); match(OpenParen);
-			setState(431); expressionSequence();
-			setState(432); match(CloseParen);
-			setState(433); statement();
+			setState(429);
+			match(With);
+			setState(430);
+			match(OpenParen);
+			setState(431);
+			expressionSequence();
+			setState(432);
+			match(CloseParen);
+			setState(433);
+			statement();
 			}
 		}
 		catch (RecognitionException re) {
@@ -2460,10 +2742,12 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class SwitchStatementContext extends ParserRuleContext {
+		public TerminalNode Switch() { return getToken(JavaScriptParser.Switch, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
-		public TerminalNode Switch() { return getToken(JavaScriptParser.Switch, 0); }
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public CaseBlockContext caseBlock() {
 			return getRuleContext(CaseBlockContext.class,0);
 		}
@@ -2492,11 +2776,16 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(435); match(Switch);
-			setState(436); match(OpenParen);
-			setState(437); expressionSequence();
-			setState(438); match(CloseParen);
-			setState(439); caseBlock();
+			setState(435);
+			match(Switch);
+			setState(436);
+			match(OpenParen);
+			setState(437);
+			expressionSequence();
+			setState(438);
+			match(CloseParen);
+			setState(439);
+			caseBlock();
 			}
 		}
 		catch (RecognitionException re) {
@@ -2511,6 +2800,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class CaseBlockContext extends ParserRuleContext {
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
 		public List<CaseClausesContext> caseClauses() {
 			return getRuleContexts(CaseClausesContext.class);
 		}
@@ -2546,32 +2837,40 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(441); match(OpenBrace);
+			setState(441);
+			match(OpenBrace);
 			setState(443);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==Case) {
 				{
-				setState(442); caseClauses();
+				setState(442);
+				caseClauses();
 				}
 			}
 
 			setState(449);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==Default) {
 				{
-				setState(445); defaultClause();
+				setState(445);
+				defaultClause();
 				setState(447);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Case) {
 					{
-					setState(446); caseClauses();
+					setState(446);
+					caseClauses();
 					}
 				}
 
 				}
 			}
 
-			setState(451); match(CloseBrace);
+			setState(451);
+			match(CloseBrace);
 			}
 		}
 		catch (RecognitionException re) {
@@ -2586,11 +2885,11 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class CaseClausesContext extends ParserRuleContext {
-		public CaseClauseContext caseClause(int i) {
-			return getRuleContext(CaseClauseContext.class,i);
-		}
 		public List<CaseClauseContext> caseClause() {
 			return getRuleContexts(CaseClauseContext.class);
+		}
+		public CaseClauseContext caseClause(int i) {
+			return getRuleContext(CaseClauseContext.class,i);
 		}
 		public CaseClausesContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -2624,7 +2923,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			do {
 				{
 				{
-				setState(453); caseClause();
+				setState(453);
+				caseClause();
 				}
 				}
 				setState(456); 
@@ -2645,13 +2945,14 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class CaseClauseContext extends ParserRuleContext {
+		public TerminalNode Case() { return getToken(JavaScriptParser.Case, 0); }
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
+		public TerminalNode Colon() { return getToken(JavaScriptParser.Colon, 0); }
 		public StatementListContext statementList() {
 			return getRuleContext(StatementListContext.class,0);
 		}
-		public TerminalNode Case() { return getToken(JavaScriptParser.Case, 0); }
 		public CaseClauseContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -2677,14 +2978,19 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(458); match(Case);
-			setState(459); expressionSequence();
-			setState(460); match(Colon);
+			setState(458);
+			match(Case);
+			setState(459);
+			expressionSequence();
+			setState(460);
+			match(Colon);
 			setState(462);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,39,_ctx) ) {
 			case 1:
 				{
-				setState(461); statementList();
+				setState(461);
+				statementList();
 				}
 				break;
 			}
@@ -2703,6 +3009,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 
 	public static class DefaultClauseContext extends ParserRuleContext {
 		public TerminalNode Default() { return getToken(JavaScriptParser.Default, 0); }
+		public TerminalNode Colon() { return getToken(JavaScriptParser.Colon, 0); }
 		public StatementListContext statementList() {
 			return getRuleContext(StatementListContext.class,0);
 		}
@@ -2731,13 +3038,17 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(464); match(Default);
-			setState(465); match(Colon);
+			setState(464);
+			match(Default);
+			setState(465);
+			match(Colon);
 			setState(467);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,40,_ctx) ) {
 			case 1:
 				{
-				setState(466); statementList();
+				setState(466);
+				statementList();
 				}
 				break;
 			}
@@ -2758,6 +3069,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		public IdentifierContext identifier() {
 			return getRuleContext(IdentifierContext.class,0);
 		}
+		public TerminalNode Colon() { return getToken(JavaScriptParser.Colon, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
@@ -2786,9 +3098,12 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(469); identifier();
-			setState(470); match(Colon);
-			setState(471); statement();
+			setState(469);
+			identifier();
+			setState(470);
+			match(Colon);
+			setState(471);
+			statement();
 			}
 		}
 		catch (RecognitionException re) {
@@ -2803,10 +3118,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class ThrowStatementContext extends ParserRuleContext {
+		public TerminalNode Throw() { return getToken(JavaScriptParser.Throw, 0); }
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
-		public TerminalNode Throw() { return getToken(JavaScriptParser.Throw, 0); }
 		public EosContext eos() {
 			return getRuleContext(EosContext.class,0);
 		}
@@ -2835,11 +3150,14 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(473); match(Throw);
+			setState(473);
+			match(Throw);
 			setState(474);
 			if (!(this.notLineTerminator())) throw new FailedPredicateException(this, "this.notLineTerminator()");
-			setState(475); expressionSequence();
-			setState(476); eos();
+			setState(475);
+			expressionSequence();
+			setState(476);
+			eos();
 			}
 		}
 		catch (RecognitionException re) {
@@ -2854,15 +3172,15 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class TryStatementContext extends ParserRuleContext {
+		public TerminalNode Try() { return getToken(JavaScriptParser.Try, 0); }
+		public BlockContext block() {
+			return getRuleContext(BlockContext.class,0);
+		}
 		public CatchProductionContext catchProduction() {
 			return getRuleContext(CatchProductionContext.class,0);
 		}
 		public FinallyProductionContext finallyProduction() {
 			return getRuleContext(FinallyProductionContext.class,0);
-		}
-		public TerminalNode Try() { return getToken(JavaScriptParser.Try, 0); }
-		public BlockContext block() {
-			return getRuleContext(BlockContext.class,0);
 		}
 		public TryStatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -2889,18 +3207,24 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(478); match(Try);
-			setState(479); block();
+			setState(478);
+			match(Try);
+			setState(479);
+			block();
 			setState(485);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case Catch:
 				{
-				setState(480); catchProduction();
+				setState(480);
+				catchProduction();
 				setState(482);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,41,_ctx) ) {
 				case 1:
 					{
-					setState(481); finallyProduction();
+					setState(481);
+					finallyProduction();
 					}
 					break;
 				}
@@ -2908,7 +3232,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				break;
 			case Finally:
 				{
-				setState(484); finallyProduction();
+				setState(484);
+				finallyProduction();
 				}
 				break;
 			default:
@@ -2929,11 +3254,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 
 	public static class CatchProductionContext extends ParserRuleContext {
 		public TerminalNode Catch() { return getToken(JavaScriptParser.Catch, 0); }
-		public AssignableContext assignable() {
-			return getRuleContext(AssignableContext.class,0);
-		}
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
+		}
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
+		public AssignableContext assignable() {
+			return getRuleContext(AssignableContext.class,0);
 		}
 		public CatchProductionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -2961,25 +3288,32 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(487); match(Catch);
+			setState(487);
+			match(Catch);
 			setState(493);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==OpenParen) {
 				{
-				setState(488); match(OpenParen);
+				setState(488);
+				match(OpenParen);
 				setState(490);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==OpenBracket || _la==OpenBrace || ((((_la - 106)) & ~0x3f) == 0 && ((1L << (_la - 106)) & ((1L << (Async - 106)) | (1L << (NonStrictLet - 106)) | (1L << (Identifier - 106)))) != 0)) {
 					{
-					setState(489); assignable();
+					setState(489);
+					assignable();
 					}
 				}
 
-				setState(492); match(CloseParen);
+				setState(492);
+				match(CloseParen);
 				}
 			}
 
-			setState(495); block();
+			setState(495);
+			block();
 			}
 		}
 		catch (RecognitionException re) {
@@ -3023,8 +3357,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(497); match(Finally);
-			setState(498); block();
+			setState(497);
+			match(Finally);
+			setState(498);
+			block();
 			}
 		}
 		catch (RecognitionException re) {
@@ -3039,10 +3375,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class DebuggerStatementContext extends ParserRuleContext {
+		public TerminalNode Debugger() { return getToken(JavaScriptParser.Debugger, 0); }
 		public EosContext eos() {
 			return getRuleContext(EosContext.class,0);
 		}
-		public TerminalNode Debugger() { return getToken(JavaScriptParser.Debugger, 0); }
 		public DebuggerStatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3068,8 +3404,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(500); match(Debugger);
-			setState(501); eos();
+			setState(500);
+			match(Debugger);
+			setState(501);
+			eos();
 			}
 		}
 		catch (RecognitionException re) {
@@ -3084,16 +3422,21 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class FunctionDeclarationContext extends ParserRuleContext {
-		public FormalParameterListContext formalParameterList() {
-			return getRuleContext(FormalParameterListContext.class,0);
-		}
-		public FunctionBodyContext functionBody() {
-			return getRuleContext(FunctionBodyContext.class,0);
-		}
-		public TerminalNode Async() { return getToken(JavaScriptParser.Async, 0); }
 		public TerminalNode Function() { return getToken(JavaScriptParser.Function, 0); }
 		public IdentifierContext identifier() {
 			return getRuleContext(IdentifierContext.class,0);
+		}
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
+		public FunctionBodyContext functionBody() {
+			return getRuleContext(FunctionBodyContext.class,0);
+		}
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
+		public TerminalNode Async() { return getToken(JavaScriptParser.Async, 0); }
+		public TerminalNode Multiply() { return getToken(JavaScriptParser.Multiply, 0); }
+		public FormalParameterListContext formalParameterList() {
+			return getRuleContext(FormalParameterListContext.class,0);
 		}
 		public FunctionDeclarationContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -3122,36 +3465,49 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(504);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==Async) {
 				{
-				setState(503); match(Async);
+				setState(503);
+				match(Async);
 				}
 			}
 
-			setState(506); match(Function);
+			setState(506);
+			match(Function);
 			setState(508);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==Multiply) {
 				{
-				setState(507); match(Multiply);
+				setState(507);
+				match(Multiply);
 				}
 			}
 
-			setState(510); identifier();
-			setState(511); match(OpenParen);
+			setState(510);
+			identifier();
+			setState(511);
+			match(OpenParen);
 			setState(513);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << OpenBracket) | (1L << OpenBrace) | (1L << Ellipsis))) != 0) || ((((_la - 106)) & ~0x3f) == 0 && ((1L << (_la - 106)) & ((1L << (Async - 106)) | (1L << (NonStrictLet - 106)) | (1L << (Identifier - 106)))) != 0)) {
 				{
-				setState(512); formalParameterList();
+				setState(512);
+				formalParameterList();
 				}
 			}
 
-			setState(515); match(CloseParen);
-			setState(516); match(OpenBrace);
-			setState(517); functionBody();
-			setState(518); match(CloseBrace);
+			setState(515);
+			match(CloseParen);
+			setState(516);
+			match(OpenBrace);
+			setState(517);
+			functionBody();
+			setState(518);
+			match(CloseBrace);
 			}
 		}
 		catch (RecognitionException re) {
@@ -3166,10 +3522,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class ClassDeclarationContext extends ParserRuleContext {
+		public TerminalNode Class() { return getToken(JavaScriptParser.Class, 0); }
 		public IdentifierContext identifier() {
 			return getRuleContext(IdentifierContext.class,0);
 		}
-		public TerminalNode Class() { return getToken(JavaScriptParser.Class, 0); }
 		public ClassTailContext classTail() {
 			return getRuleContext(ClassTailContext.class,0);
 		}
@@ -3198,9 +3554,12 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(520); match(Class);
-			setState(521); identifier();
-			setState(522); classTail();
+			setState(520);
+			match(Class);
+			setState(521);
+			identifier();
+			setState(522);
+			classTail();
 			}
 		}
 		catch (RecognitionException re) {
@@ -3215,15 +3574,17 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class ClassTailContext extends ParserRuleContext {
-		public ClassElementContext classElement(int i) {
-			return getRuleContext(ClassElementContext.class,i);
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
+		public TerminalNode Extends() { return getToken(JavaScriptParser.Extends, 0); }
+		public SingleExpressionContext singleExpression() {
+			return getRuleContext(SingleExpressionContext.class,0);
 		}
 		public List<ClassElementContext> classElement() {
 			return getRuleContexts(ClassElementContext.class);
 		}
-		public TerminalNode Extends() { return getToken(JavaScriptParser.Extends, 0); }
-		public SingleExpressionContext singleExpression() {
-			return getRuleContext(SingleExpressionContext.class,0);
+		public ClassElementContext classElement(int i) {
+			return getRuleContext(ClassElementContext.class,i);
 		}
 		public ClassTailContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -3253,15 +3614,19 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(526);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==Extends) {
 				{
-				setState(524); match(Extends);
-				setState(525); singleExpression(0);
+				setState(524);
+				match(Extends);
+				setState(525);
+				singleExpression(0);
 				}
 			}
 
-			setState(528); match(OpenBrace);
+			setState(528);
+			match(OpenBrace);
 			setState(532);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,49,_ctx);
@@ -3269,7 +3634,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(529); classElement();
+					setState(529);
+					classElement();
 					}
 					} 
 				}
@@ -3277,7 +3643,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,49,_ctx);
 			}
-			setState(535); match(CloseBrace);
+			setState(535);
+			match(CloseBrace);
 			}
 		}
 		catch (RecognitionException re) {
@@ -3292,31 +3659,30 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class ClassElementContext extends ParserRuleContext {
-		public AssignableContext assignable() {
-			return getRuleContext(AssignableContext.class,0);
-		}
 		public MethodDefinitionContext methodDefinition() {
 			return getRuleContext(MethodDefinitionContext.class,0);
 		}
-		public IdentifierContext identifier(int i) {
-			return getRuleContext(IdentifierContext.class,i);
+		public AssignableContext assignable() {
+			return getRuleContext(AssignableContext.class,0);
 		}
-		public TerminalNode Async(int i) {
-			return getToken(JavaScriptParser.Async, i);
-		}
-		public List<TerminalNode> Async() { return getTokens(JavaScriptParser.Async); }
-		public TerminalNode Static(int i) {
-			return getToken(JavaScriptParser.Static, i);
-		}
+		public TerminalNode Assign() { return getToken(JavaScriptParser.Assign, 0); }
 		public ObjectLiteralContext objectLiteral() {
 			return getRuleContext(ObjectLiteralContext.class,0);
+		}
+		public TerminalNode SemiColon() { return getToken(JavaScriptParser.SemiColon, 0); }
+		public List<TerminalNode> Static() { return getTokens(JavaScriptParser.Static); }
+		public TerminalNode Static(int i) {
+			return getToken(JavaScriptParser.Static, i);
 		}
 		public List<IdentifierContext> identifier() {
 			return getRuleContexts(IdentifierContext.class);
 		}
-		public List<TerminalNode> Static() { return getTokens(JavaScriptParser.Static); }
-		public SingleExpressionContext singleExpression() {
-			return getRuleContext(SingleExpressionContext.class,0);
+		public IdentifierContext identifier(int i) {
+			return getRuleContext(IdentifierContext.class,i);
+		}
+		public List<TerminalNode> Async() { return getTokens(JavaScriptParser.Async); }
+		public TerminalNode Async(int i) {
+			return getToken(JavaScriptParser.Async, i);
 		}
 		public EmptyStatementContext emptyStatement() {
 			return getRuleContext(EmptyStatementContext.class,0);
@@ -3324,6 +3690,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		public PropertyNameContext propertyName() {
 			return getRuleContext(PropertyNameContext.class,0);
 		}
+		public SingleExpressionContext singleExpression() {
+			return getRuleContext(SingleExpressionContext.class,0);
+		}
+		public TerminalNode Hashtag() { return getToken(JavaScriptParser.Hashtag, 0); }
 		public ClassElementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3350,6 +3720,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			int _alt;
 			setState(562);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,54,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -3361,22 +3732,26 @@ public class JavaScriptParser extends JavaScriptParserBase {
 					if ( _alt==1 ) {
 						{
 						setState(541);
+						_errHandler.sync(this);
 						switch ( getInterpreter().adaptivePredict(_input,50,_ctx) ) {
 						case 1:
 							{
-							setState(537); match(Static);
+							setState(537);
+							match(Static);
 							}
 							break;
 						case 2:
 							{
 							setState(538);
 							if (!(this.n("static"))) throw new FailedPredicateException(this, "this.n(\"static\")");
-							setState(539); identifier();
+							setState(539);
+							identifier();
 							}
 							break;
 						case 3:
 							{
-							setState(540); match(Async);
+							setState(540);
+							match(Async);
 							}
 							break;
 						}
@@ -3387,18 +3762,24 @@ public class JavaScriptParser extends JavaScriptParserBase {
 					_alt = getInterpreter().adaptivePredict(_input,51,_ctx);
 				}
 				setState(552);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,52,_ctx) ) {
 				case 1:
 					{
-					setState(546); methodDefinition();
+					setState(546);
+					methodDefinition();
 					}
 					break;
 				case 2:
 					{
-					setState(547); assignable();
-					setState(548); match(Assign);
-					setState(549); objectLiteral();
-					setState(550); match(SemiColon);
+					setState(547);
+					assignable();
+					setState(548);
+					match(Assign);
+					setState(549);
+					objectLiteral();
+					setState(550);
+					match(SemiColon);
 					}
 					break;
 				}
@@ -3407,23 +3788,29 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(554); emptyStatement();
+				setState(554);
+				emptyStatement();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(556);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Hashtag) {
 					{
-					setState(555); match(Hashtag);
+					setState(555);
+					match(Hashtag);
 					}
 				}
 
-				setState(558); propertyName();
-				setState(559); match(Assign);
-				setState(560); singleExpression(0);
+				setState(558);
+				propertyName();
+				setState(559);
+				match(Assign);
+				setState(560);
+				singleExpression(0);
 				}
 				break;
 			}
@@ -3440,20 +3827,26 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class MethodDefinitionContext extends ParserRuleContext {
-		public SetterContext setter() {
-			return getRuleContext(SetterContext.class,0);
+		public PropertyNameContext propertyName() {
+			return getRuleContext(PropertyNameContext.class,0);
 		}
-		public FormalParameterListContext formalParameterList() {
-			return getRuleContext(FormalParameterListContext.class,0);
-		}
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
 		public FunctionBodyContext functionBody() {
 			return getRuleContext(FunctionBodyContext.class,0);
+		}
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
+		public TerminalNode Multiply() { return getToken(JavaScriptParser.Multiply, 0); }
+		public TerminalNode Hashtag() { return getToken(JavaScriptParser.Hashtag, 0); }
+		public FormalParameterListContext formalParameterList() {
+			return getRuleContext(FormalParameterListContext.class,0);
 		}
 		public GetterContext getter() {
 			return getRuleContext(GetterContext.class,0);
 		}
-		public PropertyNameContext propertyName() {
-			return getRuleContext(PropertyNameContext.class,0);
+		public SetterContext setter() {
+			return getRuleContext(SetterContext.class,0);
 		}
 		public MethodDefinitionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -3480,102 +3873,137 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		int _la;
 		try {
 			setState(609);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,63,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(565);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Multiply) {
 					{
-					setState(564); match(Multiply);
+					setState(564);
+					match(Multiply);
 					}
 				}
 
 				setState(568);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Hashtag) {
 					{
-					setState(567); match(Hashtag);
+					setState(567);
+					match(Hashtag);
 					}
 				}
 
-				setState(570); propertyName();
-				setState(571); match(OpenParen);
+				setState(570);
+				propertyName();
+				setState(571);
+				match(OpenParen);
 				setState(573);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << OpenBracket) | (1L << OpenBrace) | (1L << Ellipsis))) != 0) || ((((_la - 106)) & ~0x3f) == 0 && ((1L << (_la - 106)) & ((1L << (Async - 106)) | (1L << (NonStrictLet - 106)) | (1L << (Identifier - 106)))) != 0)) {
 					{
-					setState(572); formalParameterList();
+					setState(572);
+					formalParameterList();
 					}
 				}
 
-				setState(575); match(CloseParen);
-				setState(576); match(OpenBrace);
-				setState(577); functionBody();
-				setState(578); match(CloseBrace);
+				setState(575);
+				match(CloseParen);
+				setState(576);
+				match(OpenBrace);
+				setState(577);
+				functionBody();
+				setState(578);
+				match(CloseBrace);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(581);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Multiply) {
 					{
-					setState(580); match(Multiply);
+					setState(580);
+					match(Multiply);
 					}
 				}
 
 				setState(584);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Hashtag) {
 					{
-					setState(583); match(Hashtag);
+					setState(583);
+					match(Hashtag);
 					}
 				}
 
-				setState(586); getter();
-				setState(587); match(OpenParen);
-				setState(588); match(CloseParen);
-				setState(589); match(OpenBrace);
-				setState(590); functionBody();
-				setState(591); match(CloseBrace);
+				setState(586);
+				getter();
+				setState(587);
+				match(OpenParen);
+				setState(588);
+				match(CloseParen);
+				setState(589);
+				match(OpenBrace);
+				setState(590);
+				functionBody();
+				setState(591);
+				match(CloseBrace);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(594);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Multiply) {
 					{
-					setState(593); match(Multiply);
+					setState(593);
+					match(Multiply);
 					}
 				}
 
 				setState(597);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Hashtag) {
 					{
-					setState(596); match(Hashtag);
+					setState(596);
+					match(Hashtag);
 					}
 				}
 
-				setState(599); setter();
-				setState(600); match(OpenParen);
+				setState(599);
+				setter();
+				setState(600);
+				match(OpenParen);
 				setState(602);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << OpenBracket) | (1L << OpenBrace) | (1L << Ellipsis))) != 0) || ((((_la - 106)) & ~0x3f) == 0 && ((1L << (_la - 106)) & ((1L << (Async - 106)) | (1L << (NonStrictLet - 106)) | (1L << (Identifier - 106)))) != 0)) {
 					{
-					setState(601); formalParameterList();
+					setState(601);
+					formalParameterList();
 					}
 				}
 
-				setState(604); match(CloseParen);
-				setState(605); match(OpenBrace);
-				setState(606); functionBody();
-				setState(607); match(CloseBrace);
+				setState(604);
+				match(CloseParen);
+				setState(605);
+				match(OpenBrace);
+				setState(606);
+				functionBody();
+				setState(607);
+				match(CloseBrace);
 				}
 				break;
 			}
@@ -3592,11 +4020,15 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class FormalParameterListContext extends ParserRuleContext {
+		public List<FormalParameterArgContext> formalParameterArg() {
+			return getRuleContexts(FormalParameterArgContext.class);
+		}
 		public FormalParameterArgContext formalParameterArg(int i) {
 			return getRuleContext(FormalParameterArgContext.class,i);
 		}
-		public List<FormalParameterArgContext> formalParameterArg() {
-			return getRuleContexts(FormalParameterArgContext.class);
+		public List<TerminalNode> Comma() { return getTokens(JavaScriptParser.Comma); }
+		public TerminalNode Comma(int i) {
+			return getToken(JavaScriptParser.Comma, i);
 		}
 		public LastFormalParameterArgContext lastFormalParameterArg() {
 			return getRuleContext(LastFormalParameterArgContext.class,0);
@@ -3627,6 +4059,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			int _alt;
 			setState(624);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case OpenBracket:
 			case OpenBrace:
@@ -3635,7 +4068,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			case Identifier:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(611); formalParameterArg();
+				setState(611);
+				formalParameterArg();
 				setState(616);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,64,_ctx);
@@ -3643,8 +4077,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 					if ( _alt==1 ) {
 						{
 						{
-						setState(612); match(Comma);
-						setState(613); formalParameterArg();
+						setState(612);
+						match(Comma);
+						setState(613);
+						formalParameterArg();
 						}
 						} 
 					}
@@ -3653,11 +4089,14 @@ public class JavaScriptParser extends JavaScriptParserBase {
 					_alt = getInterpreter().adaptivePredict(_input,64,_ctx);
 				}
 				setState(621);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Comma) {
 					{
-					setState(619); match(Comma);
-					setState(620); lastFormalParameterArg();
+					setState(619);
+					match(Comma);
+					setState(620);
+					lastFormalParameterArg();
 					}
 				}
 
@@ -3666,7 +4105,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			case Ellipsis:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(623); lastFormalParameterArg();
+				setState(623);
+				lastFormalParameterArg();
 				}
 				break;
 			default:
@@ -3688,6 +4128,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		public AssignableContext assignable() {
 			return getRuleContext(AssignableContext.class,0);
 		}
+		public TerminalNode Assign() { return getToken(JavaScriptParser.Assign, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
@@ -3717,13 +4158,17 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(626); assignable();
+			setState(626);
+			assignable();
 			setState(629);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==Assign) {
 				{
-				setState(627); match(Assign);
-				setState(628); singleExpression(0);
+				setState(627);
+				match(Assign);
+				setState(628);
+				singleExpression(0);
 				}
 			}
 
@@ -3770,8 +4215,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(631); match(Ellipsis);
-			setState(632); singleExpression(0);
+			setState(631);
+			match(Ellipsis);
+			setState(632);
+			singleExpression(0);
 			}
 		}
 		catch (RecognitionException re) {
@@ -3815,10 +4262,12 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(635);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,68,_ctx) ) {
 			case 1:
 				{
-				setState(634); sourceElements();
+				setState(634);
+				sourceElements();
 				}
 				break;
 			}
@@ -3836,11 +4285,11 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class SourceElementsContext extends ParserRuleContext {
-		public SourceElementContext sourceElement(int i) {
-			return getRuleContext(SourceElementContext.class,i);
-		}
 		public List<SourceElementContext> sourceElement() {
 			return getRuleContexts(SourceElementContext.class);
+		}
+		public SourceElementContext sourceElement(int i) {
+			return getRuleContext(SourceElementContext.class,i);
 		}
 		public SourceElementsContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -3876,7 +4325,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				case 1:
 					{
 					{
-					setState(637); sourceElement();
+					setState(637);
+					sourceElement();
 					}
 					}
 					break;
@@ -3901,9 +4351,11 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class ArrayLiteralContext extends ParserRuleContext {
+		public TerminalNode OpenBracket() { return getToken(JavaScriptParser.OpenBracket, 0); }
 		public ElementListContext elementList() {
 			return getRuleContext(ElementListContext.class,0);
 		}
+		public TerminalNode CloseBracket() { return getToken(JavaScriptParser.CloseBracket, 0); }
 		public ArrayLiteralContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3930,9 +4382,12 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(642); match(OpenBracket);
-			setState(643); elementList();
-			setState(644); match(CloseBracket);
+			setState(642);
+			match(OpenBracket);
+			setState(643);
+			elementList();
+			setState(644);
+			match(CloseBracket);
 			}
 			}
 		}
@@ -3948,11 +4403,15 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class ElementListContext extends ParserRuleContext {
-		public ArrayElementContext arrayElement(int i) {
-			return getRuleContext(ArrayElementContext.class,i);
+		public List<TerminalNode> Comma() { return getTokens(JavaScriptParser.Comma); }
+		public TerminalNode Comma(int i) {
+			return getToken(JavaScriptParser.Comma, i);
 		}
 		public List<ArrayElementContext> arrayElement() {
 			return getRuleContexts(ArrayElementContext.class);
+		}
+		public ArrayElementContext arrayElement(int i) {
+			return getRuleContext(ArrayElementContext.class,i);
 		}
 		public ElementListContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -3988,7 +4447,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(646); match(Comma);
+					setState(646);
+					match(Comma);
 					}
 					} 
 				}
@@ -3997,10 +4457,12 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				_alt = getInterpreter().adaptivePredict(_input,70,_ctx);
 			}
 			setState(653);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << Ellipsis) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << LessThan) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (OctalIntegerLiteral - 64)) | (1L << (OctalIntegerLiteral2 - 64)) | (1L << (BinaryIntegerLiteral - 64)) | (1L << (BigHexIntegerLiteral - 64)) | (1L << (BigOctalIntegerLiteral - 64)) | (1L << (BigBinaryIntegerLiteral - 64)) | (1L << (BigDecimalIntegerLiteral - 64)) | (1L << (Typeof - 64)) | (1L << (New - 64)) | (1L << (Void - 64)) | (1L << (Function - 64)) | (1L << (This - 64)) | (1L << (Delete - 64)) | (1L << (Class - 64)) | (1L << (Super - 64)) | (1L << (Import - 64)) | (1L << (Async - 64)) | (1L << (Await - 64)) | (1L << (NonStrictLet - 64)) | (1L << (Yield - 64)) | (1L << (Identifier - 64)) | (1L << (StringLiteral - 64)) | (1L << (TemplateStringLiteral - 64)))) != 0)) {
 				{
-				setState(652); arrayElement();
+				setState(652);
+				arrayElement();
 				}
 			}
 
@@ -4017,14 +4479,16 @@ public class JavaScriptParser extends JavaScriptParserBase {
 					do {
 						{
 						{
-						setState(655); match(Comma);
+						setState(655);
+						match(Comma);
 						}
 						}
 						setState(658); 
 						_errHandler.sync(this);
 						_la = _input.LA(1);
 					} while ( _la==Comma );
-					setState(660); arrayElement();
+					setState(660);
+					arrayElement();
 					}
 					} 
 				}
@@ -4038,7 +4502,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			while (_la==Comma) {
 				{
 				{
-				setState(666); match(Comma);
+				setState(666);
+				match(Comma);
 				}
 				}
 				setState(671);
@@ -4059,10 +4524,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class ArrayElementContext extends ParserRuleContext {
-		public TerminalNode Ellipsis() { return getToken(JavaScriptParser.Ellipsis, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
+		public TerminalNode Ellipsis() { return getToken(JavaScriptParser.Ellipsis, 0); }
 		public ArrayElementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -4090,14 +4555,17 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(673);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==Ellipsis) {
 				{
-				setState(672); match(Ellipsis);
+				setState(672);
+				match(Ellipsis);
 				}
 			}
 
-			setState(675); singleExpression(0);
+			setState(675);
+			singleExpression(0);
 			}
 		}
 		catch (RecognitionException re) {
@@ -4123,11 +4591,12 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class PropertyExpressionAssignmentContext extends PropertyAssignmentContext {
-		public SingleExpressionContext singleExpression() {
-			return getRuleContext(SingleExpressionContext.class,0);
-		}
 		public PropertyNameContext propertyName() {
 			return getRuleContext(PropertyNameContext.class,0);
+		}
+		public TerminalNode Colon() { return getToken(JavaScriptParser.Colon, 0); }
+		public SingleExpressionContext singleExpression() {
+			return getRuleContext(SingleExpressionContext.class,0);
 		}
 		public PropertyExpressionAssignmentContext(PropertyAssignmentContext ctx) { copyFrom(ctx); }
 		@Override
@@ -4145,12 +4614,15 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class ComputedPropertyExpressionAssignmentContext extends PropertyAssignmentContext {
-		public SingleExpressionContext singleExpression(int i) {
-			return getRuleContext(SingleExpressionContext.class,i);
-		}
+		public TerminalNode OpenBracket() { return getToken(JavaScriptParser.OpenBracket, 0); }
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
 		}
+		public SingleExpressionContext singleExpression(int i) {
+			return getRuleContext(SingleExpressionContext.class,i);
+		}
+		public TerminalNode CloseBracket() { return getToken(JavaScriptParser.CloseBracket, 0); }
+		public TerminalNode Colon() { return getToken(JavaScriptParser.Colon, 0); }
 		public ComputedPropertyExpressionAssignmentContext(PropertyAssignmentContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -4167,10 +4639,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class PropertyShorthandContext extends PropertyAssignmentContext {
-		public TerminalNode Ellipsis() { return getToken(JavaScriptParser.Ellipsis, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
+		public TerminalNode Ellipsis() { return getToken(JavaScriptParser.Ellipsis, 0); }
 		public PropertyShorthandContext(PropertyAssignmentContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -4190,12 +4662,16 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		public SetterContext setter() {
 			return getRuleContext(SetterContext.class,0);
 		}
-		public FunctionBodyContext functionBody() {
-			return getRuleContext(FunctionBodyContext.class,0);
-		}
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public FormalParameterArgContext formalParameterArg() {
 			return getRuleContext(FormalParameterArgContext.class,0);
 		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
+		public FunctionBodyContext functionBody() {
+			return getRuleContext(FunctionBodyContext.class,0);
+		}
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
 		public PropertySetterContext(PropertyAssignmentContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -4212,12 +4688,16 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class PropertyGetterContext extends PropertyAssignmentContext {
-		public FunctionBodyContext functionBody() {
-			return getRuleContext(FunctionBodyContext.class,0);
-		}
 		public GetterContext getter() {
 			return getRuleContext(GetterContext.class,0);
 		}
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
+		public FunctionBodyContext functionBody() {
+			return getRuleContext(FunctionBodyContext.class,0);
+		}
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
 		public PropertyGetterContext(PropertyAssignmentContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -4234,15 +4714,20 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class FunctionPropertyContext extends PropertyAssignmentContext {
-		public FormalParameterListContext formalParameterList() {
-			return getRuleContext(FormalParameterListContext.class,0);
+		public PropertyNameContext propertyName() {
+			return getRuleContext(PropertyNameContext.class,0);
 		}
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
 		public FunctionBodyContext functionBody() {
 			return getRuleContext(FunctionBodyContext.class,0);
 		}
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
 		public TerminalNode Async() { return getToken(JavaScriptParser.Async, 0); }
-		public PropertyNameContext propertyName() {
-			return getRuleContext(PropertyNameContext.class,0);
+		public TerminalNode Multiply() { return getToken(JavaScriptParser.Multiply, 0); }
+		public FormalParameterListContext formalParameterList() {
+			return getRuleContext(FormalParameterListContext.class,0);
 		}
 		public FunctionPropertyContext(PropertyAssignmentContext ctx) { copyFrom(ctx); }
 		@Override
@@ -4266,25 +4751,34 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		int _la;
 		try {
 			setState(722);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,80,_ctx) ) {
 			case 1:
 				_localctx = new PropertyExpressionAssignmentContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(677); propertyName();
-				setState(678); match(Colon);
-				setState(679); singleExpression(0);
+				setState(677);
+				propertyName();
+				setState(678);
+				match(Colon);
+				setState(679);
+				singleExpression(0);
 				}
 				break;
 			case 2:
 				_localctx = new ComputedPropertyExpressionAssignmentContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(681); match(OpenBracket);
-				setState(682); singleExpression(0);
-				setState(683); match(CloseBracket);
-				setState(684); match(Colon);
-				setState(685); singleExpression(0);
+				setState(681);
+				match(OpenBracket);
+				setState(682);
+				singleExpression(0);
+				setState(683);
+				match(CloseBracket);
+				setState(684);
+				match(Colon);
+				setState(685);
+				singleExpression(0);
 				}
 				break;
 			case 3:
@@ -4292,60 +4786,85 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(688);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,76,_ctx) ) {
 				case 1:
 					{
-					setState(687); match(Async);
+					setState(687);
+					match(Async);
 					}
 					break;
 				}
 				setState(691);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Multiply) {
 					{
-					setState(690); match(Multiply);
+					setState(690);
+					match(Multiply);
 					}
 				}
 
-				setState(693); propertyName();
-				setState(694); match(OpenParen);
+				setState(693);
+				propertyName();
+				setState(694);
+				match(OpenParen);
 				setState(696);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << OpenBracket) | (1L << OpenBrace) | (1L << Ellipsis))) != 0) || ((((_la - 106)) & ~0x3f) == 0 && ((1L << (_la - 106)) & ((1L << (Async - 106)) | (1L << (NonStrictLet - 106)) | (1L << (Identifier - 106)))) != 0)) {
 					{
-					setState(695); formalParameterList();
+					setState(695);
+					formalParameterList();
 					}
 				}
 
-				setState(698); match(CloseParen);
-				setState(699); match(OpenBrace);
-				setState(700); functionBody();
-				setState(701); match(CloseBrace);
+				setState(698);
+				match(CloseParen);
+				setState(699);
+				match(OpenBrace);
+				setState(700);
+				functionBody();
+				setState(701);
+				match(CloseBrace);
 				}
 				break;
 			case 4:
 				_localctx = new PropertyGetterContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(703); getter();
-				setState(704); match(OpenParen);
-				setState(705); match(CloseParen);
-				setState(706); match(OpenBrace);
-				setState(707); functionBody();
-				setState(708); match(CloseBrace);
+				setState(703);
+				getter();
+				setState(704);
+				match(OpenParen);
+				setState(705);
+				match(CloseParen);
+				setState(706);
+				match(OpenBrace);
+				setState(707);
+				functionBody();
+				setState(708);
+				match(CloseBrace);
 				}
 				break;
 			case 5:
 				_localctx = new PropertySetterContext(_localctx);
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(710); setter();
-				setState(711); match(OpenParen);
-				setState(712); formalParameterArg();
-				setState(713); match(CloseParen);
-				setState(714); match(OpenBrace);
-				setState(715); functionBody();
-				setState(716); match(CloseBrace);
+				setState(710);
+				setter();
+				setState(711);
+				match(OpenParen);
+				setState(712);
+				formalParameterArg();
+				setState(713);
+				match(CloseParen);
+				setState(714);
+				match(OpenBrace);
+				setState(715);
+				functionBody();
+				setState(716);
+				match(CloseBrace);
 				}
 				break;
 			case 6:
@@ -4353,14 +4872,17 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				enterOuterAlt(_localctx, 6);
 				{
 				setState(719);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Ellipsis) {
 					{
-					setState(718); match(Ellipsis);
+					setState(718);
+					match(Ellipsis);
 					}
 				}
 
-				setState(721); singleExpression(0);
+				setState(721);
+				singleExpression(0);
 				}
 				break;
 			}
@@ -4377,16 +4899,18 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class PropertyNameContext extends ParserRuleContext {
-		public NumericLiteralContext numericLiteral() {
-			return getRuleContext(NumericLiteralContext.class,0);
-		}
-		public TerminalNode StringLiteral() { return getToken(JavaScriptParser.StringLiteral, 0); }
 		public IdentifierNameContext identifierName() {
 			return getRuleContext(IdentifierNameContext.class,0);
 		}
+		public TerminalNode StringLiteral() { return getToken(JavaScriptParser.StringLiteral, 0); }
+		public NumericLiteralContext numericLiteral() {
+			return getRuleContext(NumericLiteralContext.class,0);
+		}
+		public TerminalNode OpenBracket() { return getToken(JavaScriptParser.OpenBracket, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
+		public TerminalNode CloseBracket() { return getToken(JavaScriptParser.CloseBracket, 0); }
 		public PropertyNameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -4411,6 +4935,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		enterRule(_localctx, 106, RULE_propertyName);
 		try {
 			setState(731);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case NullLiteral:
 			case BooleanLiteral:
@@ -4464,13 +4989,15 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			case Identifier:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(724); identifierName();
+				setState(724);
+				identifierName();
 				}
 				break;
 			case StringLiteral:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(725); match(StringLiteral);
+				setState(725);
+				match(StringLiteral);
 				}
 				break;
 			case DecimalLiteral:
@@ -4480,15 +5007,19 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			case BinaryIntegerLiteral:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(726); numericLiteral();
+				setState(726);
+				numericLiteral();
 				}
 				break;
 			case OpenBracket:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(727); match(OpenBracket);
-				setState(728); singleExpression(0);
-				setState(729); match(CloseBracket);
+				setState(727);
+				match(OpenBracket);
+				setState(728);
+				singleExpression(0);
+				setState(729);
+				match(CloseBracket);
 				}
 				break;
 			default:
@@ -4507,11 +5038,17 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class ArgumentsContext extends ParserRuleContext {
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public List<ArgumentContext> argument() {
 			return getRuleContexts(ArgumentContext.class);
 		}
 		public ArgumentContext argument(int i) {
 			return getRuleContext(ArgumentContext.class,i);
+		}
+		public List<TerminalNode> Comma() { return getTokens(JavaScriptParser.Comma); }
+		public TerminalNode Comma(int i) {
+			return getToken(JavaScriptParser.Comma, i);
 		}
 		public ArgumentsContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -4540,12 +5077,15 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(733); match(OpenParen);
+			setState(733);
+			match(OpenParen);
 			setState(745);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << Ellipsis) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << LessThan) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (OctalIntegerLiteral - 64)) | (1L << (OctalIntegerLiteral2 - 64)) | (1L << (BinaryIntegerLiteral - 64)) | (1L << (BigHexIntegerLiteral - 64)) | (1L << (BigOctalIntegerLiteral - 64)) | (1L << (BigBinaryIntegerLiteral - 64)) | (1L << (BigDecimalIntegerLiteral - 64)) | (1L << (Typeof - 64)) | (1L << (New - 64)) | (1L << (Void - 64)) | (1L << (Function - 64)) | (1L << (This - 64)) | (1L << (Delete - 64)) | (1L << (Class - 64)) | (1L << (Super - 64)) | (1L << (Import - 64)) | (1L << (Async - 64)) | (1L << (Await - 64)) | (1L << (NonStrictLet - 64)) | (1L << (Yield - 64)) | (1L << (Identifier - 64)) | (1L << (StringLiteral - 64)) | (1L << (TemplateStringLiteral - 64)))) != 0)) {
 				{
-				setState(734); argument();
+				setState(734);
+				argument();
 				setState(739);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,82,_ctx);
@@ -4553,8 +5093,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 					if ( _alt==1 ) {
 						{
 						{
-						setState(735); match(Comma);
-						setState(736); argument();
+						setState(735);
+						match(Comma);
+						setState(736);
+						argument();
 						}
 						} 
 					}
@@ -4563,17 +5105,20 @@ public class JavaScriptParser extends JavaScriptParserBase {
 					_alt = getInterpreter().adaptivePredict(_input,82,_ctx);
 				}
 				setState(743);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Comma) {
 					{
-					setState(742); match(Comma);
+					setState(742);
+					match(Comma);
 					}
 				}
 
 				}
 			}
 
-			setState(747); match(CloseParen);
+			setState(747);
+			match(CloseParen);
 			}
 		}
 		catch (RecognitionException re) {
@@ -4588,13 +5133,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class ArgumentContext extends ParserRuleContext {
-		public TerminalNode Ellipsis() { return getToken(JavaScriptParser.Ellipsis, 0); }
-		public IdentifierContext identifier() {
-			return getRuleContext(IdentifierContext.class,0);
-		}
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
+		public IdentifierContext identifier() {
+			return getRuleContext(IdentifierContext.class,0);
+		}
+		public TerminalNode Ellipsis() { return getToken(JavaScriptParser.Ellipsis, 0); }
 		public ArgumentContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -4622,23 +5167,28 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(750);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==Ellipsis) {
 				{
-				setState(749); match(Ellipsis);
+				setState(749);
+				match(Ellipsis);
 				}
 			}
 
 			setState(754);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,86,_ctx) ) {
 			case 1:
 				{
-				setState(752); singleExpression(0);
+				setState(752);
+				singleExpression(0);
 				}
 				break;
 			case 2:
 				{
-				setState(753); identifier();
+				setState(753);
+				identifier();
 				}
 				break;
 			}
@@ -4656,15 +5206,19 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class ExpressionSequenceContext extends ParserRuleContext {
-		public List<TerminalNode> Ellipsis() { return getTokens(JavaScriptParser.Ellipsis); }
-		public TerminalNode Ellipsis(int i) {
-			return getToken(JavaScriptParser.Ellipsis, i);
+		public List<SingleExpressionContext> singleExpression() {
+			return getRuleContexts(SingleExpressionContext.class);
 		}
 		public SingleExpressionContext singleExpression(int i) {
 			return getRuleContext(SingleExpressionContext.class,i);
 		}
-		public List<SingleExpressionContext> singleExpression() {
-			return getRuleContexts(SingleExpressionContext.class);
+		public List<TerminalNode> Ellipsis() { return getTokens(JavaScriptParser.Ellipsis); }
+		public TerminalNode Ellipsis(int i) {
+			return getToken(JavaScriptParser.Ellipsis, i);
+		}
+		public List<TerminalNode> Comma() { return getTokens(JavaScriptParser.Comma); }
+		public TerminalNode Comma(int i) {
+			return getToken(JavaScriptParser.Comma, i);
 		}
 		public ExpressionSequenceContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -4694,14 +5248,17 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(757);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==Ellipsis) {
 				{
-				setState(756); match(Ellipsis);
+				setState(756);
+				match(Ellipsis);
 				}
 			}
 
-			setState(759); singleExpression(0);
+			setState(759);
+			singleExpression(0);
 			setState(767);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,89,_ctx);
@@ -4709,16 +5266,20 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(760); match(Comma);
+					setState(760);
+					match(Comma);
 					setState(762);
+					_errHandler.sync(this);
 					_la = _input.LA(1);
 					if (_la==Ellipsis) {
 						{
-						setState(761); match(Ellipsis);
+						setState(761);
+						match(Ellipsis);
 						}
 					}
 
-					setState(764); singleExpression(0);
+					setState(764);
+					singleExpression(0);
 					}
 					} 
 				}
@@ -4751,10 +5312,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class TemplateStringExpressionContext extends SingleExpressionContext {
-		public TerminalNode TemplateStringLiteral() { return getToken(JavaScriptParser.TemplateStringLiteral, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
+		public TerminalNode TemplateStringLiteral() { return getToken(JavaScriptParser.TemplateStringLiteral, 0); }
 		public TemplateStringExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -4771,12 +5332,14 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class TernaryExpressionContext extends SingleExpressionContext {
-		public SingleExpressionContext singleExpression(int i) {
-			return getRuleContext(SingleExpressionContext.class,i);
-		}
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
 		}
+		public SingleExpressionContext singleExpression(int i) {
+			return getRuleContext(SingleExpressionContext.class,i);
+		}
+		public TerminalNode QuestionMark() { return getToken(JavaScriptParser.QuestionMark, 0); }
+		public TerminalNode Colon() { return getToken(JavaScriptParser.Colon, 0); }
 		public TernaryExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -4793,12 +5356,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class LogicalAndExpressionContext extends SingleExpressionContext {
-		public SingleExpressionContext singleExpression(int i) {
-			return getRuleContext(SingleExpressionContext.class,i);
-		}
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
 		}
+		public SingleExpressionContext singleExpression(int i) {
+			return getRuleContext(SingleExpressionContext.class,i);
+		}
+		public TerminalNode And() { return getToken(JavaScriptParser.And, 0); }
 		public LogicalAndExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -4815,12 +5379,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class PowerExpressionContext extends SingleExpressionContext {
-		public SingleExpressionContext singleExpression(int i) {
-			return getRuleContext(SingleExpressionContext.class,i);
-		}
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
 		}
+		public SingleExpressionContext singleExpression(int i) {
+			return getRuleContext(SingleExpressionContext.class,i);
+		}
+		public TerminalNode Power() { return getToken(JavaScriptParser.Power, 0); }
 		public PowerExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -4837,6 +5402,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class PreIncrementExpressionContext extends SingleExpressionContext {
+		public TerminalNode PlusPlus() { return getToken(JavaScriptParser.PlusPlus, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
@@ -4876,6 +5442,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 	public static class MetaExpressionContext extends SingleExpressionContext {
 		public TerminalNode New() { return getToken(JavaScriptParser.New, 0); }
+		public TerminalNode Dot() { return getToken(JavaScriptParser.Dot, 0); }
 		public IdentifierContext identifier() {
 			return getRuleContext(IdentifierContext.class,0);
 		}
@@ -4895,13 +5462,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class InExpressionContext extends SingleExpressionContext {
-		public TerminalNode In() { return getToken(JavaScriptParser.In, 0); }
-		public SingleExpressionContext singleExpression(int i) {
-			return getRuleContext(SingleExpressionContext.class,i);
-		}
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
 		}
+		public SingleExpressionContext singleExpression(int i) {
+			return getRuleContext(SingleExpressionContext.class,i);
+		}
+		public TerminalNode In() { return getToken(JavaScriptParser.In, 0); }
 		public InExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -4918,12 +5485,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class LogicalOrExpressionContext extends SingleExpressionContext {
-		public SingleExpressionContext singleExpression(int i) {
-			return getRuleContext(SingleExpressionContext.class,i);
-		}
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
 		}
+		public SingleExpressionContext singleExpression(int i) {
+			return getRuleContext(SingleExpressionContext.class,i);
+		}
+		public TerminalNode Or() { return getToken(JavaScriptParser.Or, 0); }
 		public LogicalOrExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -4940,6 +5508,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class NotExpressionContext extends SingleExpressionContext {
+		public TerminalNode Not() { return getToken(JavaScriptParser.Not, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
@@ -4959,6 +5528,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class PreDecreaseExpressionContext extends SingleExpressionContext {
+		public TerminalNode MinusMinus() { return getToken(JavaScriptParser.MinusMinus, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
@@ -4978,11 +5548,11 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class ArgumentsExpressionContext extends SingleExpressionContext {
-		public ArgumentsContext arguments() {
-			return getRuleContext(ArgumentsContext.class,0);
-		}
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
+		}
+		public ArgumentsContext arguments() {
+			return getRuleContext(ArgumentsContext.class,0);
 		}
 		public ArgumentsExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
@@ -5056,6 +5626,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class UnaryMinusExpressionContext extends SingleExpressionContext {
+		public TerminalNode Minus() { return getToken(JavaScriptParser.Minus, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
@@ -5075,12 +5646,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class AssignmentExpressionContext extends SingleExpressionContext {
-		public SingleExpressionContext singleExpression(int i) {
-			return getRuleContext(SingleExpressionContext.class,i);
-		}
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
 		}
+		public SingleExpressionContext singleExpression(int i) {
+			return getRuleContext(SingleExpressionContext.class,i);
+		}
+		public TerminalNode Assign() { return getToken(JavaScriptParser.Assign, 0); }
 		public AssignmentExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -5100,6 +5672,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
+		public TerminalNode MinusMinus() { return getToken(JavaScriptParser.MinusMinus, 0); }
 		public PostDecreaseExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -5116,10 +5689,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class TypeofExpressionContext extends SingleExpressionContext {
+		public TerminalNode Typeof() { return getToken(JavaScriptParser.Typeof, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
-		public TerminalNode Typeof() { return getToken(JavaScriptParser.Typeof, 0); }
 		public TypeofExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -5136,13 +5709,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class InstanceofExpressionContext extends SingleExpressionContext {
-		public TerminalNode Instanceof() { return getToken(JavaScriptParser.Instanceof, 0); }
-		public SingleExpressionContext singleExpression(int i) {
-			return getRuleContext(SingleExpressionContext.class,i);
-		}
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
 		}
+		public SingleExpressionContext singleExpression(int i) {
+			return getRuleContext(SingleExpressionContext.class,i);
+		}
+		public TerminalNode Instanceof() { return getToken(JavaScriptParser.Instanceof, 0); }
 		public InstanceofExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -5159,6 +5732,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class UnaryPlusExpressionContext extends SingleExpressionContext {
+		public TerminalNode Plus() { return getToken(JavaScriptParser.Plus, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
@@ -5199,9 +5773,11 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 	public static class ImportExpressionContext extends SingleExpressionContext {
 		public TerminalNode Import() { return getToken(JavaScriptParser.Import, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public ImportExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -5218,12 +5794,16 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class EqualityExpressionContext extends SingleExpressionContext {
-		public SingleExpressionContext singleExpression(int i) {
-			return getRuleContext(SingleExpressionContext.class,i);
-		}
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
 		}
+		public SingleExpressionContext singleExpression(int i) {
+			return getRuleContext(SingleExpressionContext.class,i);
+		}
+		public TerminalNode Equals_() { return getToken(JavaScriptParser.Equals_, 0); }
+		public TerminalNode NotEquals() { return getToken(JavaScriptParser.NotEquals, 0); }
+		public TerminalNode IdentityEquals() { return getToken(JavaScriptParser.IdentityEquals, 0); }
+		public TerminalNode IdentityNotEquals() { return getToken(JavaScriptParser.IdentityNotEquals, 0); }
 		public EqualityExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -5240,12 +5820,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class BitXOrExpressionContext extends SingleExpressionContext {
-		public SingleExpressionContext singleExpression(int i) {
-			return getRuleContext(SingleExpressionContext.class,i);
-		}
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
 		}
+		public SingleExpressionContext singleExpression(int i) {
+			return getRuleContext(SingleExpressionContext.class,i);
+		}
+		public TerminalNode BitXOr() { return getToken(JavaScriptParser.BitXOr, 0); }
 		public BitXOrExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -5279,12 +5860,15 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class MultiplicativeExpressionContext extends SingleExpressionContext {
-		public SingleExpressionContext singleExpression(int i) {
-			return getRuleContext(SingleExpressionContext.class,i);
-		}
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
 		}
+		public SingleExpressionContext singleExpression(int i) {
+			return getRuleContext(SingleExpressionContext.class,i);
+		}
+		public TerminalNode Multiply() { return getToken(JavaScriptParser.Multiply, 0); }
+		public TerminalNode Divide() { return getToken(JavaScriptParser.Divide, 0); }
+		public TerminalNode Modulus() { return getToken(JavaScriptParser.Modulus, 0); }
 		public MultiplicativeExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -5320,12 +5904,15 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class BitShiftExpressionContext extends SingleExpressionContext {
-		public SingleExpressionContext singleExpression(int i) {
-			return getRuleContext(SingleExpressionContext.class,i);
-		}
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
 		}
+		public SingleExpressionContext singleExpression(int i) {
+			return getRuleContext(SingleExpressionContext.class,i);
+		}
+		public TerminalNode LeftShiftArithmetic() { return getToken(JavaScriptParser.LeftShiftArithmetic, 0); }
+		public TerminalNode RightShiftArithmetic() { return getToken(JavaScriptParser.RightShiftArithmetic, 0); }
+		public TerminalNode RightShiftLogical() { return getToken(JavaScriptParser.RightShiftLogical, 0); }
 		public BitShiftExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -5342,9 +5929,11 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class ParenthesizedExpressionContext extends SingleExpressionContext {
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
 		public ParenthesizedExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -5361,12 +5950,14 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class AdditiveExpressionContext extends SingleExpressionContext {
-		public SingleExpressionContext singleExpression(int i) {
-			return getRuleContext(SingleExpressionContext.class,i);
-		}
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
 		}
+		public SingleExpressionContext singleExpression(int i) {
+			return getRuleContext(SingleExpressionContext.class,i);
+		}
+		public TerminalNode Plus() { return getToken(JavaScriptParser.Plus, 0); }
+		public TerminalNode Minus() { return getToken(JavaScriptParser.Minus, 0); }
 		public AdditiveExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -5383,12 +5974,16 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class RelationalExpressionContext extends SingleExpressionContext {
-		public SingleExpressionContext singleExpression(int i) {
-			return getRuleContext(SingleExpressionContext.class,i);
-		}
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
 		}
+		public SingleExpressionContext singleExpression(int i) {
+			return getRuleContext(SingleExpressionContext.class,i);
+		}
+		public TerminalNode LessThan() { return getToken(JavaScriptParser.LessThan, 0); }
+		public TerminalNode MoreThan() { return getToken(JavaScriptParser.MoreThan, 0); }
+		public TerminalNode LessThanEquals() { return getToken(JavaScriptParser.LessThanEquals, 0); }
+		public TerminalNode GreaterThanEquals() { return getToken(JavaScriptParser.GreaterThanEquals, 0); }
 		public RelationalExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -5408,6 +6003,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
+		public TerminalNode PlusPlus() { return getToken(JavaScriptParser.PlusPlus, 0); }
 		public PostIncrementExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -5443,6 +6039,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class BitNotExpressionContext extends SingleExpressionContext {
+		public TerminalNode BitNot() { return getToken(JavaScriptParser.BitNot, 0); }
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
@@ -5463,11 +6060,11 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 	public static class NewExpressionContext extends SingleExpressionContext {
 		public TerminalNode New() { return getToken(JavaScriptParser.New, 0); }
-		public ArgumentsContext arguments() {
-			return getRuleContext(ArgumentsContext.class,0);
-		}
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
+		}
+		public ArgumentsContext arguments() {
+			return getRuleContext(ArgumentsContext.class,0);
 		}
 		public NewExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
@@ -5523,12 +6120,15 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class MemberDotExpressionContext extends SingleExpressionContext {
-		public IdentifierNameContext identifierName() {
-			return getRuleContext(IdentifierNameContext.class,0);
-		}
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
+		public TerminalNode Dot() { return getToken(JavaScriptParser.Dot, 0); }
+		public IdentifierNameContext identifierName() {
+			return getRuleContext(IdentifierNameContext.class,0);
+		}
+		public TerminalNode QuestionMark() { return getToken(JavaScriptParser.QuestionMark, 0); }
+		public TerminalNode Hashtag() { return getToken(JavaScriptParser.Hashtag, 0); }
 		public MemberDotExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -5545,12 +6145,12 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class ClassExpressionContext extends SingleExpressionContext {
-		public IdentifierContext identifier() {
-			return getRuleContext(IdentifierContext.class,0);
-		}
 		public TerminalNode Class() { return getToken(JavaScriptParser.Class, 0); }
 		public ClassTailContext classTail() {
 			return getRuleContext(ClassTailContext.class,0);
+		}
+		public IdentifierContext identifier() {
+			return getRuleContext(IdentifierContext.class,0);
 		}
 		public ClassExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
@@ -5568,12 +6168,14 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class MemberIndexExpressionContext extends SingleExpressionContext {
-		public ExpressionSequenceContext expressionSequence() {
-			return getRuleContext(ExpressionSequenceContext.class,0);
-		}
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
+		public TerminalNode OpenBracket() { return getToken(JavaScriptParser.OpenBracket, 0); }
+		public ExpressionSequenceContext expressionSequence() {
+			return getRuleContext(ExpressionSequenceContext.class,0);
+		}
+		public TerminalNode CloseBracket() { return getToken(JavaScriptParser.CloseBracket, 0); }
 		public MemberIndexExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -5609,12 +6211,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class BitAndExpressionContext extends SingleExpressionContext {
-		public SingleExpressionContext singleExpression(int i) {
-			return getRuleContext(SingleExpressionContext.class,i);
-		}
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
 		}
+		public SingleExpressionContext singleExpression(int i) {
+			return getRuleContext(SingleExpressionContext.class,i);
+		}
+		public TerminalNode BitAnd() { return getToken(JavaScriptParser.BitAnd, 0); }
 		public BitAndExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -5631,12 +6234,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class BitOrExpressionContext extends SingleExpressionContext {
-		public SingleExpressionContext singleExpression(int i) {
-			return getRuleContext(SingleExpressionContext.class,i);
-		}
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
 		}
+		public SingleExpressionContext singleExpression(int i) {
+			return getRuleContext(SingleExpressionContext.class,i);
+		}
+		public TerminalNode BitOr() { return getToken(JavaScriptParser.BitOr, 0); }
 		public BitOrExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -5653,11 +6257,11 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class AssignmentOperatorExpressionContext extends SingleExpressionContext {
-		public SingleExpressionContext singleExpression(int i) {
-			return getRuleContext(SingleExpressionContext.class,i);
-		}
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
+		}
+		public SingleExpressionContext singleExpression(int i) {
+			return getRuleContext(SingleExpressionContext.class,i);
 		}
 		public AssignmentOperatorContext assignmentOperator() {
 			return getRuleContext(AssignmentOperatorContext.class,0);
@@ -5698,12 +6302,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class CoalesceExpressionContext extends SingleExpressionContext {
-		public SingleExpressionContext singleExpression(int i) {
-			return getRuleContext(SingleExpressionContext.class,i);
-		}
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
 		}
+		public SingleExpressionContext singleExpression(int i) {
+			return getRuleContext(SingleExpressionContext.class,i);
+		}
+		public TerminalNode NullCoalesce() { return getToken(JavaScriptParser.NullCoalesce, 0); }
 		public CoalesceExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -5737,148 +6342,181 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(822);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,92,_ctx) ) {
 			case 1:
-				{
-				_localctx = new DeleteExpressionContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
-
-				setState(771); match(Delete);
-				setState(772); singleExpression(38);
-				}
-				break;
-			case 2:
-				{
-				_localctx = new VoidExpressionContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
-				setState(773); match(Void);
-				setState(774); singleExpression(37);
-				}
-				break;
-			case 3:
-				{
-				_localctx = new TypeofExpressionContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
-				setState(775); match(Typeof);
-				setState(776); singleExpression(36);
-				}
-				break;
-			case 4:
-				{
-				_localctx = new PreIncrementExpressionContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
-				setState(777); match(PlusPlus);
-				setState(778); singleExpression(35);
-				}
-				break;
-			case 5:
-				{
-				_localctx = new PreDecreaseExpressionContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
-				setState(779); match(MinusMinus);
-				setState(780); singleExpression(34);
-				}
-				break;
-			case 6:
-				{
-				_localctx = new UnaryPlusExpressionContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
-				setState(781); match(Plus);
-				setState(782); singleExpression(33);
-				}
-				break;
-			case 7:
-				{
-				_localctx = new UnaryMinusExpressionContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
-				setState(783); match(Minus);
-				setState(784); singleExpression(32);
-				}
-				break;
-			case 8:
-				{
-				_localctx = new BitNotExpressionContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
-				setState(785); match(BitNot);
-				setState(786); singleExpression(31);
-				}
-				break;
-			case 9:
-				{
-				_localctx = new NotExpressionContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
-				setState(787); match(Not);
-				setState(788); singleExpression(30);
-				}
-				break;
-			case 10:
-				{
-				_localctx = new AwaitExpressionContext(_localctx);
-				_ctx = _localctx;
-				_prevctx = _localctx;
-				setState(789); match(Await);
-				setState(790); singleExpression(29);
-				}
-				break;
-			case 11:
 				{
 				_localctx = new FunctionExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(791); anoymousFunction();
+
+				setState(771);
+				anoymousFunction();
 				}
 				break;
-			case 12:
+			case 2:
 				{
 				_localctx = new ClassExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(792); match(Class);
-				setState(794);
+				setState(772);
+				match(Class);
+				setState(774);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (((((_la - 106)) & ~0x3f) == 0 && ((1L << (_la - 106)) & ((1L << (Async - 106)) | (1L << (NonStrictLet - 106)) | (1L << (Identifier - 106)))) != 0)) {
 					{
-					setState(793); identifier();
+					setState(773);
+					identifier();
 					}
 				}
 
-				setState(796); classTail();
+				setState(776);
+				classTail();
 				}
 				break;
-			case 13:
+			case 3:
 				{
 				_localctx = new NewExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(797); match(New);
-				setState(798); singleExpression(0);
-				setState(800);
+				setState(777);
+				match(New);
+				setState(778);
+				singleExpression(0);
+				setState(780);
+				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,91,_ctx) ) {
 				case 1:
 					{
-					setState(799); arguments();
+					setState(779);
+					arguments();
 					}
 					break;
 				}
 				}
 				break;
-			case 14:
+			case 4:
 				{
 				_localctx = new MetaExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(802); match(New);
-				setState(803); match(Dot);
-				setState(804); identifier();
+				setState(782);
+				match(New);
+				setState(783);
+				match(Dot);
+				setState(784);
+				identifier();
+				}
+				break;
+			case 5:
+				{
+				_localctx = new DeleteExpressionContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(785);
+				match(Delete);
+				setState(786);
+				singleExpression(38);
+				}
+				break;
+			case 6:
+				{
+				_localctx = new VoidExpressionContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(787);
+				match(Void);
+				setState(788);
+				singleExpression(37);
+				}
+				break;
+			case 7:
+				{
+				_localctx = new TypeofExpressionContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(789);
+				match(Typeof);
+				setState(790);
+				singleExpression(36);
+				}
+				break;
+			case 8:
+				{
+				_localctx = new PreIncrementExpressionContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(791);
+				match(PlusPlus);
+				setState(792);
+				singleExpression(35);
+				}
+				break;
+			case 9:
+				{
+				_localctx = new PreDecreaseExpressionContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(793);
+				match(MinusMinus);
+				setState(794);
+				singleExpression(34);
+				}
+				break;
+			case 10:
+				{
+				_localctx = new UnaryPlusExpressionContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(795);
+				match(Plus);
+				setState(796);
+				singleExpression(33);
+				}
+				break;
+			case 11:
+				{
+				_localctx = new UnaryMinusExpressionContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(797);
+				match(Minus);
+				setState(798);
+				singleExpression(32);
+				}
+				break;
+			case 12:
+				{
+				_localctx = new BitNotExpressionContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(799);
+				match(BitNot);
+				setState(800);
+				singleExpression(31);
+				}
+				break;
+			case 13:
+				{
+				_localctx = new NotExpressionContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(801);
+				match(Not);
+				setState(802);
+				singleExpression(30);
+				}
+				break;
+			case 14:
+				{
+				_localctx = new AwaitExpressionContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(803);
+				match(Await);
+				setState(804);
+				singleExpression(29);
 				}
 				break;
 			case 15:
@@ -5886,10 +6524,14 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				_localctx = new ImportExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(805); match(Import);
-				setState(806); match(OpenParen);
-				setState(807); singleExpression(0);
-				setState(808); match(CloseParen);
+				setState(805);
+				match(Import);
+				setState(806);
+				match(OpenParen);
+				setState(807);
+				singleExpression(0);
+				setState(808);
+				match(CloseParen);
 				}
 				break;
 			case 16:
@@ -5897,7 +6539,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				_localctx = new YieldExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(810); yieldStatement();
+				setState(810);
+				yieldStatement();
 				}
 				break;
 			case 17:
@@ -5905,7 +6548,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				_localctx = new ThisExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(811); match(This);
+				setState(811);
+				match(This);
 				}
 				break;
 			case 18:
@@ -5913,7 +6557,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				_localctx = new IdentifierExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(812); identifier();
+				setState(812);
+				identifier();
 				}
 				break;
 			case 19:
@@ -5921,7 +6566,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				_localctx = new SuperExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(813); match(Super);
+				setState(813);
+				match(Super);
 				}
 				break;
 			case 20:
@@ -5929,7 +6575,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				_localctx = new LiteralExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(814); literal();
+				setState(814);
+				literal();
 				}
 				break;
 			case 21:
@@ -5937,7 +6584,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				_localctx = new ArrayLiteralExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(815); arrayLiteral();
+				setState(815);
+				arrayLiteral();
 				}
 				break;
 			case 22:
@@ -5945,7 +6593,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				_localctx = new ObjectLiteralExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(816); objectLiteral();
+				setState(816);
+				objectLiteral();
 				}
 				break;
 			case 23:
@@ -5953,7 +6602,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				_localctx = new HtmlElementExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(817); htmlElements();
+				setState(817);
+				htmlElements();
 				}
 				break;
 			case 24:
@@ -5961,9 +6611,12 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				_localctx = new ParenthesizedExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(818); match(OpenParen);
-				setState(819); expressionSequence();
-				setState(820); match(CloseParen);
+				setState(818);
+				match(OpenParen);
+				setState(819);
+				expressionSequence();
+				setState(820);
+				match(CloseParen);
 				}
 				break;
 			}
@@ -5977,6 +6630,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 					_prevctx = _localctx;
 					{
 					setState(903);
+					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,95,_ctx) ) {
 					case 1:
 						{
@@ -5984,8 +6638,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(824);
 						if (!(precpred(_ctx, 28))) throw new FailedPredicateException(this, "precpred(_ctx, 28)");
-						setState(825); match(Power);
-						setState(826); singleExpression(28);
+						setState(825);
+						match(Power);
+						setState(826);
+						singleExpression(28);
 						}
 						break;
 					case 2:
@@ -5999,8 +6655,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << Multiply) | (1L << Divide) | (1L << Modulus))) != 0)) ) {
 						_errHandler.recoverInline(this);
 						}
-						consume();
-						setState(829); singleExpression(28);
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
+						setState(829);
+						singleExpression(28);
 						}
 						break;
 					case 3:
@@ -6014,8 +6675,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						if ( !(_la==Plus || _la==Minus) ) {
 						_errHandler.recoverInline(this);
 						}
-						consume();
-						setState(832); singleExpression(27);
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
+						setState(832);
+						singleExpression(27);
 						}
 						break;
 					case 4:
@@ -6024,8 +6690,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(833);
 						if (!(precpred(_ctx, 25))) throw new FailedPredicateException(this, "precpred(_ctx, 25)");
-						setState(834); match(NullCoalesce);
-						setState(835); singleExpression(26);
+						setState(834);
+						match(NullCoalesce);
+						setState(835);
+						singleExpression(26);
 						}
 						break;
 					case 5:
@@ -6039,8 +6707,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RightShiftArithmetic) | (1L << LeftShiftArithmetic) | (1L << RightShiftLogical))) != 0)) ) {
 						_errHandler.recoverInline(this);
 						}
-						consume();
-						setState(838); singleExpression(25);
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
+						setState(838);
+						singleExpression(25);
 						}
 						break;
 					case 6:
@@ -6054,8 +6727,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << LessThan) | (1L << MoreThan) | (1L << LessThanEquals) | (1L << GreaterThanEquals))) != 0)) ) {
 						_errHandler.recoverInline(this);
 						}
-						consume();
-						setState(841); singleExpression(24);
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
+						setState(841);
+						singleExpression(24);
 						}
 						break;
 					case 7:
@@ -6064,8 +6742,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(842);
 						if (!(precpred(_ctx, 22))) throw new FailedPredicateException(this, "precpred(_ctx, 22)");
-						setState(843); match(Instanceof);
-						setState(844); singleExpression(23);
+						setState(843);
+						match(Instanceof);
+						setState(844);
+						singleExpression(23);
 						}
 						break;
 					case 8:
@@ -6074,8 +6754,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(845);
 						if (!(precpred(_ctx, 21))) throw new FailedPredicateException(this, "precpred(_ctx, 21)");
-						setState(846); match(In);
-						setState(847); singleExpression(22);
+						setState(846);
+						match(In);
+						setState(847);
+						singleExpression(22);
 						}
 						break;
 					case 9:
@@ -6089,8 +6771,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << Equals_) | (1L << NotEquals) | (1L << IdentityEquals) | (1L << IdentityNotEquals))) != 0)) ) {
 						_errHandler.recoverInline(this);
 						}
-						consume();
-						setState(850); singleExpression(21);
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
+						setState(850);
+						singleExpression(21);
 						}
 						break;
 					case 10:
@@ -6099,8 +6786,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(851);
 						if (!(precpred(_ctx, 19))) throw new FailedPredicateException(this, "precpred(_ctx, 19)");
-						setState(852); match(BitAnd);
-						setState(853); singleExpression(20);
+						setState(852);
+						match(BitAnd);
+						setState(853);
+						singleExpression(20);
 						}
 						break;
 					case 11:
@@ -6109,8 +6798,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(854);
 						if (!(precpred(_ctx, 18))) throw new FailedPredicateException(this, "precpred(_ctx, 18)");
-						setState(855); match(BitXOr);
-						setState(856); singleExpression(19);
+						setState(855);
+						match(BitXOr);
+						setState(856);
+						singleExpression(19);
 						}
 						break;
 					case 12:
@@ -6119,8 +6810,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(857);
 						if (!(precpred(_ctx, 17))) throw new FailedPredicateException(this, "precpred(_ctx, 17)");
-						setState(858); match(BitOr);
-						setState(859); singleExpression(18);
+						setState(858);
+						match(BitOr);
+						setState(859);
+						singleExpression(18);
 						}
 						break;
 					case 13:
@@ -6129,8 +6822,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(860);
 						if (!(precpred(_ctx, 16))) throw new FailedPredicateException(this, "precpred(_ctx, 16)");
-						setState(861); match(And);
-						setState(862); singleExpression(17);
+						setState(861);
+						match(And);
+						setState(862);
+						singleExpression(17);
 						}
 						break;
 					case 14:
@@ -6139,8 +6834,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(863);
 						if (!(precpred(_ctx, 15))) throw new FailedPredicateException(this, "precpred(_ctx, 15)");
-						setState(864); match(Or);
-						setState(865); singleExpression(16);
+						setState(864);
+						match(Or);
+						setState(865);
+						singleExpression(16);
 						}
 						break;
 					case 15:
@@ -6149,10 +6846,14 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(866);
 						if (!(precpred(_ctx, 14))) throw new FailedPredicateException(this, "precpred(_ctx, 14)");
-						setState(867); match(QuestionMark);
-						setState(868); singleExpression(0);
-						setState(869); match(Colon);
-						setState(870); singleExpression(15);
+						setState(867);
+						match(QuestionMark);
+						setState(868);
+						singleExpression(0);
+						setState(869);
+						match(Colon);
+						setState(870);
+						singleExpression(15);
 						}
 						break;
 					case 16:
@@ -6161,8 +6862,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(872);
 						if (!(precpred(_ctx, 13))) throw new FailedPredicateException(this, "precpred(_ctx, 13)");
-						setState(873); match(Assign);
-						setState(874); singleExpression(13);
+						setState(873);
+						match(Assign);
+						setState(874);
+						singleExpression(13);
 						}
 						break;
 					case 17:
@@ -6171,8 +6874,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(875);
 						if (!(precpred(_ctx, 12))) throw new FailedPredicateException(this, "precpred(_ctx, 12)");
-						setState(876); assignmentOperator();
-						setState(877); singleExpression(12);
+						setState(876);
+						assignmentOperator();
+						setState(877);
+						singleExpression(12);
 						}
 						break;
 					case 18:
@@ -6181,9 +6886,12 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(879);
 						if (!(precpred(_ctx, 45))) throw new FailedPredicateException(this, "precpred(_ctx, 45)");
-						setState(880); match(OpenBracket);
-						setState(881); expressionSequence();
-						setState(882); match(CloseBracket);
+						setState(880);
+						match(OpenBracket);
+						setState(881);
+						expressionSequence();
+						setState(882);
+						match(CloseBracket);
 						}
 						break;
 					case 19:
@@ -6193,23 +6901,29 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						setState(884);
 						if (!(precpred(_ctx, 44))) throw new FailedPredicateException(this, "precpred(_ctx, 44)");
 						setState(886);
+						_errHandler.sync(this);
 						_la = _input.LA(1);
 						if (_la==QuestionMark) {
 							{
-							setState(885); match(QuestionMark);
+							setState(885);
+							match(QuestionMark);
 							}
 						}
 
-						setState(888); match(Dot);
+						setState(888);
+						match(Dot);
 						setState(890);
+						_errHandler.sync(this);
 						_la = _input.LA(1);
 						if (_la==Hashtag) {
 							{
-							setState(889); match(Hashtag);
+							setState(889);
+							match(Hashtag);
 							}
 						}
 
-						setState(892); identifierName();
+						setState(892);
+						identifierName();
 						}
 						break;
 					case 20:
@@ -6218,7 +6932,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(893);
 						if (!(precpred(_ctx, 43))) throw new FailedPredicateException(this, "precpred(_ctx, 43)");
-						setState(894); arguments();
+						setState(894);
+						arguments();
 						}
 						break;
 					case 21:
@@ -6229,7 +6944,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						if (!(precpred(_ctx, 40))) throw new FailedPredicateException(this, "precpred(_ctx, 40)");
 						setState(896);
 						if (!(this.notLineTerminator())) throw new FailedPredicateException(this, "this.notLineTerminator()");
-						setState(897); match(PlusPlus);
+						setState(897);
+						match(PlusPlus);
 						}
 						break;
 					case 22:
@@ -6240,7 +6956,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						if (!(precpred(_ctx, 39))) throw new FailedPredicateException(this, "precpred(_ctx, 39)");
 						setState(899);
 						if (!(this.notLineTerminator())) throw new FailedPredicateException(this, "this.notLineTerminator()");
-						setState(900); match(MinusMinus);
+						setState(900);
+						match(MinusMinus);
 						}
 						break;
 					case 23:
@@ -6249,7 +6966,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
 						setState(901);
 						if (!(precpred(_ctx, 10))) throw new FailedPredicateException(this, "precpred(_ctx, 10)");
-						setState(902); match(TemplateStringLiteral);
+						setState(902);
+						match(TemplateStringLiteral);
 						}
 						break;
 					}
@@ -6313,7 +7031,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				case 1:
 					{
 					{
-					setState(908); htmlElement();
+					setState(908);
+					htmlElement();
 					}
 					}
 					break;
@@ -6338,23 +7057,38 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class HtmlElementContext extends ParserRuleContext {
-		public HtmlTagStartNameContext htmlTagStartName() {
-			return getRuleContext(HtmlTagStartNameContext.class,0);
+		public List<TerminalNode> LessThan() { return getTokens(JavaScriptParser.LessThan); }
+		public TerminalNode LessThan(int i) {
+			return getToken(JavaScriptParser.LessThan, i);
 		}
-		public HtmlTagClosingNameContext htmlTagClosingName() {
-			return getRuleContext(HtmlTagClosingNameContext.class,0);
+		public List<HtmlTagStartNameContext> htmlTagStartName() {
+			return getRuleContexts(HtmlTagStartNameContext.class);
+		}
+		public HtmlTagStartNameContext htmlTagStartName(int i) {
+			return getRuleContext(HtmlTagStartNameContext.class,i);
+		}
+		public List<TerminalNode> MoreThan() { return getTokens(JavaScriptParser.MoreThan); }
+		public TerminalNode MoreThan(int i) {
+			return getToken(JavaScriptParser.MoreThan, i);
 		}
 		public HtmlContentContext htmlContent() {
 			return getRuleContext(HtmlContentContext.class,0);
+		}
+		public TerminalNode Divide() { return getToken(JavaScriptParser.Divide, 0); }
+		public List<HtmlTagClosingNameContext> htmlTagClosingName() {
+			return getRuleContexts(HtmlTagClosingNameContext.class);
+		}
+		public HtmlTagClosingNameContext htmlTagClosingName(int i) {
+			return getRuleContext(HtmlTagClosingNameContext.class,i);
+		}
+		public List<HtmlAttributeContext> htmlAttribute() {
+			return getRuleContexts(HtmlAttributeContext.class);
 		}
 		public HtmlAttributeContext htmlAttribute(int i) {
 			return getRuleContext(HtmlAttributeContext.class,i);
 		}
 		public HtmlTagNameContext htmlTagName() {
 			return getRuleContext(HtmlTagNameContext.class,0);
-		}
-		public List<HtmlAttributeContext> htmlAttribute() {
-			return getRuleContexts(HtmlAttributeContext.class);
 		}
 		public HtmlElementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -6381,39 +7115,51 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		int _la;
 		try {
 			int _alt;
-			setState(961);
-			switch ( getInterpreter().adaptivePredict(_input,102,_ctx) ) {
+			setState(980);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,103,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(913); match(LessThan);
-				setState(914); htmlTagStartName();
+				setState(913);
+				match(LessThan);
+				setState(914);
+				htmlTagStartName();
 				setState(918);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==Identifier || _la==TagName) {
 					{
 					{
-					setState(915); htmlAttribute();
+					setState(915);
+					htmlAttribute();
 					}
 					}
 					setState(920);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(921); match(MoreThan);
-				setState(922); htmlContent();
-				setState(923); match(LessThan);
-				setState(924); match(Divide);
-				setState(925); htmlTagClosingName();
-				setState(926); match(MoreThan);
+				setState(921);
+				match(MoreThan);
+				setState(922);
+				htmlContent();
+				setState(923);
+				match(LessThan);
+				setState(924);
+				match(Divide);
+				setState(925);
+				htmlTagClosingName();
+				setState(926);
+				match(MoreThan);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(928); match(LessThan);
-				setState(929); htmlTagName();
+				setState(928);
+				match(LessThan);
+				setState(929);
+				htmlTagName();
 				setState(933);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,99,_ctx);
@@ -6421,7 +7167,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 					if ( _alt==1 ) {
 						{
 						{
-						setState(930); htmlAttribute();
+						setState(930);
+						htmlAttribute();
 						}
 						} 
 					}
@@ -6429,52 +7176,107 @@ public class JavaScriptParser extends JavaScriptParserBase {
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input,99,_ctx);
 				}
-				setState(936); htmlContent();
-				setState(937); match(Divide);
-				setState(938); match(MoreThan);
+				setState(936);
+				htmlContent();
+				setState(937);
+				match(Divide);
+				setState(938);
+				match(MoreThan);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(940); match(LessThan);
-				setState(941); htmlTagName();
+				setState(940);
+				match(LessThan);
+				setState(941);
+				htmlTagName();
 				setState(945);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==Identifier || _la==TagName) {
 					{
 					{
-					setState(942); htmlAttribute();
+					setState(942);
+					htmlAttribute();
 					}
 					}
 					setState(947);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(948); match(Divide);
-				setState(949); match(MoreThan);
+				setState(948);
+				match(Divide);
+				setState(949);
+				match(MoreThan);
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(951); match(LessThan);
-				setState(952); htmlTagName();
+				setState(951);
+				match(LessThan);
+				setState(952);
+				htmlTagName();
 				setState(956);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==Identifier || _la==TagName) {
 					{
 					{
-					setState(953); htmlAttribute();
+					setState(953);
+					htmlAttribute();
 					}
 					}
 					setState(958);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(959); match(MoreThan);
+				setState(959);
+				match(MoreThan);
+				}
+				break;
+			case 5:
+				enterOuterAlt(_localctx, 5);
+				{
+				setState(961);
+				match(LessThan);
+				setState(962);
+				htmlTagStartName();
+				setState(963);
+				matchWildcard();
+				setState(964);
+				htmlTagStartName();
+				setState(968);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				while (_la==Identifier || _la==TagName) {
+					{
+					{
+					setState(965);
+					htmlAttribute();
+					}
+					}
+					setState(970);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+				}
+				setState(971);
+				match(MoreThan);
+				setState(972);
+				htmlContent();
+				setState(973);
+				match(LessThan);
+				setState(974);
+				match(Divide);
+				setState(975);
+				htmlTagClosingName();
+				setState(976);
+				matchWildcard();
+				setState(977);
+				htmlTagClosingName();
+				setState(978);
+				match(MoreThan);
 				}
 				break;
 			}
@@ -6494,20 +7296,20 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		public List<HtmlChardataContext> htmlChardata() {
 			return getRuleContexts(HtmlChardataContext.class);
 		}
+		public HtmlChardataContext htmlChardata(int i) {
+			return getRuleContext(HtmlChardataContext.class,i);
+		}
 		public List<HtmlElementContext> htmlElement() {
 			return getRuleContexts(HtmlElementContext.class);
-		}
-		public List<ObjectExpressionSequenceContext> objectExpressionSequence() {
-			return getRuleContexts(ObjectExpressionSequenceContext.class);
 		}
 		public HtmlElementContext htmlElement(int i) {
 			return getRuleContext(HtmlElementContext.class,i);
 		}
+		public List<ObjectExpressionSequenceContext> objectExpressionSequence() {
+			return getRuleContexts(ObjectExpressionSequenceContext.class);
+		}
 		public ObjectExpressionSequenceContext objectExpressionSequence(int i) {
 			return getRuleContext(ObjectExpressionSequenceContext.class,i);
-		}
-		public HtmlChardataContext htmlChardata(int i) {
-			return getRuleContext(HtmlChardataContext.class,i);
 		}
 		public HtmlContentContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -6535,50 +7337,57 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(964);
-			switch ( getInterpreter().adaptivePredict(_input,103,_ctx) ) {
+			setState(983);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,104,_ctx) ) {
 			case 1:
 				{
-				setState(963); htmlChardata();
+				setState(982);
+				htmlChardata();
 				}
 				break;
 			}
-			setState(975);
+			setState(994);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,106,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,107,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(968);
+					setState(987);
+					_errHandler.sync(this);
 					switch (_input.LA(1)) {
 					case LessThan:
 						{
-						setState(966); htmlElement();
+						setState(985);
+						htmlElement();
 						}
 						break;
 					case OpenBrace:
 						{
-						setState(967); objectExpressionSequence();
+						setState(986);
+						objectExpressionSequence();
 						}
 						break;
 					default:
 						throw new NoViableAltException(this);
 					}
-					setState(971);
-					switch ( getInterpreter().adaptivePredict(_input,105,_ctx) ) {
+					setState(990);
+					_errHandler.sync(this);
+					switch ( getInterpreter().adaptivePredict(_input,106,_ctx) ) {
 					case 1:
 						{
-						setState(970); htmlChardata();
+						setState(989);
+						htmlChardata();
 						}
 						break;
 					}
 					}
 					} 
 				}
-				setState(977);
+				setState(996);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,106,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,107,_ctx);
 			}
 			}
 		}
@@ -6623,7 +7432,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(978); ((HtmlTagStartNameContext)_localctx).htmlTagName = htmlTagName();
+			setState(997);
+			((HtmlTagStartNameContext)_localctx).htmlTagName = htmlTagName();
 			this.pushHtmlTagName((((HtmlTagStartNameContext)_localctx).htmlTagName!=null?_input.getText(((HtmlTagStartNameContext)_localctx).htmlTagName.start,((HtmlTagStartNameContext)_localctx).htmlTagName.stop):null));
 			}
 		}
@@ -6668,8 +7478,9 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(981); ((HtmlTagClosingNameContext)_localctx).htmlTagName = htmlTagName();
-			setState(982);
+			setState(1000);
+			((HtmlTagClosingNameContext)_localctx).htmlTagName = htmlTagName();
+			setState(1001);
 			if (!(this.popHtmlTagName((((HtmlTagClosingNameContext)_localctx).htmlTagName!=null?_input.getText(((HtmlTagClosingNameContext)_localctx).htmlTagName.start,((HtmlTagClosingNameContext)_localctx).htmlTagName.stop):null)))) throw new FailedPredicateException(this, "this.popHtmlTagName($htmlTagName.text)");
 			}
 		}
@@ -6685,11 +7496,11 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class HtmlTagNameContext extends ParserRuleContext {
-		public TerminalNode Identifier() { return getToken(JavaScriptParser.Identifier, 0); }
+		public TerminalNode TagName() { return getToken(JavaScriptParser.TagName, 0); }
 		public KeywordContext keyword() {
 			return getRuleContext(KeywordContext.class,0);
 		}
-		public TerminalNode TagName() { return getToken(JavaScriptParser.TagName, 0); }
+		public TerminalNode Identifier() { return getToken(JavaScriptParser.Identifier, 0); }
 		public HtmlTagNameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -6713,12 +7524,14 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		HtmlTagNameContext _localctx = new HtmlTagNameContext(_ctx, getState());
 		enterRule(_localctx, 126, RULE_htmlTagName);
 		try {
-			setState(987);
+			setState(1006);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case TagName:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(984); match(TagName);
+				setState(1003);
+				match(TagName);
 				}
 				break;
 			case Break:
@@ -6770,13 +7583,15 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			case Yield:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(985); keyword();
+				setState(1004);
+				keyword();
 				}
 				break;
 			case Identifier:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(986); match(Identifier);
+				setState(1005);
+				match(Identifier);
 				}
 				break;
 			default:
@@ -6798,6 +7613,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		public HtmlAttributeNameContext htmlAttributeName() {
 			return getRuleContext(HtmlAttributeNameContext.class,0);
 		}
+		public TerminalNode Assign() { return getToken(JavaScriptParser.Assign, 0); }
 		public HtmlAttributeValueContext htmlAttributeValue() {
 			return getRuleContext(HtmlAttributeValueContext.class,0);
 		}
@@ -6824,20 +7640,25 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		HtmlAttributeContext _localctx = new HtmlAttributeContext(_ctx, getState());
 		enterRule(_localctx, 128, RULE_htmlAttribute);
 		try {
-			setState(994);
-			switch ( getInterpreter().adaptivePredict(_input,108,_ctx) ) {
+			setState(1013);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,109,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(989); htmlAttributeName();
-				setState(990); match(Assign);
-				setState(991); htmlAttributeValue();
+				setState(1008);
+				htmlAttributeName();
+				setState(1009);
+				match(Assign);
+				setState(1010);
+				htmlAttributeValue();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(993); htmlAttributeName();
+				setState(1012);
+				htmlAttributeName();
 				}
 				break;
 			}
@@ -6854,11 +7675,15 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class HtmlAttributeNameContext extends ParserRuleContext {
+		public TerminalNode TagName() { return getToken(JavaScriptParser.TagName, 0); }
 		public List<TerminalNode> Identifier() { return getTokens(JavaScriptParser.Identifier); }
 		public TerminalNode Identifier(int i) {
 			return getToken(JavaScriptParser.Identifier, i);
 		}
-		public TerminalNode TagName() { return getToken(JavaScriptParser.TagName, 0); }
+		public List<TerminalNode> Minus() { return getTokens(JavaScriptParser.Minus); }
+		public TerminalNode Minus(int i) {
+			return getToken(JavaScriptParser.Minus, i);
+		}
 		public HtmlAttributeNameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -6883,33 +7708,38 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		enterRule(_localctx, 130, RULE_htmlAttributeName);
 		try {
 			int _alt;
-			setState(1005);
+			setState(1024);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case TagName:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(996); match(TagName);
+				setState(1015);
+				match(TagName);
 				}
 				break;
 			case Identifier:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(997); match(Identifier);
-				setState(1002);
+				setState(1016);
+				match(Identifier);
+				setState(1021);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,109,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,110,_ctx);
 				while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 					if ( _alt==1 ) {
 						{
 						{
-						setState(998); match(Minus);
-						setState(999); match(Identifier);
+						setState(1017);
+						match(Minus);
+						setState(1018);
+						match(Identifier);
 						}
 						} 
 					}
-					setState(1004);
+					setState(1023);
 					_errHandler.sync(this);
-					_alt = getInterpreter().adaptivePredict(_input,109,_ctx);
+					_alt = getInterpreter().adaptivePredict(_input,110,_ctx);
 				}
 				}
 				break;
@@ -6929,6 +7759,14 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class HtmlChardataContext extends ParserRuleContext {
+		public List<TerminalNode> LessThan() { return getTokens(JavaScriptParser.LessThan); }
+		public TerminalNode LessThan(int i) {
+			return getToken(JavaScriptParser.LessThan, i);
+		}
+		public List<TerminalNode> OpenBrace() { return getTokens(JavaScriptParser.OpenBrace); }
+		public TerminalNode OpenBrace(int i) {
+			return getToken(JavaScriptParser.OpenBrace, i);
+		}
 		public HtmlChardataContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -6956,7 +7794,7 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1008); 
+			setState(1027); 
 			_errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -6964,21 +7802,25 @@ public class JavaScriptParser extends JavaScriptParserBase {
 				case 1:
 					{
 					{
-					setState(1007);
+					setState(1026);
 					_la = _input.LA(1);
 					if ( _la <= 0 || (_la==OpenBrace || _la==LessThan) ) {
 					_errHandler.recoverInline(this);
 					}
-					consume();
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
+						consume();
+					}
 					}
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(1010); 
+				setState(1029); 
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,111,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,112,_ctx);
 			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 			}
 		}
@@ -6994,11 +7836,11 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class HtmlAttributeValueContext extends ParserRuleContext {
+		public TerminalNode AttributeValue() { return getToken(JavaScriptParser.AttributeValue, 0); }
+		public TerminalNode StringLiteral() { return getToken(JavaScriptParser.StringLiteral, 0); }
 		public ObjectExpressionSequenceContext objectExpressionSequence() {
 			return getRuleContext(ObjectExpressionSequenceContext.class,0);
 		}
-		public TerminalNode AttributeValue() { return getToken(JavaScriptParser.AttributeValue, 0); }
-		public TerminalNode StringLiteral() { return getToken(JavaScriptParser.StringLiteral, 0); }
 		public HtmlAttributeValueContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -7022,24 +7864,28 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		HtmlAttributeValueContext _localctx = new HtmlAttributeValueContext(_ctx, getState());
 		enterRule(_localctx, 134, RULE_htmlAttributeValue);
 		try {
-			setState(1015);
+			setState(1034);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case AttributeValue:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1012); match(AttributeValue);
+				setState(1031);
+				match(AttributeValue);
 				}
 				break;
 			case StringLiteral:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1013); match(StringLiteral);
+				setState(1032);
+				match(StringLiteral);
 				}
 				break;
 			case OpenBrace:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(1014); objectExpressionSequence();
+				setState(1033);
+				objectExpressionSequence();
 				}
 				break;
 			default:
@@ -7058,14 +7904,14 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class AssignableContext extends ParserRuleContext {
+		public IdentifierContext identifier() {
+			return getRuleContext(IdentifierContext.class,0);
+		}
 		public ArrayLiteralContext arrayLiteral() {
 			return getRuleContext(ArrayLiteralContext.class,0);
 		}
 		public ObjectLiteralContext objectLiteral() {
 			return getRuleContext(ObjectLiteralContext.class,0);
-		}
-		public IdentifierContext identifier() {
-			return getRuleContext(IdentifierContext.class,0);
 		}
 		public AssignableContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -7090,26 +7936,30 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		AssignableContext _localctx = new AssignableContext(_ctx, getState());
 		enterRule(_localctx, 136, RULE_assignable);
 		try {
-			setState(1020);
+			setState(1039);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case Async:
 			case NonStrictLet:
 			case Identifier:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1017); identifier();
+				setState(1036);
+				identifier();
 				}
 				break;
 			case OpenBracket:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1018); arrayLiteral();
+				setState(1037);
+				arrayLiteral();
 				}
 				break;
 			case OpenBrace:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(1019); objectLiteral();
+				setState(1038);
+				objectLiteral();
 				}
 				break;
 			default:
@@ -7128,11 +7978,17 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class ObjectLiteralContext extends ParserRuleContext {
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
+		public List<PropertyAssignmentContext> propertyAssignment() {
+			return getRuleContexts(PropertyAssignmentContext.class);
+		}
 		public PropertyAssignmentContext propertyAssignment(int i) {
 			return getRuleContext(PropertyAssignmentContext.class,i);
 		}
-		public List<PropertyAssignmentContext> propertyAssignment() {
-			return getRuleContexts(PropertyAssignmentContext.class);
+		public List<TerminalNode> Comma() { return getTokens(JavaScriptParser.Comma); }
+		public TerminalNode Comma(int i) {
+			return getToken(JavaScriptParser.Comma, i);
 		}
 		public ObjectLiteralContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -7161,40 +8017,48 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1022); match(OpenBrace);
-			setState(1031);
+			setState(1041);
+			match(OpenBrace);
+			setState(1050);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << Ellipsis) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << Multiply) | (1L << LessThan) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral))) != 0) || ((((_la - 64)) & ~0x3f) == 0 && ((1L << (_la - 64)) & ((1L << (OctalIntegerLiteral - 64)) | (1L << (OctalIntegerLiteral2 - 64)) | (1L << (BinaryIntegerLiteral - 64)) | (1L << (BigHexIntegerLiteral - 64)) | (1L << (BigOctalIntegerLiteral - 64)) | (1L << (BigBinaryIntegerLiteral - 64)) | (1L << (BigDecimalIntegerLiteral - 64)) | (1L << (Break - 64)) | (1L << (Do - 64)) | (1L << (Instanceof - 64)) | (1L << (Typeof - 64)) | (1L << (Case - 64)) | (1L << (Else - 64)) | (1L << (New - 64)) | (1L << (Var - 64)) | (1L << (Catch - 64)) | (1L << (Finally - 64)) | (1L << (Return - 64)) | (1L << (Void - 64)) | (1L << (Continue - 64)) | (1L << (For - 64)) | (1L << (Switch - 64)) | (1L << (While - 64)) | (1L << (Debugger - 64)) | (1L << (Function - 64)) | (1L << (This - 64)) | (1L << (With - 64)) | (1L << (Default - 64)) | (1L << (If - 64)) | (1L << (Throw - 64)) | (1L << (Delete - 64)) | (1L << (In - 64)) | (1L << (Try - 64)) | (1L << (As - 64)) | (1L << (From - 64)) | (1L << (Class - 64)) | (1L << (Enum - 64)) | (1L << (Extends - 64)) | (1L << (Super - 64)) | (1L << (Const - 64)) | (1L << (Export - 64)) | (1L << (Import - 64)) | (1L << (Async - 64)) | (1L << (Await - 64)) | (1L << (Implements - 64)) | (1L << (StrictLet - 64)) | (1L << (NonStrictLet - 64)) | (1L << (Private - 64)) | (1L << (Public - 64)) | (1L << (Interface - 64)) | (1L << (Package - 64)) | (1L << (Protected - 64)) | (1L << (Static - 64)) | (1L << (Yield - 64)) | (1L << (Identifier - 64)) | (1L << (StringLiteral - 64)) | (1L << (TemplateStringLiteral - 64)))) != 0)) {
 				{
-				setState(1023); propertyAssignment();
-				setState(1028);
+				setState(1042);
+				propertyAssignment();
+				setState(1047);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,114,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,115,_ctx);
 				while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 					if ( _alt==1 ) {
 						{
 						{
-						setState(1024); match(Comma);
-						setState(1025); propertyAssignment();
+						setState(1043);
+						match(Comma);
+						setState(1044);
+						propertyAssignment();
 						}
 						} 
 					}
-					setState(1030);
+					setState(1049);
 					_errHandler.sync(this);
-					_alt = getInterpreter().adaptivePredict(_input,114,_ctx);
+					_alt = getInterpreter().adaptivePredict(_input,115,_ctx);
 				}
 				}
 			}
 
-			setState(1034);
+			setState(1053);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==Comma) {
 				{
-				setState(1033); match(Comma);
+				setState(1052);
+				match(Comma);
 				}
 			}
 
-			setState(1036); match(CloseBrace);
+			setState(1055);
+			match(CloseBrace);
 			}
 		}
 		catch (RecognitionException re) {
@@ -7209,9 +8073,11 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class ObjectExpressionSequenceContext extends ParserRuleContext {
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
 		}
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
 		public ObjectExpressionSequenceContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -7237,9 +8103,12 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1038); match(OpenBrace);
-			setState(1039); expressionSequence();
-			setState(1040); match(CloseBrace);
+			setState(1057);
+			match(OpenBrace);
+			setState(1058);
+			expressionSequence();
+			setState(1059);
+			match(CloseBrace);
 			}
 		}
 		catch (RecognitionException re) {
@@ -7265,14 +8134,19 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		}
 	}
 	public static class AnoymousFunctionDeclContext extends AnoymousFunctionContext {
-		public FormalParameterListContext formalParameterList() {
-			return getRuleContext(FormalParameterListContext.class,0);
-		}
+		public TerminalNode Function() { return getToken(JavaScriptParser.Function, 0); }
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
 		public FunctionBodyContext functionBody() {
 			return getRuleContext(FunctionBodyContext.class,0);
 		}
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
 		public TerminalNode Async() { return getToken(JavaScriptParser.Async, 0); }
-		public TerminalNode Function() { return getToken(JavaScriptParser.Function, 0); }
+		public TerminalNode Multiply() { return getToken(JavaScriptParser.Multiply, 0); }
+		public FormalParameterListContext formalParameterList() {
+			return getRuleContext(FormalParameterListContext.class,0);
+		}
 		public AnoymousFunctionDeclContext(AnoymousFunctionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -7292,10 +8166,11 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		public ArrowFunctionParametersContext arrowFunctionParameters() {
 			return getRuleContext(ArrowFunctionParametersContext.class,0);
 		}
-		public TerminalNode Async() { return getToken(JavaScriptParser.Async, 0); }
+		public TerminalNode ARROW() { return getToken(JavaScriptParser.ARROW, 0); }
 		public ArrowFunctionBodyContext arrowFunctionBody() {
 			return getRuleContext(ArrowFunctionBodyContext.class,0);
 		}
+		public TerminalNode Async() { return getToken(JavaScriptParser.Async, 0); }
 		public ArrowFunctionContext(AnoymousFunctionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -7336,66 +8211,85 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		enterRule(_localctx, 142, RULE_anoymousFunction);
 		int _la;
 		try {
-			setState(1066);
-			switch ( getInterpreter().adaptivePredict(_input,121,_ctx) ) {
+			setState(1085);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,122,_ctx) ) {
 			case 1:
 				_localctx = new FunctionDeclContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1042); functionDeclaration();
+				setState(1061);
+				functionDeclaration();
 				}
 				break;
 			case 2:
 				_localctx = new AnoymousFunctionDeclContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1044);
+				setState(1063);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Async) {
 					{
-					setState(1043); match(Async);
+					setState(1062);
+					match(Async);
 					}
 				}
 
-				setState(1046); match(Function);
-				setState(1048);
+				setState(1065);
+				match(Function);
+				setState(1067);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Multiply) {
 					{
-					setState(1047); match(Multiply);
+					setState(1066);
+					match(Multiply);
 					}
 				}
 
-				setState(1050); match(OpenParen);
-				setState(1052);
+				setState(1069);
+				match(OpenParen);
+				setState(1071);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << OpenBracket) | (1L << OpenBrace) | (1L << Ellipsis))) != 0) || ((((_la - 106)) & ~0x3f) == 0 && ((1L << (_la - 106)) & ((1L << (Async - 106)) | (1L << (NonStrictLet - 106)) | (1L << (Identifier - 106)))) != 0)) {
 					{
-					setState(1051); formalParameterList();
+					setState(1070);
+					formalParameterList();
 					}
 				}
 
-				setState(1054); match(CloseParen);
-				setState(1055); match(OpenBrace);
-				setState(1056); functionBody();
-				setState(1057); match(CloseBrace);
+				setState(1073);
+				match(CloseParen);
+				setState(1074);
+				match(OpenBrace);
+				setState(1075);
+				functionBody();
+				setState(1076);
+				match(CloseBrace);
 				}
 				break;
 			case 3:
 				_localctx = new ArrowFunctionContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(1060);
-				switch ( getInterpreter().adaptivePredict(_input,120,_ctx) ) {
+				setState(1079);
+				_errHandler.sync(this);
+				switch ( getInterpreter().adaptivePredict(_input,121,_ctx) ) {
 				case 1:
 					{
-					setState(1059); match(Async);
+					setState(1078);
+					match(Async);
 					}
 					break;
 				}
-				setState(1062); arrowFunctionParameters();
-				setState(1063); match(ARROW);
-				setState(1064); arrowFunctionBody();
+				setState(1081);
+				arrowFunctionParameters();
+				setState(1082);
+				match(ARROW);
+				setState(1083);
+				arrowFunctionBody();
 				}
 				break;
 			}
@@ -7412,11 +8306,13 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class ArrowFunctionParametersContext extends ParserRuleContext {
-		public FormalParameterListContext formalParameterList() {
-			return getRuleContext(FormalParameterListContext.class,0);
-		}
 		public IdentifierContext identifier() {
 			return getRuleContext(IdentifierContext.class,0);
+		}
+		public TerminalNode OpenParen() { return getToken(JavaScriptParser.OpenParen, 0); }
+		public TerminalNode CloseParen() { return getToken(JavaScriptParser.CloseParen, 0); }
+		public FormalParameterListContext formalParameterList() {
+			return getRuleContext(FormalParameterListContext.class,0);
 		}
 		public ArrowFunctionParametersContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -7442,29 +8338,35 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		enterRule(_localctx, 144, RULE_arrowFunctionParameters);
 		int _la;
 		try {
-			setState(1074);
+			setState(1093);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case Async:
 			case NonStrictLet:
 			case Identifier:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1068); identifier();
+				setState(1087);
+				identifier();
 				}
 				break;
 			case OpenParen:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1069); match(OpenParen);
-				setState(1071);
+				setState(1088);
+				match(OpenParen);
+				setState(1090);
+				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << OpenBracket) | (1L << OpenBrace) | (1L << Ellipsis))) != 0) || ((((_la - 106)) & ~0x3f) == 0 && ((1L << (_la - 106)) & ((1L << (Async - 106)) | (1L << (NonStrictLet - 106)) | (1L << (Identifier - 106)))) != 0)) {
 					{
-					setState(1070); formalParameterList();
+					setState(1089);
+					formalParameterList();
 					}
 				}
 
-				setState(1073); match(CloseParen);
+				setState(1092);
+				match(CloseParen);
 				}
 				break;
 			default:
@@ -7483,12 +8385,14 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class ArrowFunctionBodyContext extends ParserRuleContext {
-		public FunctionBodyContext functionBody() {
-			return getRuleContext(FunctionBodyContext.class,0);
-		}
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
 		}
+		public TerminalNode OpenBrace() { return getToken(JavaScriptParser.OpenBrace, 0); }
+		public FunctionBodyContext functionBody() {
+			return getRuleContext(FunctionBodyContext.class,0);
+		}
+		public TerminalNode CloseBrace() { return getToken(JavaScriptParser.CloseBrace, 0); }
 		public ArrowFunctionBodyContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -7512,20 +8416,25 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		ArrowFunctionBodyContext _localctx = new ArrowFunctionBodyContext(_ctx, getState());
 		enterRule(_localctx, 146, RULE_arrowFunctionBody);
 		try {
-			setState(1081);
-			switch ( getInterpreter().adaptivePredict(_input,124,_ctx) ) {
+			setState(1100);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,125,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1076); singleExpression(0);
+				setState(1095);
+				singleExpression(0);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1077); match(OpenBrace);
-				setState(1078); functionBody();
-				setState(1079); match(CloseBrace);
+				setState(1096);
+				match(OpenBrace);
+				setState(1097);
+				functionBody();
+				setState(1098);
+				match(CloseBrace);
 				}
 				break;
 			}
@@ -7542,6 +8451,18 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class AssignmentOperatorContext extends ParserRuleContext {
+		public TerminalNode MultiplyAssign() { return getToken(JavaScriptParser.MultiplyAssign, 0); }
+		public TerminalNode DivideAssign() { return getToken(JavaScriptParser.DivideAssign, 0); }
+		public TerminalNode ModulusAssign() { return getToken(JavaScriptParser.ModulusAssign, 0); }
+		public TerminalNode PlusAssign() { return getToken(JavaScriptParser.PlusAssign, 0); }
+		public TerminalNode MinusAssign() { return getToken(JavaScriptParser.MinusAssign, 0); }
+		public TerminalNode LeftShiftArithmeticAssign() { return getToken(JavaScriptParser.LeftShiftArithmeticAssign, 0); }
+		public TerminalNode RightShiftArithmeticAssign() { return getToken(JavaScriptParser.RightShiftArithmeticAssign, 0); }
+		public TerminalNode RightShiftLogicalAssign() { return getToken(JavaScriptParser.RightShiftLogicalAssign, 0); }
+		public TerminalNode BitAndAssign() { return getToken(JavaScriptParser.BitAndAssign, 0); }
+		public TerminalNode BitXorAssign() { return getToken(JavaScriptParser.BitXorAssign, 0); }
+		public TerminalNode BitOrAssign() { return getToken(JavaScriptParser.BitOrAssign, 0); }
+		public TerminalNode PowerAssign() { return getToken(JavaScriptParser.PowerAssign, 0); }
 		public AssignmentOperatorContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -7568,12 +8489,16 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1083);
+			setState(1102);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MultiplyAssign) | (1L << DivideAssign) | (1L << ModulusAssign) | (1L << PlusAssign) | (1L << MinusAssign) | (1L << LeftShiftArithmeticAssign) | (1L << RightShiftArithmeticAssign) | (1L << RightShiftLogicalAssign) | (1L << BitAndAssign) | (1L << BitXorAssign) | (1L << BitOrAssign) | (1L << PowerAssign))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
-			consume();
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -7588,14 +8513,14 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class LiteralContext extends ParserRuleContext {
+		public TerminalNode NullLiteral() { return getToken(JavaScriptParser.NullLiteral, 0); }
+		public TerminalNode BooleanLiteral() { return getToken(JavaScriptParser.BooleanLiteral, 0); }
+		public TerminalNode StringLiteral() { return getToken(JavaScriptParser.StringLiteral, 0); }
+		public TerminalNode TemplateStringLiteral() { return getToken(JavaScriptParser.TemplateStringLiteral, 0); }
+		public TerminalNode RegularExpressionLiteral() { return getToken(JavaScriptParser.RegularExpressionLiteral, 0); }
 		public NumericLiteralContext numericLiteral() {
 			return getRuleContext(NumericLiteralContext.class,0);
 		}
-		public TerminalNode TemplateStringLiteral() { return getToken(JavaScriptParser.TemplateStringLiteral, 0); }
-		public TerminalNode StringLiteral() { return getToken(JavaScriptParser.StringLiteral, 0); }
-		public TerminalNode NullLiteral() { return getToken(JavaScriptParser.NullLiteral, 0); }
-		public TerminalNode RegularExpressionLiteral() { return getToken(JavaScriptParser.RegularExpressionLiteral, 0); }
-		public TerminalNode BooleanLiteral() { return getToken(JavaScriptParser.BooleanLiteral, 0); }
 		public BigintLiteralContext bigintLiteral() {
 			return getRuleContext(BigintLiteralContext.class,0);
 		}
@@ -7622,36 +8547,42 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		LiteralContext _localctx = new LiteralContext(_ctx, getState());
 		enterRule(_localctx, 150, RULE_literal);
 		try {
-			setState(1092);
+			setState(1111);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case NullLiteral:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1085); match(NullLiteral);
+				setState(1104);
+				match(NullLiteral);
 				}
 				break;
 			case BooleanLiteral:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1086); match(BooleanLiteral);
+				setState(1105);
+				match(BooleanLiteral);
 				}
 				break;
 			case StringLiteral:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(1087); match(StringLiteral);
+				setState(1106);
+				match(StringLiteral);
 				}
 				break;
 			case TemplateStringLiteral:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(1088); match(TemplateStringLiteral);
+				setState(1107);
+				match(TemplateStringLiteral);
 				}
 				break;
 			case RegularExpressionLiteral:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(1089); match(RegularExpressionLiteral);
+				setState(1108);
+				match(RegularExpressionLiteral);
 				}
 				break;
 			case DecimalLiteral:
@@ -7661,7 +8592,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			case BinaryIntegerLiteral:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(1090); numericLiteral();
+				setState(1109);
+				numericLiteral();
 				}
 				break;
 			case BigHexIntegerLiteral:
@@ -7670,7 +8602,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			case BigDecimalIntegerLiteral:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(1091); bigintLiteral();
+				setState(1110);
+				bigintLiteral();
 				}
 				break;
 			default:
@@ -7690,10 +8623,10 @@ public class JavaScriptParser extends JavaScriptParserBase {
 
 	public static class NumericLiteralContext extends ParserRuleContext {
 		public TerminalNode DecimalLiteral() { return getToken(JavaScriptParser.DecimalLiteral, 0); }
-		public TerminalNode OctalIntegerLiteral() { return getToken(JavaScriptParser.OctalIntegerLiteral, 0); }
-		public TerminalNode BinaryIntegerLiteral() { return getToken(JavaScriptParser.BinaryIntegerLiteral, 0); }
-		public TerminalNode OctalIntegerLiteral2() { return getToken(JavaScriptParser.OctalIntegerLiteral2, 0); }
 		public TerminalNode HexIntegerLiteral() { return getToken(JavaScriptParser.HexIntegerLiteral, 0); }
+		public TerminalNode OctalIntegerLiteral() { return getToken(JavaScriptParser.OctalIntegerLiteral, 0); }
+		public TerminalNode OctalIntegerLiteral2() { return getToken(JavaScriptParser.OctalIntegerLiteral2, 0); }
+		public TerminalNode BinaryIntegerLiteral() { return getToken(JavaScriptParser.BinaryIntegerLiteral, 0); }
 		public NumericLiteralContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -7720,12 +8653,16 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1094);
+			setState(1113);
 			_la = _input.LA(1);
 			if ( !(((((_la - 62)) & ~0x3f) == 0 && ((1L << (_la - 62)) & ((1L << (DecimalLiteral - 62)) | (1L << (HexIntegerLiteral - 62)) | (1L << (OctalIntegerLiteral - 62)) | (1L << (OctalIntegerLiteral2 - 62)) | (1L << (BinaryIntegerLiteral - 62)))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
-			consume();
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -7741,8 +8678,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 
 	public static class BigintLiteralContext extends ParserRuleContext {
 		public TerminalNode BigDecimalIntegerLiteral() { return getToken(JavaScriptParser.BigDecimalIntegerLiteral, 0); }
-		public TerminalNode BigOctalIntegerLiteral() { return getToken(JavaScriptParser.BigOctalIntegerLiteral, 0); }
 		public TerminalNode BigHexIntegerLiteral() { return getToken(JavaScriptParser.BigHexIntegerLiteral, 0); }
+		public TerminalNode BigOctalIntegerLiteral() { return getToken(JavaScriptParser.BigOctalIntegerLiteral, 0); }
 		public TerminalNode BigBinaryIntegerLiteral() { return getToken(JavaScriptParser.BigBinaryIntegerLiteral, 0); }
 		public BigintLiteralContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -7770,12 +8707,16 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1096);
+			setState(1115);
 			_la = _input.LA(1);
 			if ( !(((((_la - 67)) & ~0x3f) == 0 && ((1L << (_la - 67)) & ((1L << (BigHexIntegerLiteral - 67)) | (1L << (BigOctalIntegerLiteral - 67)) | (1L << (BigBinaryIntegerLiteral - 67)) | (1L << (BigDecimalIntegerLiteral - 67)))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
-			consume();
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -7821,10 +8762,12 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1098); identifier();
-			setState(1099);
+			setState(1117);
+			identifier();
+			setState(1118);
 			if (!(this.p("get"))) throw new FailedPredicateException(this, "this.p(\"get\")");
-			setState(1100); propertyName();
+			setState(1119);
+			propertyName();
 			}
 		}
 		catch (RecognitionException re) {
@@ -7870,10 +8813,12 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1102); identifier();
-			setState(1103);
+			setState(1121);
+			identifier();
+			setState(1122);
 			if (!(this.p("set"))) throw new FailedPredicateException(this, "this.p(\"set\")");
-			setState(1104); propertyName();
+			setState(1123);
+			propertyName();
 			}
 		}
 		catch (RecognitionException re) {
@@ -7888,11 +8833,11 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class IdentifierNameContext extends ParserRuleContext {
-		public ReservedWordContext reservedWord() {
-			return getRuleContext(ReservedWordContext.class,0);
-		}
 		public IdentifierContext identifier() {
 			return getRuleContext(IdentifierContext.class,0);
+		}
+		public ReservedWordContext reservedWord() {
+			return getRuleContext(ReservedWordContext.class,0);
 		}
 		public IdentifierNameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -7917,18 +8862,21 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		IdentifierNameContext _localctx = new IdentifierNameContext(_ctx, getState());
 		enterRule(_localctx, 160, RULE_identifierName);
 		try {
-			setState(1108);
-			switch ( getInterpreter().adaptivePredict(_input,126,_ctx) ) {
+			setState(1127);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,127,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1106); identifier();
+				setState(1125);
+				identifier();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1107); reservedWord();
+				setState(1126);
+				reservedWord();
 				}
 				break;
 			}
@@ -7974,12 +8922,16 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1110);
+			setState(1129);
 			_la = _input.LA(1);
 			if ( !(((((_la - 106)) & ~0x3f) == 0 && ((1L << (_la - 106)) & ((1L << (Async - 106)) | (1L << (NonStrictLet - 106)) | (1L << (Identifier - 106)))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
-			consume();
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -8022,7 +8974,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		ReservedWordContext _localctx = new ReservedWordContext(_ctx, getState());
 		enterRule(_localctx, 164, RULE_reservedWord);
 		try {
-			setState(1115);
+			setState(1134);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case Break:
 			case Do:
@@ -8073,19 +9026,22 @@ public class JavaScriptParser extends JavaScriptParserBase {
 			case Yield:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1112); keyword();
+				setState(1131);
+				keyword();
 				}
 				break;
 			case NullLiteral:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1113); match(NullLiteral);
+				setState(1132);
+				match(NullLiteral);
 				}
 				break;
 			case BooleanLiteral:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(1114); match(BooleanLiteral);
+				setState(1133);
+				match(BooleanLiteral);
 				}
 				break;
 			default:
@@ -8104,54 +9060,54 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class KeywordContext extends ParserRuleContext {
+		public TerminalNode Break() { return getToken(JavaScriptParser.Break, 0); }
+		public TerminalNode Do() { return getToken(JavaScriptParser.Do, 0); }
+		public TerminalNode Instanceof() { return getToken(JavaScriptParser.Instanceof, 0); }
+		public TerminalNode Typeof() { return getToken(JavaScriptParser.Typeof, 0); }
+		public TerminalNode Case() { return getToken(JavaScriptParser.Case, 0); }
+		public TerminalNode Else() { return getToken(JavaScriptParser.Else, 0); }
+		public TerminalNode New() { return getToken(JavaScriptParser.New, 0); }
+		public TerminalNode Var() { return getToken(JavaScriptParser.Var, 0); }
 		public TerminalNode Catch() { return getToken(JavaScriptParser.Catch, 0); }
-		public TerminalNode Implements() { return getToken(JavaScriptParser.Implements, 0); }
-		public TerminalNode Throw() { return getToken(JavaScriptParser.Throw, 0); }
+		public TerminalNode Finally() { return getToken(JavaScriptParser.Finally, 0); }
+		public TerminalNode Return() { return getToken(JavaScriptParser.Return, 0); }
+		public TerminalNode Void() { return getToken(JavaScriptParser.Void, 0); }
+		public TerminalNode Continue() { return getToken(JavaScriptParser.Continue, 0); }
 		public TerminalNode For() { return getToken(JavaScriptParser.For, 0); }
+		public TerminalNode Switch() { return getToken(JavaScriptParser.Switch, 0); }
+		public TerminalNode While() { return getToken(JavaScriptParser.While, 0); }
+		public TerminalNode Debugger() { return getToken(JavaScriptParser.Debugger, 0); }
+		public TerminalNode Function() { return getToken(JavaScriptParser.Function, 0); }
+		public TerminalNode This() { return getToken(JavaScriptParser.This, 0); }
+		public TerminalNode With() { return getToken(JavaScriptParser.With, 0); }
+		public TerminalNode Default() { return getToken(JavaScriptParser.Default, 0); }
+		public TerminalNode If() { return getToken(JavaScriptParser.If, 0); }
+		public TerminalNode Throw() { return getToken(JavaScriptParser.Throw, 0); }
+		public TerminalNode Delete() { return getToken(JavaScriptParser.Delete, 0); }
+		public TerminalNode In() { return getToken(JavaScriptParser.In, 0); }
+		public TerminalNode Try() { return getToken(JavaScriptParser.Try, 0); }
+		public TerminalNode Class() { return getToken(JavaScriptParser.Class, 0); }
+		public TerminalNode Enum() { return getToken(JavaScriptParser.Enum, 0); }
+		public TerminalNode Extends() { return getToken(JavaScriptParser.Extends, 0); }
+		public TerminalNode Super() { return getToken(JavaScriptParser.Super, 0); }
+		public TerminalNode Const() { return getToken(JavaScriptParser.Const, 0); }
+		public TerminalNode Export() { return getToken(JavaScriptParser.Export, 0); }
+		public TerminalNode Import() { return getToken(JavaScriptParser.Import, 0); }
+		public TerminalNode Implements() { return getToken(JavaScriptParser.Implements, 0); }
 		public LetContext let() {
 			return getRuleContext(LetContext.class,0);
 		}
-		public TerminalNode Class() { return getToken(JavaScriptParser.Class, 0); }
-		public TerminalNode Static() { return getToken(JavaScriptParser.Static, 0); }
-		public TerminalNode While() { return getToken(JavaScriptParser.While, 0); }
-		public TerminalNode Continue() { return getToken(JavaScriptParser.Continue, 0); }
-		public TerminalNode Instanceof() { return getToken(JavaScriptParser.Instanceof, 0); }
-		public TerminalNode This() { return getToken(JavaScriptParser.This, 0); }
-		public TerminalNode Void() { return getToken(JavaScriptParser.Void, 0); }
-		public TerminalNode Extends() { return getToken(JavaScriptParser.Extends, 0); }
-		public TerminalNode As() { return getToken(JavaScriptParser.As, 0); }
-		public TerminalNode Try() { return getToken(JavaScriptParser.Try, 0); }
-		public TerminalNode Export() { return getToken(JavaScriptParser.Export, 0); }
-		public TerminalNode Finally() { return getToken(JavaScriptParser.Finally, 0); }
-		public TerminalNode Return() { return getToken(JavaScriptParser.Return, 0); }
-		public TerminalNode If() { return getToken(JavaScriptParser.If, 0); }
-		public TerminalNode Var() { return getToken(JavaScriptParser.Var, 0); }
-		public TerminalNode Protected() { return getToken(JavaScriptParser.Protected, 0); }
-		public TerminalNode Switch() { return getToken(JavaScriptParser.Switch, 0); }
-		public TerminalNode Do() { return getToken(JavaScriptParser.Do, 0); }
-		public TerminalNode Default() { return getToken(JavaScriptParser.Default, 0); }
-		public TerminalNode Delete() { return getToken(JavaScriptParser.Delete, 0); }
-		public TerminalNode New() { return getToken(JavaScriptParser.New, 0); }
-		public TerminalNode In() { return getToken(JavaScriptParser.In, 0); }
-		public TerminalNode Else() { return getToken(JavaScriptParser.Else, 0); }
-		public TerminalNode Debugger() { return getToken(JavaScriptParser.Debugger, 0); }
-		public TerminalNode From() { return getToken(JavaScriptParser.From, 0); }
 		public TerminalNode Private() { return getToken(JavaScriptParser.Private, 0); }
-		public TerminalNode Typeof() { return getToken(JavaScriptParser.Typeof, 0); }
-		public TerminalNode Break() { return getToken(JavaScriptParser.Break, 0); }
-		public TerminalNode With() { return getToken(JavaScriptParser.With, 0); }
-		public TerminalNode Const() { return getToken(JavaScriptParser.Const, 0); }
-		public TerminalNode Await() { return getToken(JavaScriptParser.Await, 0); }
-		public TerminalNode Super() { return getToken(JavaScriptParser.Super, 0); }
-		public TerminalNode Import() { return getToken(JavaScriptParser.Import, 0); }
-		public TerminalNode Async() { return getToken(JavaScriptParser.Async, 0); }
-		public TerminalNode Enum() { return getToken(JavaScriptParser.Enum, 0); }
 		public TerminalNode Public() { return getToken(JavaScriptParser.Public, 0); }
-		public TerminalNode Function() { return getToken(JavaScriptParser.Function, 0); }
-		public TerminalNode Yield() { return getToken(JavaScriptParser.Yield, 0); }
-		public TerminalNode Case() { return getToken(JavaScriptParser.Case, 0); }
-		public TerminalNode Package() { return getToken(JavaScriptParser.Package, 0); }
 		public TerminalNode Interface() { return getToken(JavaScriptParser.Interface, 0); }
+		public TerminalNode Package() { return getToken(JavaScriptParser.Package, 0); }
+		public TerminalNode Protected() { return getToken(JavaScriptParser.Protected, 0); }
+		public TerminalNode Static() { return getToken(JavaScriptParser.Static, 0); }
+		public TerminalNode Yield() { return getToken(JavaScriptParser.Yield, 0); }
+		public TerminalNode Async() { return getToken(JavaScriptParser.Async, 0); }
+		public TerminalNode Await() { return getToken(JavaScriptParser.Await, 0); }
+		public TerminalNode From() { return getToken(JavaScriptParser.From, 0); }
+		public TerminalNode As() { return getToken(JavaScriptParser.As, 0); }
 		public KeywordContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -8175,283 +9131,330 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		KeywordContext _localctx = new KeywordContext(_ctx, getState());
 		enterRule(_localctx, 166, RULE_keyword);
 		try {
-			setState(1163);
+			setState(1182);
+			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case Break:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1117); match(Break);
+				setState(1136);
+				match(Break);
 				}
 				break;
 			case Do:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1118); match(Do);
+				setState(1137);
+				match(Do);
 				}
 				break;
 			case Instanceof:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(1119); match(Instanceof);
+				setState(1138);
+				match(Instanceof);
 				}
 				break;
 			case Typeof:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(1120); match(Typeof);
+				setState(1139);
+				match(Typeof);
 				}
 				break;
 			case Case:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(1121); match(Case);
+				setState(1140);
+				match(Case);
 				}
 				break;
 			case Else:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(1122); match(Else);
+				setState(1141);
+				match(Else);
 				}
 				break;
 			case New:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(1123); match(New);
+				setState(1142);
+				match(New);
 				}
 				break;
 			case Var:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(1124); match(Var);
+				setState(1143);
+				match(Var);
 				}
 				break;
 			case Catch:
 				enterOuterAlt(_localctx, 9);
 				{
-				setState(1125); match(Catch);
+				setState(1144);
+				match(Catch);
 				}
 				break;
 			case Finally:
 				enterOuterAlt(_localctx, 10);
 				{
-				setState(1126); match(Finally);
+				setState(1145);
+				match(Finally);
 				}
 				break;
 			case Return:
 				enterOuterAlt(_localctx, 11);
 				{
-				setState(1127); match(Return);
+				setState(1146);
+				match(Return);
 				}
 				break;
 			case Void:
 				enterOuterAlt(_localctx, 12);
 				{
-				setState(1128); match(Void);
+				setState(1147);
+				match(Void);
 				}
 				break;
 			case Continue:
 				enterOuterAlt(_localctx, 13);
 				{
-				setState(1129); match(Continue);
+				setState(1148);
+				match(Continue);
 				}
 				break;
 			case For:
 				enterOuterAlt(_localctx, 14);
 				{
-				setState(1130); match(For);
+				setState(1149);
+				match(For);
 				}
 				break;
 			case Switch:
 				enterOuterAlt(_localctx, 15);
 				{
-				setState(1131); match(Switch);
+				setState(1150);
+				match(Switch);
 				}
 				break;
 			case While:
 				enterOuterAlt(_localctx, 16);
 				{
-				setState(1132); match(While);
+				setState(1151);
+				match(While);
 				}
 				break;
 			case Debugger:
 				enterOuterAlt(_localctx, 17);
 				{
-				setState(1133); match(Debugger);
+				setState(1152);
+				match(Debugger);
 				}
 				break;
 			case Function:
 				enterOuterAlt(_localctx, 18);
 				{
-				setState(1134); match(Function);
+				setState(1153);
+				match(Function);
 				}
 				break;
 			case This:
 				enterOuterAlt(_localctx, 19);
 				{
-				setState(1135); match(This);
+				setState(1154);
+				match(This);
 				}
 				break;
 			case With:
 				enterOuterAlt(_localctx, 20);
 				{
-				setState(1136); match(With);
+				setState(1155);
+				match(With);
 				}
 				break;
 			case Default:
 				enterOuterAlt(_localctx, 21);
 				{
-				setState(1137); match(Default);
+				setState(1156);
+				match(Default);
 				}
 				break;
 			case If:
 				enterOuterAlt(_localctx, 22);
 				{
-				setState(1138); match(If);
+				setState(1157);
+				match(If);
 				}
 				break;
 			case Throw:
 				enterOuterAlt(_localctx, 23);
 				{
-				setState(1139); match(Throw);
+				setState(1158);
+				match(Throw);
 				}
 				break;
 			case Delete:
 				enterOuterAlt(_localctx, 24);
 				{
-				setState(1140); match(Delete);
+				setState(1159);
+				match(Delete);
 				}
 				break;
 			case In:
 				enterOuterAlt(_localctx, 25);
 				{
-				setState(1141); match(In);
+				setState(1160);
+				match(In);
 				}
 				break;
 			case Try:
 				enterOuterAlt(_localctx, 26);
 				{
-				setState(1142); match(Try);
+				setState(1161);
+				match(Try);
 				}
 				break;
 			case Class:
 				enterOuterAlt(_localctx, 27);
 				{
-				setState(1143); match(Class);
+				setState(1162);
+				match(Class);
 				}
 				break;
 			case Enum:
 				enterOuterAlt(_localctx, 28);
 				{
-				setState(1144); match(Enum);
+				setState(1163);
+				match(Enum);
 				}
 				break;
 			case Extends:
 				enterOuterAlt(_localctx, 29);
 				{
-				setState(1145); match(Extends);
+				setState(1164);
+				match(Extends);
 				}
 				break;
 			case Super:
 				enterOuterAlt(_localctx, 30);
 				{
-				setState(1146); match(Super);
+				setState(1165);
+				match(Super);
 				}
 				break;
 			case Const:
 				enterOuterAlt(_localctx, 31);
 				{
-				setState(1147); match(Const);
+				setState(1166);
+				match(Const);
 				}
 				break;
 			case Export:
 				enterOuterAlt(_localctx, 32);
 				{
-				setState(1148); match(Export);
+				setState(1167);
+				match(Export);
 				}
 				break;
 			case Import:
 				enterOuterAlt(_localctx, 33);
 				{
-				setState(1149); match(Import);
+				setState(1168);
+				match(Import);
 				}
 				break;
 			case Implements:
 				enterOuterAlt(_localctx, 34);
 				{
-				setState(1150); match(Implements);
+				setState(1169);
+				match(Implements);
 				}
 				break;
 			case StrictLet:
 			case NonStrictLet:
 				enterOuterAlt(_localctx, 35);
 				{
-				setState(1151); let();
+				setState(1170);
+				let();
 				}
 				break;
 			case Private:
 				enterOuterAlt(_localctx, 36);
 				{
-				setState(1152); match(Private);
+				setState(1171);
+				match(Private);
 				}
 				break;
 			case Public:
 				enterOuterAlt(_localctx, 37);
 				{
-				setState(1153); match(Public);
+				setState(1172);
+				match(Public);
 				}
 				break;
 			case Interface:
 				enterOuterAlt(_localctx, 38);
 				{
-				setState(1154); match(Interface);
+				setState(1173);
+				match(Interface);
 				}
 				break;
 			case Package:
 				enterOuterAlt(_localctx, 39);
 				{
-				setState(1155); match(Package);
+				setState(1174);
+				match(Package);
 				}
 				break;
 			case Protected:
 				enterOuterAlt(_localctx, 40);
 				{
-				setState(1156); match(Protected);
+				setState(1175);
+				match(Protected);
 				}
 				break;
 			case Static:
 				enterOuterAlt(_localctx, 41);
 				{
-				setState(1157); match(Static);
+				setState(1176);
+				match(Static);
 				}
 				break;
 			case Yield:
 				enterOuterAlt(_localctx, 42);
 				{
-				setState(1158); match(Yield);
+				setState(1177);
+				match(Yield);
 				}
 				break;
 			case Async:
 				enterOuterAlt(_localctx, 43);
 				{
-				setState(1159); match(Async);
+				setState(1178);
+				match(Async);
 				}
 				break;
 			case Await:
 				enterOuterAlt(_localctx, 44);
 				{
-				setState(1160); match(Await);
+				setState(1179);
+				match(Await);
 				}
 				break;
 			case From:
 				enterOuterAlt(_localctx, 45);
 				{
-				setState(1161); match(From);
+				setState(1180);
+				match(From);
 				}
 				break;
 			case As:
 				enterOuterAlt(_localctx, 46);
 				{
-				setState(1162); match(As);
+				setState(1181);
+				match(As);
 				}
 				break;
 			default:
@@ -8498,12 +9501,16 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(1165);
+			setState(1184);
 			_la = _input.LA(1);
 			if ( !(_la==StrictLet || _la==NonStrictLet) ) {
 			_errHandler.recoverInline(this);
 			}
-			consume();
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -8518,8 +9525,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 	}
 
 	public static class EosContext extends ParserRuleContext {
-		public TerminalNode EOF() { return getToken(JavaScriptParser.EOF, 0); }
 		public TerminalNode SemiColon() { return getToken(JavaScriptParser.SemiColon, 0); }
+		public TerminalNode EOF() { return getToken(JavaScriptParser.EOF, 0); }
 		public EosContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -8543,31 +9550,34 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		EosContext _localctx = new EosContext(_ctx, getState());
 		enterRule(_localctx, 170, RULE_eos);
 		try {
-			setState(1171);
-			switch ( getInterpreter().adaptivePredict(_input,129,_ctx) ) {
+			setState(1190);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,130,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(1167); match(SemiColon);
+				setState(1186);
+				match(SemiColon);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(1168); match(EOF);
+				setState(1187);
+				match(EOF);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(1169);
+				setState(1188);
 				if (!(this.lineTerminatorAhead())) throw new FailedPredicateException(this, "this.lineTerminatorAhead()");
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(1170);
+				setState(1189);
 				if (!(this.closeBrace())) throw new FailedPredicateException(this, "this.closeBrace()");
 				}
 				break;
@@ -8586,128 +9596,179 @@ public class JavaScriptParser extends JavaScriptParserBase {
 
 	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 19: return expressionStatement_sempred((ExpressionStatementContext)_localctx, predIndex);
-		case 21: return iterationStatement_sempred((IterationStatementContext)_localctx, predIndex);
-		case 23: return continueStatement_sempred((ContinueStatementContext)_localctx, predIndex);
-		case 24: return breakStatement_sempred((BreakStatementContext)_localctx, predIndex);
-		case 25: return returnStatement_sempred((ReturnStatementContext)_localctx, predIndex);
-		case 26: return yieldStatement_sempred((YieldStatementContext)_localctx, predIndex);
-		case 34: return throwStatement_sempred((ThrowStatementContext)_localctx, predIndex);
-		case 42: return classElement_sempred((ClassElementContext)_localctx, predIndex);
-		case 57: return singleExpression_sempred((SingleExpressionContext)_localctx, predIndex);
-		case 62: return htmlTagClosingName_sempred((HtmlTagClosingNameContext)_localctx, predIndex);
-		case 78: return getter_sempred((GetterContext)_localctx, predIndex);
-		case 79: return setter_sempred((SetterContext)_localctx, predIndex);
-		case 85: return eos_sempred((EosContext)_localctx, predIndex);
-		}
-		return true;
-	}
-	private boolean singleExpression_sempred(SingleExpressionContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 8: return precpred(_ctx, 28);
-		case 9: return precpred(_ctx, 27);
-		case 10: return precpred(_ctx, 26);
-		case 11: return precpred(_ctx, 25);
-		case 12: return precpred(_ctx, 24);
-		case 13: return precpred(_ctx, 23);
-		case 14: return precpred(_ctx, 22);
-		case 15: return precpred(_ctx, 21);
-		case 16: return precpred(_ctx, 20);
-		case 17: return precpred(_ctx, 19);
-		case 18: return precpred(_ctx, 18);
-		case 19: return precpred(_ctx, 17);
-		case 20: return precpred(_ctx, 16);
-		case 21: return precpred(_ctx, 15);
-		case 22: return precpred(_ctx, 14);
-		case 23: return precpred(_ctx, 13);
-		case 24: return precpred(_ctx, 12);
-		case 25: return precpred(_ctx, 45);
-		case 26: return precpred(_ctx, 44);
-		case 27: return precpred(_ctx, 43);
-		case 28: return precpred(_ctx, 40);
-		case 29: return this.notLineTerminator();
-		case 30: return precpred(_ctx, 39);
-		case 31: return this.notLineTerminator();
-		case 32: return precpred(_ctx, 10);
-		}
-		return true;
-	}
-	private boolean getter_sempred(GetterContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 34: return this.p("get");
-		}
-		return true;
-	}
-	private boolean iterationStatement_sempred(IterationStatementContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 1: return this.p("of");
-		}
-		return true;
-	}
-	private boolean throwStatement_sempred(ThrowStatementContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 6: return this.notLineTerminator();
-		}
-		return true;
-	}
-	private boolean classElement_sempred(ClassElementContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 7: return this.n("static");
-		}
-		return true;
-	}
-	private boolean eos_sempred(EosContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 36: return this.lineTerminatorAhead();
-		case 37: return this.closeBrace();
-		}
-		return true;
-	}
-	private boolean breakStatement_sempred(BreakStatementContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 3: return this.notLineTerminator();
-		}
-		return true;
-	}
-	private boolean returnStatement_sempred(ReturnStatementContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 4: return this.notLineTerminator();
+		case 19:
+			return expressionStatement_sempred((ExpressionStatementContext)_localctx, predIndex);
+		case 21:
+			return iterationStatement_sempred((IterationStatementContext)_localctx, predIndex);
+		case 23:
+			return continueStatement_sempred((ContinueStatementContext)_localctx, predIndex);
+		case 24:
+			return breakStatement_sempred((BreakStatementContext)_localctx, predIndex);
+		case 25:
+			return returnStatement_sempred((ReturnStatementContext)_localctx, predIndex);
+		case 26:
+			return yieldStatement_sempred((YieldStatementContext)_localctx, predIndex);
+		case 34:
+			return throwStatement_sempred((ThrowStatementContext)_localctx, predIndex);
+		case 42:
+			return classElement_sempred((ClassElementContext)_localctx, predIndex);
+		case 57:
+			return singleExpression_sempred((SingleExpressionContext)_localctx, predIndex);
+		case 62:
+			return htmlTagClosingName_sempred((HtmlTagClosingNameContext)_localctx, predIndex);
+		case 78:
+			return getter_sempred((GetterContext)_localctx, predIndex);
+		case 79:
+			return setter_sempred((SetterContext)_localctx, predIndex);
+		case 85:
+			return eos_sempred((EosContext)_localctx, predIndex);
 		}
 		return true;
 	}
 	private boolean expressionStatement_sempred(ExpressionStatementContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 0: return this.notOpenBraceAndNotFunction();
+		case 0:
+			return this.notOpenBraceAndNotFunction();
+		}
+		return true;
+	}
+	private boolean iterationStatement_sempred(IterationStatementContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 1:
+			return this.p("of");
 		}
 		return true;
 	}
 	private boolean continueStatement_sempred(ContinueStatementContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 2: return this.notLineTerminator();
+		case 2:
+			return this.notLineTerminator();
 		}
 		return true;
 	}
-	private boolean htmlTagClosingName_sempred(HtmlTagClosingNameContext _localctx, int predIndex) {
+	private boolean breakStatement_sempred(BreakStatementContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 33: return this.popHtmlTagName((((HtmlTagClosingNameContext)_localctx).htmlTagName!=null?_input.getText(((HtmlTagClosingNameContext)_localctx).htmlTagName.start,((HtmlTagClosingNameContext)_localctx).htmlTagName.stop):null));
+		case 3:
+			return this.notLineTerminator();
 		}
 		return true;
 	}
-	private boolean setter_sempred(SetterContext _localctx, int predIndex) {
+	private boolean returnStatement_sempred(ReturnStatementContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 35: return this.p("set");
+		case 4:
+			return this.notLineTerminator();
 		}
 		return true;
 	}
 	private boolean yieldStatement_sempred(YieldStatementContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 5: return this.notLineTerminator();
+		case 5:
+			return this.notLineTerminator();
+		}
+		return true;
+	}
+	private boolean throwStatement_sempred(ThrowStatementContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 6:
+			return this.notLineTerminator();
+		}
+		return true;
+	}
+	private boolean classElement_sempred(ClassElementContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 7:
+			return this.n("static");
+		}
+		return true;
+	}
+	private boolean singleExpression_sempred(SingleExpressionContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 8:
+			return precpred(_ctx, 28);
+		case 9:
+			return precpred(_ctx, 27);
+		case 10:
+			return precpred(_ctx, 26);
+		case 11:
+			return precpred(_ctx, 25);
+		case 12:
+			return precpred(_ctx, 24);
+		case 13:
+			return precpred(_ctx, 23);
+		case 14:
+			return precpred(_ctx, 22);
+		case 15:
+			return precpred(_ctx, 21);
+		case 16:
+			return precpred(_ctx, 20);
+		case 17:
+			return precpred(_ctx, 19);
+		case 18:
+			return precpred(_ctx, 18);
+		case 19:
+			return precpred(_ctx, 17);
+		case 20:
+			return precpred(_ctx, 16);
+		case 21:
+			return precpred(_ctx, 15);
+		case 22:
+			return precpred(_ctx, 14);
+		case 23:
+			return precpred(_ctx, 13);
+		case 24:
+			return precpred(_ctx, 12);
+		case 25:
+			return precpred(_ctx, 45);
+		case 26:
+			return precpred(_ctx, 44);
+		case 27:
+			return precpred(_ctx, 43);
+		case 28:
+			return precpred(_ctx, 40);
+		case 29:
+			return this.notLineTerminator();
+		case 30:
+			return precpred(_ctx, 39);
+		case 31:
+			return this.notLineTerminator();
+		case 32:
+			return precpred(_ctx, 10);
+		}
+		return true;
+	}
+	private boolean htmlTagClosingName_sempred(HtmlTagClosingNameContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 33:
+			return this.popHtmlTagName((((HtmlTagClosingNameContext)_localctx).htmlTagName!=null?_input.getText(((HtmlTagClosingNameContext)_localctx).htmlTagName.start,((HtmlTagClosingNameContext)_localctx).htmlTagName.stop):null));
+		}
+		return true;
+	}
+	private boolean getter_sempred(GetterContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 34:
+			return this.p("get");
+		}
+		return true;
+	}
+	private boolean setter_sempred(SetterContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 35:
+			return this.p("set");
+		}
+		return true;
+	}
+	private boolean eos_sempred(EosContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 36:
+			return this.lineTerminatorAhead();
+		case 37:
+			return this.closeBrace();
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\u0087\u0498\4\2\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\u0088\u04ab\4\2\t"+
 		"\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
 		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
@@ -8762,8 +9823,8 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		"\3\67\3\67\3\67\3\67\5\67\u02de\n\67\38\38\38\38\78\u02e4\n8\f8\168\u02e7"+
 		"\138\38\58\u02ea\n8\58\u02ec\n8\38\38\39\59\u02f1\n9\39\39\59\u02f5\n"+
 		"9\3:\5:\u02f8\n:\3:\3:\3:\5:\u02fd\n:\3:\7:\u0300\n:\f:\16:\u0303\13:"+
+		"\3;\3;\3;\3;\5;\u0309\n;\3;\3;\3;\3;\5;\u030f\n;\3;\3;\3;\3;\3;\3;\3;"+
 		"\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;"+
-		"\3;\5;\u031d\n;\3;\3;\3;\3;\5;\u0323\n;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;"+
 		"\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\5;\u0339\n;\3;\3;\3;\3;\3;\3;\3;\3;\3;"+
 		"\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;"+
 		"\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;\3;"+
@@ -8771,83 +9832,84 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		"\3;\3;\3;\3;\3;\7;\u038a\n;\f;\16;\u038d\13;\3<\6<\u0390\n<\r<\16<\u0391"+
 		"\3=\3=\3=\7=\u0397\n=\f=\16=\u039a\13=\3=\3=\3=\3=\3=\3=\3=\3=\3=\3=\7"+
 		"=\u03a6\n=\f=\16=\u03a9\13=\3=\3=\3=\3=\3=\3=\3=\7=\u03b2\n=\f=\16=\u03b5"+
-		"\13=\3=\3=\3=\3=\3=\3=\7=\u03bd\n=\f=\16=\u03c0\13=\3=\3=\5=\u03c4\n="+
-		"\3>\5>\u03c7\n>\3>\3>\5>\u03cb\n>\3>\5>\u03ce\n>\7>\u03d0\n>\f>\16>\u03d3"+
-		"\13>\3?\3?\3?\3@\3@\3@\3A\3A\3A\5A\u03de\nA\3B\3B\3B\3B\3B\5B\u03e5\n"+
-		"B\3C\3C\3C\3C\7C\u03eb\nC\fC\16C\u03ee\13C\5C\u03f0\nC\3D\6D\u03f3\nD"+
-		"\rD\16D\u03f4\3E\3E\3E\5E\u03fa\nE\3F\3F\3F\5F\u03ff\nF\3G\3G\3G\3G\7"+
-		"G\u0405\nG\fG\16G\u0408\13G\5G\u040a\nG\3G\5G\u040d\nG\3G\3G\3H\3H\3H"+
-		"\3H\3I\3I\5I\u0417\nI\3I\3I\5I\u041b\nI\3I\3I\5I\u041f\nI\3I\3I\3I\3I"+
-		"\3I\3I\5I\u0427\nI\3I\3I\3I\3I\5I\u042d\nI\3J\3J\3J\5J\u0432\nJ\3J\5J"+
-		"\u0435\nJ\3K\3K\3K\3K\3K\5K\u043c\nK\3L\3L\3M\3M\3M\3M\3M\3M\3M\5M\u0447"+
-		"\nM\3N\3N\3O\3O\3P\3P\3P\3P\3Q\3Q\3Q\3Q\3R\3R\5R\u0457\nR\3S\3S\3T\3T"+
-		"\3T\5T\u045e\nT\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U"+
+		"\13=\3=\3=\3=\3=\3=\3=\7=\u03bd\n=\f=\16=\u03c0\13=\3=\3=\3=\3=\3=\3="+
+		"\3=\7=\u03c9\n=\f=\16=\u03cc\13=\3=\3=\3=\3=\3=\3=\3=\3=\3=\5=\u03d7\n"+
+		"=\3>\5>\u03da\n>\3>\3>\5>\u03de\n>\3>\5>\u03e1\n>\7>\u03e3\n>\f>\16>\u03e6"+
+		"\13>\3?\3?\3?\3@\3@\3@\3A\3A\3A\5A\u03f1\nA\3B\3B\3B\3B\3B\5B\u03f8\n"+
+		"B\3C\3C\3C\3C\7C\u03fe\nC\fC\16C\u0401\13C\5C\u0403\nC\3D\6D\u0406\nD"+
+		"\rD\16D\u0407\3E\3E\3E\5E\u040d\nE\3F\3F\3F\5F\u0412\nF\3G\3G\3G\3G\7"+
+		"G\u0418\nG\fG\16G\u041b\13G\5G\u041d\nG\3G\5G\u0420\nG\3G\3G\3H\3H\3H"+
+		"\3H\3I\3I\5I\u042a\nI\3I\3I\5I\u042e\nI\3I\3I\5I\u0432\nI\3I\3I\3I\3I"+
+		"\3I\3I\5I\u043a\nI\3I\3I\3I\3I\5I\u0440\nI\3J\3J\3J\5J\u0445\nJ\3J\5J"+
+		"\u0448\nJ\3K\3K\3K\3K\3K\5K\u044f\nK\3L\3L\3M\3M\3M\3M\3M\3M\3M\5M\u045a"+
+		"\nM\3N\3N\3O\3O\3P\3P\3P\3P\3Q\3Q\3Q\3Q\3R\3R\5R\u046a\nR\3S\3S\3T\3T"+
+		"\3T\5T\u0471\nT\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U"+
 		"\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U\3U"+
-		"\3U\3U\3U\3U\3U\5U\u048e\nU\3V\3V\3W\3W\3W\3W\5W\u0496\nW\3W\2\3tX\2\4"+
+		"\3U\3U\3U\3U\3U\5U\u04a1\nU\3V\3V\3W\3W\3W\3W\5W\u04a9\nW\3W\2\3tX\2\4"+
 		"\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668:<>@BDFHJLNP"+
 		"RTVXZ\\^`bdfhjlnprtvxz|~\u0080\u0082\u0084\u0086\u0088\u008a\u008c\u008e"+
 		"\u0090\u0092\u0094\u0096\u0098\u009a\u009c\u009e\u00a0\u00a2\u00a4\u00a6"+
 		"\u00a8\u00aa\u00ac\2\r\3\2\33\35\3\2\27\30\3\2!#\3\2$\'\3\2(+\4\2\f\f"+
-		"$$\3\2\61<\3\2@D\3\2EH\5\2llppxx\3\2op\u0549\2\u00af\3\2\2\2\4\u00b6\3"+
-		"\2\2\2\6\u00cc\3\2\2\2\b\u00ce\3\2\2\2\n\u00d5\3\2\2\2\f\u00d9\3\2\2\2"+
-		"\16\u00e8\3\2\2\2\20\u00ea\3\2\2\2\22\u00fb\3\2\2\2\24\u0100\3\2\2\2\26"+
-		"\u0106\3\2\2\2\30\u0109\3\2\2\2\32\u011a\3\2\2\2\34\u0126\3\2\2\2\36\u012b"+
-		"\3\2\2\2 \u012d\3\2\2\2\"\u0130\3\2\2\2$\u0139\3\2\2\2&\u013e\3\2\2\2"+
-		"(\u0140\3\2\2\2*\u0144\3\2\2\2,\u0185\3\2\2\2.\u018a\3\2\2\2\60\u018c"+
-		"\3\2\2\2\62\u0193\3\2\2\2\64\u01a6\3\2\2\2\66\u01a8\3\2\2\28\u01af\3\2"+
-		"\2\2:\u01b5\3\2\2\2<\u01bb\3\2\2\2>\u01c8\3\2\2\2@\u01cc\3\2\2\2B\u01d2"+
-		"\3\2\2\2D\u01d7\3\2\2\2F\u01db\3\2\2\2H\u01e0\3\2\2\2J\u01e9\3\2\2\2L"+
-		"\u01f3\3\2\2\2N\u01f6\3\2\2\2P\u01fa\3\2\2\2R\u020a\3\2\2\2T\u0210\3\2"+
-		"\2\2V\u0234\3\2\2\2X\u0263\3\2\2\2Z\u0272\3\2\2\2\\\u0274\3\2\2\2^\u0279"+
-		"\3\2\2\2`\u027d\3\2\2\2b\u0280\3\2\2\2d\u0284\3\2\2\2f\u028b\3\2\2\2h"+
-		"\u02a3\3\2\2\2j\u02d4\3\2\2\2l\u02dd\3\2\2\2n\u02df\3\2\2\2p\u02f0\3\2"+
-		"\2\2r\u02f7\3\2\2\2t\u0338\3\2\2\2v\u038f\3\2\2\2x\u03c3\3\2\2\2z\u03c6"+
-		"\3\2\2\2|\u03d4\3\2\2\2~\u03d7\3\2\2\2\u0080\u03dd\3\2\2\2\u0082\u03e4"+
-		"\3\2\2\2\u0084\u03ef\3\2\2\2\u0086\u03f2\3\2\2\2\u0088\u03f9\3\2\2\2\u008a"+
-		"\u03fe\3\2\2\2\u008c\u0400\3\2\2\2\u008e\u0410\3\2\2\2\u0090\u042c\3\2"+
-		"\2\2\u0092\u0434\3\2\2\2\u0094\u043b\3\2\2\2\u0096\u043d\3\2\2\2\u0098"+
-		"\u0446\3\2\2\2\u009a\u0448\3\2\2\2\u009c\u044a\3\2\2\2\u009e\u044c\3\2"+
-		"\2\2\u00a0\u0450\3\2\2\2\u00a2\u0456\3\2\2\2\u00a4\u0458\3\2\2\2\u00a6"+
-		"\u045d\3\2\2\2\u00a8\u048d\3\2\2\2\u00aa\u048f\3\2\2\2\u00ac\u0495\3\2"+
-		"\2\2\u00ae\u00b0\7\3\2\2\u00af\u00ae\3\2\2\2\u00af\u00b0\3\2\2\2\u00b0"+
-		"\u00b2\3\2\2\2\u00b1\u00b3\5b\62\2\u00b2\u00b1\3\2\2\2\u00b2\u00b3\3\2"+
-		"\2\2\u00b3\u00b4\3\2\2\2\u00b4\u00b5\7\2\2\3\u00b5\3\3\2\2\2\u00b6\u00b7"+
-		"\5\6\4\2\u00b7\5\3\2\2\2\u00b8\u00cd\5\b\5\2\u00b9\u00cd\5 \21\2\u00ba"+
-		"\u00cd\5\f\7\2\u00bb\u00cd\5\32\16\2\u00bc\u00cd\5&\24\2\u00bd\u00cd\5"+
-		"R*\2\u00be\u00cd\5(\25\2\u00bf\u00cd\5*\26\2\u00c0\u00cd\5,\27\2\u00c1"+
-		"\u00cd\5\60\31\2\u00c2\u00cd\5\62\32\2\u00c3\u00cd\5\64\33\2\u00c4\u00cd"+
-		"\5\66\34\2\u00c5\u00cd\58\35\2\u00c6\u00cd\5D#\2\u00c7\u00cd\5:\36\2\u00c8"+
-		"\u00cd\5F$\2\u00c9\u00cd\5H%\2\u00ca\u00cd\5N(\2\u00cb\u00cd\5P)\2\u00cc"+
-		"\u00b8\3\2\2\2\u00cc\u00b9\3\2\2\2\u00cc\u00ba\3\2\2\2\u00cc\u00bb\3\2"+
-		"\2\2\u00cc\u00bc\3\2\2\2\u00cc\u00bd\3\2\2\2\u00cc\u00be\3\2\2\2\u00cc"+
-		"\u00bf\3\2\2\2\u00cc\u00c0\3\2\2\2\u00cc\u00c1\3\2\2\2\u00cc\u00c2\3\2"+
-		"\2\2\u00cc\u00c3\3\2\2\2\u00cc\u00c4\3\2\2\2\u00cc\u00c5\3\2\2\2\u00cc"+
-		"\u00c6\3\2\2\2\u00cc\u00c7\3\2\2\2\u00cc\u00c8\3\2\2\2\u00cc\u00c9\3\2"+
-		"\2\2\u00cc\u00ca\3\2\2\2\u00cc\u00cb\3\2\2\2\u00cd\7\3\2\2\2\u00ce\u00d0"+
-		"\7\f\2\2\u00cf\u00d1\5\n\6\2\u00d0\u00cf\3\2\2\2\u00d0\u00d1\3\2\2\2\u00d1"+
-		"\u00d2\3\2\2\2\u00d2\u00d3\7\r\2\2\u00d3\t\3\2\2\2\u00d4\u00d6\5\6\4\2"+
-		"\u00d5\u00d4\3\2\2\2\u00d6\u00d7\3\2\2\2\u00d7\u00d5\3\2\2\2\u00d7\u00d8"+
-		"\3\2\2\2\u00d8\13\3\2\2\2\u00d9\u00da\7k\2\2\u00da\u00db\5\16\b\2\u00db"+
-		"\r\3\2\2\2\u00dc\u00de\5\22\n\2\u00dd\u00dc\3\2\2\2\u00dd\u00de\3\2\2"+
-		"\2\u00de\u00e1\3\2\2\2\u00df\u00e2\5\24\13\2\u00e0\u00e2\5\20\t\2\u00e1"+
-		"\u00df\3\2\2\2\u00e1\u00e0\3\2\2\2\u00e2\u00e3\3\2\2\2\u00e3\u00e4\5\26"+
-		"\f\2\u00e4\u00e5\5\u00acW\2\u00e5\u00e9\3\2\2\2\u00e6\u00e7\7y\2\2\u00e7"+
-		"\u00e9\5\u00acW\2\u00e8\u00dd\3\2\2\2\u00e8\u00e6\3\2\2\2\u00e9\17\3\2"+
-		"\2\2\u00ea\u00f0\7\f\2\2\u00eb\u00ec\5\30\r\2\u00ec\u00ed\7\17\2\2\u00ed"+
-		"\u00ef\3\2\2\2\u00ee\u00eb\3\2\2\2\u00ef\u00f2\3\2\2\2\u00f0\u00ee\3\2"+
-		"\2\2\u00f0\u00f1\3\2\2\2\u00f1\u00f7\3\2\2\2\u00f2\u00f0\3\2\2\2\u00f3"+
-		"\u00f5\5\30\r\2\u00f4\u00f6\7\17\2\2\u00f5\u00f4\3\2\2\2\u00f5\u00f6\3"+
-		"\2\2\2\u00f6\u00f8\3\2\2\2\u00f7\u00f3\3\2\2\2\u00f7\u00f8\3\2\2\2\u00f8"+
-		"\u00f9\3\2\2\2\u00f9\u00fa\7\r\2\2\u00fa\21\3\2\2\2\u00fb\u00fc\5\30\r"+
-		"\2\u00fc\u00fd\7\17\2\2\u00fd\23\3\2\2\2\u00fe\u0101\7\33\2\2\u00ff\u0101"+
-		"\5\u00a2R\2\u0100\u00fe\3\2\2\2\u0100\u00ff\3\2\2\2\u0101\u0104\3\2\2"+
-		"\2\u0102\u0103\7c\2\2\u0103\u0105\5\u00a2R\2\u0104\u0102\3\2\2\2\u0104"+
-		"\u0105\3\2\2\2\u0105\25\3\2\2\2\u0106\u0107\7d\2\2\u0107\u0108\7y\2\2"+
-		"\u0108\27\3\2\2\2\u0109\u010c\5\u00a2R\2\u010a\u010b\7c\2\2\u010b\u010d"+
-		"\5\u00a2R\2\u010c\u010a\3\2\2\2\u010c\u010d\3\2\2\2\u010d\31\3\2\2\2\u010e"+
-		"\u0111\7j\2\2\u010f\u0112\5\34\17\2\u0110\u0112\5\36\20\2\u0111\u010f"+
-		"\3\2\2\2\u0111\u0110\3\2\2\2\u0112\u0113\3\2\2\2\u0113\u0114\5\u00acW"+
-		"\2\u0114\u011b\3\2\2\2\u0115\u0116\7j\2\2\u0116\u0117\7]\2\2\u0117\u0118"+
+		"$$\3\2\61<\3\2@D\3\2EH\5\2llppxx\3\2op\2\u055e\2\u00af\3\2\2\2\4\u00b6"+
+		"\3\2\2\2\6\u00cc\3\2\2\2\b\u00ce\3\2\2\2\n\u00d5\3\2\2\2\f\u00d9\3\2\2"+
+		"\2\16\u00e8\3\2\2\2\20\u00ea\3\2\2\2\22\u00fb\3\2\2\2\24\u0100\3\2\2\2"+
+		"\26\u0106\3\2\2\2\30\u0109\3\2\2\2\32\u011a\3\2\2\2\34\u0126\3\2\2\2\36"+
+		"\u012b\3\2\2\2 \u012d\3\2\2\2\"\u0130\3\2\2\2$\u0139\3\2\2\2&\u013e\3"+
+		"\2\2\2(\u0140\3\2\2\2*\u0144\3\2\2\2,\u0185\3\2\2\2.\u018a\3\2\2\2\60"+
+		"\u018c\3\2\2\2\62\u0193\3\2\2\2\64\u01a6\3\2\2\2\66\u01a8\3\2\2\28\u01af"+
+		"\3\2\2\2:\u01b5\3\2\2\2<\u01bb\3\2\2\2>\u01c8\3\2\2\2@\u01cc\3\2\2\2B"+
+		"\u01d2\3\2\2\2D\u01d7\3\2\2\2F\u01db\3\2\2\2H\u01e0\3\2\2\2J\u01e9\3\2"+
+		"\2\2L\u01f3\3\2\2\2N\u01f6\3\2\2\2P\u01fa\3\2\2\2R\u020a\3\2\2\2T\u0210"+
+		"\3\2\2\2V\u0234\3\2\2\2X\u0263\3\2\2\2Z\u0272\3\2\2\2\\\u0274\3\2\2\2"+
+		"^\u0279\3\2\2\2`\u027d\3\2\2\2b\u0280\3\2\2\2d\u0284\3\2\2\2f\u028b\3"+
+		"\2\2\2h\u02a3\3\2\2\2j\u02d4\3\2\2\2l\u02dd\3\2\2\2n\u02df\3\2\2\2p\u02f0"+
+		"\3\2\2\2r\u02f7\3\2\2\2t\u0338\3\2\2\2v\u038f\3\2\2\2x\u03d6\3\2\2\2z"+
+		"\u03d9\3\2\2\2|\u03e7\3\2\2\2~\u03ea\3\2\2\2\u0080\u03f0\3\2\2\2\u0082"+
+		"\u03f7\3\2\2\2\u0084\u0402\3\2\2\2\u0086\u0405\3\2\2\2\u0088\u040c\3\2"+
+		"\2\2\u008a\u0411\3\2\2\2\u008c\u0413\3\2\2\2\u008e\u0423\3\2\2\2\u0090"+
+		"\u043f\3\2\2\2\u0092\u0447\3\2\2\2\u0094\u044e\3\2\2\2\u0096\u0450\3\2"+
+		"\2\2\u0098\u0459\3\2\2\2\u009a\u045b\3\2\2\2\u009c\u045d\3\2\2\2\u009e"+
+		"\u045f\3\2\2\2\u00a0\u0463\3\2\2\2\u00a2\u0469\3\2\2\2\u00a4\u046b\3\2"+
+		"\2\2\u00a6\u0470\3\2\2\2\u00a8\u04a0\3\2\2\2\u00aa\u04a2\3\2\2\2\u00ac"+
+		"\u04a8\3\2\2\2\u00ae\u00b0\7\3\2\2\u00af\u00ae\3\2\2\2\u00af\u00b0\3\2"+
+		"\2\2\u00b0\u00b2\3\2\2\2\u00b1\u00b3\5b\62\2\u00b2\u00b1\3\2\2\2\u00b2"+
+		"\u00b3\3\2\2\2\u00b3\u00b4\3\2\2\2\u00b4\u00b5\7\2\2\3\u00b5\3\3\2\2\2"+
+		"\u00b6\u00b7\5\6\4\2\u00b7\5\3\2\2\2\u00b8\u00cd\5\b\5\2\u00b9\u00cd\5"+
+		" \21\2\u00ba\u00cd\5\f\7\2\u00bb\u00cd\5\32\16\2\u00bc\u00cd\5&\24\2\u00bd"+
+		"\u00cd\5R*\2\u00be\u00cd\5(\25\2\u00bf\u00cd\5*\26\2\u00c0\u00cd\5,\27"+
+		"\2\u00c1\u00cd\5\60\31\2\u00c2\u00cd\5\62\32\2\u00c3\u00cd\5\64\33\2\u00c4"+
+		"\u00cd\5\66\34\2\u00c5\u00cd\58\35\2\u00c6\u00cd\5D#\2\u00c7\u00cd\5:"+
+		"\36\2\u00c8\u00cd\5F$\2\u00c9\u00cd\5H%\2\u00ca\u00cd\5N(\2\u00cb\u00cd"+
+		"\5P)\2\u00cc\u00b8\3\2\2\2\u00cc\u00b9\3\2\2\2\u00cc\u00ba\3\2\2\2\u00cc"+
+		"\u00bb\3\2\2\2\u00cc\u00bc\3\2\2\2\u00cc\u00bd\3\2\2\2\u00cc\u00be\3\2"+
+		"\2\2\u00cc\u00bf\3\2\2\2\u00cc\u00c0\3\2\2\2\u00cc\u00c1\3\2\2\2\u00cc"+
+		"\u00c2\3\2\2\2\u00cc\u00c3\3\2\2\2\u00cc\u00c4\3\2\2\2\u00cc\u00c5\3\2"+
+		"\2\2\u00cc\u00c6\3\2\2\2\u00cc\u00c7\3\2\2\2\u00cc\u00c8\3\2\2\2\u00cc"+
+		"\u00c9\3\2\2\2\u00cc\u00ca\3\2\2\2\u00cc\u00cb\3\2\2\2\u00cd\7\3\2\2\2"+
+		"\u00ce\u00d0\7\f\2\2\u00cf\u00d1\5\n\6\2\u00d0\u00cf\3\2\2\2\u00d0\u00d1"+
+		"\3\2\2\2\u00d1\u00d2\3\2\2\2\u00d2\u00d3\7\r\2\2\u00d3\t\3\2\2\2\u00d4"+
+		"\u00d6\5\6\4\2\u00d5\u00d4\3\2\2\2\u00d6\u00d7\3\2\2\2\u00d7\u00d5\3\2"+
+		"\2\2\u00d7\u00d8\3\2\2\2\u00d8\13\3\2\2\2\u00d9\u00da\7k\2\2\u00da\u00db"+
+		"\5\16\b\2\u00db\r\3\2\2\2\u00dc\u00de\5\22\n\2\u00dd\u00dc\3\2\2\2\u00dd"+
+		"\u00de\3\2\2\2\u00de\u00e1\3\2\2\2\u00df\u00e2\5\24\13\2\u00e0\u00e2\5"+
+		"\20\t\2\u00e1\u00df\3\2\2\2\u00e1\u00e0\3\2\2\2\u00e2\u00e3\3\2\2\2\u00e3"+
+		"\u00e4\5\26\f\2\u00e4\u00e5\5\u00acW\2\u00e5\u00e9\3\2\2\2\u00e6\u00e7"+
+		"\7y\2\2\u00e7\u00e9\5\u00acW\2\u00e8\u00dd\3\2\2\2\u00e8\u00e6\3\2\2\2"+
+		"\u00e9\17\3\2\2\2\u00ea\u00f0\7\f\2\2\u00eb\u00ec\5\30\r\2\u00ec\u00ed"+
+		"\7\17\2\2\u00ed\u00ef\3\2\2\2\u00ee\u00eb\3\2\2\2\u00ef\u00f2\3\2\2\2"+
+		"\u00f0\u00ee\3\2\2\2\u00f0\u00f1\3\2\2\2\u00f1\u00f7\3\2\2\2\u00f2\u00f0"+
+		"\3\2\2\2\u00f3\u00f5\5\30\r\2\u00f4\u00f6\7\17\2\2\u00f5\u00f4\3\2\2\2"+
+		"\u00f5\u00f6\3\2\2\2\u00f6\u00f8\3\2\2\2\u00f7\u00f3\3\2\2\2\u00f7\u00f8"+
+		"\3\2\2\2\u00f8\u00f9\3\2\2\2\u00f9\u00fa\7\r\2\2\u00fa\21\3\2\2\2\u00fb"+
+		"\u00fc\5\30\r\2\u00fc\u00fd\7\17\2\2\u00fd\23\3\2\2\2\u00fe\u0101\7\33"+
+		"\2\2\u00ff\u0101\5\u00a2R\2\u0100\u00fe\3\2\2\2\u0100\u00ff\3\2\2\2\u0101"+
+		"\u0104\3\2\2\2\u0102\u0103\7c\2\2\u0103\u0105\5\u00a2R\2\u0104\u0102\3"+
+		"\2\2\2\u0104\u0105\3\2\2\2\u0105\25\3\2\2\2\u0106\u0107\7d\2\2\u0107\u0108"+
+		"\7y\2\2\u0108\27\3\2\2\2\u0109\u010c\5\u00a2R\2\u010a\u010b\7c\2\2\u010b"+
+		"\u010d\5\u00a2R\2\u010c\u010a\3\2\2\2\u010c\u010d\3\2\2\2\u010d\31\3\2"+
+		"\2\2\u010e\u0111\7j\2\2\u010f\u0112\5\34\17\2\u0110\u0112\5\36\20\2\u0111"+
+		"\u010f\3\2\2\2\u0111\u0110\3\2\2\2\u0112\u0113\3\2\2\2\u0113\u0114\5\u00ac"+
+		"W\2\u0114\u011b\3\2\2\2\u0115\u0116\7j\2\2\u0116\u0117\7]\2\2\u0117\u0118"+
 		"\5t;\2\u0118\u0119\5\u00acW\2\u0119\u011b\3\2\2\2\u011a\u010e\3\2\2\2"+
 		"\u011a\u0115\3\2\2\2\u011b\33\3\2\2\2\u011c\u011d\5\24\13\2\u011d\u011e"+
 		"\5\26\f\2\u011e\u011f\5\u00acW\2\u011f\u0127\3\2\2\2\u0120\u0122\5\20"+
@@ -9010,170 +10072,177 @@ public class JavaScriptParser extends JavaScriptParserBase {
 		"\2\2\u02fc\u02fb\3\2\2\2\u02fc\u02fd\3\2\2\2\u02fd\u02fe\3\2\2\2\u02fe"+
 		"\u0300\5t;\2\u02ff\u02fa\3\2\2\2\u0300\u0303\3\2\2\2\u0301\u02ff\3\2\2"+
 		"\2\u0301\u0302\3\2\2\2\u0302s\3\2\2\2\u0303\u0301\3\2\2\2\u0304\u0305"+
-		"\b;\1\2\u0305\u0306\7`\2\2\u0306\u0339\5t;(\u0307\u0308\7T\2\2\u0308\u0339"+
-		"\5t;\'\u0309\u030a\7L\2\2\u030a\u0339\5t;&\u030b\u030c\7\25\2\2\u030c"+
-		"\u0339\5t;%\u030d\u030e\7\26\2\2\u030e\u0339\5t;$\u030f\u0310\7\27\2\2"+
-		"\u0310\u0339\5t;#\u0311\u0312\7\30\2\2\u0312\u0339\5t;\"\u0313\u0314\7"+
-		"\31\2\2\u0314\u0339\5t;!\u0315\u0316\7\32\2\2\u0316\u0339\5t; \u0317\u0318"+
-		"\7m\2\2\u0318\u0339\5t;\37\u0319\u0339\5\u0090I\2\u031a\u031c\7e\2\2\u031b"+
-		"\u031d\5\u00a4S\2\u031c\u031b\3\2\2\2\u031c\u031d\3\2\2\2\u031d\u031e"+
-		"\3\2\2\2\u031e\u0339\5T+\2\u031f\u0320\7O\2\2\u0320\u0322\5t;\2\u0321"+
-		"\u0323\5n8\2\u0322\u0321\3\2\2\2\u0322\u0323\3\2\2\2\u0323\u0339\3\2\2"+
-		"\2\u0324\u0325\7O\2\2\u0325\u0326\7\24\2\2\u0326\u0339\5\u00a4S\2\u0327"+
-		"\u0328\7k\2\2\u0328\u0329\7\n\2\2\u0329\u032a\5t;\2\u032a\u032b\7\13\2"+
-		"\2\u032b\u0339\3\2\2\2\u032c\u0339\5\66\34\2\u032d\u0339\7[\2\2\u032e"+
-		"\u0339\5\u00a4S\2\u032f\u0339\7h\2\2\u0330\u0339\5\u0098M\2\u0331\u0339"+
-		"\5d\63\2\u0332\u0339\5\u008cG\2\u0333\u0339\5v<\2\u0334\u0335\7\n\2\2"+
-		"\u0335\u0336\5r:\2\u0336\u0337\7\13\2\2\u0337\u0339\3\2\2\2\u0338\u0304"+
-		"\3\2\2\2\u0338\u0307\3\2\2\2\u0338\u0309\3\2\2\2\u0338\u030b\3\2\2\2\u0338"+
-		"\u030d\3\2\2\2\u0338\u030f\3\2\2\2\u0338\u0311\3\2\2\2\u0338\u0313\3\2"+
-		"\2\2\u0338\u0315\3\2\2\2\u0338\u0317\3\2\2\2\u0338\u0319\3\2\2\2\u0338"+
-		"\u031a\3\2\2\2\u0338\u031f\3\2\2\2\u0338\u0324\3\2\2\2\u0338\u0327\3\2"+
-		"\2\2\u0338\u032c\3\2\2\2\u0338\u032d\3\2\2\2\u0338\u032e\3\2\2\2\u0338"+
-		"\u032f\3\2\2\2\u0338\u0330\3\2\2\2\u0338\u0331\3\2\2\2\u0338\u0332\3\2"+
-		"\2\2\u0338\u0333\3\2\2\2\u0338\u0334\3\2\2\2\u0339\u038b\3\2\2\2\u033a"+
-		"\u033b\f\36\2\2\u033b\u033c\7\36\2\2\u033c\u038a\5t;\36\u033d\u033e\f"+
-		"\35\2\2\u033e\u033f\t\2\2\2\u033f\u038a\5t;\36\u0340\u0341\f\34\2\2\u0341"+
-		"\u0342\t\3\2\2\u0342\u038a\5t;\35\u0343\u0344\f\33\2\2\u0344\u0345\7\37"+
-		"\2\2\u0345\u038a\5t;\34\u0346\u0347\f\32\2\2\u0347\u0348\t\4\2\2\u0348"+
-		"\u038a\5t;\33\u0349\u034a\f\31\2\2\u034a\u034b\t\5\2\2\u034b\u038a\5t"+
-		";\32\u034c\u034d\f\30\2\2\u034d\u034e\7K\2\2\u034e\u038a\5t;\31\u034f"+
-		"\u0350\f\27\2\2\u0350\u0351\7a\2\2\u0351\u038a\5t;\30\u0352\u0353\f\26"+
-		"\2\2\u0353\u0354\t\6\2\2\u0354\u038a\5t;\27\u0355\u0356\f\25\2\2\u0356"+
-		"\u0357\7,\2\2\u0357\u038a\5t;\26\u0358\u0359\f\24\2\2\u0359\u035a\7-\2"+
-		"\2\u035a\u038a\5t;\25\u035b\u035c\f\23\2\2\u035c\u035d\7.\2\2\u035d\u038a"+
-		"\5t;\24\u035e\u035f\f\22\2\2\u035f\u0360\7/\2\2\u0360\u038a\5t;\23\u0361"+
-		"\u0362\f\21\2\2\u0362\u0363\7\60\2\2\u0363\u038a\5t;\22\u0364\u0365\f"+
-		"\20\2\2\u0365\u0366\7\21\2\2\u0366\u0367\5t;\2\u0367\u0368\7\22\2\2\u0368"+
-		"\u0369\5t;\21\u0369\u038a\3\2\2\2\u036a\u036b\f\17\2\2\u036b\u036c\7\20"+
-		"\2\2\u036c\u038a\5t;\17\u036d\u036e\f\16\2\2\u036e\u036f\5\u0096L\2\u036f"+
-		"\u0370\5t;\16\u0370\u038a\3\2\2\2\u0371\u0372\f/\2\2\u0372\u0373\7\b\2"+
-		"\2\u0373\u0374\5r:\2\u0374\u0375\7\t\2\2\u0375\u038a\3\2\2\2\u0376\u0378"+
-		"\f.\2\2\u0377\u0379\7\21\2\2\u0378\u0377\3\2\2\2\u0378\u0379\3\2\2\2\u0379"+
-		"\u037a\3\2\2\2\u037a\u037c\7\24\2\2\u037b\u037d\7 \2\2\u037c\u037b\3\2"+
-		"\2\2\u037c\u037d\3\2\2\2\u037d\u037e\3\2\2\2\u037e\u038a\5\u00a2R\2\u037f"+
-		"\u0380\f-\2\2\u0380\u038a\5n8\2\u0381\u0382\f*\2\2\u0382\u0383\6;\37\2"+
-		"\u0383\u038a\7\25\2\2\u0384\u0385\f)\2\2\u0385\u0386\6;!\2\u0386\u038a"+
-		"\7\26\2\2\u0387\u0388\f\f\2\2\u0388\u038a\7z\2\2\u0389\u033a\3\2\2\2\u0389"+
-		"\u033d\3\2\2\2\u0389\u0340\3\2\2\2\u0389\u0343\3\2\2\2\u0389\u0346\3\2"+
-		"\2\2\u0389\u0349\3\2\2\2\u0389\u034c\3\2\2\2\u0389\u034f\3\2\2\2\u0389"+
-		"\u0352\3\2\2\2\u0389\u0355\3\2\2\2\u0389\u0358\3\2\2\2\u0389\u035b\3\2"+
-		"\2\2\u0389\u035e\3\2\2\2\u0389\u0361\3\2\2\2\u0389\u0364\3\2\2\2\u0389"+
-		"\u036a\3\2\2\2\u0389\u036d\3\2\2\2\u0389\u0371\3\2\2\2\u0389\u0376\3\2"+
-		"\2\2\u0389\u037f\3\2\2\2\u0389\u0381\3\2\2\2\u0389\u0384\3\2\2\2\u0389"+
-		"\u0387\3\2\2\2\u038a\u038d\3\2\2\2\u038b\u0389\3\2\2\2\u038b\u038c\3\2"+
-		"\2\2\u038cu\3\2\2\2\u038d\u038b\3\2\2\2\u038e\u0390\5x=\2\u038f\u038e"+
-		"\3\2\2\2\u0390\u0391\3\2\2\2\u0391\u038f\3\2\2\2\u0391\u0392\3\2\2\2\u0392"+
-		"w\3\2\2\2\u0393\u0394\7$\2\2\u0394\u0398\5|?\2\u0395\u0397\5\u0082B\2"+
-		"\u0396\u0395\3\2\2\2\u0397\u039a\3\2\2\2\u0398\u0396\3\2\2\2\u0398\u0399"+
-		"\3\2\2\2\u0399\u039b\3\2\2\2\u039a\u0398\3\2\2\2\u039b\u039c\7%\2\2\u039c"+
-		"\u039d\5z>\2\u039d\u039e\7$\2\2\u039e\u039f\7\34\2\2\u039f\u03a0\5~@\2"+
-		"\u03a0\u03a1\7%\2\2\u03a1\u03c4\3\2\2\2\u03a2\u03a3\7$\2\2\u03a3\u03a7"+
-		"\5\u0080A\2\u03a4\u03a6\5\u0082B\2\u03a5\u03a4\3\2\2\2\u03a6\u03a9\3\2"+
-		"\2\2\u03a7\u03a5\3\2\2\2\u03a7\u03a8\3\2\2\2\u03a8\u03aa\3\2\2\2\u03a9"+
-		"\u03a7\3\2\2\2\u03aa\u03ab\5z>\2\u03ab\u03ac\7\34\2\2\u03ac\u03ad\7%\2"+
-		"\2\u03ad\u03c4\3\2\2\2\u03ae\u03af\7$\2\2\u03af\u03b3\5\u0080A\2\u03b0"+
-		"\u03b2\5\u0082B\2\u03b1\u03b0\3\2\2\2\u03b2\u03b5\3\2\2\2\u03b3\u03b1"+
-		"\3\2\2\2\u03b3\u03b4\3\2\2\2\u03b4\u03b6\3\2\2\2\u03b5\u03b3\3\2\2\2\u03b6"+
-		"\u03b7\7\34\2\2\u03b7\u03b8\7%\2\2\u03b8\u03c4\3\2\2\2\u03b9\u03ba\7$"+
-		"\2\2\u03ba\u03be\5\u0080A\2\u03bb\u03bd\5\u0082B\2\u03bc\u03bb\3\2\2\2"+
-		"\u03bd\u03c0\3\2\2\2\u03be\u03bc\3\2\2\2\u03be\u03bf\3\2\2\2\u03bf\u03c1"+
-		"\3\2\2\2\u03c0\u03be\3\2\2\2\u03c1\u03c2\7%\2\2\u03c2\u03c4\3\2\2\2\u03c3"+
-		"\u0393\3\2\2\2\u03c3\u03a2\3\2\2\2\u03c3\u03ae\3\2\2\2\u03c3\u03b9\3\2"+
-		"\2\2\u03c4y\3\2\2\2\u03c5\u03c7\5\u0086D\2\u03c6\u03c5\3\2\2\2\u03c6\u03c7"+
-		"\3\2\2\2\u03c7\u03d1\3\2\2\2\u03c8\u03cb\5x=\2\u03c9\u03cb\5\u008eH\2"+
-		"\u03ca\u03c8\3\2\2\2\u03ca\u03c9\3\2\2\2\u03cb\u03cd\3\2\2\2\u03cc\u03ce"+
-		"\5\u0086D\2\u03cd\u03cc\3\2\2\2\u03cd\u03ce\3\2\2\2\u03ce\u03d0\3\2\2"+
-		"\2\u03cf\u03ca\3\2\2\2\u03d0\u03d3\3\2\2\2\u03d1\u03cf\3\2\2\2\u03d1\u03d2"+
-		"\3\2\2\2\u03d2{\3\2\2\2\u03d3\u03d1\3\2\2\2\u03d4\u03d5\5\u0080A\2\u03d5"+
-		"\u03d6\b?\1\2\u03d6}\3\2\2\2\u03d7\u03d8\5\u0080A\2\u03d8\u03d9\6@#\3"+
-		"\u03d9\177\3\2\2\2\u03da\u03de\7\u0084\2\2\u03db\u03de\5\u00a8U\2\u03dc"+
-		"\u03de\7x\2\2\u03dd\u03da\3\2\2\2\u03dd\u03db\3\2\2\2\u03dd\u03dc\3\2"+
-		"\2\2\u03de\u0081\3\2\2\2\u03df\u03e0\5\u0084C\2\u03e0\u03e1\7\20\2\2\u03e1"+
-		"\u03e2\5\u0088E\2\u03e2\u03e5\3\2\2\2\u03e3\u03e5\5\u0084C\2\u03e4\u03df"+
-		"\3\2\2\2\u03e4\u03e3\3\2\2\2\u03e5\u0083\3\2\2\2\u03e6\u03f0\7\u0084\2"+
-		"\2\u03e7\u03ec\7x\2\2\u03e8\u03e9\7\30\2\2\u03e9\u03eb\7x\2\2\u03ea\u03e8"+
-		"\3\2\2\2\u03eb\u03ee\3\2\2\2\u03ec\u03ea\3\2\2\2\u03ec\u03ed\3\2\2\2\u03ed"+
-		"\u03f0\3\2\2\2\u03ee\u03ec\3\2\2\2\u03ef\u03e6\3\2\2\2\u03ef\u03e7\3\2"+
-		"\2\2\u03f0\u0085\3\2\2\2\u03f1\u03f3\n\7\2\2\u03f2\u03f1\3\2\2\2\u03f3"+
-		"\u03f4\3\2\2\2\u03f4\u03f2\3\2\2\2\u03f4\u03f5\3\2\2\2\u03f5\u0087\3\2"+
-		"\2\2\u03f6\u03fa\7\u0085\2\2\u03f7\u03fa\7y\2\2\u03f8\u03fa\5\u008eH\2"+
-		"\u03f9\u03f6\3\2\2\2\u03f9\u03f7\3\2\2\2\u03f9\u03f8\3\2\2\2\u03fa\u0089"+
-		"\3\2\2\2\u03fb\u03ff\5\u00a4S\2\u03fc\u03ff\5d\63\2\u03fd\u03ff\5\u008c"+
-		"G\2\u03fe\u03fb\3\2\2\2\u03fe\u03fc\3\2\2\2\u03fe\u03fd\3\2\2\2\u03ff"+
-		"\u008b\3\2\2\2\u0400\u0409\7\f\2\2\u0401\u0406\5j\66\2\u0402\u0403\7\17"+
-		"\2\2\u0403\u0405\5j\66\2\u0404\u0402\3\2\2\2\u0405\u0408\3\2\2\2\u0406"+
-		"\u0404\3\2\2\2\u0406\u0407\3\2\2\2\u0407\u040a\3\2\2\2\u0408\u0406\3\2"+
-		"\2\2\u0409\u0401\3\2\2\2\u0409\u040a\3\2\2\2\u040a\u040c\3\2\2\2\u040b"+
-		"\u040d\7\17\2\2\u040c\u040b\3\2\2\2\u040c\u040d\3\2\2\2\u040d\u040e\3"+
-		"\2\2\2\u040e\u040f\7\r\2\2\u040f\u008d\3\2\2\2\u0410\u0411\7\f\2\2\u0411"+
-		"\u0412\5r:\2\u0412\u0413\7\r\2\2\u0413\u008f\3\2\2\2\u0414\u042d\5P)\2"+
-		"\u0415\u0417\7l\2\2\u0416\u0415\3\2\2\2\u0416\u0417\3\2\2\2\u0417\u0418"+
-		"\3\2\2\2\u0418\u041a\7Z\2\2\u0419\u041b\7\33\2\2\u041a\u0419\3\2\2\2\u041a"+
-		"\u041b\3\2\2\2\u041b\u041c\3\2\2\2\u041c\u041e\7\n\2\2\u041d\u041f\5Z"+
-		".\2\u041e\u041d\3\2\2\2\u041e\u041f\3\2\2\2\u041f\u0420\3\2\2\2\u0420"+
-		"\u0421\7\13\2\2\u0421\u0422\7\f\2\2\u0422\u0423\5`\61\2\u0423\u0424\7"+
-		"\r\2\2\u0424\u042d\3\2\2\2\u0425\u0427\7l\2\2\u0426\u0425\3\2\2\2\u0426"+
-		"\u0427\3\2\2\2\u0427\u0428\3\2\2\2\u0428\u0429\5\u0092J\2\u0429\u042a"+
-		"\7=\2\2\u042a\u042b\5\u0094K\2\u042b\u042d\3\2\2\2\u042c\u0414\3\2\2\2"+
-		"\u042c\u0416\3\2\2\2\u042c\u0426\3\2\2\2\u042d\u0091\3\2\2\2\u042e\u0435"+
-		"\5\u00a4S\2\u042f\u0431\7\n\2\2\u0430\u0432\5Z.\2\u0431\u0430\3\2\2\2"+
-		"\u0431\u0432\3\2\2\2\u0432\u0433\3\2\2\2\u0433\u0435\7\13\2\2\u0434\u042e"+
-		"\3\2\2\2\u0434\u042f\3\2\2\2\u0435\u0093\3\2\2\2\u0436\u043c\5t;\2\u0437"+
-		"\u0438\7\f\2\2\u0438\u0439\5`\61\2\u0439\u043a\7\r\2\2\u043a\u043c\3\2"+
-		"\2\2\u043b\u0436\3\2\2\2\u043b\u0437\3\2\2\2\u043c\u0095\3\2\2\2\u043d"+
-		"\u043e\t\b\2\2\u043e\u0097\3\2\2\2\u043f\u0447\7>\2\2\u0440\u0447\7?\2"+
-		"\2\u0441\u0447\7y\2\2\u0442\u0447\7z\2\2\u0443\u0447\7\7\2\2\u0444\u0447"+
-		"\5\u009aN\2\u0445\u0447\5\u009cO\2\u0446\u043f\3\2\2\2\u0446\u0440\3\2"+
-		"\2\2\u0446\u0441\3\2\2\2\u0446\u0442\3\2\2\2\u0446\u0443\3\2\2\2\u0446"+
-		"\u0444\3\2\2\2\u0446\u0445\3\2\2\2\u0447\u0099\3\2\2\2\u0448\u0449\t\t"+
-		"\2\2\u0449\u009b\3\2\2\2\u044a\u044b\t\n\2\2\u044b\u009d\3\2\2\2\u044c"+
-		"\u044d\5\u00a4S\2\u044d\u044e\6P$\2\u044e\u044f\5l\67\2\u044f\u009f\3"+
-		"\2\2\2\u0450\u0451\5\u00a4S\2\u0451\u0452\6Q%\2\u0452\u0453\5l\67\2\u0453"+
-		"\u00a1\3\2\2\2\u0454\u0457\5\u00a4S\2\u0455\u0457\5\u00a6T\2\u0456\u0454"+
-		"\3\2\2\2\u0456\u0455\3\2\2\2\u0457\u00a3\3\2\2\2\u0458\u0459\t\13\2\2"+
-		"\u0459\u00a5\3\2\2\2\u045a\u045e\5\u00a8U\2\u045b\u045e\7>\2\2\u045c\u045e"+
-		"\7?\2\2\u045d\u045a\3\2\2\2\u045d\u045b\3\2\2\2\u045d\u045c\3\2\2\2\u045e"+
-		"\u00a7\3\2\2\2\u045f\u048e\7I\2\2\u0460\u048e\7J\2\2\u0461\u048e\7K\2"+
-		"\2\u0462\u048e\7L\2\2\u0463\u048e\7M\2\2\u0464\u048e\7N\2\2\u0465\u048e"+
-		"\7O\2\2\u0466\u048e\7P\2\2\u0467\u048e\7Q\2\2\u0468\u048e\7R\2\2\u0469"+
-		"\u048e\7S\2\2\u046a\u048e\7T\2\2\u046b\u048e\7U\2\2\u046c\u048e\7V\2\2"+
-		"\u046d\u048e\7W\2\2\u046e\u048e\7X\2\2\u046f\u048e\7Y\2\2\u0470\u048e"+
-		"\7Z\2\2\u0471\u048e\7[\2\2\u0472\u048e\7\\\2\2\u0473\u048e\7]\2\2\u0474"+
-		"\u048e\7^\2\2\u0475\u048e\7_\2\2\u0476\u048e\7`\2\2\u0477\u048e\7a\2\2"+
-		"\u0478\u048e\7b\2\2\u0479\u048e\7e\2\2\u047a\u048e\7f\2\2\u047b\u048e"+
-		"\7g\2\2\u047c\u048e\7h\2\2\u047d\u048e\7i\2\2\u047e\u048e\7j\2\2\u047f"+
-		"\u048e\7k\2\2\u0480\u048e\7n\2\2\u0481\u048e\5\u00aaV\2\u0482\u048e\7"+
-		"q\2\2\u0483\u048e\7r\2\2\u0484\u048e\7s\2\2\u0485\u048e\7t\2\2\u0486\u048e"+
-		"\7u\2\2\u0487\u048e\7v\2\2\u0488\u048e\7w\2\2\u0489\u048e\7l\2\2\u048a"+
-		"\u048e\7m\2\2\u048b\u048e\7d\2\2\u048c\u048e\7c\2\2\u048d\u045f\3\2\2"+
-		"\2\u048d\u0460\3\2\2\2\u048d\u0461\3\2\2\2\u048d\u0462\3\2\2\2\u048d\u0463"+
-		"\3\2\2\2\u048d\u0464\3\2\2\2\u048d\u0465\3\2\2\2\u048d\u0466\3\2\2\2\u048d"+
-		"\u0467\3\2\2\2\u048d\u0468\3\2\2\2\u048d\u0469\3\2\2\2\u048d\u046a\3\2"+
-		"\2\2\u048d\u046b\3\2\2\2\u048d\u046c\3\2\2\2\u048d\u046d\3\2\2\2\u048d"+
-		"\u046e\3\2\2\2\u048d\u046f\3\2\2\2\u048d\u0470\3\2\2\2\u048d\u0471\3\2"+
-		"\2\2\u048d\u0472\3\2\2\2\u048d\u0473\3\2\2\2\u048d\u0474\3\2\2\2\u048d"+
-		"\u0475\3\2\2\2\u048d\u0476\3\2\2\2\u048d\u0477\3\2\2\2\u048d\u0478\3\2"+
-		"\2\2\u048d\u0479\3\2\2\2\u048d\u047a\3\2\2\2\u048d\u047b\3\2\2\2\u048d"+
-		"\u047c\3\2\2\2\u048d\u047d\3\2\2\2\u048d\u047e\3\2\2\2\u048d\u047f\3\2"+
-		"\2\2\u048d\u0480\3\2\2\2\u048d\u0481\3\2\2\2\u048d\u0482\3\2\2\2\u048d"+
-		"\u0483\3\2\2\2\u048d\u0484\3\2\2\2\u048d\u0485\3\2\2\2\u048d\u0486\3\2"+
-		"\2\2\u048d\u0487\3\2\2\2\u048d\u0488\3\2\2\2\u048d\u0489\3\2\2\2\u048d"+
-		"\u048a\3\2\2\2\u048d\u048b\3\2\2\2\u048d\u048c\3\2\2\2\u048e\u00a9\3\2"+
-		"\2\2\u048f\u0490\t\f\2\2\u0490\u00ab\3\2\2\2\u0491\u0496\7\16\2\2\u0492"+
-		"\u0496\7\2\2\3\u0493\u0496\6W&\2\u0494\u0496\6W\'\2\u0495\u0491\3\2\2"+
-		"\2\u0495\u0492\3\2\2\2\u0495\u0493\3\2\2\2\u0495\u0494\3\2\2\2\u0496\u00ad"+
-		"\3\2\2\2\u0084\u00af\u00b2\u00cc\u00d0\u00d7\u00dd\u00e1\u00e8\u00f0\u00f5"+
+		"\b;\1\2\u0305\u0339\5\u0090I\2\u0306\u0308\7e\2\2\u0307\u0309\5\u00a4"+
+		"S\2\u0308\u0307\3\2\2\2\u0308\u0309\3\2\2\2\u0309\u030a\3\2\2\2\u030a"+
+		"\u0339\5T+\2\u030b\u030c\7O\2\2\u030c\u030e\5t;\2\u030d\u030f\5n8\2\u030e"+
+		"\u030d\3\2\2\2\u030e\u030f\3\2\2\2\u030f\u0339\3\2\2\2\u0310\u0311\7O"+
+		"\2\2\u0311\u0312\7\24\2\2\u0312\u0339\5\u00a4S\2\u0313\u0314\7`\2\2\u0314"+
+		"\u0339\5t;(\u0315\u0316\7T\2\2\u0316\u0339\5t;\'\u0317\u0318\7L\2\2\u0318"+
+		"\u0339\5t;&\u0319\u031a\7\25\2\2\u031a\u0339\5t;%\u031b\u031c\7\26\2\2"+
+		"\u031c\u0339\5t;$\u031d\u031e\7\27\2\2\u031e\u0339\5t;#\u031f\u0320\7"+
+		"\30\2\2\u0320\u0339\5t;\"\u0321\u0322\7\31\2\2\u0322\u0339\5t;!\u0323"+
+		"\u0324\7\32\2\2\u0324\u0339\5t; \u0325\u0326\7m\2\2\u0326\u0339\5t;\37"+
+		"\u0327\u0328\7k\2\2\u0328\u0329\7\n\2\2\u0329\u032a\5t;\2\u032a\u032b"+
+		"\7\13\2\2\u032b\u0339\3\2\2\2\u032c\u0339\5\66\34\2\u032d\u0339\7[\2\2"+
+		"\u032e\u0339\5\u00a4S\2\u032f\u0339\7h\2\2\u0330\u0339\5\u0098M\2\u0331"+
+		"\u0339\5d\63\2\u0332\u0339\5\u008cG\2\u0333\u0339\5v<\2\u0334\u0335\7"+
+		"\n\2\2\u0335\u0336\5r:\2\u0336\u0337\7\13\2\2\u0337\u0339\3\2\2\2\u0338"+
+		"\u0304\3\2\2\2\u0338\u0306\3\2\2\2\u0338\u030b\3\2\2\2\u0338\u0310\3\2"+
+		"\2\2\u0338\u0313\3\2\2\2\u0338\u0315\3\2\2\2\u0338\u0317\3\2\2\2\u0338"+
+		"\u0319\3\2\2\2\u0338\u031b\3\2\2\2\u0338\u031d\3\2\2\2\u0338\u031f\3\2"+
+		"\2\2\u0338\u0321\3\2\2\2\u0338\u0323\3\2\2\2\u0338\u0325\3\2\2\2\u0338"+
+		"\u0327\3\2\2\2\u0338\u032c\3\2\2\2\u0338\u032d\3\2\2\2\u0338\u032e\3\2"+
+		"\2\2\u0338\u032f\3\2\2\2\u0338\u0330\3\2\2\2\u0338\u0331\3\2\2\2\u0338"+
+		"\u0332\3\2\2\2\u0338\u0333\3\2\2\2\u0338\u0334\3\2\2\2\u0339\u038b\3\2"+
+		"\2\2\u033a\u033b\f\36\2\2\u033b\u033c\7\36\2\2\u033c\u038a\5t;\36\u033d"+
+		"\u033e\f\35\2\2\u033e\u033f\t\2\2\2\u033f\u038a\5t;\36\u0340\u0341\f\34"+
+		"\2\2\u0341\u0342\t\3\2\2\u0342\u038a\5t;\35\u0343\u0344\f\33\2\2\u0344"+
+		"\u0345\7\37\2\2\u0345\u038a\5t;\34\u0346\u0347\f\32\2\2\u0347\u0348\t"+
+		"\4\2\2\u0348\u038a\5t;\33\u0349\u034a\f\31\2\2\u034a\u034b\t\5\2\2\u034b"+
+		"\u038a\5t;\32\u034c\u034d\f\30\2\2\u034d\u034e\7K\2\2\u034e\u038a\5t;"+
+		"\31\u034f\u0350\f\27\2\2\u0350\u0351\7a\2\2\u0351\u038a\5t;\30\u0352\u0353"+
+		"\f\26\2\2\u0353\u0354\t\6\2\2\u0354\u038a\5t;\27\u0355\u0356\f\25\2\2"+
+		"\u0356\u0357\7,\2\2\u0357\u038a\5t;\26\u0358\u0359\f\24\2\2\u0359\u035a"+
+		"\7-\2\2\u035a\u038a\5t;\25\u035b\u035c\f\23\2\2\u035c\u035d\7.\2\2\u035d"+
+		"\u038a\5t;\24\u035e\u035f\f\22\2\2\u035f\u0360\7/\2\2\u0360\u038a\5t;"+
+		"\23\u0361\u0362\f\21\2\2\u0362\u0363\7\60\2\2\u0363\u038a\5t;\22\u0364"+
+		"\u0365\f\20\2\2\u0365\u0366\7\21\2\2\u0366\u0367\5t;\2\u0367\u0368\7\22"+
+		"\2\2\u0368\u0369\5t;\21\u0369\u038a\3\2\2\2\u036a\u036b\f\17\2\2\u036b"+
+		"\u036c\7\20\2\2\u036c\u038a\5t;\17\u036d\u036e\f\16\2\2\u036e\u036f\5"+
+		"\u0096L\2\u036f\u0370\5t;\16\u0370\u038a\3\2\2\2\u0371\u0372\f/\2\2\u0372"+
+		"\u0373\7\b\2\2\u0373\u0374\5r:\2\u0374\u0375\7\t\2\2\u0375\u038a\3\2\2"+
+		"\2\u0376\u0378\f.\2\2\u0377\u0379\7\21\2\2\u0378\u0377\3\2\2\2\u0378\u0379"+
+		"\3\2\2\2\u0379\u037a\3\2\2\2\u037a\u037c\7\24\2\2\u037b\u037d\7 \2\2\u037c"+
+		"\u037b\3\2\2\2\u037c\u037d\3\2\2\2\u037d\u037e\3\2\2\2\u037e\u038a\5\u00a2"+
+		"R\2\u037f\u0380\f-\2\2\u0380\u038a\5n8\2\u0381\u0382\f*\2\2\u0382\u0383"+
+		"\6;\37\2\u0383\u038a\7\25\2\2\u0384\u0385\f)\2\2\u0385\u0386\6;!\2\u0386"+
+		"\u038a\7\26\2\2\u0387\u0388\f\f\2\2\u0388\u038a\7z\2\2\u0389\u033a\3\2"+
+		"\2\2\u0389\u033d\3\2\2\2\u0389\u0340\3\2\2\2\u0389\u0343\3\2\2\2\u0389"+
+		"\u0346\3\2\2\2\u0389\u0349\3\2\2\2\u0389\u034c\3\2\2\2\u0389\u034f\3\2"+
+		"\2\2\u0389\u0352\3\2\2\2\u0389\u0355\3\2\2\2\u0389\u0358\3\2\2\2\u0389"+
+		"\u035b\3\2\2\2\u0389\u035e\3\2\2\2\u0389\u0361\3\2\2\2\u0389\u0364\3\2"+
+		"\2\2\u0389\u036a\3\2\2\2\u0389\u036d\3\2\2\2\u0389\u0371\3\2\2\2\u0389"+
+		"\u0376\3\2\2\2\u0389\u037f\3\2\2\2\u0389\u0381\3\2\2\2\u0389\u0384\3\2"+
+		"\2\2\u0389\u0387\3\2\2\2\u038a\u038d\3\2\2\2\u038b\u0389\3\2\2\2\u038b"+
+		"\u038c\3\2\2\2\u038cu\3\2\2\2\u038d\u038b\3\2\2\2\u038e\u0390\5x=\2\u038f"+
+		"\u038e\3\2\2\2\u0390\u0391\3\2\2\2\u0391\u038f\3\2\2\2\u0391\u0392\3\2"+
+		"\2\2\u0392w\3\2\2\2\u0393\u0394\7$\2\2\u0394\u0398\5|?\2\u0395\u0397\5"+
+		"\u0082B\2\u0396\u0395\3\2\2\2\u0397\u039a\3\2\2\2\u0398\u0396\3\2\2\2"+
+		"\u0398\u0399\3\2\2\2\u0399\u039b\3\2\2\2\u039a\u0398\3\2\2\2\u039b\u039c"+
+		"\7%\2\2\u039c\u039d\5z>\2\u039d\u039e\7$\2\2\u039e\u039f\7\34\2\2\u039f"+
+		"\u03a0\5~@\2\u03a0\u03a1\7%\2\2\u03a1\u03d7\3\2\2\2\u03a2\u03a3\7$\2\2"+
+		"\u03a3\u03a7\5\u0080A\2\u03a4\u03a6\5\u0082B\2\u03a5\u03a4\3\2\2\2\u03a6"+
+		"\u03a9\3\2\2\2\u03a7\u03a5\3\2\2\2\u03a7\u03a8\3\2\2\2\u03a8\u03aa\3\2"+
+		"\2\2\u03a9\u03a7\3\2\2\2\u03aa\u03ab\5z>\2\u03ab\u03ac\7\34\2\2\u03ac"+
+		"\u03ad\7%\2\2\u03ad\u03d7\3\2\2\2\u03ae\u03af\7$\2\2\u03af\u03b3\5\u0080"+
+		"A\2\u03b0\u03b2\5\u0082B\2\u03b1\u03b0\3\2\2\2\u03b2\u03b5\3\2\2\2\u03b3"+
+		"\u03b1\3\2\2\2\u03b3\u03b4\3\2\2\2\u03b4\u03b6\3\2\2\2\u03b5\u03b3\3\2"+
+		"\2\2\u03b6\u03b7\7\34\2\2\u03b7\u03b8\7%\2\2\u03b8\u03d7\3\2\2\2\u03b9"+
+		"\u03ba\7$\2\2\u03ba\u03be\5\u0080A\2\u03bb\u03bd\5\u0082B\2\u03bc\u03bb"+
+		"\3\2\2\2\u03bd\u03c0\3\2\2\2\u03be\u03bc\3\2\2\2\u03be\u03bf\3\2\2\2\u03bf"+
+		"\u03c1\3\2\2\2\u03c0\u03be\3\2\2\2\u03c1\u03c2\7%\2\2\u03c2\u03d7\3\2"+
+		"\2\2\u03c3\u03c4\7$\2\2\u03c4\u03c5\5|?\2\u03c5\u03c6\13\2\2\2\u03c6\u03ca"+
+		"\5|?\2\u03c7\u03c9\5\u0082B\2\u03c8\u03c7\3\2\2\2\u03c9\u03cc\3\2\2\2"+
+		"\u03ca\u03c8\3\2\2\2\u03ca\u03cb\3\2\2\2\u03cb\u03cd\3\2\2\2\u03cc\u03ca"+
+		"\3\2\2\2\u03cd\u03ce\7%\2\2\u03ce\u03cf\5z>\2\u03cf\u03d0\7$\2\2\u03d0"+
+		"\u03d1\7\34\2\2\u03d1\u03d2\5~@\2\u03d2\u03d3\13\2\2\2\u03d3\u03d4\5~"+
+		"@\2\u03d4\u03d5\7%\2\2\u03d5\u03d7\3\2\2\2\u03d6\u0393\3\2\2\2\u03d6\u03a2"+
+		"\3\2\2\2\u03d6\u03ae\3\2\2\2\u03d6\u03b9\3\2\2\2\u03d6\u03c3\3\2\2\2\u03d7"+
+		"y\3\2\2\2\u03d8\u03da\5\u0086D\2\u03d9\u03d8\3\2\2\2\u03d9\u03da\3\2\2"+
+		"\2\u03da\u03e4\3\2\2\2\u03db\u03de\5x=\2\u03dc\u03de\5\u008eH\2\u03dd"+
+		"\u03db\3\2\2\2\u03dd\u03dc\3\2\2\2\u03de\u03e0\3\2\2\2\u03df\u03e1\5\u0086"+
+		"D\2\u03e0\u03df\3\2\2\2\u03e0\u03e1\3\2\2\2\u03e1\u03e3\3\2\2\2\u03e2"+
+		"\u03dd\3\2\2\2\u03e3\u03e6\3\2\2\2\u03e4\u03e2\3\2\2\2\u03e4\u03e5\3\2"+
+		"\2\2\u03e5{\3\2\2\2\u03e6\u03e4\3\2\2\2\u03e7\u03e8\5\u0080A\2\u03e8\u03e9"+
+		"\b?\1\2\u03e9}\3\2\2\2\u03ea\u03eb\5\u0080A\2\u03eb\u03ec\6@#\3\u03ec"+
+		"\177\3\2\2\2\u03ed\u03f1\7\u0085\2\2\u03ee\u03f1\5\u00a8U\2\u03ef\u03f1"+
+		"\7x\2\2\u03f0\u03ed\3\2\2\2\u03f0\u03ee\3\2\2\2\u03f0\u03ef\3\2\2\2\u03f1"+
+		"\u0081\3\2\2\2\u03f2\u03f3\5\u0084C\2\u03f3\u03f4\7\20\2\2\u03f4\u03f5"+
+		"\5\u0088E\2\u03f5\u03f8\3\2\2\2\u03f6\u03f8\5\u0084C\2\u03f7\u03f2\3\2"+
+		"\2\2\u03f7\u03f6\3\2\2\2\u03f8\u0083\3\2\2\2\u03f9\u0403\7\u0085\2\2\u03fa"+
+		"\u03ff\7x\2\2\u03fb\u03fc\7\30\2\2\u03fc\u03fe\7x\2\2\u03fd\u03fb\3\2"+
+		"\2\2\u03fe\u0401\3\2\2\2\u03ff\u03fd\3\2\2\2\u03ff\u0400\3\2\2\2\u0400"+
+		"\u0403\3\2\2\2\u0401\u03ff\3\2\2\2\u0402\u03f9\3\2\2\2\u0402\u03fa\3\2"+
+		"\2\2\u0403\u0085\3\2\2\2\u0404\u0406\n\7\2\2\u0405\u0404\3\2\2\2\u0406"+
+		"\u0407\3\2\2\2\u0407\u0405\3\2\2\2\u0407\u0408\3\2\2\2\u0408\u0087\3\2"+
+		"\2\2\u0409\u040d\7\u0086\2\2\u040a\u040d\7y\2\2\u040b\u040d\5\u008eH\2"+
+		"\u040c\u0409\3\2\2\2\u040c\u040a\3\2\2\2\u040c\u040b\3\2\2\2\u040d\u0089"+
+		"\3\2\2\2\u040e\u0412\5\u00a4S\2\u040f\u0412\5d\63\2\u0410\u0412\5\u008c"+
+		"G\2\u0411\u040e\3\2\2\2\u0411\u040f\3\2\2\2\u0411\u0410\3\2\2\2\u0412"+
+		"\u008b\3\2\2\2\u0413\u041c\7\f\2\2\u0414\u0419\5j\66\2\u0415\u0416\7\17"+
+		"\2\2\u0416\u0418\5j\66\2\u0417\u0415\3\2\2\2\u0418\u041b\3\2\2\2\u0419"+
+		"\u0417\3\2\2\2\u0419\u041a\3\2\2\2\u041a\u041d\3\2\2\2\u041b\u0419\3\2"+
+		"\2\2\u041c\u0414\3\2\2\2\u041c\u041d\3\2\2\2\u041d\u041f\3\2\2\2\u041e"+
+		"\u0420\7\17\2\2\u041f\u041e\3\2\2\2\u041f\u0420\3\2\2\2\u0420\u0421\3"+
+		"\2\2\2\u0421\u0422\7\r\2\2\u0422\u008d\3\2\2\2\u0423\u0424\7\f\2\2\u0424"+
+		"\u0425\5r:\2\u0425\u0426\7\r\2\2\u0426\u008f\3\2\2\2\u0427\u0440\5P)\2"+
+		"\u0428\u042a\7l\2\2\u0429\u0428\3\2\2\2\u0429\u042a\3\2\2\2\u042a\u042b"+
+		"\3\2\2\2\u042b\u042d\7Z\2\2\u042c\u042e\7\33\2\2\u042d\u042c\3\2\2\2\u042d"+
+		"\u042e\3\2\2\2\u042e\u042f\3\2\2\2\u042f\u0431\7\n\2\2\u0430\u0432\5Z"+
+		".\2\u0431\u0430\3\2\2\2\u0431\u0432\3\2\2\2\u0432\u0433\3\2\2\2\u0433"+
+		"\u0434\7\13\2\2\u0434\u0435\7\f\2\2\u0435\u0436\5`\61\2\u0436\u0437\7"+
+		"\r\2\2\u0437\u0440\3\2\2\2\u0438\u043a\7l\2\2\u0439\u0438\3\2\2\2\u0439"+
+		"\u043a\3\2\2\2\u043a\u043b\3\2\2\2\u043b\u043c\5\u0092J\2\u043c\u043d"+
+		"\7=\2\2\u043d\u043e\5\u0094K\2\u043e\u0440\3\2\2\2\u043f\u0427\3\2\2\2"+
+		"\u043f\u0429\3\2\2\2\u043f\u0439\3\2\2\2\u0440\u0091\3\2\2\2\u0441\u0448"+
+		"\5\u00a4S\2\u0442\u0444\7\n\2\2\u0443\u0445\5Z.\2\u0444\u0443\3\2\2\2"+
+		"\u0444\u0445\3\2\2\2\u0445\u0446\3\2\2\2\u0446\u0448\7\13\2\2\u0447\u0441"+
+		"\3\2\2\2\u0447\u0442\3\2\2\2\u0448\u0093\3\2\2\2\u0449\u044f\5t;\2\u044a"+
+		"\u044b\7\f\2\2\u044b\u044c\5`\61\2\u044c\u044d\7\r\2\2\u044d\u044f\3\2"+
+		"\2\2\u044e\u0449\3\2\2\2\u044e\u044a\3\2\2\2\u044f\u0095\3\2\2\2\u0450"+
+		"\u0451\t\b\2\2\u0451\u0097\3\2\2\2\u0452\u045a\7>\2\2\u0453\u045a\7?\2"+
+		"\2\u0454\u045a\7y\2\2\u0455\u045a\7z\2\2\u0456\u045a\7\7\2\2\u0457\u045a"+
+		"\5\u009aN\2\u0458\u045a\5\u009cO\2\u0459\u0452\3\2\2\2\u0459\u0453\3\2"+
+		"\2\2\u0459\u0454\3\2\2\2\u0459\u0455\3\2\2\2\u0459\u0456\3\2\2\2\u0459"+
+		"\u0457\3\2\2\2\u0459\u0458\3\2\2\2\u045a\u0099\3\2\2\2\u045b\u045c\t\t"+
+		"\2\2\u045c\u009b\3\2\2\2\u045d\u045e\t\n\2\2\u045e\u009d\3\2\2\2\u045f"+
+		"\u0460\5\u00a4S\2\u0460\u0461\6P$\2\u0461\u0462\5l\67\2\u0462\u009f\3"+
+		"\2\2\2\u0463\u0464\5\u00a4S\2\u0464\u0465\6Q%\2\u0465\u0466\5l\67\2\u0466"+
+		"\u00a1\3\2\2\2\u0467\u046a\5\u00a4S\2\u0468\u046a\5\u00a6T\2\u0469\u0467"+
+		"\3\2\2\2\u0469\u0468\3\2\2\2\u046a\u00a3\3\2\2\2\u046b\u046c\t\13\2\2"+
+		"\u046c\u00a5\3\2\2\2\u046d\u0471\5\u00a8U\2\u046e\u0471\7>\2\2\u046f\u0471"+
+		"\7?\2\2\u0470\u046d\3\2\2\2\u0470\u046e\3\2\2\2\u0470\u046f\3\2\2\2\u0471"+
+		"\u00a7\3\2\2\2\u0472\u04a1\7I\2\2\u0473\u04a1\7J\2\2\u0474\u04a1\7K\2"+
+		"\2\u0475\u04a1\7L\2\2\u0476\u04a1\7M\2\2\u0477\u04a1\7N\2\2\u0478\u04a1"+
+		"\7O\2\2\u0479\u04a1\7P\2\2\u047a\u04a1\7Q\2\2\u047b\u04a1\7R\2\2\u047c"+
+		"\u04a1\7S\2\2\u047d\u04a1\7T\2\2\u047e\u04a1\7U\2\2\u047f\u04a1\7V\2\2"+
+		"\u0480\u04a1\7W\2\2\u0481\u04a1\7X\2\2\u0482\u04a1\7Y\2\2\u0483\u04a1"+
+		"\7Z\2\2\u0484\u04a1\7[\2\2\u0485\u04a1\7\\\2\2\u0486\u04a1\7]\2\2\u0487"+
+		"\u04a1\7^\2\2\u0488\u04a1\7_\2\2\u0489\u04a1\7`\2\2\u048a\u04a1\7a\2\2"+
+		"\u048b\u04a1\7b\2\2\u048c\u04a1\7e\2\2\u048d\u04a1\7f\2\2\u048e\u04a1"+
+		"\7g\2\2\u048f\u04a1\7h\2\2\u0490\u04a1\7i\2\2\u0491\u04a1\7j\2\2\u0492"+
+		"\u04a1\7k\2\2\u0493\u04a1\7n\2\2\u0494\u04a1\5\u00aaV\2\u0495\u04a1\7"+
+		"q\2\2\u0496\u04a1\7r\2\2\u0497\u04a1\7s\2\2\u0498\u04a1\7t\2\2\u0499\u04a1"+
+		"\7u\2\2\u049a\u04a1\7v\2\2\u049b\u04a1\7w\2\2\u049c\u04a1\7l\2\2\u049d"+
+		"\u04a1\7m\2\2\u049e\u04a1\7d\2\2\u049f\u04a1\7c\2\2\u04a0\u0472\3\2\2"+
+		"\2\u04a0\u0473\3\2\2\2\u04a0\u0474\3\2\2\2\u04a0\u0475\3\2\2\2\u04a0\u0476"+
+		"\3\2\2\2\u04a0\u0477\3\2\2\2\u04a0\u0478\3\2\2\2\u04a0\u0479\3\2\2\2\u04a0"+
+		"\u047a\3\2\2\2\u04a0\u047b\3\2\2\2\u04a0\u047c\3\2\2\2\u04a0\u047d\3\2"+
+		"\2\2\u04a0\u047e\3\2\2\2\u04a0\u047f\3\2\2\2\u04a0\u0480\3\2\2\2\u04a0"+
+		"\u0481\3\2\2\2\u04a0\u0482\3\2\2\2\u04a0\u0483\3\2\2\2\u04a0\u0484\3\2"+
+		"\2\2\u04a0\u0485\3\2\2\2\u04a0\u0486\3\2\2\2\u04a0\u0487\3\2\2\2\u04a0"+
+		"\u0488\3\2\2\2\u04a0\u0489\3\2\2\2\u04a0\u048a\3\2\2\2\u04a0\u048b\3\2"+
+		"\2\2\u04a0\u048c\3\2\2\2\u04a0\u048d\3\2\2\2\u04a0\u048e\3\2\2\2\u04a0"+
+		"\u048f\3\2\2\2\u04a0\u0490\3\2\2\2\u04a0\u0491\3\2\2\2\u04a0\u0492\3\2"+
+		"\2\2\u04a0\u0493\3\2\2\2\u04a0\u0494\3\2\2\2\u04a0\u0495\3\2\2\2\u04a0"+
+		"\u0496\3\2\2\2\u04a0\u0497\3\2\2\2\u04a0\u0498\3\2\2\2\u04a0\u0499\3\2"+
+		"\2\2\u04a0\u049a\3\2\2\2\u04a0\u049b\3\2\2\2\u04a0\u049c\3\2\2\2\u04a0"+
+		"\u049d\3\2\2\2\u04a0\u049e\3\2\2\2\u04a0\u049f\3\2\2\2\u04a1\u00a9\3\2"+
+		"\2\2\u04a2\u04a3\t\f\2\2\u04a3\u00ab\3\2\2\2\u04a4\u04a9\7\16\2\2\u04a5"+
+		"\u04a9\7\2\2\3\u04a6\u04a9\6W&\2\u04a7\u04a9\6W\'\2\u04a8\u04a4\3\2\2"+
+		"\2\u04a8\u04a5\3\2\2\2\u04a8\u04a6\3\2\2\2\u04a8\u04a7\3\2\2\2\u04a9\u00ad"+
+		"\3\2\2\2\u0085\u00af\u00b2\u00cc\u00d0\u00d7\u00dd\u00e1\u00e8\u00f0\u00f5"+
 		"\u00f7\u0100\u0104\u010c\u0111\u011a\u0122\u0126\u012b\u0136\u013c\u014b"+
 		"\u015f\u0163\u0167\u016f\u0178\u017d\u0185\u018a\u018f\u0196\u019d\u01a6"+
 		"\u01ab\u01bd\u01c1\u01c3\u01ca\u01d0\u01d5\u01e4\u01e7\u01ec\u01ef\u01fa"+
 		"\u01fe\u0203\u0210\u0216\u021f\u0221\u022a\u022e\u0234\u0237\u023a\u023f"+
 		"\u0247\u024a\u0254\u0257\u025c\u0263\u026a\u026f\u0272\u0277\u027d\u0282"+
 		"\u028b\u028f\u0294\u0299\u029f\u02a3\u02b2\u02b5\u02ba\u02d1\u02d4\u02dd"+
-		"\u02e5\u02e9\u02eb\u02f0\u02f4\u02f7\u02fc\u0301\u031c\u0322\u0338\u0378"+
-		"\u037c\u0389\u038b\u0391\u0398\u03a7\u03b3\u03be\u03c3\u03c6\u03ca\u03cd"+
-		"\u03d1\u03dd\u03e4\u03ec\u03ef\u03f4\u03f9\u03fe\u0406\u0409\u040c\u0416"+
-		"\u041a\u041e\u0426\u042c\u0431\u0434\u043b\u0446\u0456\u045d\u048d\u0495";
+		"\u02e5\u02e9\u02eb\u02f0\u02f4\u02f7\u02fc\u0301\u0308\u030e\u0338\u0378"+
+		"\u037c\u0389\u038b\u0391\u0398\u03a7\u03b3\u03be\u03ca\u03d6\u03d9\u03dd"+
+		"\u03e0\u03e4\u03f0\u03f7\u03ff\u0402\u0407\u040c\u0411\u0419\u041c\u041f"+
+		"\u0429\u042d\u0431\u0439\u043f\u0444\u0447\u044e\u0459\u0469\u0470\u04a0"+
+		"\u04a8";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

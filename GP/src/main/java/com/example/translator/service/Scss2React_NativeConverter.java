@@ -7,15 +7,12 @@ import java.io.IOException;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.springframework.stereotype.Component;
 //import com.example.translator.antlr4.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.example.translator.ScssLexer;
 import com.example.translator.ScssParser;
 import com.example.translator.ScssParserBaseListener;
-import com.example.translator.dto.Constants;
 
 @Component("Scss2React_NativeConverter")
 public class Scss2React_NativeConverter  extends ScssParserBaseListener implements CodeConverter {

@@ -1,6 +1,4 @@
-// Generated from JavaScriptParser.g4 by ANTLR 4.4
-package com.example.translator;
-import org.antlr.v4.runtime.misc.NotNull;
+// Generated from D:/WORK/Transcompiler/src\JavaScriptParser.g4 by ANTLR 4.9
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -9,1569 +7,1569 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface JavaScriptParserListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by the {@code PropertyExpressionAssignment}
-	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
-	 * @param ctx the parse tree
-	 */
-	void enterPropertyExpressionAssignment(@NotNull JavaScriptParser.PropertyExpressionAssignmentContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code PropertyExpressionAssignment}
-	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
-	 * @param ctx the parse tree
-	 */
-	void exitPropertyExpressionAssignment(@NotNull JavaScriptParser.PropertyExpressionAssignmentContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code TemplateStringExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterTemplateStringExpression(@NotNull JavaScriptParser.TemplateStringExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code TemplateStringExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitTemplateStringExpression(@NotNull JavaScriptParser.TemplateStringExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ExportDefaultDeclaration}
-	 * labeled alternative in {@link JavaScriptParser#exportStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterExportDefaultDeclaration(@NotNull JavaScriptParser.ExportDefaultDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ExportDefaultDeclaration}
-	 * labeled alternative in {@link JavaScriptParser#exportStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitExportDefaultDeclaration(@NotNull JavaScriptParser.ExportDefaultDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code PowerExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterPowerExpression(@NotNull JavaScriptParser.PowerExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code PowerExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitPowerExpression(@NotNull JavaScriptParser.PowerExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code AnoymousFunctionDecl}
-	 * labeled alternative in {@link JavaScriptParser#anoymousFunction}.
-	 * @param ctx the parse tree
-	 */
-	void enterAnoymousFunctionDecl(@NotNull JavaScriptParser.AnoymousFunctionDeclContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code AnoymousFunctionDecl}
-	 * labeled alternative in {@link JavaScriptParser#anoymousFunction}.
-	 * @param ctx the parse tree
-	 */
-	void exitAnoymousFunctionDecl(@NotNull JavaScriptParser.AnoymousFunctionDeclContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#arrowFunctionBody}.
-	 * @param ctx the parse tree
-	 */
-	void enterArrowFunctionBody(@NotNull JavaScriptParser.ArrowFunctionBodyContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#arrowFunctionBody}.
-	 * @param ctx the parse tree
-	 */
-	void exitArrowFunctionBody(@NotNull JavaScriptParser.ArrowFunctionBodyContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code InExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterInExpression(@NotNull JavaScriptParser.InExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code InExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitInExpression(@NotNull JavaScriptParser.InExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#eos}.
-	 * @param ctx the parse tree
-	 */
-	void enterEos(@NotNull JavaScriptParser.EosContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#eos}.
-	 * @param ctx the parse tree
-	 */
-	void exitEos(@NotNull JavaScriptParser.EosContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#methodDefinition}.
-	 * @param ctx the parse tree
-	 */
-	void enterMethodDefinition(@NotNull JavaScriptParser.MethodDefinitionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#methodDefinition}.
-	 * @param ctx the parse tree
-	 */
-	void exitMethodDefinition(@NotNull JavaScriptParser.MethodDefinitionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#sourceElements}.
-	 * @param ctx the parse tree
-	 */
-	void enterSourceElements(@NotNull JavaScriptParser.SourceElementsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#sourceElements}.
-	 * @param ctx the parse tree
-	 */
-	void exitSourceElements(@NotNull JavaScriptParser.SourceElementsContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#htmlAttributeName}.
-	 * @param ctx the parse tree
-	 */
-	void enterHtmlAttributeName(@NotNull JavaScriptParser.HtmlAttributeNameContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#htmlAttributeName}.
-	 * @param ctx the parse tree
-	 */
-	void exitHtmlAttributeName(@NotNull JavaScriptParser.HtmlAttributeNameContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link JavaScriptParser#program}.
 	 * @param ctx the parse tree
 	 */
-	void enterProgram(@NotNull JavaScriptParser.ProgramContext ctx);
+	void enterProgram(JavaScriptParser.ProgramContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link JavaScriptParser#program}.
 	 * @param ctx the parse tree
 	 */
-	void exitProgram(@NotNull JavaScriptParser.ProgramContext ctx);
+	void exitProgram(JavaScriptParser.ProgramContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#exportFromBlock}.
+	 * Enter a parse tree produced by {@link JavaScriptParser#sourceElement}.
 	 * @param ctx the parse tree
 	 */
-	void enterExportFromBlock(@NotNull JavaScriptParser.ExportFromBlockContext ctx);
+	void enterSourceElement(JavaScriptParser.SourceElementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#exportFromBlock}.
+	 * Exit a parse tree produced by {@link JavaScriptParser#sourceElement}.
 	 * @param ctx the parse tree
 	 */
-	void exitExportFromBlock(@NotNull JavaScriptParser.ExportFromBlockContext ctx);
+	void exitSourceElement(JavaScriptParser.SourceElementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#lastFormalParameterArg}.
+	 * Enter a parse tree produced by {@link JavaScriptParser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void enterLastFormalParameterArg(@NotNull JavaScriptParser.LastFormalParameterArgContext ctx);
+	void enterStatement(JavaScriptParser.StatementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#lastFormalParameterArg}.
+	 * Exit a parse tree produced by {@link JavaScriptParser#statement}.
 	 * @param ctx the parse tree
 	 */
-	void exitLastFormalParameterArg(@NotNull JavaScriptParser.LastFormalParameterArgContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#htmlContent}.
-	 * @param ctx the parse tree
-	 */
-	void enterHtmlContent(@NotNull JavaScriptParser.HtmlContentContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#htmlContent}.
-	 * @param ctx the parse tree
-	 */
-	void exitHtmlContent(@NotNull JavaScriptParser.HtmlContentContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ArgumentsExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterArgumentsExpression(@NotNull JavaScriptParser.ArgumentsExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ArgumentsExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitArgumentsExpression(@NotNull JavaScriptParser.ArgumentsExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#identifierName}.
-	 * @param ctx the parse tree
-	 */
-	void enterIdentifierName(@NotNull JavaScriptParser.IdentifierNameContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#identifierName}.
-	 * @param ctx the parse tree
-	 */
-	void exitIdentifierName(@NotNull JavaScriptParser.IdentifierNameContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code TypeofExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterTypeofExpression(@NotNull JavaScriptParser.TypeofExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code TypeofExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitTypeofExpression(@NotNull JavaScriptParser.TypeofExpressionContext ctx);
+	void exitStatement(JavaScriptParser.StatementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JavaScriptParser#block}.
 	 * @param ctx the parse tree
 	 */
-	void enterBlock(@NotNull JavaScriptParser.BlockContext ctx);
+	void enterBlock(JavaScriptParser.BlockContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link JavaScriptParser#block}.
 	 * @param ctx the parse tree
 	 */
-	void exitBlock(@NotNull JavaScriptParser.BlockContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#expressionStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpressionStatement(@NotNull JavaScriptParser.ExpressionStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#expressionStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpressionStatement(@NotNull JavaScriptParser.ExpressionStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#htmlTagClosingName}.
-	 * @param ctx the parse tree
-	 */
-	void enterHtmlTagClosingName(@NotNull JavaScriptParser.HtmlTagClosingNameContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#htmlTagClosingName}.
-	 * @param ctx the parse tree
-	 */
-	void exitHtmlTagClosingName(@NotNull JavaScriptParser.HtmlTagClosingNameContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#let}.
-	 * @param ctx the parse tree
-	 */
-	void enterLet(@NotNull JavaScriptParser.LetContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#let}.
-	 * @param ctx the parse tree
-	 */
-	void exitLet(@NotNull JavaScriptParser.LetContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code BitXOrExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterBitXOrExpression(@NotNull JavaScriptParser.BitXOrExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code BitXOrExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitBitXOrExpression(@NotNull JavaScriptParser.BitXOrExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code MultiplicativeExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterMultiplicativeExpression(@NotNull JavaScriptParser.MultiplicativeExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code MultiplicativeExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitMultiplicativeExpression(@NotNull JavaScriptParser.MultiplicativeExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#numericLiteral}.
-	 * @param ctx the parse tree
-	 */
-	void enterNumericLiteral(@NotNull JavaScriptParser.NumericLiteralContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#numericLiteral}.
-	 * @param ctx the parse tree
-	 */
-	void exitNumericLiteral(@NotNull JavaScriptParser.NumericLiteralContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ForInStatement}
-	 * labeled alternative in {@link JavaScriptParser#iterationStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterForInStatement(@NotNull JavaScriptParser.ForInStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ForInStatement}
-	 * labeled alternative in {@link JavaScriptParser#iterationStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitForInStatement(@NotNull JavaScriptParser.ForInStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code htmlElementExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterHtmlElementExpression(@NotNull JavaScriptParser.HtmlElementExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code htmlElementExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitHtmlElementExpression(@NotNull JavaScriptParser.HtmlElementExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#emptyStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterEmptyStatement(@NotNull JavaScriptParser.EmptyStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#emptyStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitEmptyStatement(@NotNull JavaScriptParser.EmptyStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code AdditiveExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterAdditiveExpression(@NotNull JavaScriptParser.AdditiveExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code AdditiveExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitAdditiveExpression(@NotNull JavaScriptParser.AdditiveExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code RelationalExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterRelationalExpression(@NotNull JavaScriptParser.RelationalExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code RelationalExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitRelationalExpression(@NotNull JavaScriptParser.RelationalExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#identifier}.
-	 * @param ctx the parse tree
-	 */
-	void enterIdentifier(@NotNull JavaScriptParser.IdentifierContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#identifier}.
-	 * @param ctx the parse tree
-	 */
-	void exitIdentifier(@NotNull JavaScriptParser.IdentifierContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#labelledStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterLabelledStatement(@NotNull JavaScriptParser.LabelledStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#labelledStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitLabelledStatement(@NotNull JavaScriptParser.LabelledStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#moduleItems}.
-	 * @param ctx the parse tree
-	 */
-	void enterModuleItems(@NotNull JavaScriptParser.ModuleItemsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#moduleItems}.
-	 * @param ctx the parse tree
-	 */
-	void exitModuleItems(@NotNull JavaScriptParser.ModuleItemsContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code NewExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterNewExpression(@NotNull JavaScriptParser.NewExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code NewExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitNewExpression(@NotNull JavaScriptParser.NewExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#htmlTagName}.
-	 * @param ctx the parse tree
-	 */
-	void enterHtmlTagName(@NotNull JavaScriptParser.HtmlTagNameContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#htmlTagName}.
-	 * @param ctx the parse tree
-	 */
-	void exitHtmlTagName(@NotNull JavaScriptParser.HtmlTagNameContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#withStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterWithStatement(@NotNull JavaScriptParser.WithStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#withStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitWithStatement(@NotNull JavaScriptParser.WithStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#arrayElement}.
-	 * @param ctx the parse tree
-	 */
-	void enterArrayElement(@NotNull JavaScriptParser.ArrayElementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#arrayElement}.
-	 * @param ctx the parse tree
-	 */
-	void exitArrayElement(@NotNull JavaScriptParser.ArrayElementContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code BitAndExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterBitAndExpression(@NotNull JavaScriptParser.BitAndExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code BitAndExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitBitAndExpression(@NotNull JavaScriptParser.BitAndExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code BitOrExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterBitOrExpression(@NotNull JavaScriptParser.BitOrExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code BitOrExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitBitOrExpression(@NotNull JavaScriptParser.BitOrExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code VoidExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterVoidExpression(@NotNull JavaScriptParser.VoidExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code VoidExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitVoidExpression(@NotNull JavaScriptParser.VoidExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#objectExpressionSequence}.
-	 * @param ctx the parse tree
-	 */
-	void enterObjectExpressionSequence(@NotNull JavaScriptParser.ObjectExpressionSequenceContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#objectExpressionSequence}.
-	 * @param ctx the parse tree
-	 */
-	void exitObjectExpressionSequence(@NotNull JavaScriptParser.ObjectExpressionSequenceContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code TernaryExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterTernaryExpression(@NotNull JavaScriptParser.TernaryExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code TernaryExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitTernaryExpression(@NotNull JavaScriptParser.TernaryExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code LogicalAndExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterLogicalAndExpression(@NotNull JavaScriptParser.LogicalAndExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code LogicalAndExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitLogicalAndExpression(@NotNull JavaScriptParser.LogicalAndExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#importStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterImportStatement(@NotNull JavaScriptParser.ImportStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#importStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitImportStatement(@NotNull JavaScriptParser.ImportStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#arrayLiteral}.
-	 * @param ctx the parse tree
-	 */
-	void enterArrayLiteral(@NotNull JavaScriptParser.ArrayLiteralContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#arrayLiteral}.
-	 * @param ctx the parse tree
-	 */
-	void exitArrayLiteral(@NotNull JavaScriptParser.ArrayLiteralContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#importFrom}.
-	 * @param ctx the parse tree
-	 */
-	void enterImportFrom(@NotNull JavaScriptParser.ImportFromContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#importFrom}.
-	 * @param ctx the parse tree
-	 */
-	void exitImportFrom(@NotNull JavaScriptParser.ImportFromContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code WhileStatement}
-	 * labeled alternative in {@link JavaScriptParser#iterationStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterWhileStatement(@NotNull JavaScriptParser.WhileStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code WhileStatement}
-	 * labeled alternative in {@link JavaScriptParser#iterationStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitWhileStatement(@NotNull JavaScriptParser.WhileStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#returnStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterReturnStatement(@NotNull JavaScriptParser.ReturnStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#returnStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitReturnStatement(@NotNull JavaScriptParser.ReturnStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code PreDecreaseExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterPreDecreaseExpression(@NotNull JavaScriptParser.PreDecreaseExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code PreDecreaseExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitPreDecreaseExpression(@NotNull JavaScriptParser.PreDecreaseExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#expressionSequence}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpressionSequence(@NotNull JavaScriptParser.ExpressionSequenceContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#expressionSequence}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpressionSequence(@NotNull JavaScriptParser.ExpressionSequenceContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#literal}.
-	 * @param ctx the parse tree
-	 */
-	void enterLiteral(@NotNull JavaScriptParser.LiteralContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#literal}.
-	 * @param ctx the parse tree
-	 */
-	void exitLiteral(@NotNull JavaScriptParser.LiteralContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#importFromBlock}.
-	 * @param ctx the parse tree
-	 */
-	void enterImportFromBlock(@NotNull JavaScriptParser.ImportFromBlockContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#importFromBlock}.
-	 * @param ctx the parse tree
-	 */
-	void exitImportFromBlock(@NotNull JavaScriptParser.ImportFromBlockContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#defaultClause}.
-	 * @param ctx the parse tree
-	 */
-	void enterDefaultClause(@NotNull JavaScriptParser.DefaultClauseContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#defaultClause}.
-	 * @param ctx the parse tree
-	 */
-	void exitDefaultClause(@NotNull JavaScriptParser.DefaultClauseContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code PostDecreaseExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterPostDecreaseExpression(@NotNull JavaScriptParser.PostDecreaseExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code PostDecreaseExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitPostDecreaseExpression(@NotNull JavaScriptParser.PostDecreaseExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code UnaryPlusExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterUnaryPlusExpression(@NotNull JavaScriptParser.UnaryPlusExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code UnaryPlusExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitUnaryPlusExpression(@NotNull JavaScriptParser.UnaryPlusExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ImportExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterImportExpression(@NotNull JavaScriptParser.ImportExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ImportExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitImportExpression(@NotNull JavaScriptParser.ImportExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ForStatement}
-	 * labeled alternative in {@link JavaScriptParser#iterationStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterForStatement(@NotNull JavaScriptParser.ForStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ForStatement}
-	 * labeled alternative in {@link JavaScriptParser#iterationStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitForStatement(@NotNull JavaScriptParser.ForStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#caseBlock}.
-	 * @param ctx the parse tree
-	 */
-	void enterCaseBlock(@NotNull JavaScriptParser.CaseBlockContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#caseBlock}.
-	 * @param ctx the parse tree
-	 */
-	void exitCaseBlock(@NotNull JavaScriptParser.CaseBlockContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#arrowFunctionParameters}.
-	 * @param ctx the parse tree
-	 */
-	void enterArrowFunctionParameters(@NotNull JavaScriptParser.ArrowFunctionParametersContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#arrowFunctionParameters}.
-	 * @param ctx the parse tree
-	 */
-	void exitArrowFunctionParameters(@NotNull JavaScriptParser.ArrowFunctionParametersContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#caseClauses}.
-	 * @param ctx the parse tree
-	 */
-	void enterCaseClauses(@NotNull JavaScriptParser.CaseClausesContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#caseClauses}.
-	 * @param ctx the parse tree
-	 */
-	void exitCaseClauses(@NotNull JavaScriptParser.CaseClausesContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ParenthesizedExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterParenthesizedExpression(@NotNull JavaScriptParser.ParenthesizedExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ParenthesizedExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitParenthesizedExpression(@NotNull JavaScriptParser.ParenthesizedExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code PostIncrementExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterPostIncrementExpression(@NotNull JavaScriptParser.PostIncrementExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code PostIncrementExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitPostIncrementExpression(@NotNull JavaScriptParser.PostIncrementExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#objectLiteral}.
-	 * @param ctx the parse tree
-	 */
-	void enterObjectLiteral(@NotNull JavaScriptParser.ObjectLiteralContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#objectLiteral}.
-	 * @param ctx the parse tree
-	 */
-	void exitObjectLiteral(@NotNull JavaScriptParser.ObjectLiteralContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#throwStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterThrowStatement(@NotNull JavaScriptParser.ThrowStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#throwStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitThrowStatement(@NotNull JavaScriptParser.ThrowStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#classElement}.
-	 * @param ctx the parse tree
-	 */
-	void enterClassElement(@NotNull JavaScriptParser.ClassElementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#classElement}.
-	 * @param ctx the parse tree
-	 */
-	void exitClassElement(@NotNull JavaScriptParser.ClassElementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#declaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterDeclaration(@NotNull JavaScriptParser.DeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#declaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitDeclaration(@NotNull JavaScriptParser.DeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#variableDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterVariableDeclaration(@NotNull JavaScriptParser.VariableDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#variableDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitVariableDeclaration(@NotNull JavaScriptParser.VariableDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code IdentifierExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterIdentifierExpression(@NotNull JavaScriptParser.IdentifierExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code IdentifierExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitIdentifierExpression(@NotNull JavaScriptParser.IdentifierExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#bigintLiteral}.
-	 * @param ctx the parse tree
-	 */
-	void enterBigintLiteral(@NotNull JavaScriptParser.BigintLiteralContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#bigintLiteral}.
-	 * @param ctx the parse tree
-	 */
-	void exitBigintLiteral(@NotNull JavaScriptParser.BigintLiteralContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#propertyName}.
-	 * @param ctx the parse tree
-	 */
-	void enterPropertyName(@NotNull JavaScriptParser.PropertyNameContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#propertyName}.
-	 * @param ctx the parse tree
-	 */
-	void exitPropertyName(@NotNull JavaScriptParser.PropertyNameContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#caseClause}.
-	 * @param ctx the parse tree
-	 */
-	void enterCaseClause(@NotNull JavaScriptParser.CaseClauseContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#caseClause}.
-	 * @param ctx the parse tree
-	 */
-	void exitCaseClause(@NotNull JavaScriptParser.CaseClauseContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#variableDeclarationList}.
-	 * @param ctx the parse tree
-	 */
-	void enterVariableDeclarationList(@NotNull JavaScriptParser.VariableDeclarationListContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#variableDeclarationList}.
-	 * @param ctx the parse tree
-	 */
-	void exitVariableDeclarationList(@NotNull JavaScriptParser.VariableDeclarationListContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#setter}.
-	 * @param ctx the parse tree
-	 */
-	void enterSetter(@NotNull JavaScriptParser.SetterContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#setter}.
-	 * @param ctx the parse tree
-	 */
-	void exitSetter(@NotNull JavaScriptParser.SetterContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#functionDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterFunctionDeclaration(@NotNull JavaScriptParser.FunctionDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#functionDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitFunctionDeclaration(@NotNull JavaScriptParser.FunctionDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code CoalesceExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterCoalesceExpression(@NotNull JavaScriptParser.CoalesceExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code CoalesceExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitCoalesceExpression(@NotNull JavaScriptParser.CoalesceExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#htmlAttribute}.
-	 * @param ctx the parse tree
-	 */
-	void enterHtmlAttribute(@NotNull JavaScriptParser.HtmlAttributeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#htmlAttribute}.
-	 * @param ctx the parse tree
-	 */
-	void exitHtmlAttribute(@NotNull JavaScriptParser.HtmlAttributeContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ForOfStatement}
-	 * labeled alternative in {@link JavaScriptParser#iterationStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterForOfStatement(@NotNull JavaScriptParser.ForOfStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ForOfStatement}
-	 * labeled alternative in {@link JavaScriptParser#iterationStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitForOfStatement(@NotNull JavaScriptParser.ForOfStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#htmlAttributeValue}.
-	 * @param ctx the parse tree
-	 */
-	void enterHtmlAttributeValue(@NotNull JavaScriptParser.HtmlAttributeValueContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#htmlAttributeValue}.
-	 * @param ctx the parse tree
-	 */
-	void exitHtmlAttributeValue(@NotNull JavaScriptParser.HtmlAttributeValueContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#argument}.
-	 * @param ctx the parse tree
-	 */
-	void enterArgument(@NotNull JavaScriptParser.ArgumentContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#argument}.
-	 * @param ctx the parse tree
-	 */
-	void exitArgument(@NotNull JavaScriptParser.ArgumentContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#classTail}.
-	 * @param ctx the parse tree
-	 */
-	void enterClassTail(@NotNull JavaScriptParser.ClassTailContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#classTail}.
-	 * @param ctx the parse tree
-	 */
-	void exitClassTail(@NotNull JavaScriptParser.ClassTailContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#getter}.
-	 * @param ctx the parse tree
-	 */
-	void enterGetter(@NotNull JavaScriptParser.GetterContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#getter}.
-	 * @param ctx the parse tree
-	 */
-	void exitGetter(@NotNull JavaScriptParser.GetterContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code PropertyShorthand}
-	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
-	 * @param ctx the parse tree
-	 */
-	void enterPropertyShorthand(@NotNull JavaScriptParser.PropertyShorthandContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code PropertyShorthand}
-	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
-	 * @param ctx the parse tree
-	 */
-	void exitPropertyShorthand(@NotNull JavaScriptParser.PropertyShorthandContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#assignmentOperator}.
-	 * @param ctx the parse tree
-	 */
-	void enterAssignmentOperator(@NotNull JavaScriptParser.AssignmentOperatorContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#assignmentOperator}.
-	 * @param ctx the parse tree
-	 */
-	void exitAssignmentOperator(@NotNull JavaScriptParser.AssignmentOperatorContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#htmlElements}.
-	 * @param ctx the parse tree
-	 */
-	void enterHtmlElements(@NotNull JavaScriptParser.HtmlElementsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#htmlElements}.
-	 * @param ctx the parse tree
-	 */
-	void exitHtmlElements(@NotNull JavaScriptParser.HtmlElementsContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ThisExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterThisExpression(@NotNull JavaScriptParser.ThisExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ThisExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitThisExpression(@NotNull JavaScriptParser.ThisExpressionContext ctx);
+	void exitBlock(JavaScriptParser.BlockContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JavaScriptParser#statementList}.
 	 * @param ctx the parse tree
 	 */
-	void enterStatementList(@NotNull JavaScriptParser.StatementListContext ctx);
+	void enterStatementList(JavaScriptParser.StatementListContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link JavaScriptParser#statementList}.
 	 * @param ctx the parse tree
 	 */
-	void exitStatementList(@NotNull JavaScriptParser.StatementListContext ctx);
+	void exitStatementList(JavaScriptParser.StatementListContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code PropertyGetter}
-	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
+	 * Enter a parse tree produced by {@link JavaScriptParser#importStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterPropertyGetter(@NotNull JavaScriptParser.PropertyGetterContext ctx);
+	void enterImportStatement(JavaScriptParser.ImportStatementContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code PropertyGetter}
-	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
+	 * Exit a parse tree produced by {@link JavaScriptParser#importStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitPropertyGetter(@NotNull JavaScriptParser.PropertyGetterContext ctx);
+	void exitImportStatement(JavaScriptParser.ImportStatementContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code EqualityExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * Enter a parse tree produced by {@link JavaScriptParser#importFromBlock}.
 	 * @param ctx the parse tree
 	 */
-	void enterEqualityExpression(@NotNull JavaScriptParser.EqualityExpressionContext ctx);
+	void enterImportFromBlock(JavaScriptParser.ImportFromBlockContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code EqualityExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * Exit a parse tree produced by {@link JavaScriptParser#importFromBlock}.
 	 * @param ctx the parse tree
 	 */
-	void exitEqualityExpression(@NotNull JavaScriptParser.EqualityExpressionContext ctx);
+	void exitImportFromBlock(JavaScriptParser.ImportFromBlockContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#keyword}.
+	 * Enter a parse tree produced by {@link JavaScriptParser#moduleItems}.
 	 * @param ctx the parse tree
 	 */
-	void enterKeyword(@NotNull JavaScriptParser.KeywordContext ctx);
+	void enterModuleItems(JavaScriptParser.ModuleItemsContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#keyword}.
+	 * Exit a parse tree produced by {@link JavaScriptParser#moduleItems}.
 	 * @param ctx the parse tree
 	 */
-	void exitKeyword(@NotNull JavaScriptParser.KeywordContext ctx);
+	void exitModuleItems(JavaScriptParser.ModuleItemsContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#elementList}.
+	 * Enter a parse tree produced by {@link JavaScriptParser#importDefault}.
 	 * @param ctx the parse tree
 	 */
-	void enterElementList(@NotNull JavaScriptParser.ElementListContext ctx);
+	void enterImportDefault(JavaScriptParser.ImportDefaultContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#elementList}.
+	 * Exit a parse tree produced by {@link JavaScriptParser#importDefault}.
 	 * @param ctx the parse tree
 	 */
-	void exitElementList(@NotNull JavaScriptParser.ElementListContext ctx);
+	void exitImportDefault(JavaScriptParser.ImportDefaultContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#yieldStatement}.
+	 * Enter a parse tree produced by {@link JavaScriptParser#importNamespace}.
 	 * @param ctx the parse tree
 	 */
-	void enterYieldStatement(@NotNull JavaScriptParser.YieldStatementContext ctx);
+	void enterImportNamespace(JavaScriptParser.ImportNamespaceContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#yieldStatement}.
+	 * Exit a parse tree produced by {@link JavaScriptParser#importNamespace}.
 	 * @param ctx the parse tree
 	 */
-	void exitYieldStatement(@NotNull JavaScriptParser.YieldStatementContext ctx);
+	void exitImportNamespace(JavaScriptParser.ImportNamespaceContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code BitShiftExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * Enter a parse tree produced by {@link JavaScriptParser#importFrom}.
 	 * @param ctx the parse tree
 	 */
-	void enterBitShiftExpression(@NotNull JavaScriptParser.BitShiftExpressionContext ctx);
+	void enterImportFrom(JavaScriptParser.ImportFromContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code BitShiftExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * Exit a parse tree produced by {@link JavaScriptParser#importFrom}.
 	 * @param ctx the parse tree
 	 */
-	void exitBitShiftExpression(@NotNull JavaScriptParser.BitShiftExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ComputedPropertyExpressionAssignment}
-	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
-	 * @param ctx the parse tree
-	 */
-	void enterComputedPropertyExpressionAssignment(@NotNull JavaScriptParser.ComputedPropertyExpressionAssignmentContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ComputedPropertyExpressionAssignment}
-	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
-	 * @param ctx the parse tree
-	 */
-	void exitComputedPropertyExpressionAssignment(@NotNull JavaScriptParser.ComputedPropertyExpressionAssignmentContext ctx);
+	void exitImportFrom(JavaScriptParser.ImportFromContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JavaScriptParser#aliasName}.
 	 * @param ctx the parse tree
 	 */
-	void enterAliasName(@NotNull JavaScriptParser.AliasNameContext ctx);
+	void enterAliasName(JavaScriptParser.AliasNameContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link JavaScriptParser#aliasName}.
 	 * @param ctx the parse tree
 	 */
-	void exitAliasName(@NotNull JavaScriptParser.AliasNameContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code BitNotExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterBitNotExpression(@NotNull JavaScriptParser.BitNotExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code BitNotExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitBitNotExpression(@NotNull JavaScriptParser.BitNotExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code PropertySetter}
-	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
-	 * @param ctx the parse tree
-	 */
-	void enterPropertySetter(@NotNull JavaScriptParser.PropertySetterContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code PropertySetter}
-	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
-	 * @param ctx the parse tree
-	 */
-	void exitPropertySetter(@NotNull JavaScriptParser.PropertySetterContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code LiteralExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterLiteralExpression(@NotNull JavaScriptParser.LiteralExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code LiteralExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitLiteralExpression(@NotNull JavaScriptParser.LiteralExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ArrayLiteralExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterArrayLiteralExpression(@NotNull JavaScriptParser.ArrayLiteralExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ArrayLiteralExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitArrayLiteralExpression(@NotNull JavaScriptParser.ArrayLiteralExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code MemberDotExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterMemberDotExpression(@NotNull JavaScriptParser.MemberDotExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code MemberDotExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitMemberDotExpression(@NotNull JavaScriptParser.MemberDotExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#htmlChardata}.
-	 * @param ctx the parse tree
-	 */
-	void enterHtmlChardata(@NotNull JavaScriptParser.HtmlChardataContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#htmlChardata}.
-	 * @param ctx the parse tree
-	 */
-	void exitHtmlChardata(@NotNull JavaScriptParser.HtmlChardataContext ctx);
+	void exitAliasName(JavaScriptParser.AliasNameContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code ExportDeclaration}
 	 * labeled alternative in {@link JavaScriptParser#exportStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterExportDeclaration(@NotNull JavaScriptParser.ExportDeclarationContext ctx);
+	void enterExportDeclaration(JavaScriptParser.ExportDeclarationContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code ExportDeclaration}
 	 * labeled alternative in {@link JavaScriptParser#exportStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitExportDeclaration(@NotNull JavaScriptParser.ExportDeclarationContext ctx);
+	void exitExportDeclaration(JavaScriptParser.ExportDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code MemberIndexExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * Enter a parse tree produced by the {@code ExportDefaultDeclaration}
+	 * labeled alternative in {@link JavaScriptParser#exportStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterMemberIndexExpression(@NotNull JavaScriptParser.MemberIndexExpressionContext ctx);
+	void enterExportDefaultDeclaration(JavaScriptParser.ExportDefaultDeclarationContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code MemberIndexExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * Exit a parse tree produced by the {@code ExportDefaultDeclaration}
+	 * labeled alternative in {@link JavaScriptParser#exportStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitMemberIndexExpression(@NotNull JavaScriptParser.MemberIndexExpressionContext ctx);
+	void exitExportDefaultDeclaration(JavaScriptParser.ExportDefaultDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#formalParameterList}.
+	 * Enter a parse tree produced by {@link JavaScriptParser#exportFromBlock}.
 	 * @param ctx the parse tree
 	 */
-	void enterFormalParameterList(@NotNull JavaScriptParser.FormalParameterListContext ctx);
+	void enterExportFromBlock(JavaScriptParser.ExportFromBlockContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#formalParameterList}.
+	 * Exit a parse tree produced by {@link JavaScriptParser#exportFromBlock}.
 	 * @param ctx the parse tree
 	 */
-	void exitFormalParameterList(@NotNull JavaScriptParser.FormalParameterListContext ctx);
+	void exitExportFromBlock(JavaScriptParser.ExportFromBlockContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code AssignmentOperatorExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * Enter a parse tree produced by {@link JavaScriptParser#declaration}.
 	 * @param ctx the parse tree
 	 */
-	void enterAssignmentOperatorExpression(@NotNull JavaScriptParser.AssignmentOperatorExpressionContext ctx);
+	void enterDeclaration(JavaScriptParser.DeclarationContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code AssignmentOperatorExpression}
-	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * Exit a parse tree produced by {@link JavaScriptParser#declaration}.
 	 * @param ctx the parse tree
 	 */
-	void exitAssignmentOperatorExpression(@NotNull JavaScriptParser.AssignmentOperatorExpressionContext ctx);
+	void exitDeclaration(JavaScriptParser.DeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#htmlTagStartName}.
+	 * Enter a parse tree produced by {@link JavaScriptParser#variableStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterHtmlTagStartName(@NotNull JavaScriptParser.HtmlTagStartNameContext ctx);
+	void enterVariableStatement(JavaScriptParser.VariableStatementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#htmlTagStartName}.
+	 * Exit a parse tree produced by {@link JavaScriptParser#variableStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitHtmlTagStartName(@NotNull JavaScriptParser.HtmlTagStartNameContext ctx);
+	void exitVariableStatement(JavaScriptParser.VariableStatementContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code FunctionProperty}
-	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
+	 * Enter a parse tree produced by {@link JavaScriptParser#variableDeclarationList}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunctionProperty(@NotNull JavaScriptParser.FunctionPropertyContext ctx);
+	void enterVariableDeclarationList(JavaScriptParser.VariableDeclarationListContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code FunctionProperty}
-	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
+	 * Exit a parse tree produced by {@link JavaScriptParser#variableDeclarationList}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunctionProperty(@NotNull JavaScriptParser.FunctionPropertyContext ctx);
+	void exitVariableDeclarationList(JavaScriptParser.VariableDeclarationListContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#htmlElement}.
+	 * Enter a parse tree produced by {@link JavaScriptParser#variableDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void enterHtmlElement(@NotNull JavaScriptParser.HtmlElementContext ctx);
+	void enterVariableDeclaration(JavaScriptParser.VariableDeclarationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#htmlElement}.
+	 * Exit a parse tree produced by {@link JavaScriptParser#variableDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void exitHtmlElement(@NotNull JavaScriptParser.HtmlElementContext ctx);
+	void exitVariableDeclaration(JavaScriptParser.VariableDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#tryStatement}.
+	 * Enter a parse tree produced by {@link JavaScriptParser#emptyStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterTryStatement(@NotNull JavaScriptParser.TryStatementContext ctx);
+	void enterEmptyStatement(JavaScriptParser.EmptyStatementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#tryStatement}.
+	 * Exit a parse tree produced by {@link JavaScriptParser#emptyStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitTryStatement(@NotNull JavaScriptParser.TryStatementContext ctx);
+	void exitEmptyStatement(JavaScriptParser.EmptyStatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#debuggerStatement}.
+	 * Enter a parse tree produced by {@link JavaScriptParser#expressionStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterDebuggerStatement(@NotNull JavaScriptParser.DebuggerStatementContext ctx);
+	void enterExpressionStatement(JavaScriptParser.ExpressionStatementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#debuggerStatement}.
+	 * Exit a parse tree produced by {@link JavaScriptParser#expressionStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitDebuggerStatement(@NotNull JavaScriptParser.DebuggerStatementContext ctx);
+	void exitExpressionStatement(JavaScriptParser.ExpressionStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#ifStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterIfStatement(JavaScriptParser.IfStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#ifStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitIfStatement(JavaScriptParser.IfStatementContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code DoStatement}
 	 * labeled alternative in {@link JavaScriptParser#iterationStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterDoStatement(@NotNull JavaScriptParser.DoStatementContext ctx);
+	void enterDoStatement(JavaScriptParser.DoStatementContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code DoStatement}
 	 * labeled alternative in {@link JavaScriptParser#iterationStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitDoStatement(@NotNull JavaScriptParser.DoStatementContext ctx);
+	void exitDoStatement(JavaScriptParser.DoStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code WhileStatement}
+	 * labeled alternative in {@link JavaScriptParser#iterationStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterWhileStatement(JavaScriptParser.WhileStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code WhileStatement}
+	 * labeled alternative in {@link JavaScriptParser#iterationStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitWhileStatement(JavaScriptParser.WhileStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ForStatement}
+	 * labeled alternative in {@link JavaScriptParser#iterationStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterForStatement(JavaScriptParser.ForStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ForStatement}
+	 * labeled alternative in {@link JavaScriptParser#iterationStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitForStatement(JavaScriptParser.ForStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ForInStatement}
+	 * labeled alternative in {@link JavaScriptParser#iterationStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterForInStatement(JavaScriptParser.ForInStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ForInStatement}
+	 * labeled alternative in {@link JavaScriptParser#iterationStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitForInStatement(JavaScriptParser.ForInStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ForOfStatement}
+	 * labeled alternative in {@link JavaScriptParser#iterationStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterForOfStatement(JavaScriptParser.ForOfStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ForOfStatement}
+	 * labeled alternative in {@link JavaScriptParser#iterationStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitForOfStatement(JavaScriptParser.ForOfStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#varModifier}.
+	 * @param ctx the parse tree
+	 */
+	void enterVarModifier(JavaScriptParser.VarModifierContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#varModifier}.
+	 * @param ctx the parse tree
+	 */
+	void exitVarModifier(JavaScriptParser.VarModifierContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#continueStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterContinueStatement(JavaScriptParser.ContinueStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#continueStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitContinueStatement(JavaScriptParser.ContinueStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#breakStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterBreakStatement(JavaScriptParser.BreakStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#breakStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitBreakStatement(JavaScriptParser.BreakStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#returnStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterReturnStatement(JavaScriptParser.ReturnStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#returnStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitReturnStatement(JavaScriptParser.ReturnStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#yieldStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterYieldStatement(JavaScriptParser.YieldStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#yieldStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitYieldStatement(JavaScriptParser.YieldStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#withStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterWithStatement(JavaScriptParser.WithStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#withStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitWithStatement(JavaScriptParser.WithStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#switchStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterSwitchStatement(JavaScriptParser.SwitchStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#switchStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitSwitchStatement(JavaScriptParser.SwitchStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#caseBlock}.
+	 * @param ctx the parse tree
+	 */
+	void enterCaseBlock(JavaScriptParser.CaseBlockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#caseBlock}.
+	 * @param ctx the parse tree
+	 */
+	void exitCaseBlock(JavaScriptParser.CaseBlockContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#caseClauses}.
+	 * @param ctx the parse tree
+	 */
+	void enterCaseClauses(JavaScriptParser.CaseClausesContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#caseClauses}.
+	 * @param ctx the parse tree
+	 */
+	void exitCaseClauses(JavaScriptParser.CaseClausesContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#caseClause}.
+	 * @param ctx the parse tree
+	 */
+	void enterCaseClause(JavaScriptParser.CaseClauseContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#caseClause}.
+	 * @param ctx the parse tree
+	 */
+	void exitCaseClause(JavaScriptParser.CaseClauseContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#defaultClause}.
+	 * @param ctx the parse tree
+	 */
+	void enterDefaultClause(JavaScriptParser.DefaultClauseContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#defaultClause}.
+	 * @param ctx the parse tree
+	 */
+	void exitDefaultClause(JavaScriptParser.DefaultClauseContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#labelledStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterLabelledStatement(JavaScriptParser.LabelledStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#labelledStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitLabelledStatement(JavaScriptParser.LabelledStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#throwStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterThrowStatement(JavaScriptParser.ThrowStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#throwStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitThrowStatement(JavaScriptParser.ThrowStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#tryStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterTryStatement(JavaScriptParser.TryStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#tryStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitTryStatement(JavaScriptParser.TryStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#catchProduction}.
+	 * @param ctx the parse tree
+	 */
+	void enterCatchProduction(JavaScriptParser.CatchProductionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#catchProduction}.
+	 * @param ctx the parse tree
+	 */
+	void exitCatchProduction(JavaScriptParser.CatchProductionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#finallyProduction}.
+	 * @param ctx the parse tree
+	 */
+	void enterFinallyProduction(JavaScriptParser.FinallyProductionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#finallyProduction}.
+	 * @param ctx the parse tree
+	 */
+	void exitFinallyProduction(JavaScriptParser.FinallyProductionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#debuggerStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterDebuggerStatement(JavaScriptParser.DebuggerStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#debuggerStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitDebuggerStatement(JavaScriptParser.DebuggerStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#functionDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionDeclaration(JavaScriptParser.FunctionDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#functionDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionDeclaration(JavaScriptParser.FunctionDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#classDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterClassDeclaration(JavaScriptParser.ClassDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#classDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitClassDeclaration(JavaScriptParser.ClassDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#classTail}.
+	 * @param ctx the parse tree
+	 */
+	void enterClassTail(JavaScriptParser.ClassTailContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#classTail}.
+	 * @param ctx the parse tree
+	 */
+	void exitClassTail(JavaScriptParser.ClassTailContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#classElement}.
+	 * @param ctx the parse tree
+	 */
+	void enterClassElement(JavaScriptParser.ClassElementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#classElement}.
+	 * @param ctx the parse tree
+	 */
+	void exitClassElement(JavaScriptParser.ClassElementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#methodDefinition}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethodDefinition(JavaScriptParser.MethodDefinitionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#methodDefinition}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethodDefinition(JavaScriptParser.MethodDefinitionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#formalParameterList}.
+	 * @param ctx the parse tree
+	 */
+	void enterFormalParameterList(JavaScriptParser.FormalParameterListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#formalParameterList}.
+	 * @param ctx the parse tree
+	 */
+	void exitFormalParameterList(JavaScriptParser.FormalParameterListContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#formalParameterArg}.
+	 * @param ctx the parse tree
+	 */
+	void enterFormalParameterArg(JavaScriptParser.FormalParameterArgContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#formalParameterArg}.
+	 * @param ctx the parse tree
+	 */
+	void exitFormalParameterArg(JavaScriptParser.FormalParameterArgContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#lastFormalParameterArg}.
+	 * @param ctx the parse tree
+	 */
+	void enterLastFormalParameterArg(JavaScriptParser.LastFormalParameterArgContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#lastFormalParameterArg}.
+	 * @param ctx the parse tree
+	 */
+	void exitLastFormalParameterArg(JavaScriptParser.LastFormalParameterArgContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#functionBody}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionBody(JavaScriptParser.FunctionBodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#functionBody}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionBody(JavaScriptParser.FunctionBodyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#sourceElements}.
+	 * @param ctx the parse tree
+	 */
+	void enterSourceElements(JavaScriptParser.SourceElementsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#sourceElements}.
+	 * @param ctx the parse tree
+	 */
+	void exitSourceElements(JavaScriptParser.SourceElementsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#arrayLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void enterArrayLiteral(JavaScriptParser.ArrayLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#arrayLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void exitArrayLiteral(JavaScriptParser.ArrayLiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#elementList}.
+	 * @param ctx the parse tree
+	 */
+	void enterElementList(JavaScriptParser.ElementListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#elementList}.
+	 * @param ctx the parse tree
+	 */
+	void exitElementList(JavaScriptParser.ElementListContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#arrayElement}.
+	 * @param ctx the parse tree
+	 */
+	void enterArrayElement(JavaScriptParser.ArrayElementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#arrayElement}.
+	 * @param ctx the parse tree
+	 */
+	void exitArrayElement(JavaScriptParser.ArrayElementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code PropertyExpressionAssignment}
+	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterPropertyExpressionAssignment(JavaScriptParser.PropertyExpressionAssignmentContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code PropertyExpressionAssignment}
+	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitPropertyExpressionAssignment(JavaScriptParser.PropertyExpressionAssignmentContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ComputedPropertyExpressionAssignment}
+	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterComputedPropertyExpressionAssignment(JavaScriptParser.ComputedPropertyExpressionAssignmentContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ComputedPropertyExpressionAssignment}
+	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitComputedPropertyExpressionAssignment(JavaScriptParser.ComputedPropertyExpressionAssignmentContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code FunctionProperty}
+	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionProperty(JavaScriptParser.FunctionPropertyContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code FunctionProperty}
+	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionProperty(JavaScriptParser.FunctionPropertyContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code PropertyGetter}
+	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterPropertyGetter(JavaScriptParser.PropertyGetterContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code PropertyGetter}
+	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitPropertyGetter(JavaScriptParser.PropertyGetterContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code PropertySetter}
+	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterPropertySetter(JavaScriptParser.PropertySetterContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code PropertySetter}
+	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitPropertySetter(JavaScriptParser.PropertySetterContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code PropertyShorthand}
+	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterPropertyShorthand(JavaScriptParser.PropertyShorthandContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code PropertyShorthand}
+	 * labeled alternative in {@link JavaScriptParser#propertyAssignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitPropertyShorthand(JavaScriptParser.PropertyShorthandContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#propertyName}.
+	 * @param ctx the parse tree
+	 */
+	void enterPropertyName(JavaScriptParser.PropertyNameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#propertyName}.
+	 * @param ctx the parse tree
+	 */
+	void exitPropertyName(JavaScriptParser.PropertyNameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#arguments}.
+	 * @param ctx the parse tree
+	 */
+	void enterArguments(JavaScriptParser.ArgumentsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#arguments}.
+	 * @param ctx the parse tree
+	 */
+	void exitArguments(JavaScriptParser.ArgumentsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#argument}.
+	 * @param ctx the parse tree
+	 */
+	void enterArgument(JavaScriptParser.ArgumentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#argument}.
+	 * @param ctx the parse tree
+	 */
+	void exitArgument(JavaScriptParser.ArgumentContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#expressionSequence}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpressionSequence(JavaScriptParser.ExpressionSequenceContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#expressionSequence}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpressionSequence(JavaScriptParser.ExpressionSequenceContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code TemplateStringExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterTemplateStringExpression(JavaScriptParser.TemplateStringExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code TemplateStringExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitTemplateStringExpression(JavaScriptParser.TemplateStringExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code TernaryExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterTernaryExpression(JavaScriptParser.TernaryExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code TernaryExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitTernaryExpression(JavaScriptParser.TernaryExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code LogicalAndExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterLogicalAndExpression(JavaScriptParser.LogicalAndExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code LogicalAndExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitLogicalAndExpression(JavaScriptParser.LogicalAndExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code PowerExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterPowerExpression(JavaScriptParser.PowerExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code PowerExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitPowerExpression(JavaScriptParser.PowerExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code PreIncrementExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterPreIncrementExpression(@NotNull JavaScriptParser.PreIncrementExpressionContext ctx);
+	void enterPreIncrementExpression(JavaScriptParser.PreIncrementExpressionContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code PreIncrementExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitPreIncrementExpression(@NotNull JavaScriptParser.PreIncrementExpressionContext ctx);
+	void exitPreIncrementExpression(JavaScriptParser.PreIncrementExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code ObjectLiteralExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterObjectLiteralExpression(@NotNull JavaScriptParser.ObjectLiteralExpressionContext ctx);
+	void enterObjectLiteralExpression(JavaScriptParser.ObjectLiteralExpressionContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code ObjectLiteralExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitObjectLiteralExpression(@NotNull JavaScriptParser.ObjectLiteralExpressionContext ctx);
+	void exitObjectLiteralExpression(JavaScriptParser.ObjectLiteralExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code MetaExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterMetaExpression(@NotNull JavaScriptParser.MetaExpressionContext ctx);
+	void enterMetaExpression(JavaScriptParser.MetaExpressionContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code MetaExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitMetaExpression(@NotNull JavaScriptParser.MetaExpressionContext ctx);
+	void exitMetaExpression(JavaScriptParser.MetaExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code InExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterInExpression(JavaScriptParser.InExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code InExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitInExpression(JavaScriptParser.InExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code LogicalOrExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterLogicalOrExpression(@NotNull JavaScriptParser.LogicalOrExpressionContext ctx);
+	void enterLogicalOrExpression(JavaScriptParser.LogicalOrExpressionContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code LogicalOrExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitLogicalOrExpression(@NotNull JavaScriptParser.LogicalOrExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#importDefault}.
-	 * @param ctx the parse tree
-	 */
-	void enterImportDefault(@NotNull JavaScriptParser.ImportDefaultContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#importDefault}.
-	 * @param ctx the parse tree
-	 */
-	void exitImportDefault(@NotNull JavaScriptParser.ImportDefaultContext ctx);
+	void exitLogicalOrExpression(JavaScriptParser.LogicalOrExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code NotExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterNotExpression(@NotNull JavaScriptParser.NotExpressionContext ctx);
+	void enterNotExpression(JavaScriptParser.NotExpressionContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code NotExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitNotExpression(@NotNull JavaScriptParser.NotExpressionContext ctx);
+	void exitNotExpression(JavaScriptParser.NotExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#importNamespace}.
+	 * Enter a parse tree produced by the {@code PreDecreaseExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterImportNamespace(@NotNull JavaScriptParser.ImportNamespaceContext ctx);
+	void enterPreDecreaseExpression(JavaScriptParser.PreDecreaseExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#importNamespace}.
+	 * Exit a parse tree produced by the {@code PreDecreaseExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitImportNamespace(@NotNull JavaScriptParser.ImportNamespaceContext ctx);
+	void exitPreDecreaseExpression(JavaScriptParser.PreDecreaseExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#switchStatement}.
+	 * Enter a parse tree produced by the {@code ArgumentsExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterSwitchStatement(@NotNull JavaScriptParser.SwitchStatementContext ctx);
+	void enterArgumentsExpression(JavaScriptParser.ArgumentsExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#switchStatement}.
+	 * Exit a parse tree produced by the {@code ArgumentsExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitSwitchStatement(@NotNull JavaScriptParser.SwitchStatementContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#formalParameterArg}.
-	 * @param ctx the parse tree
-	 */
-	void enterFormalParameterArg(@NotNull JavaScriptParser.FormalParameterArgContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#formalParameterArg}.
-	 * @param ctx the parse tree
-	 */
-	void exitFormalParameterArg(@NotNull JavaScriptParser.FormalParameterArgContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#classDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterClassDeclaration(@NotNull JavaScriptParser.ClassDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#classDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitClassDeclaration(@NotNull JavaScriptParser.ClassDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#variableStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterVariableStatement(@NotNull JavaScriptParser.VariableStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#variableStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitVariableStatement(@NotNull JavaScriptParser.VariableStatementContext ctx);
+	void exitArgumentsExpression(JavaScriptParser.ArgumentsExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code AwaitExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterAwaitExpression(@NotNull JavaScriptParser.AwaitExpressionContext ctx);
+	void enterAwaitExpression(JavaScriptParser.AwaitExpressionContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code AwaitExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitAwaitExpression(@NotNull JavaScriptParser.AwaitExpressionContext ctx);
+	void exitAwaitExpression(JavaScriptParser.AwaitExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ThisExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterThisExpression(JavaScriptParser.ThisExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ThisExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitThisExpression(JavaScriptParser.ThisExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code FunctionExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunctionExpression(@NotNull JavaScriptParser.FunctionExpressionContext ctx);
+	void enterFunctionExpression(JavaScriptParser.FunctionExpressionContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code FunctionExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunctionExpression(@NotNull JavaScriptParser.FunctionExpressionContext ctx);
+	void exitFunctionExpression(JavaScriptParser.FunctionExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code UnaryMinusExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterUnaryMinusExpression(@NotNull JavaScriptParser.UnaryMinusExpressionContext ctx);
+	void enterUnaryMinusExpression(JavaScriptParser.UnaryMinusExpressionContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code UnaryMinusExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitUnaryMinusExpression(@NotNull JavaScriptParser.UnaryMinusExpressionContext ctx);
+	void exitUnaryMinusExpression(JavaScriptParser.UnaryMinusExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code AssignmentExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterAssignmentExpression(@NotNull JavaScriptParser.AssignmentExpressionContext ctx);
+	void enterAssignmentExpression(JavaScriptParser.AssignmentExpressionContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code AssignmentExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitAssignmentExpression(@NotNull JavaScriptParser.AssignmentExpressionContext ctx);
+	void exitAssignmentExpression(JavaScriptParser.AssignmentExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code PostDecreaseExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterPostDecreaseExpression(JavaScriptParser.PostDecreaseExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code PostDecreaseExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitPostDecreaseExpression(JavaScriptParser.PostDecreaseExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code TypeofExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterTypeofExpression(JavaScriptParser.TypeofExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code TypeofExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitTypeofExpression(JavaScriptParser.TypeofExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code InstanceofExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterInstanceofExpression(@NotNull JavaScriptParser.InstanceofExpressionContext ctx);
+	void enterInstanceofExpression(JavaScriptParser.InstanceofExpressionContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code InstanceofExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitInstanceofExpression(@NotNull JavaScriptParser.InstanceofExpressionContext ctx);
+	void exitInstanceofExpression(JavaScriptParser.InstanceofExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#statement}.
+	 * Enter a parse tree produced by the {@code UnaryPlusExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterStatement(@NotNull JavaScriptParser.StatementContext ctx);
+	void enterUnaryPlusExpression(JavaScriptParser.UnaryPlusExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#statement}.
+	 * Exit a parse tree produced by the {@code UnaryPlusExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitStatement(@NotNull JavaScriptParser.StatementContext ctx);
+	void exitUnaryPlusExpression(JavaScriptParser.UnaryPlusExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code DeleteExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterDeleteExpression(@NotNull JavaScriptParser.DeleteExpressionContext ctx);
+	void enterDeleteExpression(JavaScriptParser.DeleteExpressionContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code DeleteExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitDeleteExpression(@NotNull JavaScriptParser.DeleteExpressionContext ctx);
+	void exitDeleteExpression(JavaScriptParser.DeleteExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ImportExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterImportExpression(JavaScriptParser.ImportExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ImportExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitImportExpression(JavaScriptParser.ImportExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code EqualityExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterEqualityExpression(JavaScriptParser.EqualityExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code EqualityExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitEqualityExpression(JavaScriptParser.EqualityExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code BitXOrExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterBitXOrExpression(JavaScriptParser.BitXOrExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code BitXOrExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitBitXOrExpression(JavaScriptParser.BitXOrExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code SuperExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterSuperExpression(@NotNull JavaScriptParser.SuperExpressionContext ctx);
+	void enterSuperExpression(JavaScriptParser.SuperExpressionContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code SuperExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitSuperExpression(@NotNull JavaScriptParser.SuperExpressionContext ctx);
+	void exitSuperExpression(JavaScriptParser.SuperExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code MultiplicativeExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterMultiplicativeExpression(JavaScriptParser.MultiplicativeExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code MultiplicativeExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitMultiplicativeExpression(JavaScriptParser.MultiplicativeExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code htmlElementExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterHtmlElementExpression(JavaScriptParser.HtmlElementExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code htmlElementExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitHtmlElementExpression(JavaScriptParser.HtmlElementExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code BitShiftExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterBitShiftExpression(JavaScriptParser.BitShiftExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code BitShiftExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitBitShiftExpression(JavaScriptParser.BitShiftExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ParenthesizedExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterParenthesizedExpression(JavaScriptParser.ParenthesizedExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ParenthesizedExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitParenthesizedExpression(JavaScriptParser.ParenthesizedExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code AdditiveExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterAdditiveExpression(JavaScriptParser.AdditiveExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code AdditiveExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitAdditiveExpression(JavaScriptParser.AdditiveExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code RelationalExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterRelationalExpression(JavaScriptParser.RelationalExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code RelationalExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitRelationalExpression(JavaScriptParser.RelationalExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code PostIncrementExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterPostIncrementExpression(JavaScriptParser.PostIncrementExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code PostIncrementExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitPostIncrementExpression(JavaScriptParser.PostIncrementExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code YieldExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterYieldExpression(@NotNull JavaScriptParser.YieldExpressionContext ctx);
+	void enterYieldExpression(JavaScriptParser.YieldExpressionContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code YieldExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitYieldExpression(@NotNull JavaScriptParser.YieldExpressionContext ctx);
+	void exitYieldExpression(JavaScriptParser.YieldExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#sourceElement}.
+	 * Enter a parse tree produced by the {@code BitNotExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterSourceElement(@NotNull JavaScriptParser.SourceElementContext ctx);
+	void enterBitNotExpression(JavaScriptParser.BitNotExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#sourceElement}.
+	 * Exit a parse tree produced by the {@code BitNotExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitSourceElement(@NotNull JavaScriptParser.SourceElementContext ctx);
+	void exitBitNotExpression(JavaScriptParser.BitNotExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code ArrowFunction}
-	 * labeled alternative in {@link JavaScriptParser#anoymousFunction}.
+	 * Enter a parse tree produced by the {@code NewExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterArrowFunction(@NotNull JavaScriptParser.ArrowFunctionContext ctx);
+	void enterNewExpression(JavaScriptParser.NewExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code ArrowFunction}
-	 * labeled alternative in {@link JavaScriptParser#anoymousFunction}.
+	 * Exit a parse tree produced by the {@code NewExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitArrowFunction(@NotNull JavaScriptParser.ArrowFunctionContext ctx);
+	void exitNewExpression(JavaScriptParser.NewExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#breakStatement}.
+	 * Enter a parse tree produced by the {@code LiteralExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterBreakStatement(@NotNull JavaScriptParser.BreakStatementContext ctx);
+	void enterLiteralExpression(JavaScriptParser.LiteralExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#breakStatement}.
+	 * Exit a parse tree produced by the {@code LiteralExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitBreakStatement(@NotNull JavaScriptParser.BreakStatementContext ctx);
+	void exitLiteralExpression(JavaScriptParser.LiteralExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ArrayLiteralExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterArrayLiteralExpression(JavaScriptParser.ArrayLiteralExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ArrayLiteralExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitArrayLiteralExpression(JavaScriptParser.ArrayLiteralExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code MemberDotExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterMemberDotExpression(JavaScriptParser.MemberDotExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code MemberDotExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitMemberDotExpression(JavaScriptParser.MemberDotExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code ClassExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterClassExpression(@NotNull JavaScriptParser.ClassExpressionContext ctx);
+	void enterClassExpression(JavaScriptParser.ClassExpressionContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code ClassExpression}
 	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitClassExpression(@NotNull JavaScriptParser.ClassExpressionContext ctx);
+	void exitClassExpression(JavaScriptParser.ClassExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#ifStatement}.
+	 * Enter a parse tree produced by the {@code MemberIndexExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterIfStatement(@NotNull JavaScriptParser.IfStatementContext ctx);
+	void enterMemberIndexExpression(JavaScriptParser.MemberIndexExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#ifStatement}.
+	 * Exit a parse tree produced by the {@code MemberIndexExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitIfStatement(@NotNull JavaScriptParser.IfStatementContext ctx);
+	void exitMemberIndexExpression(JavaScriptParser.MemberIndexExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#reservedWord}.
+	 * Enter a parse tree produced by the {@code IdentifierExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterReservedWord(@NotNull JavaScriptParser.ReservedWordContext ctx);
+	void enterIdentifierExpression(JavaScriptParser.IdentifierExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#reservedWord}.
+	 * Exit a parse tree produced by the {@code IdentifierExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitReservedWord(@NotNull JavaScriptParser.ReservedWordContext ctx);
+	void exitIdentifierExpression(JavaScriptParser.IdentifierExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#finallyProduction}.
+	 * Enter a parse tree produced by the {@code BitAndExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterFinallyProduction(@NotNull JavaScriptParser.FinallyProductionContext ctx);
+	void enterBitAndExpression(JavaScriptParser.BitAndExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#finallyProduction}.
+	 * Exit a parse tree produced by the {@code BitAndExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitFinallyProduction(@NotNull JavaScriptParser.FinallyProductionContext ctx);
+	void exitBitAndExpression(JavaScriptParser.BitAndExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code BitOrExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterBitOrExpression(JavaScriptParser.BitOrExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code BitOrExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitBitOrExpression(JavaScriptParser.BitOrExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code AssignmentOperatorExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterAssignmentOperatorExpression(JavaScriptParser.AssignmentOperatorExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code AssignmentOperatorExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitAssignmentOperatorExpression(JavaScriptParser.AssignmentOperatorExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code VoidExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterVoidExpression(JavaScriptParser.VoidExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code VoidExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitVoidExpression(JavaScriptParser.VoidExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code CoalesceExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterCoalesceExpression(JavaScriptParser.CoalesceExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code CoalesceExpression}
+	 * labeled alternative in {@link JavaScriptParser#singleExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitCoalesceExpression(JavaScriptParser.CoalesceExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#htmlElements}.
+	 * @param ctx the parse tree
+	 */
+	void enterHtmlElements(JavaScriptParser.HtmlElementsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#htmlElements}.
+	 * @param ctx the parse tree
+	 */
+	void exitHtmlElements(JavaScriptParser.HtmlElementsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#htmlElement}.
+	 * @param ctx the parse tree
+	 */
+	void enterHtmlElement(JavaScriptParser.HtmlElementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#htmlElement}.
+	 * @param ctx the parse tree
+	 */
+	void exitHtmlElement(JavaScriptParser.HtmlElementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#htmlContent}.
+	 * @param ctx the parse tree
+	 */
+	void enterHtmlContent(JavaScriptParser.HtmlContentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#htmlContent}.
+	 * @param ctx the parse tree
+	 */
+	void exitHtmlContent(JavaScriptParser.HtmlContentContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#htmlTagStartName}.
+	 * @param ctx the parse tree
+	 */
+	void enterHtmlTagStartName(JavaScriptParser.HtmlTagStartNameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#htmlTagStartName}.
+	 * @param ctx the parse tree
+	 */
+	void exitHtmlTagStartName(JavaScriptParser.HtmlTagStartNameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#htmlTagClosingName}.
+	 * @param ctx the parse tree
+	 */
+	void enterHtmlTagClosingName(JavaScriptParser.HtmlTagClosingNameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#htmlTagClosingName}.
+	 * @param ctx the parse tree
+	 */
+	void exitHtmlTagClosingName(JavaScriptParser.HtmlTagClosingNameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#htmlTagName}.
+	 * @param ctx the parse tree
+	 */
+	void enterHtmlTagName(JavaScriptParser.HtmlTagNameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#htmlTagName}.
+	 * @param ctx the parse tree
+	 */
+	void exitHtmlTagName(JavaScriptParser.HtmlTagNameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#htmlAttribute}.
+	 * @param ctx the parse tree
+	 */
+	void enterHtmlAttribute(JavaScriptParser.HtmlAttributeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#htmlAttribute}.
+	 * @param ctx the parse tree
+	 */
+	void exitHtmlAttribute(JavaScriptParser.HtmlAttributeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#htmlAttributeName}.
+	 * @param ctx the parse tree
+	 */
+	void enterHtmlAttributeName(JavaScriptParser.HtmlAttributeNameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#htmlAttributeName}.
+	 * @param ctx the parse tree
+	 */
+	void exitHtmlAttributeName(JavaScriptParser.HtmlAttributeNameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#htmlChardata}.
+	 * @param ctx the parse tree
+	 */
+	void enterHtmlChardata(JavaScriptParser.HtmlChardataContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#htmlChardata}.
+	 * @param ctx the parse tree
+	 */
+	void exitHtmlChardata(JavaScriptParser.HtmlChardataContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#htmlAttributeValue}.
+	 * @param ctx the parse tree
+	 */
+	void enterHtmlAttributeValue(JavaScriptParser.HtmlAttributeValueContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#htmlAttributeValue}.
+	 * @param ctx the parse tree
+	 */
+	void exitHtmlAttributeValue(JavaScriptParser.HtmlAttributeValueContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JavaScriptParser#assignable}.
 	 * @param ctx the parse tree
 	 */
-	void enterAssignable(@NotNull JavaScriptParser.AssignableContext ctx);
+	void enterAssignable(JavaScriptParser.AssignableContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link JavaScriptParser#assignable}.
 	 * @param ctx the parse tree
 	 */
-	void exitAssignable(@NotNull JavaScriptParser.AssignableContext ctx);
+	void exitAssignable(JavaScriptParser.AssignableContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#objectLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void enterObjectLiteral(JavaScriptParser.ObjectLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#objectLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void exitObjectLiteral(JavaScriptParser.ObjectLiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#objectExpressionSequence}.
+	 * @param ctx the parse tree
+	 */
+	void enterObjectExpressionSequence(JavaScriptParser.ObjectExpressionSequenceContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#objectExpressionSequence}.
+	 * @param ctx the parse tree
+	 */
+	void exitObjectExpressionSequence(JavaScriptParser.ObjectExpressionSequenceContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code FunctionDecl}
 	 * labeled alternative in {@link JavaScriptParser#anoymousFunction}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunctionDecl(@NotNull JavaScriptParser.FunctionDeclContext ctx);
+	void enterFunctionDecl(JavaScriptParser.FunctionDeclContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code FunctionDecl}
 	 * labeled alternative in {@link JavaScriptParser#anoymousFunction}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunctionDecl(@NotNull JavaScriptParser.FunctionDeclContext ctx);
+	void exitFunctionDecl(JavaScriptParser.FunctionDeclContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#catchProduction}.
+	 * Enter a parse tree produced by the {@code AnoymousFunctionDecl}
+	 * labeled alternative in {@link JavaScriptParser#anoymousFunction}.
 	 * @param ctx the parse tree
 	 */
-	void enterCatchProduction(@NotNull JavaScriptParser.CatchProductionContext ctx);
+	void enterAnoymousFunctionDecl(JavaScriptParser.AnoymousFunctionDeclContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#catchProduction}.
+	 * Exit a parse tree produced by the {@code AnoymousFunctionDecl}
+	 * labeled alternative in {@link JavaScriptParser#anoymousFunction}.
 	 * @param ctx the parse tree
 	 */
-	void exitCatchProduction(@NotNull JavaScriptParser.CatchProductionContext ctx);
+	void exitAnoymousFunctionDecl(JavaScriptParser.AnoymousFunctionDeclContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#continueStatement}.
+	 * Enter a parse tree produced by the {@code ArrowFunction}
+	 * labeled alternative in {@link JavaScriptParser#anoymousFunction}.
 	 * @param ctx the parse tree
 	 */
-	void enterContinueStatement(@NotNull JavaScriptParser.ContinueStatementContext ctx);
+	void enterArrowFunction(JavaScriptParser.ArrowFunctionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#continueStatement}.
+	 * Exit a parse tree produced by the {@code ArrowFunction}
+	 * labeled alternative in {@link JavaScriptParser#anoymousFunction}.
 	 * @param ctx the parse tree
 	 */
-	void exitContinueStatement(@NotNull JavaScriptParser.ContinueStatementContext ctx);
+	void exitArrowFunction(JavaScriptParser.ArrowFunctionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#arguments}.
+	 * Enter a parse tree produced by {@link JavaScriptParser#arrowFunctionParameters}.
 	 * @param ctx the parse tree
 	 */
-	void enterArguments(@NotNull JavaScriptParser.ArgumentsContext ctx);
+	void enterArrowFunctionParameters(JavaScriptParser.ArrowFunctionParametersContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#arguments}.
+	 * Exit a parse tree produced by {@link JavaScriptParser#arrowFunctionParameters}.
 	 * @param ctx the parse tree
 	 */
-	void exitArguments(@NotNull JavaScriptParser.ArgumentsContext ctx);
+	void exitArrowFunctionParameters(JavaScriptParser.ArrowFunctionParametersContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#functionBody}.
+	 * Enter a parse tree produced by {@link JavaScriptParser#arrowFunctionBody}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunctionBody(@NotNull JavaScriptParser.FunctionBodyContext ctx);
+	void enterArrowFunctionBody(JavaScriptParser.ArrowFunctionBodyContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#functionBody}.
+	 * Exit a parse tree produced by {@link JavaScriptParser#arrowFunctionBody}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunctionBody(@NotNull JavaScriptParser.FunctionBodyContext ctx);
+	void exitArrowFunctionBody(JavaScriptParser.ArrowFunctionBodyContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaScriptParser#varModifier}.
+	 * Enter a parse tree produced by {@link JavaScriptParser#assignmentOperator}.
 	 * @param ctx the parse tree
 	 */
-	void enterVarModifier(@NotNull JavaScriptParser.VarModifierContext ctx);
+	void enterAssignmentOperator(JavaScriptParser.AssignmentOperatorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaScriptParser#varModifier}.
+	 * Exit a parse tree produced by {@link JavaScriptParser#assignmentOperator}.
 	 * @param ctx the parse tree
 	 */
-	void exitVarModifier(@NotNull JavaScriptParser.VarModifierContext ctx);
+	void exitAssignmentOperator(JavaScriptParser.AssignmentOperatorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void enterLiteral(JavaScriptParser.LiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#literal}.
+	 * @param ctx the parse tree
+	 */
+	void exitLiteral(JavaScriptParser.LiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#numericLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void enterNumericLiteral(JavaScriptParser.NumericLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#numericLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void exitNumericLiteral(JavaScriptParser.NumericLiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#bigintLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void enterBigintLiteral(JavaScriptParser.BigintLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#bigintLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void exitBigintLiteral(JavaScriptParser.BigintLiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#getter}.
+	 * @param ctx the parse tree
+	 */
+	void enterGetter(JavaScriptParser.GetterContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#getter}.
+	 * @param ctx the parse tree
+	 */
+	void exitGetter(JavaScriptParser.GetterContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#setter}.
+	 * @param ctx the parse tree
+	 */
+	void enterSetter(JavaScriptParser.SetterContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#setter}.
+	 * @param ctx the parse tree
+	 */
+	void exitSetter(JavaScriptParser.SetterContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#identifierName}.
+	 * @param ctx the parse tree
+	 */
+	void enterIdentifierName(JavaScriptParser.IdentifierNameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#identifierName}.
+	 * @param ctx the parse tree
+	 */
+	void exitIdentifierName(JavaScriptParser.IdentifierNameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#identifier}.
+	 * @param ctx the parse tree
+	 */
+	void enterIdentifier(JavaScriptParser.IdentifierContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#identifier}.
+	 * @param ctx the parse tree
+	 */
+	void exitIdentifier(JavaScriptParser.IdentifierContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#reservedWord}.
+	 * @param ctx the parse tree
+	 */
+	void enterReservedWord(JavaScriptParser.ReservedWordContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#reservedWord}.
+	 * @param ctx the parse tree
+	 */
+	void exitReservedWord(JavaScriptParser.ReservedWordContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#keyword}.
+	 * @param ctx the parse tree
+	 */
+	void enterKeyword(JavaScriptParser.KeywordContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#keyword}.
+	 * @param ctx the parse tree
+	 */
+	void exitKeyword(JavaScriptParser.KeywordContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#let}.
+	 * @param ctx the parse tree
+	 */
+	void enterLet(JavaScriptParser.LetContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#let}.
+	 * @param ctx the parse tree
+	 */
+	void exitLet(JavaScriptParser.LetContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JavaScriptParser#eos}.
+	 * @param ctx the parse tree
+	 */
+	void enterEos(JavaScriptParser.EosContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JavaScriptParser#eos}.
+	 * @param ctx the parse tree
+	 */
+	void exitEos(JavaScriptParser.EosContext ctx);
 }

@@ -19,6 +19,7 @@ import com.example.translator.JavaScriptLexer;
 import com.example.translator.JavaScriptParser;
 import com.example.translator.JavaScriptParserBaseListener;
 
+
 @Component("React_Native2HtmlConverter")
 public class React_Native2HtmlConverter extends JavaScriptParserBaseListener implements CodeConverter {
 

@@ -8,15 +8,22 @@ public enum Languages {
 	FLUTTER("Flutter"),
 	REACT_NATIVE("React_Native"),
 	HTML("Html"),
-	XML("Xml");
+	XML("Xml"),
+	JAVA("Java"),
+	KOTLIN("Kotlin"),
+	TYPESCRIPT("Typescript"),
+	DART("Dart"),
+	JAVASCRIPT("Javascript");
 	
 	private String language;
 
-	public String getLanguage() {
+	public String getLanguage() 
+	{
 		return language;
 	}
 
-	private Languages(String language) {
+	private Languages(String language) 
+	{
 		this.language = language;
 	}
 	
