@@ -67,7 +67,7 @@ class Converter extends State<ButtonClick> {
                       color: Colors.deepPurple,
                       child: Text(
                         "RESULT",
-                        style: TextStyle( color: Colors.white),
+                        style: TextStyle( color: Colors.white)
                       ),
                       onPressed: () {
                         setState(() {
