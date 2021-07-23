@@ -117,7 +117,7 @@ typeReference
     ;
 
 nestedTypeGeneric
-    : typeIncludeGeneric 
+    : typeIncludeGeneric
     | typeGeneric
     ;
 
@@ -326,10 +326,12 @@ decoratorCallExpression
 // ECMAPart
 program
     : sourceElements? EOF
+//    : statement
     ;
 
 sourceElement
     : Export? statement
+//    : statement
     ;
 
 statement
@@ -344,6 +346,8 @@ statement
     | interfaceDeclaration //ADDED
     | namespaceDeclaration //ADDED
     | ifStatement
+    | elseStatement
+    | elseIfStatement
     | iterationStatement
     | continueStatement
     | breakStatement
@@ -415,9 +419,16 @@ expressionStatement
     ;
 
 ifStatement
-    : If '(' expressionSequence ')' statement (Else statement)?
+    : If '(' expressionSequence ')' statement (elseStatement)?
     ;
 
+elseStatement
+    :Else statement
+    ;
+
+elseIfStatement
+    : Else WhiteSpaces ifStatement
+    ;
 
 iterationStatement
     : Do statement While '(' expressionSequence ')' eos                                                         # DoStatement

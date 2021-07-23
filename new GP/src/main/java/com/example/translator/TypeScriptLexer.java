@@ -1,5 +1,6 @@
-// Generated from TypeScriptLexer.g4 by ANTLR 4.4
 package com.example.translator;
+
+
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -11,7 +12,7 @@ import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class TypeScriptLexer extends TypeScriptLexerBase {
-	static { RuntimeMetaData.checkVersion("4.4", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.9.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -40,59 +41,129 @@ public class TypeScriptLexer extends TypeScriptLexerBase {
 		Set=114, Constructor=115, Namespace=116, Require=117, Module=118, Declare=119, 
 		Abstract=120, Is=121, At=122, Identifier=123, StringLiteral=124, TemplateStringLiteral=125, 
 		WhiteSpaces=126, LineTerminator=127, HtmlComment=128, CDataComment=129;
+	public static String[] channelNames = {
+		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
+	};
+
 	public static String[] modeNames = {
 		"DEFAULT_MODE"
 	};
 
-	public static final String[] tokenNames = {
-		"'\\u0000'", "'\\u0001'", "'\\u0002'", "'\\u0003'", "'\\u0004'", "'\\u0005'", 
-		"'\\u0006'", "'\\u0007'", "'\b'", "'\t'", "'\n'", "'\\u000B'", "'\f'", 
-		"'\r'", "'\\u000E'", "'\\u000F'", "'\\u0010'", "'\\u0011'", "'\\u0012'", 
-		"'\\u0013'", "'\\u0014'", "'\\u0015'", "'\\u0016'", "'\\u0017'", "'\\u0018'", 
-		"'\\u0019'", "'\\u001A'", "'\\u001B'", "'\\u001C'", "'\\u001D'", "'\\u001E'", 
-		"'\\u001F'", "' '", "'!'", "'\"'", "'#'", "'$'", "'%'", "'&'", "'''", 
-		"'('", "')'", "'*'", "'+'", "','", "'-'", "'.'", "'/'", "'0'", "'1'", 
-		"'2'", "'3'", "'4'", "'5'", "'6'", "'7'", "'8'", "'9'", "':'", "';'", 
-		"'<'", "'='", "'>'", "'?'", "'@'", "'A'", "'B'", "'C'", "'D'", "'E'", 
-		"'F'", "'G'", "'H'", "'I'", "'J'", "'K'", "'L'", "'M'", "'N'", "'O'", 
-		"'P'", "'Q'", "'R'", "'S'", "'T'", "'U'", "'V'", "'W'", "'X'", "'Y'", 
-		"'Z'", "'['", "'\\'", "']'", "'^'", "'_'", "'`'", "'a'", "'b'", "'c'", 
-		"'d'", "'e'", "'f'", "'g'", "'h'", "'i'", "'j'", "'k'", "'l'", "'m'", 
-		"'n'", "'o'", "'p'", "'q'", "'r'", "'s'", "'t'", "'u'", "'v'", "'w'", 
-		"'x'", "'y'", "'z'", "'{'", "'|'", "'}'", "'~'", "'\\u007F'", "'\\u0080'", 
-		"'\\u0081'"
-	};
-	public static final String[] ruleNames = {
-		"MultiLineComment", "SingleLineComment", "RegularExpressionLiteral", "OpenBracket", 
-		"CloseBracket", "OpenParen", "CloseParen", "OpenBrace", "CloseBrace", 
-		"SemiColon", "Comma", "Assign", "QuestionMark", "Colon", "Ellipsis", "Dot", 
-		"PlusPlus", "MinusMinus", "Plus", "Minus", "BitNot", "Not", "Multiply", 
-		"Divide", "Modulus", "RightShiftArithmetic", "LeftShiftArithmetic", "RightShiftLogical", 
-		"LessThan", "MoreThan", "LessThanEquals", "GreaterThanEquals", "Equals_", 
-		"NotEquals", "IdentityEquals", "IdentityNotEquals", "BitAnd", "BitXOr", 
-		"BitOr", "And", "Or", "MultiplyAssign", "DivideAssign", "ModulusAssign", 
-		"PlusAssign", "MinusAssign", "LeftShiftArithmeticAssign", "RightShiftArithmeticAssign", 
-		"RightShiftLogicalAssign", "BitAndAssign", "BitXorAssign", "BitOrAssign", 
-		"ARROW", "NullLiteral", "BooleanLiteral", "DecimalLiteral", "HexIntegerLiteral", 
-		"OctalIntegerLiteral", "OctalIntegerLiteral2", "BinaryIntegerLiteral", 
-		"Break", "Do", "Instanceof", "Typeof", "Case", "Else", "New", "Var", "Catch", 
-		"Finally", "Return", "Void", "Continue", "For", "Switch", "While", "Debugger", 
-		"Function", "This", "With", "Default", "If", "Throw", "Delete", "In", 
-		"Try", "As", "From", "ReadOnly", "Async", "Class", "Enum", "Extends", 
-		"Super", "Const", "Export", "Import", "Implements", "Let", "Private", 
-		"Public", "Interface", "Package", "Protected", "Static", "Yield", "Any", 
-		"Number", "Boolean", "String", "Symbol", "TypeAlias", "Get", "Set", "Constructor", 
-		"Namespace", "Require", "Module", "Declare", "Abstract", "Is", "At", "Identifier", 
-		"StringLiteral", "TemplateStringLiteral", "WhiteSpaces", "LineTerminator", 
-		"HtmlComment", "CDataComment", "DoubleStringCharacter", "SingleStringCharacter", 
-		"EscapeSequence", "CharacterEscapeSequence", "HexEscapeSequence", "UnicodeEscapeSequence", 
-		"ExtendedUnicodeEscapeSequence", "SingleEscapeCharacter", "NonEscapeCharacter", 
-		"EscapeCharacter", "LineContinuation", "HexDigit", "DecimalIntegerLiteral", 
-		"ExponentPart", "IdentifierPart", "IdentifierStart", "UnicodeLetter", 
-		"UnicodeCombiningMark", "UnicodeDigit", "UnicodeConnectorPunctuation", 
-		"RegularExpressionFirstChar", "RegularExpressionChar", "RegularExpressionClassChar", 
-		"RegularExpressionBackslashSequence"
-	};
+	private static String[] makeRuleNames() {
+		return new String[] {
+			"MultiLineComment", "SingleLineComment", "RegularExpressionLiteral", 
+			"OpenBracket", "CloseBracket", "OpenParen", "CloseParen", "OpenBrace", 
+			"CloseBrace", "SemiColon", "Comma", "Assign", "QuestionMark", "Colon", 
+			"Ellipsis", "Dot", "PlusPlus", "MinusMinus", "Plus", "Minus", "BitNot", 
+			"Not", "Multiply", "Divide", "Modulus", "RightShiftArithmetic", "LeftShiftArithmetic", 
+			"RightShiftLogical", "LessThan", "MoreThan", "LessThanEquals", "GreaterThanEquals", 
+			"Equals_", "NotEquals", "IdentityEquals", "IdentityNotEquals", "BitAnd", 
+			"BitXOr", "BitOr", "And", "Or", "MultiplyAssign", "DivideAssign", "ModulusAssign", 
+			"PlusAssign", "MinusAssign", "LeftShiftArithmeticAssign", "RightShiftArithmeticAssign", 
+			"RightShiftLogicalAssign", "BitAndAssign", "BitXorAssign", "BitOrAssign", 
+			"ARROW", "NullLiteral", "BooleanLiteral", "DecimalLiteral", "HexIntegerLiteral", 
+			"OctalIntegerLiteral", "OctalIntegerLiteral2", "BinaryIntegerLiteral", 
+			"Break", "Do", "Instanceof", "Typeof", "Case", "Else", "New", "Var", 
+			"Catch", "Finally", "Return", "Void", "Continue", "For", "Switch", "While", 
+			"Debugger", "Function", "This", "With", "Default", "If", "Throw", "Delete", 
+			"In", "Try", "As", "From", "ReadOnly", "Async", "Class", "Enum", "Extends", 
+			"Super", "Const", "Export", "Import", "Implements", "Let", "Private", 
+			"Public", "Interface", "Package", "Protected", "Static", "Yield", "Any", 
+			"Number", "Boolean", "String", "Symbol", "TypeAlias", "Get", "Set", "Constructor", 
+			"Namespace", "Require", "Module", "Declare", "Abstract", "Is", "At", 
+			"Identifier", "StringLiteral", "TemplateStringLiteral", "WhiteSpaces", 
+			"LineTerminator", "HtmlComment", "CDataComment", "DoubleStringCharacter", 
+			"SingleStringCharacter", "EscapeSequence", "CharacterEscapeSequence", 
+			"HexEscapeSequence", "UnicodeEscapeSequence", "ExtendedUnicodeEscapeSequence", 
+			"SingleEscapeCharacter", "NonEscapeCharacter", "EscapeCharacter", "LineContinuation", 
+			"HexDigit", "DecimalIntegerLiteral", "ExponentPart", "IdentifierPart", 
+			"IdentifierStart", "UnicodeLetter", "UnicodeCombiningMark", "UnicodeDigit", 
+			"UnicodeConnectorPunctuation", "RegularExpressionFirstChar", "RegularExpressionChar", 
+			"RegularExpressionClassChar", "RegularExpressionBackslashSequence"
+		};
+	}
+	public static final String[] ruleNames = makeRuleNames();
+
+	private static String[] makeLiteralNames() {
+		return new String[] {
+			null, null, null, null, "'['", "']'", "'('", "')'", "'{'", "'}'", "';'", 
+			"','", "'='", "'?'", "':'", "'...'", "'.'", "'++'", "'--'", "'+'", "'-'", 
+			"'~'", "'!'", "'*'", "'/'", "'%'", "'>>'", "'<<'", "'>>>'", "'<'", "'>'", 
+			"'<='", "'>='", "'=='", "'!='", "'==='", "'!=='", "'&'", "'^'", "'|'", 
+			"'&&'", "'||'", "'*='", "'/='", "'%='", "'+='", "'-='", "'<<='", "'>>='", 
+			"'>>>='", "'&='", "'^='", "'|='", "'=>'", "'null'", null, null, null, 
+			null, null, null, "'break'", "'do'", "'instanceof'", "'typeof'", "'case'", 
+			"'else'", "'new'", "'var'", "'catch'", "'finally'", "'return'", "'void'", 
+			"'continue'", "'for'", "'switch'", "'while'", "'debugger'", "'function'", 
+			"'this'", "'with'", "'default'", "'if'", "'throw'", "'delete'", "'in'", 
+			"'try'", "'as'", "'from'", "'readonly'", "'async'", "'class'", "'enum'", 
+			"'extends'", "'super'", "'const'", "'export'", "'import'", "'implements'", 
+			"'let'", "'private'", "'public'", "'interface'", "'package'", "'protected'", 
+			"'static'", "'yield'", "'any'", "'number'", "'boolean'", "'string'", 
+			"'symbol'", "'type'", "'get'", "'set'", "'constructor'", "'namespace'", 
+			"'require'", "'module'", "'declare'", "'abstract'", "'is'", "'@'"
+		};
+	}
+	private static final String[] _LITERAL_NAMES = makeLiteralNames();
+	private static String[] makeSymbolicNames() {
+		return new String[] {
+			null, "MultiLineComment", "SingleLineComment", "RegularExpressionLiteral", 
+			"OpenBracket", "CloseBracket", "OpenParen", "CloseParen", "OpenBrace", 
+			"CloseBrace", "SemiColon", "Comma", "Assign", "QuestionMark", "Colon", 
+			"Ellipsis", "Dot", "PlusPlus", "MinusMinus", "Plus", "Minus", "BitNot", 
+			"Not", "Multiply", "Divide", "Modulus", "RightShiftArithmetic", "LeftShiftArithmetic", 
+			"RightShiftLogical", "LessThan", "MoreThan", "LessThanEquals", "GreaterThanEquals", 
+			"Equals_", "NotEquals", "IdentityEquals", "IdentityNotEquals", "BitAnd", 
+			"BitXOr", "BitOr", "And", "Or", "MultiplyAssign", "DivideAssign", "ModulusAssign", 
+			"PlusAssign", "MinusAssign", "LeftShiftArithmeticAssign", "RightShiftArithmeticAssign", 
+			"RightShiftLogicalAssign", "BitAndAssign", "BitXorAssign", "BitOrAssign", 
+			"ARROW", "NullLiteral", "BooleanLiteral", "DecimalLiteral", "HexIntegerLiteral", 
+			"OctalIntegerLiteral", "OctalIntegerLiteral2", "BinaryIntegerLiteral", 
+			"Break", "Do", "Instanceof", "Typeof", "Case", "Else", "New", "Var", 
+			"Catch", "Finally", "Return", "Void", "Continue", "For", "Switch", "While", 
+			"Debugger", "Function", "This", "With", "Default", "If", "Throw", "Delete", 
+			"In", "Try", "As", "From", "ReadOnly", "Async", "Class", "Enum", "Extends", 
+			"Super", "Const", "Export", "Import", "Implements", "Let", "Private", 
+			"Public", "Interface", "Package", "Protected", "Static", "Yield", "Any", 
+			"Number", "Boolean", "String", "Symbol", "TypeAlias", "Get", "Set", "Constructor", 
+			"Namespace", "Require", "Module", "Declare", "Abstract", "Is", "At", 
+			"Identifier", "StringLiteral", "TemplateStringLiteral", "WhiteSpaces", 
+			"LineTerminator", "HtmlComment", "CDataComment"
+		};
+	}
+	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
+	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
+
+	/**
+	 * @deprecated Use {@link #VOCABULARY} instead.
+	 */
+	@Deprecated
+	public static final String[] tokenNames;
+	static {
+		tokenNames = new String[_SYMBOLIC_NAMES.length];
+		for (int i = 0; i < tokenNames.length; i++) {
+			tokenNames[i] = VOCABULARY.getLiteralName(i);
+			if (tokenNames[i] == null) {
+				tokenNames[i] = VOCABULARY.getSymbolicName(i);
+			}
+
+			if (tokenNames[i] == null) {
+				tokenNames[i] = "<INVALID>";
+			}
+		}
+	}
+
+	@Override
+	@Deprecated
+	public String[] getTokenNames() {
+		return tokenNames;
+	}
+
+	@Override
+
+	public Vocabulary getVocabulary() {
+		return VOCABULARY;
+	}
 
 
 	public TypeScriptLexer(CharStream input) {
@@ -104,13 +175,13 @@ public class TypeScriptLexer extends TypeScriptLexerBase {
 	public String getGrammarFileName() { return "TypeScriptLexer.g4"; }
 
 	@Override
-	public String[] getTokenNames() { return tokenNames; }
-
-	@Override
 	public String[] getRuleNames() { return ruleNames; }
 
 	@Override
 	public String getSerializedATN() { return _serializedATN; }
+
+	@Override
+	public String[] getChannelNames() { return channelNames; }
 
 	@Override
 	public String[] getModeNames() { return modeNames; }
@@ -121,49 +192,65 @@ public class TypeScriptLexer extends TypeScriptLexerBase {
 	@Override
 	public void action(RuleContext _localctx, int ruleIndex, int actionIndex) {
 		switch (ruleIndex) {
-		case 7: OpenBrace_action((RuleContext)_localctx, actionIndex); break;
-		case 8: CloseBrace_action((RuleContext)_localctx, actionIndex); break;
-		case 123: StringLiteral_action((RuleContext)_localctx, actionIndex); break;
-		}
-	}
-	private void StringLiteral_action(RuleContext _localctx, int actionIndex) {
-		switch (actionIndex) {
-		case 2: this.ProcessStringLiteral(); break;
+		case 7:
+			OpenBrace_action((RuleContext)_localctx, actionIndex);
+			break;
+		case 8:
+			CloseBrace_action((RuleContext)_localctx, actionIndex);
+			break;
+		case 123:
+			StringLiteral_action((RuleContext)_localctx, actionIndex);
+			break;
 		}
 	}
 	private void OpenBrace_action(RuleContext _localctx, int actionIndex) {
 		switch (actionIndex) {
-		case 0: this.ProcessOpenBrace(); break;
+		case 0:
+			this.ProcessOpenBrace();
+			break;
 		}
 	}
 	private void CloseBrace_action(RuleContext _localctx, int actionIndex) {
 		switch (actionIndex) {
-		case 1: this.ProcessCloseBrace(); break;
+		case 1:
+			this.ProcessCloseBrace();
+			break;
+		}
+	}
+	private void StringLiteral_action(RuleContext _localctx, int actionIndex) {
+		switch (actionIndex) {
+		case 2:
+			this.ProcessStringLiteral();
+			break;
 		}
 	}
 	@Override
 	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 2: return RegularExpressionLiteral_sempred((RuleContext)_localctx, predIndex);
-		case 57: return OctalIntegerLiteral_sempred((RuleContext)_localctx, predIndex);
-		}
-		return true;
-	}
-	private boolean OctalIntegerLiteral_sempred(RuleContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 1: return !this.IsStrictMode();
+		case 2:
+			return RegularExpressionLiteral_sempred((RuleContext)_localctx, predIndex);
+		case 57:
+			return OctalIntegerLiteral_sempred((RuleContext)_localctx, predIndex);
 		}
 		return true;
 	}
 	private boolean RegularExpressionLiteral_sempred(RuleContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 0: return this.IsRegexPossible();
+		case 0:
+			return this.IsRegexPossible();
+		}
+		return true;
+	}
+	private boolean OctalIntegerLiteral_sempred(RuleContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 1:
+			return !this.IsStrictMode();
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\2\u0083\u0497\b\1\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\2\u0083\u0497\b\1\4"+
 		"\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n"+
 		"\4\13\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22"+
 		"\t\22\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31"+
@@ -324,17 +411,17 @@ public class TypeScriptLexer extends TypeScriptLexerBase {
 		"\u1042\u104b\u136b\u1373\u17e2\u17eb\u1812\u181b\uff12\uff1b\t\2aa\u2041"+
 		"\u2042\u30fd\u30fd\ufe35\ufe36\ufe4f\ufe51\uff41\uff41\uff67\uff67\b\2"+
 		"\f\f\17\17,,\61\61]^\u202a\u202b\7\2\f\f\17\17\61\61]^\u202a\u202b\6\2"+
-		"\f\f\17\17^_\u202a\u202b\u04b3\2\3\3\2\2\2\2\5\3\2\2\2\2\7\3\2\2\2\2\t"+
-		"\3\2\2\2\2\13\3\2\2\2\2\r\3\2\2\2\2\17\3\2\2\2\2\21\3\2\2\2\2\23\3\2\2"+
-		"\2\2\25\3\2\2\2\2\27\3\2\2\2\2\31\3\2\2\2\2\33\3\2\2\2\2\35\3\2\2\2\2"+
-		"\37\3\2\2\2\2!\3\2\2\2\2#\3\2\2\2\2%\3\2\2\2\2\'\3\2\2\2\2)\3\2\2\2\2"+
-		"+\3\2\2\2\2-\3\2\2\2\2/\3\2\2\2\2\61\3\2\2\2\2\63\3\2\2\2\2\65\3\2\2\2"+
-		"\2\67\3\2\2\2\29\3\2\2\2\2;\3\2\2\2\2=\3\2\2\2\2?\3\2\2\2\2A\3\2\2\2\2"+
-		"C\3\2\2\2\2E\3\2\2\2\2G\3\2\2\2\2I\3\2\2\2\2K\3\2\2\2\2M\3\2\2\2\2O\3"+
-		"\2\2\2\2Q\3\2\2\2\2S\3\2\2\2\2U\3\2\2\2\2W\3\2\2\2\2Y\3\2\2\2\2[\3\2\2"+
-		"\2\2]\3\2\2\2\2_\3\2\2\2\2a\3\2\2\2\2c\3\2\2\2\2e\3\2\2\2\2g\3\2\2\2\2"+
-		"i\3\2\2\2\2k\3\2\2\2\2m\3\2\2\2\2o\3\2\2\2\2q\3\2\2\2\2s\3\2\2\2\2u\3"+
-		"\2\2\2\2w\3\2\2\2\2y\3\2\2\2\2{\3\2\2\2\2}\3\2\2\2\2\177\3\2\2\2\2\u0081"+
+		"\f\f\17\17^_\u202a\u202b\2\u04b3\2\3\3\2\2\2\2\5\3\2\2\2\2\7\3\2\2\2\2"+
+		"\t\3\2\2\2\2\13\3\2\2\2\2\r\3\2\2\2\2\17\3\2\2\2\2\21\3\2\2\2\2\23\3\2"+
+		"\2\2\2\25\3\2\2\2\2\27\3\2\2\2\2\31\3\2\2\2\2\33\3\2\2\2\2\35\3\2\2\2"+
+		"\2\37\3\2\2\2\2!\3\2\2\2\2#\3\2\2\2\2%\3\2\2\2\2\'\3\2\2\2\2)\3\2\2\2"+
+		"\2+\3\2\2\2\2-\3\2\2\2\2/\3\2\2\2\2\61\3\2\2\2\2\63\3\2\2\2\2\65\3\2\2"+
+		"\2\2\67\3\2\2\2\29\3\2\2\2\2;\3\2\2\2\2=\3\2\2\2\2?\3\2\2\2\2A\3\2\2\2"+
+		"\2C\3\2\2\2\2E\3\2\2\2\2G\3\2\2\2\2I\3\2\2\2\2K\3\2\2\2\2M\3\2\2\2\2O"+
+		"\3\2\2\2\2Q\3\2\2\2\2S\3\2\2\2\2U\3\2\2\2\2W\3\2\2\2\2Y\3\2\2\2\2[\3\2"+
+		"\2\2\2]\3\2\2\2\2_\3\2\2\2\2a\3\2\2\2\2c\3\2\2\2\2e\3\2\2\2\2g\3\2\2\2"+
+		"\2i\3\2\2\2\2k\3\2\2\2\2m\3\2\2\2\2o\3\2\2\2\2q\3\2\2\2\2s\3\2\2\2\2u"+
+		"\3\2\2\2\2w\3\2\2\2\2y\3\2\2\2\2{\3\2\2\2\2}\3\2\2\2\2\177\3\2\2\2\2\u0081"+
 		"\3\2\2\2\2\u0083\3\2\2\2\2\u0085\3\2\2\2\2\u0087\3\2\2\2\2\u0089\3\2\2"+
 		"\2\2\u008b\3\2\2\2\2\u008d\3\2\2\2\2\u008f\3\2\2\2\2\u0091\3\2\2\2\2\u0093"+
 		"\3\2\2\2\2\u0095\3\2\2\2\2\u0097\3\2\2\2\2\u0099\3\2\2\2\2\u009b\3\2\2"+
