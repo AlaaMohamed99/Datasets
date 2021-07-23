@@ -1,15 +1,37 @@
-
-<ion-header>
-    <ion-toolbar class="toolbar">
-        <ion-title>
-            Agg Calc.
+<ion-header  >
+    <ion-toolbar class="toolbar" >
+        <ion-title >
+            Form with radiobutton
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
-<ion-content class="content_background">
-    <div class="center" >
-        <ion-input class="age_input" placeholder="Year of Your Birth" [(ngModel)]="year"> </ion-input>
-        <ion-button> Get Age</ion-button>
-    </div>
+<ion-content  >
+    <ion-item >
+        <ion-label  position="floating"> User Name</ion-label>
+        <ion-input type="text" > </ion-input>
+    </ion-item>
+
+    <ion-item >
+        <ion-label  position="floating"> Password</ion-label>
+        <ion-input  type="password"> </ion-input>
+    </ion-item>
+
+    <ion-radio-group >
+
+        <ion-item class="radio">
+            <ion-label>Male</ion-label>
+            <ion-radio  value="Male"></ion-radio>
+        </ion-item>
+
+        <ion-item class="radio">
+            <ion-label>Female</ion-label>
+            <ion-radio value="Female"></ion-radio>
+        </ion-item>
+
+
+    </ion-radio-group>
+
+    <ion-button  >Confirm</ion-button>
+
 </ion-content>
