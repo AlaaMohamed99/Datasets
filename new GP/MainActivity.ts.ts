@@ -24,6 +24,8 @@ export class HomePage {
     let currentYear=Calendar.getInstance().get(Calendar.YEAR);
 
     this.age=currentYear-this.myDOB;
+
+    this.age=currentYear-this.myDOB;
   }
 
 }
