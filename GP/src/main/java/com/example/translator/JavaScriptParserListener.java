@@ -1,4 +1,5 @@
 // Generated from D:/WORK/Transcompiler/src\JavaScriptParser.g4 by ANTLR 4.9
+package com.example.translator;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**

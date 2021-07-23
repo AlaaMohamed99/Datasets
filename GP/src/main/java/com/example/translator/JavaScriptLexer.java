@@ -1,3 +1,4 @@
+package com.example.translator;
 // Generated from D:/WORK/Transcompiler/src\JavaScriptLexer.g4 by ANTLR 4.9
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
