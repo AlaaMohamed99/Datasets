@@ -14,6 +14,10 @@ public class XML2Ionic extends XMLParserBaseListener {
     StringBuilder output = new StringBuilder("<ion-content class=\"main\" >\n");
     CharStream charStream2= CharStreams.fromFileName("./strings.xml");
     String xmlString = charStream2.toString();
+    String APPBAR = xmlString.substring(xmlString.indexOf("<string")+7,xmlString.indexOf("</string>"));
+
+    int APPBAR_Flag =0;
+
 
 
 
@@ -44,13 +48,14 @@ public class XML2Ionic extends XMLParserBaseListener {
         String methodName = ctx.element().Name(0).getText();
         int attsize = ctx.element().attribute().size();
         System.out.println(methodName);
+
         for(int i=0 ; i<attsize ; i++) {
             String att = ctx.element().attribute(i).Name().getText();
             String attvalue = ctx.element().attribute(i).STRING().getText();
             attvalue = attvalue.substring(1, attvalue.length() - 1);
 
+
             if (att.equals("android:background")){
-                System.out.println(attvalue);
                 css_output.append(".main"+" {\n");
                 css_output.append("--background: " +attvalue+ ";\n\n}\n");
 
@@ -74,6 +79,17 @@ public class XML2Ionic extends XMLParserBaseListener {
             int attSize = ctx.element(i).attribute().size();
             //System.out.println(attSize);
 
+            if(APPBAR_Flag==0) {
+                APPBAR = APPBAR.substring(APPBAR.indexOf(">")+1);
+                output.append("\n<ion-toolbar>\n" +
+                        "  <ion-title>" + APPBAR + "</ion-title>\n" +
+                        "</ion-toolbar>\n\n");
+                APPBAR_Flag=1;
+            }
+
+            System.out.println(attSize);
+
+
             ///////////////////1111111111111111111111
             if (methodName.equals("Button")) {
                 output.append("<ion-button ");
@@ -83,20 +99,19 @@ public class XML2Ionic extends XMLParserBaseListener {
                 double bias = 0.2;
                 int f=0;
                 double left = 1 ;
+                System.out.println(ctx.element(i).getText());
 
                 for(int j=0 ; j<attSize ; j++) {
 
-                    int onclick_flag=0;
                     String attribtes_NAME = ctx.element(i).attribute(j).Name().getText();
                     String attribtes_VALUE = ctx.element(i).attribute(j).STRING().getText();
                     attribtes_VALUE = attribtes_VALUE.substring(1, attribtes_VALUE.length() - 1);
-                    //System.out.println(attribtes_NAME);
+
                     //System.out.println(attribtes_VALUE + "9999999999999");
 
                     if (attribtes_NAME.equals("android:onClick")) {
 
                         output.append("(click)=\"" + attribtes_VALUE + "()\"");
-                        onclick_flag =1;
 
 
                     }
@@ -106,8 +121,11 @@ public class XML2Ionic extends XMLParserBaseListener {
                         output.append(" class=\"" + attribtes_VALUE.substring(5) + "\" ");
                         css_output.append("."+attribtes_VALUE.substring(5)+" {\n");
 
-                        if(onclick_flag==0){
+                        if(ctx.element(i).getText().contains("android:onClick")){
+                        }
+                        else {
                             output.append("(click)=\"" + attribtes_VALUE.substring(5) + "()\"");
+
                         }
 
                     }
@@ -132,7 +150,7 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k + "%;\n");
+                        css_output.append("top: "+ k+7 + "%;\n");
                     }
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
                         bias = Float.parseFloat(attribtes_VALUE);
@@ -195,6 +213,8 @@ public class XML2Ionic extends XMLParserBaseListener {
 
                     if (j==attSize-1){
 
+                        // last iteration
+
                         if(background_flag==0){
                             css_output.append("--background: transparent"+";\n");
 
@@ -251,6 +271,8 @@ public class XML2Ionic extends XMLParserBaseListener {
 
                         output.append(" class=\"" + attribtes_VALUE.substring(5) + "\" "+"> ");
                         css_output.append("."+attribtes_VALUE.substring(5)+" {\n");
+                        css_output.append("."+attribtes_VALUE.substring(5)+" {\n");
+
                         ID= attribtes_VALUE.substring(5);
                         try {
 
@@ -350,6 +372,7 @@ public class XML2Ionic extends XMLParserBaseListener {
 
                             int lineNum = 0;
                             int limit = 0;
+                            int flag=0;
 
 
                             while (scanner2.hasNextLine()) {
@@ -364,25 +387,27 @@ public class XML2Ionic extends XMLParserBaseListener {
                                     System.out.println(" IM INNNNNNNNNNNNNNNNNNNNNNN   hammmmmmmmmmmmmmmmed gammmmmmmmmmed");
 
                                     limit++;
+                                    System.out.println(limit+" IM INNNNNNNNNNNNNNNNNNNNNNN   hammmmmmmmmmmmmmmmed gammmmmmmmmmed");
 
                                     if(limit==1) {
 
+                                        flag=1;
                                         ID = line.substring(0, line.indexOf("="));
 
-
                                         ID = ID.replaceAll("\\s", "");
-                                        System.out.println(ID + limit + "         hammmmmmmmmmmmmmmmed gammmmmmmmmmed");
+                                        System.out.println(ID + limit + "         dddddddddddddddddddllllllllllllllllllllllll");
                                         System.out.println(line + "         hammmmmmmmmmmmmmmmed gammmmmmmmmmed");
-                                    }
-                                    else if (limit==2){
-
-                                        ID = line.substring(line.indexOf("setText(")+8,line.indexOf(");"));
-                                        System.out.println(ID+" IM INNNNNNNNNNNNNNNNNNNNNNN   hammmmmmmmmmmmmmmmed gammmmmmmmmmed");
-
-
 
                                     }
 
+
+
+
+
+                                }else if (limit==1 && flag==1 && line.contains("setText")){
+
+                                    ID = line.substring(line.indexOf("setText(")+8,line.indexOf(");"));
+                                    System.out.println(ID+" IM INNNNNNNNNNNNNNNNNNNNNNN   hammmmmmmmmmmmmmmmed gammmmmmmmmmed");
 
 
 
@@ -475,7 +500,7 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k + "%;\n");
+                        css_output.append("top: "+ k+7 + "%;\n");
                     }
 
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
@@ -726,7 +751,7 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k + "%;\n");
+                        css_output.append("top: "+ k+7 + "%;\n");
                     }
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
                         bias = Float.parseFloat(attribtes_VALUE);
@@ -856,7 +881,7 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k + "%;\n");
+                        css_output.append("top: "+ k+7  + "%;\n");
                     }
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
 
@@ -1038,7 +1063,7 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k + "%;\n");
+                        css_output.append("top: "+ k+7  + "%;\n");
                     }
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
                         bias = Float.parseFloat(attribtes_VALUE);
@@ -1184,7 +1209,7 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k + "%;\n");
+                        css_output.append("top: "+ k +7 + "%;\n");
                     }
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
                         bias = Float.parseFloat(attribtes_VALUE);
@@ -1368,7 +1393,7 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k + "%;\n");
+                        css_output.append("top: "+ k+7  + "%;\n");
                     }
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
                         bias = Float.parseFloat(attribtes_VALUE);
@@ -1504,7 +1529,7 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k + "%;\n");
+                        css_output.append("top: "+ k +7 + "%;\n");
                     }
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
 
@@ -1576,6 +1601,8 @@ public class XML2Ionic extends XMLParserBaseListener {
 
                         }
                         else if (text.length()>0 && f==0){
+
+
                             left=(100-((52+text.length()*10)*100/410))*bias;
                             System.out.println((52+text.length()*10)+ "////////");
                             String k = String.valueOf(left);
@@ -1642,7 +1669,7 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k + "%;\n");
+                        css_output.append("top: "+ k +7 + "%;\n");
                     }
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
 
@@ -1785,7 +1812,7 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k + "%;\n");
+                        css_output.append("top: "+ k+7  + "%;\n");
                     }
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
 
@@ -1888,6 +1915,8 @@ public class XML2Ionic extends XMLParserBaseListener {
         else {
             output.append("\n\n</ion-content>\n\n\n");
         }
+
+
         try {
             FileWriter outputFile;
             outputFile = new FileWriter(file.getName()+".html");
