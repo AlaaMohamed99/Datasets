@@ -7,6 +7,8 @@ public class IonicDTO {
 	
 	private List <File> htmlFiles;
 	private List <File> sccsFiles;
+	private List <File> typescriptFiles;
+
 	private String folderPath;
 	
 	
@@ -29,4 +31,13 @@ public class IonicDTO {
 	public void setSccsFiles(List<File> sccsFiles) {
 		this.sccsFiles = sccsFiles;
 	}
+	
+	public List<File> getTypescriptFiles() {
+		return typescriptFiles;
+	}
+	public void setTypescriptFiles(List<File> typescriptFiles) {
+		this.typescriptFiles = typescriptFiles;
+	}
+	
+	
 }

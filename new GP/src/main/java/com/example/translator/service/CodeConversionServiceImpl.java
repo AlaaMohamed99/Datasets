@@ -61,36 +61,179 @@ public class CodeConversionServiceImpl implements CodeConversionService
 
 		}
         List<File> generateFiles=new ArrayList<>();
+        
         // Ionic to React part
+        
 		 if(inLanguage.equals(Languages.IONIC.getLanguage()) && outLanguage.equals(Languages.REACT_NATIVE.getLanguage())) {
 			IonicDTO ionicDTO = IonicHandler.prepareFiles(uploadedFileName);
-			for (File htmlFile : ionicDTO.getHtmlFiles()) {
+			
+//			System.out.println("typescript files"+ionicDTO.getTypescriptFiles());
+//			System.out.println("html files"+ionicDTO.getHtmlFiles());
+
+			for (short i=0;i<ionicDTO.getHtmlFiles().size();i++) {
+				
+				File f = ionicDTO.getHtmlFiles().get(i);
+			
 
 				CodeConverter requiredConverter = converters.get("Html" + "2" + outLanguage + "Converter");
-				requiredConverter.setFileName(htmlFile.getName().split("\\.")[0].split("\\(")[0] + ".js");
+				
+				String filename = f.getName().split("\\.")[0].split("\\(")[0] ;
+								
+				requiredConverter.setFileName(f.getName().split("\\.")[0].split("\\(")[0] + ".js");
+				
+				
 				ParseTree parsetree = requiredConverter
-						.convert(ionicDTO.getFolderPath() + File.separator + htmlFile.getName());
+						.convert(ionicDTO.getFolderPath() + File.separator + f.getName());
+				
 				ParseTreeWalker walker = new ParseTreeWalker();
+				
 				walker.walk((ParseTreeListener) requiredConverter, parsetree);
+				
+				
+				Html2React_NativeConverter conv_html =(Html2React_NativeConverter) requiredConverter;
+				
+				
+				String typescriptfilename;
+				File typescriptfile ;
+				
+//				System.out.println("size "+ionicDTO.getTypescriptFiles() );
+
+				for (short i1 = 0 ; i1<ionicDTO.getTypescriptFiles().size();i1++) {
+					
+					typescriptfilename = ionicDTO.getTypescriptFiles().get(i).getName().split("\\.")[0].split("\\(")[0] ;
+					
+
+					System.out.println("fileName "+f);
+					System.out.println("fileName "+ionicDTO.getTypescriptFiles().get(i1));
+					System.out.println(conv_html.ngModel_to_state_with_func );
+					/* */
+					if (typescriptfilename.equals(filename)) {
+						System.out.println(" yes test");
+						
+						typescriptfile = ionicDTO.getTypescriptFiles().get(i);
+						
+
+						CodeConverter requiredConverter_typescript = converters.get("Typescript" + "2" + "Javascript" + "Converter");
+						
+						System.out.println("fileName_typescript "+typescriptfilename);
+						System.out.println("fileName "+filename);
+
+						
+						requiredConverter_typescript.setFileName(f.getName().split("\\.")[0].split("\\(")[0] + ".js");
+						
+						Typescript2JavascriptConverter conv_typescript =(Typescript2JavascriptConverter) requiredConverter_typescript;
+
+						conv_typescript.states_ngModel = conv_html.ngModel_to_state_with_func ;
+						conv_typescript.states_ngModel2  = conv_html.ngModel_to_state_without_func ;
+						conv_typescript.states_propBinding= conv_html.propBinding_to_state ;
+						conv_typescript.classBinding = conv_html.class_binding;
+
+
+						conv_typescript.allstates.addAll(conv_typescript.states_ngModel);
+						conv_typescript.allstates.addAll(conv_typescript.states_propBinding);
+						conv_typescript.allstates.addAll(conv_typescript.states_ngModel2);
+						
+						
+						/* adding :'' to ngModels to initialize the state's variables */
+		                for(short j1 = 0; j1< conv_typescript.states_ngModel.size(); j1++){
+		                	conv_typescript.newState.add(j1, conv_typescript.states_ngModel.get(j1)+": ''");
+		                }
+
+		                /* adding :'' to property_binding to initialize the state's variables */
+		                for(short j2 = 0; j2< conv_typescript.states_propBinding.size(); j2++){
+		                	conv_typescript.newState.add(i, conv_typescript.states_propBinding.get(i)+": ''");
+		                }
+
+		                /* adding :'' to ngModels2 to initialize the state's variables */
+		                for(short j3 = 0; j3< conv_typescript.states_ngModel2.size(); j3++){
+		                	conv_typescript.newState.add(i, conv_typescript.states_ngModel2.get(i)+": ''");
+		                }
+
+		                // handle change functions
+		                for (short j4 = 0; j4< conv_typescript.states_ngModel.size(); j4++){
+		                	conv_typescript.handleFunctions = conv_typescript.handleFunctions
+		                                +"handleChangeOf"+ conv_typescript.states_ngModel.get(i)
+		                                +"=(event)=>{\n"+"this.setState({"
+		                                + conv_typescript.states_ngModel.get(i) +": event.target.value});"
+		                                +"\n }\n";
+		                }
+
+						
+//						ParseTree parsetree_typescript = requiredConverter
+//								.convert(ionicDTO.getFolderPath() + File.separator + f.getName());
+//						
+//						ParseTreeWalker walker_typescript = new ParseTreeWalker();
+//						
+//						walker_typescript.walk((ParseTreeListener) requiredConverter_typescript, parsetree_typescript);
+						
+						System.out.println(conv_typescript.states_ngModel);
+						/* remove it from  type script lists */
+						break;
+					}
+				}
+				
+//				System.out.println("size "+ionicDTO.getTypescriptFiles());
+
+				System.out.println("end loop");
+
 				File generatedFile = requiredConverter.getFile();
 				generateFiles.add(generatedFile);
+				
 			}
 
+			
+			
+							
+			for (short i=0;i<ionicDTO.getTypescriptFiles().size();i++) {
+				
+				File f = ionicDTO.getTypescriptFiles().get(i);
+				CodeConverter requiredConverter = converters.get("Typescript" + "2" + "Javascript" + "Converter");
+				
+				
+				requiredConverter.setFileName(f.getName().split("\\.")[0].split("\\(")[0] + ".js");
+				System.out.println("fileName "+f.getName().split("\\.")[0].split("\\(")[0] );
+
+				
+				Typescript2JavascriptConverter conv1 =(Typescript2JavascriptConverter) requiredConverter;
+
+				ParseTree parsetree = requiredConverter
+						.convert(ionicDTO.getFolderPath() + File.separator + f.getName());
+				
+				ParseTreeWalker walker = new ParseTreeWalker();
+				
+				walker.walk((ParseTreeListener) requiredConverter, parsetree);
+
+				File generatedFile = requiredConverter.getFile();
+				generateFiles.add(generatedFile);
+				
+			}
+			
+			
+//			
 			for (File scssFile : ionicDTO.getSccsFiles()) {
 
 				CodeConverter requiredConverter = converters.get("Scss" + "2" + outLanguage + "Converter");
+				
 				requiredConverter.setFileName(scssFile.getName().split("\\.")[0].split("\\(")[0] + ".js");
+				
 				ParseTree parsetree = requiredConverter
 						.convert(ionicDTO.getFolderPath() + File.separator + scssFile.getName());
+				
+				System.out.println("parse tree"+parsetree);
+				
 				ParseTreeWalker walker = new ParseTreeWalker();
+				
 				walker.walk((ParseTreeListener) requiredConverter, parsetree);
-				File generatedFile = requiredConverter.getFile();
+				
+				File generatedFile = requiredConverter.getFile();				
 				generateFiles.add(generatedFile);
+				
 			}
 		 }
-	 // Ionic to React part
-		 else if(inLanguage.equals(Languages.REACT_NATIVE.getLanguage()) && outLanguage.equals(Languages.IONIC.getLanguage())) 
-		 {
+	
+		 
+	 // React to Ionic part
+		 else if(inLanguage.equals(Languages.REACT_NATIVE.getLanguage()) && outLanguage.equals(Languages.IONIC.getLanguage())) {
 
 			React_NativeDTO react_NativeDTO = React_NativeHandler.prepareFiles(uploadedFileName);
 			for (File javaScriptFile : react_NativeDTO.getJavascriptFiles()) {
@@ -131,6 +274,7 @@ public class CodeConversionServiceImpl implements CodeConversionService
 			 // Ionic to React part 
 			}
 		 }
+		 
 		 
 		// flutter to ionic part
          else if(inLanguage.equals(Languages.FLUTTER.getLanguage()) && outLanguage.equals(Languages.IONIC.getLanguage())) {
@@ -256,7 +400,6 @@ public class CodeConversionServiceImpl implements CodeConversionService
          else if(inLanguage.equals(Languages.TYPESCRIPT.getLanguage()) && outLanguage.equals(Languages.JAVASCRIPT.getLanguage())) {
 
         	 
-			 
 			TypescriptDTO TypescriptDTO = TypescriptHandler.prepareFiles(uploadedFileName);
 			for (File typescriptFile : TypescriptDTO.gettypescriptFiles()) {
 				CodeConverter requiredConverter = converters.get(inLanguage + "2" + "Javascript" + "Converter");

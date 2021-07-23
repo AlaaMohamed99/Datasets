@@ -15,11 +15,15 @@ public class IonicHandler {
 		IonicDTO  ionicDTO =new IonicDTO();
 	    List<File> htmlFiles = new ArrayList<>();
 		List<File> scssFiles = new ArrayList<>();
+		List<File> typescriptFiles = new ArrayList<>();
+
 		File uploadedDirectory = FileUtils.getUploadedFile(Constants.UPLOAD_PATH_URL, uploadedFileName);
 		if (uploadedDirectory.isDirectory()) {
 			File[] files = uploadedDirectory.listFiles();
 			files = Arrays.stream(files).filter(
-					x -> x.getName().toLowerCase().contains(".html") || x.getName().toLowerCase().contains(".scss"))
+					x -> x.getName().toLowerCase().contains(".html") || x.getName().toLowerCase().contains(".scss")
+					|| x.getName().toLowerCase().contains(".ts")
+					)
 					.toArray(File[]::new);
 			for (int i = 0; i < files.length; i++) {
 				if (files[i].getName().toLowerCase().endsWith(".html")) {
@@ -27,11 +31,16 @@ public class IonicHandler {
 				} else if (files[i].getName().toLowerCase().endsWith(".scss")) {
 					scssFiles.add(files[i]);
 				}
+				else if (files[i].getName().toLowerCase().endsWith(".ts")) {
+					typescriptFiles.add(files[i]);
+				}
 			}
 		}
 		
 		ionicDTO.setHtmlFiles(htmlFiles);	
 		ionicDTO.setSccsFiles(scssFiles);
+		ionicDTO.setTypescriptFiles(typescriptFiles);
+
 		ionicDTO.setFolderPath(uploadedDirectory.getPath());
 		return ionicDTO;
 	}
