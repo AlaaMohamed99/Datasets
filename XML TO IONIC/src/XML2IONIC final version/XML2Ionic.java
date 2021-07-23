@@ -81,9 +81,11 @@ public class XML2Ionic extends XMLParserBaseListener {
 
             if(APPBAR_Flag==0) {
                 APPBAR = APPBAR.substring(APPBAR.indexOf(">")+1);
-                output.append("\n<ion-toolbar>\n" +
+                output.append("\n<ion-toolbar class=\"appbar\">\n" +
                         "  <ion-title>" + APPBAR + "</ion-title>\n" +
                         "</ion-toolbar>\n\n");
+                css_output.append(".appbar{\n   --background: #5c14e0;\n "+ "}\n\n");
+
                 APPBAR_Flag=1;
             }
 
@@ -150,7 +152,9 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k+7 + "%;\n");
+                        double str1 = Double.parseDouble(k);
+                        str1=str1+7;
+                        css_output.append("top: "+ str1 + "%;\n");
                     }
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
                         bias = Float.parseFloat(attribtes_VALUE);
@@ -271,8 +275,6 @@ public class XML2Ionic extends XMLParserBaseListener {
 
                         output.append(" class=\"" + attribtes_VALUE.substring(5) + "\" "+"> ");
                         css_output.append("."+attribtes_VALUE.substring(5)+" {\n");
-                        css_output.append("."+attribtes_VALUE.substring(5)+" {\n");
-
                         ID= attribtes_VALUE.substring(5);
                         try {
 
@@ -500,7 +502,9 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k+7 + "%;\n");
+                        double str1 = Double.parseDouble(k);
+                        str1=str1+7;
+                        css_output.append("top: "+ str1 + "%;\n");
                     }
 
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
@@ -751,7 +755,10 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k+7 + "%;\n");
+                        double str1 = Double.parseDouble(k);
+                        str1=str1+7;
+                        css_output.append("top: "+ str1 + "%;\n");
+
                     }
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
                         bias = Float.parseFloat(attribtes_VALUE);
@@ -881,7 +888,9 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k+7  + "%;\n");
+                        double str1 = Double.parseDouble(k);
+                        str1=str1+7;
+                        css_output.append("top: "+ str1 + "%;\n");
                     }
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
 
@@ -1001,6 +1010,13 @@ public class XML2Ionic extends XMLParserBaseListener {
 
                     }
 
+
+
+
+
+
+
+
                     if (attribtes_NAME.equals("android:layout_width")) {
 
                         if((attribtes_VALUE.substring(0,1)).equals("w")){
@@ -1041,7 +1057,7 @@ public class XML2Ionic extends XMLParserBaseListener {
                         }
                     }
 
-                    if (attribtes_NAME.equals("app:srcCompat")) {
+                    if (attribtes_NAME.equals("app:srcCompat") ||attribtes_NAME.equals("android:src")) {
                         if (n==1) {
                             output.append("\" ");
                         }
@@ -1063,7 +1079,9 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k+7  + "%;\n");
+                        double str1 = Double.parseDouble(k);
+                        str1=str1+7;
+                        css_output.append("top: "+ str1 + "%;\n");
                     }
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
                         bias = Float.parseFloat(attribtes_VALUE);
@@ -1209,7 +1227,9 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k +7 + "%;\n");
+                        double str1 = Double.parseDouble(k);
+                        str1=str1+7;
+                        css_output.append("top: "+ str1 + "%;\n");
                     }
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
                         bias = Float.parseFloat(attribtes_VALUE);
@@ -1393,7 +1413,9 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k+7  + "%;\n");
+                        double str1 = Double.parseDouble(k);
+                        str1=str1+7;
+                        css_output.append("top: "+ str1 + "%;\n");
                     }
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
                         bias = Float.parseFloat(attribtes_VALUE);
@@ -1529,7 +1551,9 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k +7 + "%;\n");
+                        double str1 = Double.parseDouble(k);
+                        str1=str1+7;
+                        css_output.append("top: "+ str1 + "%;\n");
                     }
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
 
@@ -1669,7 +1693,9 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k +7 + "%;\n");
+                        double str1 = Double.parseDouble(k);
+                        str1=str1+7;
+                        css_output.append("top: "+ str1 + "%;\n");
                     }
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
 
@@ -1812,7 +1838,9 @@ public class XML2Ionic extends XMLParserBaseListener {
                         System.out.println(attribtes_VALUE);
                         float m = Float.parseFloat(attribtes_VALUE);
                         String k = String.valueOf(m*100);
-                        css_output.append("top: "+ k+7  + "%;\n");
+                        double str1 = Double.parseDouble(k);
+                        str1=str1+7;
+                        css_output.append("top: "+ str1 + "%;\n");
                     }
                     if (attribtes_NAME.equals("app:layout_constraintHorizontal_bias")) {
 
