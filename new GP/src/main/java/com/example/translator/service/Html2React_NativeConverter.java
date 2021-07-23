@@ -1273,8 +1273,6 @@ public class Html2React_NativeConverter extends HTMLParserBaseListener implement
 	            ngModel_to_state_with_func.add(variableName);
 	        }
 
-	        System.out.println("model1 "+ ngModel_to_state_with_func);
-	        System.out.println("model2 "+ ngModel_to_state_without_func);
 
 	        /* parent is ion-input*/
 	        if (parent.contains("ion-input")){

@@ -166,7 +166,6 @@ public class Scss2React_NativeConverter  extends ScssParserBaseListener implemen
             /* this part only for the property  */
             if (property.substring(3).contains("-")) {
                 property = handleProperty(property) ;
-//                System.out.println("c"+property);
             }if (property.substring(3).contains("-")) {
                 property = handleProperty(property) ;
             }
@@ -241,7 +240,6 @@ public class Scss2React_NativeConverter  extends ScssParserBaseListener implemen
         }
 
         try {
-//            System.out.println("value "+property_value);
             FileWriter outputfile = new FileWriter(file.getName(),true);
             outputfile.write(property_value);
             outputfile.close();

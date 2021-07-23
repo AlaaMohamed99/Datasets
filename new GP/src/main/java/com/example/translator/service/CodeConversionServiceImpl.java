@@ -230,15 +230,10 @@ public class CodeConversionServiceImpl implements CodeConversionService
 				
 			}
 		 }
-<<<<<<< Updated upstream
-	 // Ionic to React part
-		 else if(inLanguage.equals(Languages.REACT_NATIVE.getLanguage()) && outLanguage.equals(Languages.IONIC.getLanguage())) 
-		 {
-=======
+	
 		 
 	 // React to Ionic part
 		 else if(inLanguage.equals(Languages.REACT_NATIVE.getLanguage()) && outLanguage.equals(Languages.IONIC.getLanguage())) {
->>>>>>> Stashed changes
 
 			React_NativeDTO react_NativeDTO = React_NativeHandler.prepareFiles(uploadedFileName);
 			for (File javaScriptFile : react_NativeDTO.getJavascriptFiles()) {
@@ -252,7 +247,6 @@ public class CodeConversionServiceImpl implements CodeConversionService
 				generateFiles.add(generatedFile);
 
 			}
-<<<<<<< Updated upstream
 			for (File javaScriptFile : react_NativeDTO.getJavascriptFiles()) 
 			{
 				CodeConverter requiredConverter = converters.get(inLanguage + "2" + "Scss" + "Converter");
@@ -279,8 +273,6 @@ public class CodeConversionServiceImpl implements CodeConversionService
 				generateFiles.add(generatedFile);
 			 // Ionic to React part 
 			}
-=======
->>>>>>> Stashed changes
 		 }
 		 
 		 

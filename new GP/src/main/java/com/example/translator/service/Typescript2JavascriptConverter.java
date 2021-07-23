@@ -185,7 +185,6 @@ public class Typescript2JavascriptConverter extends TypeScriptParserBaseListener
 	
 	
 	@Override public void enterProgram(TypeScriptParser.ProgramContext ctx) {
-		System.out.println("Enter program test");
 	        try {
 	            FileWriter outputfile =new FileWriter(file.getName(),true);
 	            outputfile.write("test typescript file "+ state+"\n");
@@ -485,7 +484,6 @@ public class Typescript2JavascriptConverter extends TypeScriptParserBaseListener
         }
 
         String fin =  finalBackend.toString();
-//        System.out.println("File \n"+fin);
 
 
         /** add the backend code **/
