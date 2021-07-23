@@ -183,17 +183,7 @@ public class Typescript2JavascriptConverter extends TypeScriptParserBaseListener
 	
 
 	
-	
-	@Override public void enterProgram(TypeScriptParser.ProgramContext ctx) {
-	        try {
-	            FileWriter outputfile =new FileWriter(file.getName(),true);
-	            outputfile.write("test typescript file "+ state+"\n");
-	            outputfile.close();
-	        }
-	        catch (Exception e){
-	            e.printStackTrace();
-	        }
-	}
+
 
 
 
