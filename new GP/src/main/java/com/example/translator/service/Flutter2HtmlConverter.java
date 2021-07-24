@@ -568,7 +568,8 @@ public class Flutter2HtmlConverter extends Dart2BaseListener implements CodeConv
             else{
                 try {
                     FileWriter outputfile = new FileWriter(file.getName(), true);
-                    outputfile.write(" (click)=\"" + expression + "()\"");
+                    if(!expression.equals("(){}"))
+                        outputfile.write(" (click)=\"" + expression + "()\"");
                     outputfile.close();
                 } catch (IOException e) {
                     e.printStackTrace();
