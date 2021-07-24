@@ -2,6 +2,7 @@ import { not } from '@angular/compiler/src/output/output_ast';
 import { Component, ViewChild } from '@angular/core';
 import { IonItemOption, IonItemOptions, IonList } from '@ionic/angular';
 import { isNumber } from 'util';
+import { Button } from 'protractor';
 
 @Component({
   selector: 'app-home',
@@ -13,17 +14,16 @@ export class HomePage {
   c_class='';
   
   constructor() {}
-age:number;
-currentyear:number;
-yearofbirth:number;
 
+    age:number;
 
-button1(){
-currentyear=Calendar.getInstance().get(Calendar.YEAR);
+    myDOB:number;
 
-this.age = this.currentyear - this.yearofbirth
-}
+  getAgeButton(){
 
+    let currentYear=2021;
 
+    this.age=currentYear-this.myDOB;
+  }
 
 }

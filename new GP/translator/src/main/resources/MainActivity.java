@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     public void getAgeButton(View view){
 
         int myDOB = Integer.parseInt( dob.getText().toString());
-        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        int currentYear = 2021;
         int age = currentYear - myDOB;
         result.setText("Your age is "+ age +" years");
 

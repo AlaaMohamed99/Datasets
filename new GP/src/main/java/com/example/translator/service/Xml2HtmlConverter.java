@@ -38,7 +38,7 @@ import java.util.Scanner;
 public class Xml2HtmlConverter extends XMLParserBaseListener implements CodeConverter {
     private File file = new File("activity_main") ;
     private StringBuilder css_output = new StringBuilder();
-    private StringBuilder output = new StringBuilder("<ion-content class=\"main\" >\n");
+    private StringBuilder output = new StringBuilder();
     private CharStream charStream2;
     {
         try {
@@ -80,7 +80,9 @@ public class Xml2HtmlConverter extends XMLParserBaseListener implements CodeConv
   public void enterDocument(XMLParser.DocumentContext ctx) {
       String methodName = ctx.element().Name(0).getText();
       int attsize = ctx.element().attribute().size();
-      //System.out.println(methodName);
+      //System.out.println(methodName);;
+      
+      output.append("<ion-content class=\"main\" >\n");
 
       for(int i=0 ; i<attsize ; i++) {
           String att = ctx.element().attribute(i).Name().getText();
@@ -659,7 +661,7 @@ public class Xml2HtmlConverter extends XMLParserBaseListener implements CodeConv
 
                   if (attribtes_NAME.equals("android:hint")) {
 
-                      output.append("\n<ion-label>" + attribtes_VALUE + "</ion-label>");
+                      output.append("\n<ion-label >" + attribtes_VALUE + "</ion-label>");
                   }
 
 

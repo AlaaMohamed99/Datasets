@@ -15,9 +15,7 @@ class MainActivity : AppCompatActivity() {
         button1.setOnClickListener({
 
             val yearofbirth: Int = EnterDOB.text.toString().toInt()
-	    val year: Int = 2021	
-
-            val age: Int = year- yearofbirth
+            val age: Int = 2020 - yearofbirth
             textView.text = "your age is  " + age + " years"
 
         }

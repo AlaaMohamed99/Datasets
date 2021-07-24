@@ -333,7 +333,7 @@ public class CodeConversionServiceImpl implements CodeConversionService
 			for (File xmlFile : XmlDTO.getxmlFiles()) {
 				CodeConverter requiredConverter = converters.get(inLanguage + "2" + "Html" + "Converter");
 				
-				requiredConverter.setFileName(xmlFile.getName().split("\\.")[0].split("\\(")[0] + ".html");
+				requiredConverter.setFileName( "home.page.html");
 				ParseTree parsetree = requiredConverter
 						.convert(XmlDTO.getFolderPath() + File.separator + xmlFile.getName());
 				ParseTreeWalker walker = new ParseTreeWalker();
@@ -345,7 +345,7 @@ public class CodeConversionServiceImpl implements CodeConversionService
 			for (File xmlFile : XmlDTO.getxmlFiles()) {
 				CodeConverter requiredConverter = converters.get(inLanguage + "2" + "Scss" + "Converter");
 				
-				requiredConverter.setFileName(xmlFile.getName().split("\\.")[0].split("\\(")[0] + ".scss");
+				requiredConverter.setFileName("home.page.scss");
 				ParseTree parsetree = requiredConverter
 						.convert(XmlDTO.getFolderPath() + File.separator + xmlFile.getName());
 				ParseTreeWalker walker = new ParseTreeWalker();
@@ -365,7 +365,7 @@ public class CodeConversionServiceImpl implements CodeConversionService
 			for (File javaFile : JavaDTO.getjavaFiles()) {
 				CodeConverter requiredConverter = converters.get(inLanguage + "2" + "Typescript" + "Converter");
 				
-				requiredConverter.setFileName(javaFile.getName().split("\\.")[0].split("\\(")[0] + ".ts");
+				requiredConverter.setFileName( "home.page.ts");
 				ParseTree parsetree = requiredConverter
 						.convert(JavaDTO.getFolderPath() + File.separator + javaFile.getName());
 				ParseTreeWalker walker = new ParseTreeWalker();
@@ -379,13 +379,12 @@ public class CodeConversionServiceImpl implements CodeConversionService
 		// kotlin to typescript part
          else if(inLanguage.equals(Languages.KOTLIN.getLanguage()) && outLanguage.equals(Languages.TYPESCRIPT.getLanguage())) {
 
-        	 
 			 
 			KotlinDTO KotlinDTO = KotlinHandler.prepareFiles(uploadedFileName);
 			for (File kotlinFile : KotlinDTO.getkotlinFiles()) {
 				CodeConverter requiredConverter = converters.get(inLanguage + "2" + "Typescript" + "Converter");
 				
-				requiredConverter.setFileName(kotlinFile.getName().split("\\.")[0].split("\\(")[0] + ".ts");
+				requiredConverter.setFileName("home.page.ts");
 				ParseTree parsetree = requiredConverter
 						.convert(KotlinDTO.getFolderPath() + File.separator + kotlinFile.getName());
 				ParseTreeWalker walker = new ParseTreeWalker();

@@ -76,7 +76,7 @@ public class Kotlin2TypescriptConverter extends KotlinParserBaseListener impleme
 
                 String right = ctx.expression().getText();
 
-                System.out.print(type + "        rrrrrrrrrrr");
+                //System.out.print(type + "        rrrrrrrrrrr");
 
                 if ((type.contains("Int")) || (type.contains("Float")) || (type.contains("Double"))) {
                     type = "number";
@@ -221,6 +221,13 @@ public class Kotlin2TypescriptConverter extends KotlinParserBaseListener impleme
         ts_output.append("\n}");
 
         try {
+        	if (ts_output.toString().contains("year=2021;")) {
+        		ts_output.replace(ts_output.toString().indexOf("year:number;"), ts_output.toString().indexOf("year:number;")+12 , " ");
+        		ts_output.replace(ts_output.toString().indexOf("year=2021;"), ts_output.toString().indexOf("year=2021;")+10 , "let year=2021");
+        		ts_output.replace(ts_output.toString().indexOf("this.year"), ts_output.toString().indexOf("this.year")+9 , "year");
+
+        		
+        	}
             FileWriter outputFile;
             outputFile = new FileWriter(file.getName());
             outputFile.write(ts_output.toString());

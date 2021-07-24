@@ -220,7 +220,7 @@ public class Java2TypescriptConverter extends Java8ParserBaseListener implements
 
 	            try {
 	                FileWriter outputFile;
-	                outputFile = new FileWriter(file.getName()+".ts");
+	                outputFile = new FileWriter(file.getName());
 	                outputFile.write(output.toString());
 	                outputFile.close();
 	            } catch (IOException e) {

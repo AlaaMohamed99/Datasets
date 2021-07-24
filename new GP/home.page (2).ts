@@ -15,17 +15,15 @@ export class HomePage {
   
   constructor() {}
 
-    age:number;
+    res:number;
 
-    myDOB:number;
+    myNumber2:number;
 
-  getAgeButton(){
+    myNumber1:number;
 
-    let currentYear=Calendar.getInstance().get(Calendar.YEAR);
+  modButton(){
 
-    this.age=currentYear-this.myDOB;
-
-    this.age=currentYear-this.myDOB;
+    this.res=this.myNumber1%this.myNumber2;
   }
 
 }

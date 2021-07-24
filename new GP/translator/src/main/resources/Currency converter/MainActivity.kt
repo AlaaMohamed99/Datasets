@@ -1,29 +1,26 @@
-package com.badawy3.app1
+package com.badawy4.app4
 
-import  android.graphics.drawable.DrawableContainer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         button1.setOnClickListener({
 
-            val yearofbirth: Int = EnterDOB.text.toString().toInt()
-	    val year: Int = 2021	
+            var USD:Double = USD1.text.toString().toDouble()
+            val price:Double = 15.7
+            val TOTAL:Double = USD*price
 
-            val age: Int = year- yearofbirth
-            textView.text = "your age is  " + age + " years"
+            textView.text = " "+USD+" USD equal " + TOTAL + " EGP"
 
         }
         )
 
-
     }
-
 }
