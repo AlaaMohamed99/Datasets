@@ -229,6 +229,8 @@ public class Kotlin2TypescriptConverter extends KotlinParserBaseListener impleme
             e.printStackTrace();
 
         }
+        ts_output.setLength(0);
+
     }
 
     @Override

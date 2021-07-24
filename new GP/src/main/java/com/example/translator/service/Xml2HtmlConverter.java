@@ -1190,12 +1190,12 @@ public class Xml2HtmlConverter extends XMLParserBaseListener implements CodeConv
                   }
 
                   if (n==1){
-                      output.append("\" >"+"\n");
+                     // output.append("\" >"+"\n");
                       n=2;
                   }
                   else if(n==0 &&j==attSize-1 ){
 
-                      output.append(">"+"\n");
+                      //output.append(">"+"\n");
                   }
 
 
@@ -1207,7 +1207,7 @@ public class Xml2HtmlConverter extends XMLParserBaseListener implements CodeConv
                   }
                   if (attribtes_NAME.equals("android:id")) {
 
-                      output.append(" class=\"" + attribtes_VALUE.substring(5) + "\"+> \n");
+                      output.append(" class=\"" + attribtes_VALUE.substring(5) + "\"> \n");
                       css_output.append("." + attribtes_VALUE.substring(5) + " {\n");
                   }
 
