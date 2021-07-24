@@ -74,10 +74,10 @@ public class Java2TypescriptConverter extends Java8ParserBaseListener implements
 	            String methodName = ctx.methodHeader().methodDeclarator().Identifier().getText();
 	            if (ctx.getText().contains("AlertDialog") && !output.toString().contains("alert")) {
 	                output.append("\n  " + "alert" + "(){\n");
-	                System.out.println(ctx.getText() + "555555555555555555555555555555");
+	                //System.out.println(ctx.getText() + "555555555555555555555555555555");
 	                if (ctx.getText().contains("setMessage")) {
 	                    String Alert_message = ctx.getText().substring(ctx.getText().indexOf("setMessage(") + 11, ctx.getText().indexOf(");alertDialog.setPositiveButton"));
-	                    System.out.println(Alert_message);
+	                    //System.out.println(Alert_message);
 	                    output.append("window.alert(" + Alert_message + ")\n}");
 	                }
 
@@ -85,16 +85,16 @@ public class Java2TypescriptConverter extends Java8ParserBaseListener implements
 
 
 	        else if (!(methodName.equals("onCreate") || methodName.equals("onClick"))) {
-	            System.out.println(methodName+"7777777777777777777777777777777777777777777777777");
+	            //System.out.println(methodName+"7777777777777777777777777777777777777777777777777");
 	                output.append("\n  " + methodName + "(){\n");
 	                int size = ctx.methodBody().block().blockStatements().blockStatement().size();
-//	            System.out.println(size);
+//	            //System.out.println(size);
 	                List<String> varString = new ArrayList<String>();
 	                for (int i = 0; i < size - 1; i++) {
 	                    String expression = ctx.methodBody().block().blockStatements().
 	                            blockStatement(i).localVariableDeclarationStatement().
 	                            localVariableDeclaration().variableDeclaratorList().getText();
-	                    System.out.println(expression);
+	                    //System.out.println(expression);
 
 
 	                    String var = ctx.methodBody().block().blockStatements().
@@ -114,19 +114,19 @@ public class Java2TypescriptConverter extends Java8ParserBaseListener implements
 	                    String var2 = ctx.methodBody().block().blockStatements().
 	                            blockStatement(size - 1).statement().getText();
 
-	                    System.out.println(type);
+	                    //System.out.println(type);
 	                    if (get_text.contains("getText") || (var2.contains("setText") && var2.contains(var) && !(expression.contains("findViewById")))) {
 
 	                        if (type.equals("double") || type.equals("int") || type.equals("long") || type.equals("float")) {
 	                            output.insert(0, "\n    " + var + ":number;\n");
 	                            varString.add(var);
 
-//	                        System.out.println(varString + "ssssssssssssssssssssssssssssssssssssssssssssssssssssss");
+//	                        //System.out.println(varString + "ssssssssssssssssssssssssssssssssssssssssssssssssssssss");
 
 	                        } else {
 	                            output.insert(0, "\n    " + var + ";\n");
 	                            varString.add(var);
-//	                        System.out.println(varString + "ssssssssssssssssssssssssssssssssssssssssssssssssssssss");
+//	                        //System.out.println(varString + "ssssssssssssssssssssssssssssssssssssssssssssssssssssss");
 
 	                        }
 
@@ -139,7 +139,7 @@ public class Java2TypescriptConverter extends Java8ParserBaseListener implements
 	                            output.append(telNumber + "\", true)\n" +
 	                                    "  .then(res => console.log('Launched dialer!', res))\n" +
 	                                    "  .catch(err => console.log('Error launching dialer', err));\n");
-	                            System.out.println(telNumber);
+	                            //System.out.println(telNumber);
 	                        }
 
 	                        for (int counter = 0; counter < varString.size(); counter++) {

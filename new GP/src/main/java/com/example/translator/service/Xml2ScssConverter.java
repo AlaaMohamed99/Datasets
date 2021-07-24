@@ -78,7 +78,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
   public void enterDocument(XMLParser.DocumentContext ctx) {
       String methodName = ctx.element().Name(0).getText();
       int attsize = ctx.element().attribute().size();
-      System.out.println(methodName);
+      //System.out.println(methodName);
 
       for(int i=0 ; i<attsize ; i++) {
           String att = ctx.element().attribute(i).Name().getText();
@@ -106,9 +106,9 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
 
       for(int i=0 ; i<numOfElements ; i++) {
           String methodName = ctx.element(i).Name(0).getText();
-          //System.out.println(methodName);
+          ////System.out.println(methodName);
           int attSize = ctx.element(i).attribute().size();
-          //System.out.println(attSize);
+          ////System.out.println(attSize);
 
           if(APPBAR_Flag==0) {
               APPBAR = APPBAR.substring(APPBAR.indexOf(">")+1);
@@ -120,7 +120,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
               APPBAR_Flag=1;
           }
 
-          System.out.println(attSize);
+          //System.out.println(attSize);
 
 
           ///////////////////1111111111111111111111
@@ -132,7 +132,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
               double bias = 0.2;
               int f=0;
               double left = 1 ;
-              System.out.println(ctx.element(i).getText());
+              //System.out.println(ctx.element(i).getText());
 
               for(int j=0 ; j<attSize ; j++) {
 
@@ -140,7 +140,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                   String attribtes_VALUE = ctx.element(i).attribute(j).STRING().getText();
                   attribtes_VALUE = attribtes_VALUE.substring(1, attribtes_VALUE.length() - 1);
 
-                  //System.out.println(attribtes_VALUE + "9999999999999");
+                  ////System.out.println(attribtes_VALUE + "9999999999999");
 
                   if (attribtes_NAME.equals("android:onClick")) {
 
@@ -180,7 +180,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
 
                   if (attribtes_NAME.equals("app:layout_constraintVertical_bias")) {
 
-                      System.out.println(attribtes_VALUE);
+                      //System.out.println(attribtes_VALUE);
                       float m = Float.parseFloat(attribtes_VALUE);
                       String k = String.valueOf(m*100);
                       double str1 = Double.parseDouble(k);
@@ -200,7 +200,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                           css_output.append("--background: "+attribtes_VALUE+ ";\n");
                       }
                       else {
-                          System.out.println(attribtes_VALUE.substring(0,1));
+                          //System.out.println(attribtes_VALUE.substring(0,1));
                           css_output.append("--background: "+attribtes_VALUE.split("/")[1]+ ";\n");
                       }
                   }
@@ -217,7 +217,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
                           f=1;
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           width = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(width*100/410);
                           css_output.append("width: "+ k + "%;\n");
@@ -238,7 +238,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
 
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           float m = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(m*100/730);
                           css_output.append("height: "+ k + "%;\n");
@@ -262,7 +262,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else if (text.length()>0 && f==0){
                           left=(100-((52+text.length()*10)*100/410))*bias;
-                          System.out.println((52+text.length()*10)+ "////////");
+                          //System.out.println((52+text.length()*10)+ "////////");
                           String k = String.valueOf(left);
 
                           css_output.append("left: "+ k + "%;\n");
@@ -293,8 +293,8 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                   String attribtes_NAME = ctx.element(i).attribute(j).Name().getText();
                   String attribtes_VALUE = ctx.element(i).attribute(j).STRING().getText();
                   attribtes_VALUE = attribtes_VALUE.substring(1, attribtes_VALUE.length() - 1);
-                  //System.out.println(attribtes_NAME);
-                  //System.out.println(attribtes_VALUE + "9999999999999");
+                  ////System.out.println(attribtes_NAME);
+                  ////System.out.println(attribtes_VALUE + "9999999999999");
                   /*if (attribtes_NAME.equals("android:background")) {
                       if (n==0) {
                           output.append("style=\"");
@@ -320,14 +320,14 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                           while (scanner.hasNextLine()) {
                               String line = scanner.nextLine();
                               lineNum++;
-                              System.out.println(ID+"." + "                       ddddddddd555555555555555555");
+                              //System.out.println(ID+"." + "                       ddddddddd555555555555555555");
 
                               if (line.contains(ID+".")) {
 
                                   lineNum++;
 
                                   ID = line.substring(line.indexOf("=") + 1);
-                                  System.out.println(ID + "                       ddddddddd555555555555555555");
+                                  //System.out.println(ID + "                       ddddddddd555555555555555555");
                                   KOTLIN_FLAG =1;
 
 
@@ -336,7 +336,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
 
                               }
                           }
-                          System.out.println(ID);
+                          //System.out.println(ID);
 
 
                           for (int o = 0; o < 8; o++) {
@@ -344,7 +344,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                               if (ID.contains("+")) {
 
 
-                                  System.out.println(ID + "ddddddddd555555555555555555");
+                                  //System.out.println(ID + "ddddddddd555555555555555555");
 
 
                                   if (ID.substring(0, ID.indexOf("+")).contains("\"")) {
@@ -361,7 +361,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
 
                                   ID = ID.substring(ID.indexOf("+") + 1);
 
-                                  System.out.println(ID + "fffffffffffffff");
+                                  //System.out.println(ID + "fffffffffffffff");
 
 
                               } else if(KOTLIN_FLAG==1) {
@@ -417,10 +417,10 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                               if(line.contains(ID+")" ) && limit<2) {
                                   java_FLAG=1;
 
-                                  System.out.println(" IM INNNNNNNNNNNNNNNNNNNNNNN   hammmmmmmmmmmmmmmmed gammmmmmmmmmed");
+                                  //System.out.println(" IM INNNNNNNNNNNNNNNNNNNNNNN   hammmmmmmmmmmmmmmmed gammmmmmmmmmed");
 
                                   limit++;
-                                  System.out.println(limit+" IM INNNNNNNNNNNNNNNNNNNNNNN   hammmmmmmmmmmmmmmmed gammmmmmmmmmed");
+                                  //System.out.println(limit+" IM INNNNNNNNNNNNNNNNNNNNNNN   hammmmmmmmmmmmmmmmed gammmmmmmmmmed");
 
                                   if(limit==1) {
 
@@ -428,8 +428,8 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                                       ID = line.substring(0, line.indexOf("="));
 
                                       ID = ID.replaceAll("\\s", "");
-                                      System.out.println(ID + limit + "         dddddddddddddddddddllllllllllllllllllllllll");
-                                      System.out.println(line + "         hammmmmmmmmmmmmmmmed gammmmmmmmmmed");
+                                      //System.out.println(ID + limit + "         dddddddddddddddddddllllllllllllllllllllllll");
+                                      //System.out.println(line + "         hammmmmmmmmmmmmmmmed gammmmmmmmmmed");
 
                                   }
 
@@ -440,7 +440,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                               }else if (limit==1 && flag==1 && line.contains("setText")){
 
                                   ID = line.substring(line.indexOf("setText(")+8,line.indexOf(");"));
-                                  System.out.println(ID+" IM INNNNNNNNNNNNNNNNNNNNNNN   hammmmmmmmmmmmmmmmed gammmmmmmmmmed");
+                                  //System.out.println(ID+" IM INNNNNNNNNNNNNNNNNNNNNNN   hammmmmmmmmmmmmmmmed gammmmmmmmmmed");
 
 
 
@@ -452,12 +452,12 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
 
 
                           for (int o = 0; o < 8; o++) {
-                              System.out.println(ID  + "        ssssssssssssssssss");
+                              //System.out.println(ID  + "        ssssssssssssssssss");
 
                               if (ID.contains("+")) {
 
 
-                                  System.out.println(ID + "ddddddddd555555555555555555");
+                                  //System.out.println(ID + "ddddddddd555555555555555555");
 
 
                                   if (ID.substring(0, ID.indexOf("+")).contains("\"")) {
@@ -474,7 +474,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
 
                                   ID = ID.substring(ID.indexOf("+") + 1);
 
-                                  System.out.println(ID + "fffffffffffffff");
+                                  //System.out.println(ID + "fffffffffffffff");
 
 
                               } else if (java_FLAG==1) {
@@ -530,7 +530,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                   }
                   if (attribtes_NAME.equals("app:layout_constraintVertical_bias")) {
 
-                      System.out.println(attribtes_VALUE);
+                      //System.out.println(attribtes_VALUE);
                       float m = Float.parseFloat(attribtes_VALUE);
                       String k = String.valueOf(m*100);
                       double str1 = Double.parseDouble(k);
@@ -551,7 +551,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                           css_output.append("--background: "+attribtes_VALUE+ ";\n");
                       }
                       else {
-                          System.out.println(attribtes_VALUE.substring(0,1));
+                          //System.out.println(attribtes_VALUE.substring(0,1));
                           css_output.append("--background: "+attribtes_VALUE.split("/")[1]+ ";\n");
                       }
                   }
@@ -568,7 +568,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
                           f=1;
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           width = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(width*100/410);
                           css_output.append("width: "+ k + "%;\n");
@@ -586,7 +586,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
 
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           float m = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(m*100/730);
                           css_output.append("height: "+ k + "%;\n");
@@ -609,7 +609,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else if (text.length()>0 && f==0){
                           left=(100-((52+text.length()*10)*100/410))*bias;
-                          System.out.println((52+text.length()*10)+ "////////");
+                          //System.out.println((52+text.length()*10)+ "////////");
                           String k = String.valueOf(left);
 
                           css_output.append("left: "+ k + "%;\n");
@@ -642,8 +642,8 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                   String attribtes_NAME = ctx.element(i).attribute(j).Name().getText();
                   String attribtes_VALUE = ctx.element(i).attribute(j).STRING().getText();
                   attribtes_VALUE = attribtes_VALUE.substring(1, attribtes_VALUE.length() - 1);
-                  //System.out.println(attribtes_NAME);
-                  //System.out.println(attribtes_VALUE + "9999999999999")
+                  ////System.out.println(attribtes_NAME);
+                  ////System.out.println(attribtes_VALUE + "9999999999999")
 
                   if (attribtes_NAME.equals("android:id")) {
 
@@ -691,7 +691,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                                   ID=line.substring(0,line.indexOf(":"));
                                   ID =ID.replaceAll("\\s", "");
                                   ID=ID.substring(3);
-                                  System.out.println(ID);
+                                  //System.out.println(ID);
 
 
                               }
@@ -751,7 +751,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                                   }
 
 
-                                  System.out.println(ID+"         hammmmmmmmmmmmmmmmed gammmmmmmmmmed");
+                                  //System.out.println(ID+"         hammmmmmmmmmmmmmmmed gammmmmmmmmmed");
 
 
 
@@ -783,7 +783,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
 
                   if (attribtes_NAME.equals("app:layout_constraintVertical_bias")) {
 
-                      System.out.println(attribtes_VALUE);
+                      //System.out.println(attribtes_VALUE);
                       float m = Float.parseFloat(attribtes_VALUE);
                       String k = String.valueOf(m*100);
                       double str1 = Double.parseDouble(k);
@@ -804,7 +804,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                           css_output.append("--background: "+attribtes_VALUE+ ";\n");
                       }
                       else {
-                          System.out.println(attribtes_VALUE.substring(0,1));
+                          //System.out.println(attribtes_VALUE.substring(0,1));
                           css_output.append("--background: "+attribtes_VALUE.split("/")[1]+ ";\n");
                       }
                   }
@@ -820,7 +820,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
                           f=1;
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           width = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(width*100/410);
                           css_output.append("width: "+ k + "%;\n");
@@ -838,7 +838,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
 
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           float m = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(m*100/730);
                           css_output.append("height: "+ k + "%;\n");
@@ -857,7 +857,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else if (text.length()>0 && f==0){
                           left=(100-((52+text.length()*10)*100/410))*bias;
-                          System.out.println((52+text.length()*10)+ "////////");
+                          //System.out.println((52+text.length()*10)+ "////////");
                           String k = String.valueOf(left);
 
                           css_output.append("left: "+ k + "%;\n");
@@ -890,8 +890,8 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                   String attribtes_NAME = ctx.element(i).attribute(j).Name().getText();
                   String attribtes_VALUE = ctx.element(i).attribute(j).STRING().getText();
                   attribtes_VALUE = attribtes_VALUE.substring(1, attribtes_VALUE.length() - 1);
-                  //System.out.println(attribtes_NAME);
-                  //System.out.println(attribtes_VALUE + "9999999999999");
+                  ////System.out.println(attribtes_NAME);
+                  ////System.out.println(attribtes_VALUE + "9999999999999");
 
                   if (attribtes_NAME.equals("android:id")) {
 
@@ -916,7 +916,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
 
                   if (attribtes_NAME.equals("app:layout_constraintVertical_bias")) {
 
-                      System.out.println(attribtes_VALUE);
+                      //System.out.println(attribtes_VALUE);
                       float m = Float.parseFloat(attribtes_VALUE);
                       String k = String.valueOf(m*100);
                       double str1 = Double.parseDouble(k);
@@ -937,7 +937,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                           css_output.append("--background: "+attribtes_VALUE+ ";\n");
                       }
                       else {
-                          System.out.println(attribtes_VALUE.substring(0,1));
+                          //System.out.println(attribtes_VALUE.substring(0,1));
                           css_output.append("--background: "+attribtes_VALUE.split("/")[1]+ ";\n");
                       }
                   }
@@ -954,7 +954,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
                           f=1;
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           width = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(width*100/410);
                           css_output.append("width: "+ k + "%;\n");
@@ -972,7 +972,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
 
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           float m = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(m*100/730);
                           css_output.append("height: "+ k + "%;\n");
@@ -994,7 +994,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else if (text.length()>0 && f==0){
                           left=(100-((52+text.length()*10)*100/410))*bias;
-                          System.out.println((52+text.length()*10)+ "////////");
+                          //System.out.println((52+text.length()*10)+ "////////");
                           String k = String.valueOf(left);
 
                           css_output.append("left: "+ k + "%;\n");
@@ -1031,8 +1031,8 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                   String attribtes_NAME = ctx.element(i).attribute(j).Name().getText();
                   String attribtes_VALUE = ctx.element(i).attribute(j).STRING().getText();
                   attribtes_VALUE = attribtes_VALUE.substring(1, attribtes_VALUE.length() - 1);
-                  //System.out.println(attribtes_NAME);
-                  //System.out.println(attribtes_VALUE + "9999999999999");
+                  ////System.out.println(attribtes_NAME);
+                  ////System.out.println(attribtes_VALUE + "9999999999999");
 
                   if (attribtes_NAME.equals("android:id")) {
 
@@ -1060,7 +1060,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
                           f=1;
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           width = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(width*100/410);
                           css_output.append("width: "+ k + "%;\n");
@@ -1081,7 +1081,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
 
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           float m = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(m*100/730);
                           css_output.append("height: "+ k + "%;\n");
@@ -1107,7 +1107,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
 
                   if (attribtes_NAME.equals("app:layout_constraintVertical_bias")) {
 
-                      System.out.println(attribtes_VALUE);
+                      //System.out.println(attribtes_VALUE);
                       float m = Float.parseFloat(attribtes_VALUE);
                       String k = String.valueOf(m*100);
                       double str1 = Double.parseDouble(k);
@@ -1127,7 +1127,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                           css_output.append("--background: "+attribtes_VALUE+ ";\n");
                       }
                       else {
-                          System.out.println(attribtes_VALUE.substring(0,1));
+                          //System.out.println(attribtes_VALUE.substring(0,1));
                           css_output.append("--background: "+attribtes_VALUE.split("/")[1]+ ";\n");
                       }
                   }
@@ -1149,7 +1149,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else if (text.length()>0 && f==0){
                           left=(100-((52+text.length()*10)*100/410))*bias;
-                          System.out.println((52+text.length()*10)+ "////////");
+                          //System.out.println((52+text.length()*10)+ "////////");
                           String k = String.valueOf(left);
 
                           css_output.append("left: "+ k + "%;\n");
@@ -1178,8 +1178,8 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                   String attribtes_NAME = ctx.element(i).attribute(j).Name().getText();
                   String attribtes_VALUE = ctx.element(i).attribute(j).STRING().getText();
                   attribtes_VALUE = attribtes_VALUE.substring(1, attribtes_VALUE.length() - 1);
-                  //System.out.println(attribtes_NAME);
-                  //System.out.println(attribtes_VALUE + "9999999999999");
+                  ////System.out.println(attribtes_NAME);
+                  ////System.out.println(attribtes_VALUE + "9999999999999");
                   if (attribtes_NAME.equals("android:background")) {
                       if (n==0) {
                           //  output.append("style=\"");
@@ -1211,12 +1211,12 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
 
                   if (attribtes_NAME.equals("android:entries")) {
 
-                      // System.out.println(xmlString.indexOf(attribtes_VALUE.substring(7))+"hshshshsshhsshhshshshshshshshshshs");
+                      // //System.out.println(xmlString.indexOf(attribtes_VALUE.substring(7))+"hshshshsshhsshhshshshshshshshshshs");
                       String xmlString2 = xmlString.substring(xmlString.indexOf(attribtes_VALUE.substring(7))+attribtes_VALUE.substring(7).length()+2);
-                      System.out.println(xmlString.indexOf("</string-array>"));
-//                      System.out.println(xmlString2+"iiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
+                      //System.out.println(xmlString.indexOf("</string-array>"));
+//                      //System.out.println(xmlString2+"iiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
                       xmlString2 =xmlString2.substring(0, xmlString2.indexOf("</string-array>"));
-                      System.out.println(xmlString2);
+                      //System.out.println(xmlString2);
 
                       String str = xmlString2;
                       String findStr = "<item>";
@@ -1232,7 +1232,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                               lastIndex += findStr.length();
                           }
                       }
-                      System.out.println(count+"hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+                      //System.out.println(count+"hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
                       for(int k=0 ; k< count ; k++) {
                           output.append("<ion-item lines=\"none\">\n");
                           output.append("\n<ion-label>"+xmlString2.substring(xmlString2.indexOf("<item>")+6,xmlString2.indexOf("</item>"))+"</ion-label>\n");
@@ -1255,7 +1255,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
 
                   if (attribtes_NAME.equals("app:layout_constraintVertical_bias")) {
 
-                      System.out.println(attribtes_VALUE);
+                      //System.out.println(attribtes_VALUE);
                       float m = Float.parseFloat(attribtes_VALUE);
                       String k = String.valueOf(m*100);
                       double str1 = Double.parseDouble(k);
@@ -1275,7 +1275,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                           css_output.append("--background: "+attribtes_VALUE+ ";\n");
                       }
                       else {
-                          System.out.println(attribtes_VALUE.substring(0,1));
+                          //System.out.println(attribtes_VALUE.substring(0,1));
                           css_output.append("--background: "+attribtes_VALUE.split("/")[1]+ ";\n");
                       }
                   }
@@ -1292,7 +1292,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
                           f=1;
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           width = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(width*100/410);
                           css_output.append("width: "+ k + "%;\n");
@@ -1313,7 +1313,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
 
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           float m = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(m*100/730);
                           css_output.append("height: "+ k + "%;\n");
@@ -1335,7 +1335,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else if (text.length()>0 && f==0){
                           left=(100-((52+text.length()*10)*100/410))*bias;
-                          System.out.println((52+text.length()*10)+ "////////");
+                          //System.out.println((52+text.length()*10)+ "////////");
                           String k = String.valueOf(left);
 
                           css_output.append("left: "+ k + "%;\n");
@@ -1366,8 +1366,8 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                   String attribtes_NAME = ctx.element(i).attribute(j).Name().getText();
                   String attribtes_VALUE = ctx.element(i).attribute(j).STRING().getText();
                   attribtes_VALUE = attribtes_VALUE.substring(1, attribtes_VALUE.length() - 1);
-                  //System.out.println(attribtes_NAME);
-                  //System.out.println(attribtes_VALUE + "9999999999999");
+                  ////System.out.println(attribtes_NAME);
+                  ////System.out.println(attribtes_VALUE + "9999999999999");
                   if (attribtes_NAME.equals("android:background")) {
                       if (n==0) {
                           //  output.append("style=\"");
@@ -1399,12 +1399,12 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
 
                   if (attribtes_NAME.equals("android:entries")) {
 
-                      // System.out.println(xmlString.indexOf(attribtes_VALUE.substring(7))+"hshshshsshhsshhshshshshshshshshshs");
+                      // //System.out.println(xmlString.indexOf(attribtes_VALUE.substring(7))+"hshshshsshhsshhshshshshshshshshshs");
                       String xmlString2 = xmlString.substring(xmlString.indexOf(attribtes_VALUE.substring(7))+attribtes_VALUE.substring(7).length()+2);
-                      System.out.println(xmlString.indexOf("</string-array>"));
-//                      System.out.println(xmlString2+"iiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
+                      //System.out.println(xmlString.indexOf("</string-array>"));
+//                      //System.out.println(xmlString2+"iiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
                       xmlString2 =xmlString2.substring(0, xmlString2.indexOf("</string-array>"));
-                      System.out.println(xmlString2);
+                      //System.out.println(xmlString2);
 
                       String str = xmlString2;
                       String findStr = "<item>";
@@ -1420,7 +1420,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                               lastIndex += findStr.length();
                           }
                       }
-                      System.out.println(count+"hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+                      //System.out.println(count+"hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
                       for(int k=0 ; k< count ; k++) {
                           output.append("\n<ion-select-option>"+xmlString2.substring(xmlString2.indexOf("<item>")+6,xmlString2.indexOf("</item>"))+"</ion-select-option>\n");
 
@@ -1441,7 +1441,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
 
                   if (attribtes_NAME.equals("app:layout_constraintVertical_bias")) {
 
-                      System.out.println(attribtes_VALUE);
+                      //System.out.println(attribtes_VALUE);
                       float m = Float.parseFloat(attribtes_VALUE);
                       String k = String.valueOf(m*100);
                       double str1 = Double.parseDouble(k);
@@ -1461,7 +1461,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                           css_output.append("--background: "+attribtes_VALUE+ ";\n");
                       }
                       else {
-                          System.out.println(attribtes_VALUE.substring(0,1));
+                          //System.out.println(attribtes_VALUE.substring(0,1));
                           css_output.append("--background: "+attribtes_VALUE.split("/")[1]+ ";\n");
                       }
                   }
@@ -1478,7 +1478,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
                           f=1;
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           width = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(width*100/410);
                           css_output.append("width: "+ k + "%;\n");
@@ -1499,7 +1499,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
 
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           float m = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(m*100/730);
                           css_output.append("height: "+ k + "%;\n");
@@ -1521,7 +1521,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else if (text.length()>0 && f==0){
                           left=(100-((52+text.length()*10)*100/410))*bias;
-                          System.out.println((52+text.length()*10)+ "////////");
+                          //System.out.println((52+text.length()*10)+ "////////");
                           String k = String.valueOf(left);
 
                           css_output.append("left: "+ k + "%;\n");
@@ -1551,8 +1551,8 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                   String attribtes_NAME = ctx.element(i).attribute(j).Name().getText();
                   String attribtes_VALUE = ctx.element(i).attribute(j).STRING().getText();
                   attribtes_VALUE = attribtes_VALUE.substring(1, attribtes_VALUE.length() - 1);
-                  //System.out.println(attribtes_NAME);
-                  //System.out.println(attribtes_VALUE + "9999999999999");
+                  ////System.out.println(attribtes_NAME);
+                  ////System.out.println(attribtes_VALUE + "9999999999999");
 
                   if (attribtes_NAME.equals("android:id")) {
 
@@ -1579,7 +1579,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
 
                   if (attribtes_NAME.equals("app:layout_constraintVertical_bias")) {
 
-                      System.out.println(attribtes_VALUE);
+                      //System.out.println(attribtes_VALUE);
                       float m = Float.parseFloat(attribtes_VALUE);
                       String k = String.valueOf(m*100);
                       double str1 = Double.parseDouble(k);
@@ -1600,7 +1600,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                           css_output.append("--background: "+attribtes_VALUE+ ";\n");
                       }
                       else {
-                          System.out.println(attribtes_VALUE.substring(0,1));
+                          //System.out.println(attribtes_VALUE.substring(0,1));
                           css_output.append("--background: "+attribtes_VALUE.split("/")[1]+ ";\n");
                       }
                   }
@@ -1617,7 +1617,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
                           f=1;
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           width = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(width*100/410);
                           css_output.append("width: "+ k + "%;\n");
@@ -1635,7 +1635,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
 
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           float m = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(m*100/730);
                           css_output.append("height: "+ k + "%;\n");
@@ -1659,7 +1659,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
 
 
                           left=(100-((52+text.length()*10)*100/410))*bias;
-                          System.out.println((52+text.length()*10)+ "////////");
+                          //System.out.println((52+text.length()*10)+ "////////");
                           String k = String.valueOf(left);
 
                           css_output.append("left: "+ k + "%;\n");
@@ -1693,8 +1693,8 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                   String attribtes_NAME = ctx.element(i).attribute(j).Name().getText();
                   String attribtes_VALUE = ctx.element(i).attribute(j).STRING().getText();
                   attribtes_VALUE = attribtes_VALUE.substring(1, attribtes_VALUE.length() - 1);
-                  //System.out.println(attribtes_NAME);
-                  //System.out.println(attribtes_VALUE + "9999999999999");
+                  ////System.out.println(attribtes_NAME);
+                  ////System.out.println(attribtes_VALUE + "9999999999999");
 
                   if (attribtes_NAME.equals("android:id")) {
 
@@ -1721,7 +1721,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
 
                   if (attribtes_NAME.equals("app:layout_constraintVertical_bias")) {
 
-                      System.out.println(attribtes_VALUE);
+                      //System.out.println(attribtes_VALUE);
                       float m = Float.parseFloat(attribtes_VALUE);
                       String k = String.valueOf(m*100);
                       double str1 = Double.parseDouble(k);
@@ -1742,7 +1742,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                           css_output.append("--background: "+attribtes_VALUE+ ";\n");
                       }
                       else {
-                          System.out.println(attribtes_VALUE.substring(0,1));
+                          //System.out.println(attribtes_VALUE.substring(0,1));
                           css_output.append("--background: "+attribtes_VALUE.split("/")[1]+ ";\n");
                       }
                   }
@@ -1759,7 +1759,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
                           f=1;
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           width = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(width*100/410);
                           css_output.append("width: "+ k + "%;\n");
@@ -1777,7 +1777,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
 
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           float m = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(m*100/730);
                           css_output.append("height: "+ k + "%;\n");
@@ -1799,7 +1799,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else if (text.length()>0 && f==0){
                           left=(100-((52+text.length()*10)*100/410))*bias;
-                          System.out.println((52+text.length()*10)+ "////////");
+                          //System.out.println((52+text.length()*10)+ "////////");
                           String k = String.valueOf(left);
 
                           css_output.append("left: "+ k + "%;\n");
@@ -1832,8 +1832,8 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                   String attribtes_NAME = ctx.element(i).attribute(j).Name().getText();
                   String attribtes_VALUE = ctx.element(i).attribute(j).STRING().getText();
                   attribtes_VALUE = attribtes_VALUE.substring(1, attribtes_VALUE.length() - 1);
-                  //System.out.println(attribtes_NAME);
-                  //System.out.println(attribtes_VALUE + "9999999999999");
+                  ////System.out.println(attribtes_NAME);
+                  ////System.out.println(attribtes_VALUE + "9999999999999");
 
 
                   if (attribtes_NAME.equals("android:id")) {
@@ -1866,7 +1866,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
 
                   if (attribtes_NAME.equals("app:layout_constraintVertical_bias")) {
 
-                      System.out.println(attribtes_VALUE);
+                      //System.out.println(attribtes_VALUE);
                       float m = Float.parseFloat(attribtes_VALUE);
                       String k = String.valueOf(m*100);
                       double str1 = Double.parseDouble(k);
@@ -1887,7 +1887,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                           css_output.append("--background: "+attribtes_VALUE+ ";\n");
                       }
                       else {
-                          System.out.println(attribtes_VALUE.substring(0,1));
+                          //System.out.println(attribtes_VALUE.substring(0,1));
                           css_output.append("--background: "+attribtes_VALUE.split("/")[1]+ ";\n");
                       }
                   }
@@ -1904,7 +1904,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
                           f=1;
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           width = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(width*100/410);
                           css_output.append("width: "+ k + "%;\n");
@@ -1922,7 +1922,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else {
 
-                          System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
+                          //System.out.println(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           float m = Float.parseFloat(attribtes_VALUE.substring(0,attribtes_VALUE.length()-2));
                           String k = String.valueOf(m*100/730);
                           css_output.append("height: "+ k + "%;\n");
@@ -1944,7 +1944,7 @@ public class Xml2ScssConverter extends XMLParserBaseListener implements CodeConv
                       }
                       else if (text.length()>0 && f==0){
                           left=(100-((52+text.length()*10)*100/410))*bias;
-                          System.out.println((52+text.length()*10)+ "////////");
+                          //System.out.println((52+text.length()*10)+ "////////");
                           String k = String.valueOf(left);
 
                           css_output.append("left: "+ k + "%;\n");
