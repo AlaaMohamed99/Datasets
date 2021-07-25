@@ -2,7 +2,6 @@ import { not } from '@angular/compiler/src/output/output_ast';
 import { Component, ViewChild } from '@angular/core';
 import { IonItemOption, IonItemOptions, IonList } from '@ionic/angular';
 import { isNumber } from 'util';
-import { Button } from 'protractor';
 
 @Component({
   selector: 'app-home',
@@ -14,16 +13,15 @@ export class HomePage {
   c_class='';
   
   constructor() {}
+Result:number;
+Entry22:number;
+Entry11:number;
 
-    age:number;
 
-    myDOB:number;
+button1(){
+this.Result = this.Entry11 % this.Entry22
+}
 
-  getAgeButton(){
 
-    let currentYear=2021;
-
-    this.age=currentYear-this.myDOB;
-  }
 
 }

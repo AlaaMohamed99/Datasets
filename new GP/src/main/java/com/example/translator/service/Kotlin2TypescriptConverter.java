@@ -26,13 +26,15 @@ import java.io.IOException;
 
 
 public class Kotlin2TypescriptConverter extends KotlinParserBaseListener implements CodeConverter {
-    private File file = new File("home.page.ts") ;
-    private StringBuilder ts_output = new StringBuilder();
+    File file = new File("home.page.ts") ;
+    StringBuilder ts_output = new StringBuilder();
 
-    private String number;
-    private String Alert_message;
+    String number;
+    String Alert_message;
 
-    private int callNumberFlag=0;
+    int callNumberFlag=0;
+
+
 
 
     @Override
@@ -75,29 +77,76 @@ public class Kotlin2TypescriptConverter extends KotlinParserBaseListener impleme
                 String type = ctx.variableDeclaration().type().getText();
 
                 String right = ctx.expression().getText();
+                int number_flag=0;
+                String nothis="";
+                if (right.contains("+") || right.contains("-") || right.contains("*") || right.contains("/") || right.contains("%")) {
 
-                //System.out.print(type + "        rrrrrrrrrrr");
+                    if (right.contains("+")) {
+
+                        nothis = right.substring(0, right.indexOf("+"));
+
+                    }
+                    if (right.contains("-")) {
+
+                        nothis = right.substring(0, right.indexOf("-"));
+
+
+                    }
+                    if (right.contains("*")) {
+
+
+                        nothis = right.substring(0, right.indexOf("*"));
+
+                    }
+                    if (right.contains("/")) {
+
+
+                        nothis = right.substring(0, right.indexOf("/"));
+
+                    }
+                    if (right.contains("%")) {
+
+                        nothis = right.substring(0, right.indexOf("%"));
+
+
+                    }
+                }
+
+
+                System.out.print(type + "        rrrrrrrrrrr\n");
 
                 if ((type.contains("Int")) || (type.contains("Float")) || (type.contains("Double"))) {
-                    type = "number";
+                    if (right.matches("[0-9]+") && !right.contains("[a-zA-Z]+")){
+                        nothis = left;
+
+                    }
+                    else {
+                        number_flag=1;
+                        type = "number";
+
+                    }
                 }
 
                 if (type == "Int") {
+                    System.out.print(right +"gggggggg\n");
+                        type = "number";
 
-                    type = "number";
                 }
+
                 if (ts_output.toString().contains(left + ":" + type + ";" + "\n")) {
 
 
-                } else {
+                } else if(number_flag==1) {
 
                     ts_output.insert(0, left + ":" + type + ";" + "\n");
 
                 }
+
+
                 if (ts_output.toString().contains(left + ":" + type + ";" + "\n")) {
 
 
-                } else {
+                } else if(number_flag==1) {
 
                     ts_output.insert(0, left + ":" + type + ";" + "\n");
 
@@ -109,38 +158,92 @@ public class Kotlin2TypescriptConverter extends KotlinParserBaseListener impleme
                 //System.out.print(ctx.getText() +"\n");
                 //System.out.print(ctx.getText() +"\n");
                 //.out.print(ctx.getText() +"\n");
+                String thisawy ="";
+
+
+                System.out.print(nothis +" rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrggggggggggg\n");
 
                 if (right.contains("getText()") || right.contains("text")) {
 
 
                 } else if (right.contains("+") || right.contains("-") || right.contains("*") || right.contains("/") || right.contains("%")) {
 
-                    if (right.contains("+")) {
-
-                        ts_output.append("this." + left + " = " + "this." + right.substring(0, right.indexOf("+")) + " + " + "this." + right.substring(right.indexOf("+") + 1, right.length()) + "\n" + "}" + "\n\n\n");
+                        thisawy ="this.";
 
 
-                    } else if (right.contains("-")) {
+                        if (right.contains("+")) {
 
-                        ts_output.append("this." + left + " = " + "this." + right.substring(0, right.indexOf("-")) + " - " + "this." + right.substring(right.indexOf("-") + 1, right.length()) + "\n" + "}" + "\n\n\n");
+                            if(nothis==right.substring(0, right.indexOf("+"))){
+                                thisawy="this.";
+                                ts_output.append("this." + left + " = " + thisawy + right.substring(0, right.indexOf("+")) + " + " + "this." + right.substring(right.indexOf("+") + 1, right.length()) + "\n" + "}" + "\n\n\n");
 
+                            }
+                            else {
+                                ts_output.append("this." + left + " = " + thisawy + right.substring(0, right.indexOf("+")) + " + " + "this." + right.substring(right.indexOf("+") + 1, right.length()) + "\n" + "}" + "\n\n\n");
 
-                    } else if (right.contains("*")) {
-
-                        ts_output.append("this." + left + " = " + "this." + right.substring(0, right.indexOf("")) + " * " + "this." + right.substring(right.indexOf("") + 1, right.length()) + "\n" + "}" + "\n\n\n");
-
-
-                    } else if (right.contains("/")) {
-
-                        ts_output.append("this." + left + " = " + "this." + right.substring(0, right.indexOf("/")) + " / " + "this." + right.substring(right.indexOf("/") + 1, right.length()) + "\n" + "}" + "\n\n\n");
+                            }
 
 
-                    } else if (right.contains("%")) {
+                        } else if (right.contains("-")) {
 
-                        ts_output.append("this." + left + " = " + "this." + right.substring(0, right.indexOf("%")) + " % " + "this." + right.substring(right.indexOf("%") + 1, right.length()) + "\n" + "}" + "\n\n\n");
+                            System.out.print(right.substring(0, right.indexOf("-"))  +"xxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
+                            System.out.print(nothis +"yyyyyyyyyyyyyyyyyyyyyyyyyy\n");
 
 
-                    }
+                            if(nothis.equals(right.substring(0, right.indexOf("-")))){
+                                thisawy="";
+
+                                ts_output.append("this." + left + " = " + thisawy + right.substring(0, right.indexOf("-")) + " - " + "this." + right.substring(right.indexOf("-") + 1, right.length()) + "\n" + "}" + "\n\n\n");
+
+                            }
+                            else {
+                                ts_output.append("this." + left + " = " + thisawy + right.substring(0, right.indexOf("-")) + " - " + "this." + right.substring(right.indexOf("-") + 1, right.length()) + "\n" + "}" + "\n\n\n");
+
+                            }
+
+
+
+                        } else if (right.contains("*")) {
+                            if(nothis==right.substring(0, right.indexOf("*"))){
+                                thisawy="this.";
+
+                                ts_output.append("this." + left + " = " + thisawy + right.substring(0, right.indexOf("*")) + " * " + "this." + right.substring(right.indexOf("*") + 1, right.length()) + "\n" + "}" + "\n\n\n");
+
+                            } else {
+                                ts_output.append("this." + left + " = " + thisawy + right.substring(0, right.indexOf("*")) + " * " + "this." + right.substring(right.indexOf("*") + 1, right.length()) + "\n" + "}" + "\n\n\n");
+
+                            }
+
+
+
+                        } else if (right.contains("/")) {
+                            if(nothis==right.substring(0, right.indexOf("/"))){
+                                thisawy="this.";
+
+                                ts_output.append("this." + left + " = " + thisawy + right.substring(0, right.indexOf("/")) + " / " + "this." + right.substring(right.indexOf("/") + 1, right.length()) + "\n" + "}" + "\n\n\n");
+
+                            } else {
+                                ts_output.append("this." + left + " = " + thisawy + right.substring(0, right.indexOf("/")) + " / " + "this." + right.substring(right.indexOf("/") + 1, right.length()) + "\n" + "}" + "\n\n\n");
+
+                            }
+
+
+
+                        } else if (right.contains("%")) {
+                            if(nothis==right.substring(0, right.indexOf("%"))){
+                                thisawy="this.";
+
+                                ts_output.append("this." + left + " = " + thisawy + right.substring(0, right.indexOf("%")) + " % " + "this." + right.substring(right.indexOf("%") + 1, right.length()) + "\n" + "}" + "\n\n\n");
+
+                            } else {
+                                ts_output.append("this." + left + " = " + thisawy + right.substring(0, right.indexOf("%")) + " % " + "this." + right.substring(right.indexOf("%") + 1, right.length()) + "\n" + "}" + "\n\n\n");
+
+                            }
+
+
+
+                        }
+
 
 
                 } else {
@@ -148,7 +251,17 @@ public class Kotlin2TypescriptConverter extends KotlinParserBaseListener impleme
                     if (left == "Result") {
                         ts_output.append("this." + left + "=" + "this." + right + ";\n\n");
 
-                    } else {
+                    }else if(number_flag==0){
+
+                        ts_output.append("let "+left + "=" + right + ";\n\n");
+                        System.out.print(nothis +" ssssssssssssssssssssssssss\n");
+
+
+
+
+                    }
+
+                    else {
                         ts_output.append(left + "=" + right + ";\n\n");
 
 
@@ -221,13 +334,6 @@ public class Kotlin2TypescriptConverter extends KotlinParserBaseListener impleme
         ts_output.append("\n}");
 
         try {
-        	if (ts_output.toString().contains("year=2021;")) {
-        		ts_output.replace(ts_output.toString().indexOf("year:number;"), ts_output.toString().indexOf("year:number;")+12 , " ");
-        		ts_output.replace(ts_output.toString().indexOf("year=2021;"), ts_output.toString().indexOf("year=2021;")+10 , "let year=2021");
-        		ts_output.replace(ts_output.toString().indexOf("this.year"), ts_output.toString().indexOf("this.year")+9 , "year");
-
-        		
-        	}
             FileWriter outputFile;
             outputFile = new FileWriter(file.getName());
             outputFile.write(ts_output.toString());
