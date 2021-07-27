@@ -1,8 +1,8 @@
+import { not } from '@angular/compiler/src/output/output_ast';
 import { Component, ViewChild } from '@angular/core';
 import { IonItemOption, IonItemOptions, IonList } from '@ionic/angular';
 import { Button } from 'protractor';
-
-
+import { isNumber } from 'util';
 
 @Component({
   selector: 'app-home',
@@ -11,15 +11,18 @@ import { Button } from 'protractor';
 })
 
 export class HomePage {
+  year:number;
 
-  constructor() {}
-  public inp1:number;
-  public inp2:number;
-  public res:number;
-  
-   add(){
-       this.res =this.inp1 + this.inp2; 
+  Age(){
+    let age:number = 2021 - this.year;
+    if (!isNaN(age))
+    {
+        return age
     }
-    
+    else{
+    }
+  }
+
+
 
 }

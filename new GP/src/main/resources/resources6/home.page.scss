@@ -1,0 +1,28 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-content: center;
+  background-color: rgb(52, 168, 207);
+  margin-top: 50%;
+}
+.content_background {
+  --background: rgb(52, 168, 207);
+  display: flex;
+  align-content: center;
+}
+.age_input {
+  margin-top: 20px;
+  display: flex;
+  align-content: center;
+  text-align: center;
+  background-color: rgb(221, 191, 191);
+  width: 50%;
+}
+.ng-untoched {
+  height: 40px !important;
+}
+.toolbar {
+  --background: rgb(131, 9, 245);
+}

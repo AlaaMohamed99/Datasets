@@ -1,0 +1,16 @@
+
+
+
+<ion-header>
+    <ion-toolbar class="toolbar">
+        <ion-title>Currency app</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="content_color">
+    <div class="box" >
+        <ion-input class="input" [(ngModel)]="currency" type="number"> </ion-input>
+        <h2 >  {{currency}} USD equal {{ currency_EGP }} EGP </h2>
+        <ion-button class="btn_color"(click)="convert()"> CONVERT TO EGP</ion-button>
+    </div>
+</ion-content>

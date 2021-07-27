@@ -9,7 +9,7 @@ export class HomePage {
   modulus_inp2:number;
 
   modulu(){
-    this.result = this.modulus_inp1 % this.modulus_inp2; 
+    this.result = this.modulus_inp1 % this.modulus_inp2;
   }
 
 

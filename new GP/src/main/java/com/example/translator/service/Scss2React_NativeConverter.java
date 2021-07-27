@@ -24,7 +24,7 @@ public class Scss2React_NativeConverter  extends ScssParserBaseListener implemen
 	
 	@Override
 	public void setFileName(String fileName) {
-		file=new File(fileName);
+		file=new File("app.js");
 
 	}
 

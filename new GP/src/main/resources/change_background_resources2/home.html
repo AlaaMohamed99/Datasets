@@ -1,0 +1,19 @@
+
+
+
+<ion-header >
+    <ion-toolbar class="toolbar_background">
+        <ion-title class="title" >
+            Change Background
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [style.--background]="c_class" class="content_background">
+    <div class="center" >
+        <ion-button class="equal_width" (click)="red()"  style="--background:red;"  > Red</ion-button>
+        <ion-button class="equal_width" (click)="yellow()"style="--background:yellow" > Yellow</ion-button>
+        <ion-button class="equal_width" (click)="black()" style="--background:black"> Black</ion-button>
+        <ion-button class="equal_width" (click)="green()" style="--background:green"> Green</ion-button>
+    </div>
+</ion-content> 

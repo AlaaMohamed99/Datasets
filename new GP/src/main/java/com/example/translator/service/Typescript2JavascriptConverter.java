@@ -86,7 +86,7 @@ public class Typescript2JavascriptConverter extends TypeScriptParserBaseListener
 
 	@Override
 	public void setFileName(String fileName) {
-		file=new File(fileName);
+		file=new File("app.js");
 		
 	}
 	
@@ -504,9 +504,10 @@ public class Typescript2JavascriptConverter extends TypeScriptParserBaseListener
         catch (Exception e){
                 e.printStackTrace();
         }
+        
+        
 
 
-
-}
+	}
 
 }

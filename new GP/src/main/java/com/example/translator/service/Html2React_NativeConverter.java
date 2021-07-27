@@ -50,7 +50,7 @@ public class Html2React_NativeConverter extends HTMLParserBaseListener implement
 	
 	@Override
 	public void setFileName(String fileName) {
-		file=new File(fileName);
+		file=new File("app.js");
 		
 	}
 	
@@ -986,9 +986,12 @@ public class Html2React_NativeConverter extends HTMLParserBaseListener implement
 	        /**handle the style will be written **/
 	        Set <String> style = new LinkedHashSet<>(finalStyle);
 	        finalStyle =  new ArrayList<>(style);
-	        String finalStyleOut = "";
+            StringBuilder finalStyleOut = new StringBuilder();
+            
+//	        String finalStyleOut = "";
+            
 	        for(short i=0;i<finalStyle.size();i++){
-	            finalStyleOut = finalStyleOut + finalStyle.get(i)+",";
+	            finalStyleOut.append(finalStyle.get(i)+",");
 	        }
 
 	        /* handle final style that contains all style */
