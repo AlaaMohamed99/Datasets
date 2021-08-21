@@ -24,5 +24,5 @@ the parsing tree of the other framework(target framework)
    - deploy the application for use
    - solve the issues related to different libraries and function calls implementation in various frameworks
 
-### the Application isn't currently ready for users yet 
+### the Application is still under development, still many other features are to be added in the near future
  
